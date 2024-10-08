@@ -43,11 +43,8 @@ CREATE TABLE Showtimes (
 -- Tạo bảng Seats (Thông tin ghế ngồi)
 CREATE TABLE Seats (
     SeatId INT PRIMARY KEY IDENTITY(1,1),
-    CinemaId INT NOT NULL,
-    Hall NVARCHAR(50) NOT NULL,
     SeatNumber NVARCHAR(10) NOT NULL,
     SeatType NVARCHAR(50),
-    FOREIGN KEY (CinemaId) REFERENCES Cinemas(CinemaId)
 );
 
 -- Tạo bảng Users (Thông tin người dùng)
@@ -145,19 +142,34 @@ VALUES
 
 
 -- Thêm dữ liệu vào bảng Seats
-INSERT INTO Seats (CinemaId, Hall, SeatNumber, SeatType)
-VALUES 
-(1, 'Hall 1', 'A1', 'VIP'),
-(1, 'Hall 1', 'A2', 'VIP'),
-(2, 'Hall 2', 'B1', 'Standard'),
-(2, 'Hall 2', 'B2', 'Standard'),
-(3, 'Hall 3', 'C1', 'Standard'),
-(3, 'Hall 3', 'C2', 'Standard'),
-(4, 'Hall 4', 'D1', 'VIP'),
-(4, 'Hall 4', 'D2', 'VIP'),
-(5, 'Hall 5', 'E1', 'Standard'),
-(5, 'Hall 5', 'E2', 'Standard');
+DECLARE @Row INT = 1;
+DECLARE @SeatType NVARCHAR(50);
+DECLARE @SeatNumber NVARCHAR(5);
 
+WHILE @Row <= 8
+BEGIN
+    DECLARE @Column INT = 1;
+
+    WHILE @Column <= 8
+    BEGIN
+        -- Tạo số ghế theo kiểu "A1", "A2", ..., "H8"
+        SET @SeatNumber = CHAR(64 + @Row) + CAST(@Column AS NVARCHAR(2));
+
+        -- Xác định loại ghế (VIP cho hàng > 5, Standard cho các hàng còn lại)
+        IF @Row > 5
+            SET @SeatType = 'VIP';
+        ELSE
+            SET @SeatType = 'Standard';
+
+        -- Chèn vào bảng Seats
+        INSERT INTO Seats (SeatNumber, SeatType)
+        VALUES (@SeatNumber, @SeatType);
+
+        SET @Column = @Column + 1;
+    END;
+
+    SET @Row = @Row + 1;
+END;
 
 -- Thêm dữ liệu vào bảng Users
 INSERT INTO Users (Username, [Password], Email, Phone, Role)
