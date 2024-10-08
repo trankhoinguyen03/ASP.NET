@@ -14,3 +14,7 @@ _Members: 6_
 | Frontend | Admin    | Booking  |
 |          | Sign in  |          |
 |          | Sign up  |          |
+
+### Onion Architecture
+Domain <- Application <- Infrastructure
+Application & Infrastructure <- Presentation
