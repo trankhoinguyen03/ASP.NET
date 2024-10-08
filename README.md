@@ -8,7 +8,7 @@ _Members: 6_
 
 ----
 ### Task List
-----
+
 | Task 1 (Persons: 2) | Task 2 (Persons: 2) | Task 3 (Persons: 2) |
 | -------- | -------- | -------- |
 | Frontend | Admin    | Booking  |
