@@ -80,3 +80,24 @@ CREATE TABLE BookingDetails (
     FOREIGN KEY (BookingId) REFERENCES Bookings(BookingId),
     FOREIGN KEY (SeatId) REFERENCES Seats(SeatId)
 );
+
+-- Tạo bảng Combos (Thông tin combo bắp nước)
+CREATE TABLE Combos (
+    ComboId INT PRIMARY KEY IDENTITY(1,1),
+    Name NVARCHAR(255) NOT NULL,
+    Description NVARCHAR(500),
+    Price DECIMAL(10, 2) NOT NULL,
+    Size NVARCHAR(50), -- Kích cỡ combo (Lớn, Vừa, Nhỏ)
+    Type NVARCHAR(50) -- Loại combo (Ví dụ: Popcorn & Drink, Snack & Drink)
+);
+
+-- Tạo bảng BookingCombos (Thông tin combo đã được đặt)
+CREATE TABLE BookingCombos (
+    BookingComboId INT PRIMARY KEY IDENTITY(1,1),
+    BookingId INT NOT NULL,
+    ComboId INT NOT NULL,
+    Quantity INT NOT NULL, -- Số lượng combo
+    FOREIGN KEY (BookingId) REFERENCES Bookings(BookingId),
+    FOREIGN KEY (ComboId) REFERENCES Combos(ComboId)
+);
+
