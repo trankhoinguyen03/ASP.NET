@@ -4,6 +4,8 @@ _Thành viên: 6_
 
 ----
 
+[Web tham khảo cho phần admin](https://techmaster.vn/posts/37941/gioi-thieu-du-an-web-dat-ve-xem-phim-truc-tuyen-chuc-nang-admin)
+
 [Web tham khảo cho phần user](https://www.galaxycine.vn/booking/)
 
 ----
