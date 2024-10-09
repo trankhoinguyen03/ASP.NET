@@ -1,19 +1,88 @@
-# ASP.NET Project
-## Cinema Booking Web
-_Members: 6_
+# Đồ án ASP.NET
+## Website đăng ký vé xem phim
+_Thành viên: 6_
 
 ----
 
-[Reference Web Link](https://www.galaxycine.vn/booking/)
+[Web tham khảo cho phần user](https://www.galaxycine.vn/booking/)
 
 ----
-### Task List
+### Danh sách công việc
 
-| Task 1 (Persons: 2) | Task 2 (Persons: 2) | Task 3 (Persons: 2) |
-| -------- | -------- | -------- |
-| Frontend | Admin    | Booking  |
-|          | Sign in  |          |
-|          | Sign up  |          |
+| Admin | User  |
+| --------      | --------      |
+| (Số người: 4) | (Số người: 2) |
+
+#### Chức năng của Admin:
+###### 1. Xem tổng quan các thông tin của trang web
+Admin có thể xem tổng quan các thông tin quan trọng như doanh thu theo ngày, khách hàng mới, tổng số vé bán ra, doanh thu theo tháng, doanh thu theo phim, và doanh thu theo rạp chiếu phim. Giao diện tổng quan cung cấp một cái nhìn toàn diện và chi tiết về hoạt động kinh doanh của trang web.
+<br>
+- Doanh thu theo ngày: Hiển thị doanh thu hàng ngày, giúp admin nắm bắt được doanh thu từng ngày.
+- Khách hàng mới: Thống kê số lượng khách hàng mới đăng ký hàng ngày.
+- Tổng số vé bán ra: Tổng hợp số vé đã bán trong ngày.
+- Doanh thu theo tháng: Hiển thị doanh thu theo từng tháng, giúp admin đánh giá hiệu suất kinh doanh theo thời gian.
+- Doanh thu theo phim: Thống kê doanh thu của từng bộ phim, giúp xác định các phim bán chạy nhất.
+- Doanh thu theo rạp chiếu phim: Thống kê doanh thu của từng rạp, giúp đánh giá hiệu suất của từng địa điểm chiếu phim.
+
+###### 2. Quản lý phim
+Admin có thể thực hiện các thao tác như thêm phim mới, sửa thông tin phim, xóa phim và xem danh sách tất cả các phim hiện có trên hệ thống.
+<br>
+- Thêm phim: Admin điền các thông tin cần thiết về phim như tên phim, thể loại, đạo diễn, diễn viên, ngày phát hành, thời lượng, và mô tả phim. Hình ảnh và trailer phim cũng có thể được tải lên để người xem có thể tham khảo.
+- Sửa phim: Admin có thể chỉnh sửa các thông tin của phim nếu có sự thay đổi hoặc bổ sung thông tin mới.
+- Danh sách phim: Hiển thị danh sách tất cả các phim có trên hệ thống cùng với các thông tin cơ bản, giúp admin dễ dàng quản lý và theo dõi.
+
+###### 3. Quản lý rạp chiếu phim
+Admin có thể thêm mới, sửa đổi, xóa bỏ và xem danh sách các rạp chiếu phim trong hệ thống.
+<br>
+- Thêm rạp chiếu phim: Admin điền các thông tin cần thiết về rạp như tên rạp, địa chỉ, số điện thoại liên hệ và các thông tin khác liên quan.
+- Sửa rạp chiếu phim: Admin có thể chỉnh sửa các thông tin của rạp chiếu nếu có sự thay đổi hoặc bổ sung thông tin mới.
+- Danh sách rạp chiếu phim: Hiển thị danh sách tất cả các rạp có trên hệ thống cùng với các thông tin cơ bản, giúp admin dễ dàng quản lý và theo dõi.
+
+###### 4. Quản lý suất chiếu
+Admin có thể quản lý các suất chiếu bằng cách thêm mới, sửa đổi, xóa bỏ và xem danh sách các suất chiếu.
+<br>
+- Thêm suất chiếu: Admin điền các thông tin cần thiết về suất chiếu như giờ bắt đầu, giờ kết thúc, phòng chiếu, và các thông tin liên quan khác.
+- Danh sách suất chiếu: Hiển thị danh sách tất cả các suất chiếu có trên hệ thống cùng với các thông tin cơ bản, giúp admin dễ dàng quản lý và theo dõi.
+
+###### 5. Quản lý đơn hàng
+Admin có thể xem danh sách đơn hàng, xem chi tiết từng đơn hàng, xác nhận đơn hàng và hủy đơn hàng nếu cần.
+<br>
+- Danh sách đơn hàng: Hiển thị danh sách tất cả các đơn hàng đã được đặt trên hệ thống cùng với các thông tin cơ bản như mã đơn hàng, tên khách hàng, và trạng thái đơn hàng.
+- Chi tiết đơn hàng: Admin có thể xem chi tiết từng đơn hàng bao gồm thông tin vé, dịch vụ đi kèm, và tổng số tiền.
+
+###### 6. Quản lý giá vé
+Admin có thể thêm mới, sửa đổi, xóa bỏ và xem danh sách giá vé của các phim.
+<br>
+- Thêm giá vé: Admin điền các thông tin cần thiết về giá vé như loại vé, giá tiền, và các thông tin liên quan khác.
+- Sửa giá vé: Admin có thể chỉnh sửa các thông tin của giá vé nếu có sự thay đổi hoặc bổ sung thông tin mới.
+- Danh sách giá vé: Hiển thị danh sách tất cả các giá vé có trên hệ thống cùng với các thông tin cơ bản, giúp admin dễ dàng quản lý và theo dõi.
+
+###### 7. Quản lý người dùng
+Admin có thể xem danh sách người dùng, xem chi tiết, sửa thông tin và xóa người dùng nếu cần.
+<br>
+- Danh sách người dùng: Hiển thị danh sách tất cả các người dùng đã đăng ký trên hệ thống cùng với các thông tin cơ bản như tên, email, và trạng thái tài khoản.
+- Chi tiết người dùng: Admin có thể xem chi tiết thông tin của từng người dùng bao gồm thông tin cá nhân, lịch sử đặt vé, và các hoạt động liên quan.
+- Thêm người dùng: Admin điền các thông tin cần thiết về người dùng như tên, email, số điện thoại và các thông tin liên quan khác.
+
+###### 8. Quản lý combo
+Admin có thể xem danh sách combo, xem chi tiết, thêm sửa thông tin và xóa combo nếu cần
+<br>
+- Danh sách combo: Hiển thị danh sách tất cả combo
+- Thêm combo: Admin điền các thông tin combo như tên, giá cả, hình ảnh...
+
+----
+
+#### Chức năng của User:
+###### 1. Đăng ký
+User có thể đăng ký tài khoản với các thông tin cơ bản như tên, số điện thoại, email...
+
+###### 2. Đăng nhập
+User có thể dùng tài khoản đã đăng ký để đăng nhập vào trang web và sử dụng các chức năng của trang web
+
+###### 3. Đặt vé
+User có thể sử dụng chức năng đặt vé bằng cách chọn thành phố, rạp chiếu phim, phim, suất chiếu và combo sau đó chọn thanh toán
+
+----
 
 ### Onion Architecture
 Domain <- Application <- Infrastructure
