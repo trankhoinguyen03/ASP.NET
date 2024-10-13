@@ -6,6 +6,7 @@ GO
 USE CinemaDB;
 GO
 
+
 -- Tạo bảng Movies (Thông tin phim)
 CREATE TABLE Movies (
     MovieId INT PRIMARY KEY IDENTITY(1,1),
@@ -33,6 +34,7 @@ CREATE TABLE Showtimes (
     ShowtimeId INT PRIMARY KEY IDENTITY(1,1),
     MovieId INT NOT NULL,
     CinemaId INT NOT NULL,
+	Price DECIMAL(10, 2) NOT NULL,
     StartTime DATETIME NOT NULL,
     EndTime DATETIME NOT NULL,
     Hall NVARCHAR(50),
@@ -127,18 +129,18 @@ VALUES
 ('Galaxy Phú Nhuận', '212 Phan Xích Long, Phú Nhuận', '0123456780', 'Ho Chi Minh');
 
 -- Thêm dữ liệu vào bảng Showtimes
-INSERT INTO Showtimes (MovieId, CinemaId, StartTime, EndTime, Hall)
+INSERT INTO Showtimes (MovieId, CinemaId, Price, StartTime, EndTime, Hall)
 VALUES 
-(1, 1, '2024-10-01 18:00', '2024-10-01 21:00', 'Hall 1'),
-(2, 2, '2024-10-02 20:00', '2024-10-02 22:30', 'Hall 2'),
-(3, 3, '2024-10-03 15:00', '2024-10-03 17:00', 'Hall 3'),
-(4, 4, '2024-10-04 17:00', '2024-10-04 19:00', 'Hall 4'),
-(5, 5, '2024-10-05 19:00', '2024-10-05 21:00', 'Hall 5'),
-(6, 6, '2024-10-06 20:00', '2024-10-06 23:00', 'Hall 6'),
-(7, 7, '2024-10-07 14:00', '2024-10-07 16:30', 'Hall 1'),
-(8, 8, '2024-10-08 16:00', '2024-10-08 18:30', 'Hall 2'),
-(9, 9, '2024-10-09 18:00', '2024-10-09 21:00', 'Hall 3'),
-(10, 10, '2024-10-10 21:00', '2024-10-10 23:30', 'Hall 4');
+(1, 1, 90000, '2024-10-01 18:00', '2024-10-01 21:00', 'Hall 1'),
+(2, 2, 90000, '2024-10-02 20:00', '2024-10-02 22:30', 'Hall 2'),
+(3, 3, 90000, '2024-10-03 15:00', '2024-10-03 17:00', 'Hall 3'),
+(4, 4, 90000, '2024-10-04 17:00', '2024-10-04 19:00', 'Hall 4'),
+(5, 5, 90000, '2024-10-05 19:00', '2024-10-05 21:00', 'Hall 5'),
+(6, 6, 90000, '2024-10-06 20:00', '2024-10-06 23:00', 'Hall 6'),
+(7, 7, 90000, '2024-10-07 14:00', '2024-10-07 16:30', 'Hall 1'),
+(8, 8, 90000, '2024-10-08 16:00', '2024-10-08 18:30', 'Hall 2'),
+(9, 9, 90000, '2024-10-09 18:00', '2024-10-09 21:00', 'Hall 3'),
+(10, 10, 90000, '2024-10-10 21:00', '2024-10-10 23:30', 'Hall 4');
 
 
 -- Thêm dữ liệu vào bảng Seats
