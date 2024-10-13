@@ -71,13 +71,13 @@ _Admin có thể xem danh sách combo, xem chi tiết, thêm sửa thông tin v�
 ----
 
 #### Chức năng của User:
-###### 1. Đăng ký
+##### 1. Đăng ký
 _User có thể đăng ký tài khoản với các thông tin cơ bản như tên, số điện thoại, email... để có thể đăng nhập và sử dụng chức năng của trang web._
 
-###### 2. Đăng nhập
+##### 2. Đăng nhập
 _User có thể dùng tài khoản đã đăng ký để đăng nhập vào trang web và sử dụng các chức năng của trang web._
 
-###### 3. Đặt vé
+##### 3. Đặt vé
 _User có thể sử dụng chức năng đặt vé bằng cách chọn thành phố, rạp chiếu phim, phim, suất chiếu và combo sau đó chọn thanh toán._
 
 ----
