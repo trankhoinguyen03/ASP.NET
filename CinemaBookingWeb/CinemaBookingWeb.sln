@@ -3,19 +3,23 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.11.35303.130
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Application", "Application", "{59436312-0C2A-4C14-9A93-7D02CAF86B61}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain", "Domain", "{B1667ED7-B41F-4FA8-8FB3-A01CCE6267A4}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{89A3B572-EAC8-42DC-A2D7-734692ED8539}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{E135F7A1-62F3-4E30-ABC8-9C8D367DBC65}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CinemaBookingWeb", "CinemaBookingWeb.csproj", "{4E7E4A78-1983-4395-8A78-225B2E4CBE98}"
 EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4E7E4A78-1983-4395-8A78-225B2E4CBE98}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4E7E4A78-1983-4395-8A78-225B2E4CBE98}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4E7E4A78-1983-4395-8A78-225B2E4CBE98}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4E7E4A78-1983-4395-8A78-225B2E4CBE98}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {10642E70-02FE-40A7-806A-34D97297003D}
+		SolutionGuid = {04732517-917C-426D-B3BA-47DA28D83B55}
 	EndGlobalSection
 EndGlobal
