@@ -6,7 +6,6 @@ GO
 USE CinemaDB;
 GO
 
-
 -- Tạo bảng Movies (Thông tin phim)
 CREATE TABLE Movies (
     MovieId INT PRIMARY KEY IDENTITY(1,1),
@@ -17,6 +16,7 @@ CREATE TABLE Movies (
     ReleaseDate DATE,
     Genre NVARCHAR(100),
     Language NVARCHAR(50),
+	Trailer NVARCHAR(255),
     ImageUrl NVARCHAR(255)
 );
 
@@ -101,18 +101,18 @@ CREATE TABLE BookingCombos (
 );
 
 -- Thêm dữ liệu vào bảng Movies
-INSERT INTO Movies (Title, Description, Duration, Rating, ReleaseDate, Genre, Language, ImageUrl)
+INSERT INTO Movies (Title, Description, Duration, Rating, ReleaseDate, Genre, Language, Trailer, ImageUrl)
 VALUES 
-('Avengers: Endgame', 'Siêu anh hùng chiến đấu chống lại Thanos.', 180, 'PG-13', '2019-04-26', 'Action', 'English', 'avengers.jpg'),
-('Spider-Man: No Way Home', 'Spider-Man đối mặt với những thử thách mới.', 148, 'PG-13', '2021-12-17', 'Action', 'English', 'spiderman.jpg'),
-('The Lion King', 'Hành trình của Simba để trở thành vua sư tử.', 118, 'G', '2019-07-19', 'Animation', 'English', 'lionking.jpg'),
-('Frozen II', 'Anna và Elsa khám phá những bí ẩn về quá khứ của họ.', 103, 'PG', '2019-11-22', 'Animation', 'English', 'frozen2.jpg'),
-('Joker', 'Câu chuyện về kẻ thù đáng sợ của Batman.', 122, 'R', '2019-10-04', 'Drama', 'English', 'joker.jpg'),
-('Tenet', 'Một đặc vụ đi ngược thời gian để ngăn chặn Thế chiến III.', 150, 'PG-13', '2020-09-03', 'Sci-Fi', 'English', 'tenet.jpg'),
-('Parasite', 'Hai gia đình với cuộc sống trái ngược nhau.', 132, 'R', '2019-05-30', 'Thriller', 'Korean', 'parasite.jpg'),
-('The Matrix Resurrections', 'Trở lại với thế giới ảo Matrix.', 148, 'R', '2021-12-22', 'Sci-Fi', 'English', 'matrix.jpg'),
-('Dune', 'Câu chuyện sử thi về hành tinh sa mạc.', 155, 'PG-13', '2021-10-22', 'Adventure', 'English', 'dune.jpg'),
-('Black Widow', 'Câu chuyện về Natasha Romanoff.', 134, 'PG-13', '2021-07-09', 'Action', 'English', 'blackwidow.jpg');
+('Avengers: Endgame', 'Siêu anh hùng chiến đấu chống lại Thanos.', 180, 'PG-13', '2019-04-26', 'Action', 'English', NULL, 'avengers.jpg'),
+('Spider-Man: No Way Home', 'Spider-Man đối mặt với những thử thách mới.', 148, 'PG-13', '2021-12-17', 'Action', 'English', NULL, 'spiderman.jpg'),
+('The Lion King', 'Hành trình của Simba để trở thành vua sư tử.', 118, 'G', '2019-07-19', 'Animation', 'English', NULL, 'lionking.jpg'),
+('Frozen II', 'Anna và Elsa khám phá những bí ẩn về quá khứ của họ.', 103, 'PG', '2019-11-22', 'Animation', 'English', NULL, 'frozen2.jpg'),
+('Joker', 'Câu chuyện về kẻ thù đáng sợ của Batman.', 122, 'R', '2019-10-04', 'Drama', 'English', NULL, 'joker.jpg'),
+('Tenet', 'Một đặc vụ đi ngược thời gian để ngăn chặn Thế chiến III.', 150, 'PG-13', '2020-09-03', 'Sci-Fi', 'English', NULL, 'tenet.jpg'),
+('Parasite', 'Hai gia đình với cuộc sống trái ngược nhau.', 132, 'R', '2019-05-30', 'Thriller', 'Korean', NULL, 'parasite.jpg'),
+('The Matrix Resurrections', 'Trở lại với thế giới ảo Matrix.', 148, 'R', '2021-12-22', 'Sci-Fi', 'English', NULL, 'matrix.jpg'),
+('Dune', 'Câu chuyện sử thi về hành tinh sa mạc.', 155, 'PG-13', '2021-10-22', 'Adventure', 'English', NULL, 'dune.jpg'),
+('Black Widow', 'Câu chuyện về Natasha Romanoff.', 134, 'PG-13', '2021-07-09', 'Action', 'English', NULL, 'blackwidow.jpg');
 
 -- Thêm dữ liệu vào bảng Cinemas
 INSERT INTO Cinemas (Name, Location, Phone, City)
