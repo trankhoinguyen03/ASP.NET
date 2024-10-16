@@ -16,7 +16,7 @@ CREATE TABLE Movies (
     ReleaseDate DATE,
     Genre NVARCHAR(100),
     Language NVARCHAR(50),
-	Trailer NVARCHAR(255),
+	TrailerUrl NVARCHAR(255),
     ImageUrl NVARCHAR(255)
 );
 
@@ -87,7 +87,8 @@ CREATE TABLE Combos (
     Description NVARCHAR(500),
     Price DECIMAL(10, 2) NOT NULL,
     Size NVARCHAR(50), -- Kích cỡ combo (Lớn, Vừa, Nhỏ)
-    Type NVARCHAR(50) -- Loại combo (Ví dụ: Popcorn & Drink, Snack & Drink)
+    Type NVARCHAR(50), -- Loại combo (Ví dụ: Popcorn & Drink, Snack & Drink)
+	ImageUrl NVARCHAR(255)
 );
 
 -- Tạo bảng BookingCombos (Thông tin combo đã được đặt)
@@ -101,7 +102,7 @@ CREATE TABLE BookingCombos (
 );
 
 -- Thêm dữ liệu vào bảng Movies
-INSERT INTO Movies (Title, Description, Duration, Rating, ReleaseDate, Genre, Language, Trailer, ImageUrl)
+INSERT INTO Movies (Title, Description, Duration, Rating, ReleaseDate, Genre, Language, TrailerUrl, ImageUrl)
 VALUES 
 ('Avengers: Endgame', 'Siêu anh hùng chiến đấu chống lại Thanos.', 180, 'PG-13', '2019-04-26', 'Action', 'English', NULL, 'avengers.jpg'),
 ('Spider-Man: No Way Home', 'Spider-Man đối mặt với những thử thách mới.', 148, 'PG-13', '2021-12-17', 'Action', 'English', NULL, 'spiderman.jpg'),
@@ -218,18 +219,18 @@ VALUES
 (5, 10, 90000);
 
 -- Thêm dữ liệu vào bảng Combos
-INSERT INTO Combos (Name, Description, Price, Size, Type)
+INSERT INTO Combos (Name, Description, Price, Size, Type, ImageUrl)
 VALUES 
-('Combo Lớn', '1 bắp lớn, 2 nước ngọt lớn.', 120000, 'Lớn', 'Popcorn & Drink'),
-('Combo Vừa', '1 bắp vừa, 1 nước ngọt vừa.', 90000, 'Vừa', 'Popcorn & Drink'),
-('Combo Nhỏ', '1 bắp nhỏ, 1 nước ngọt nhỏ.', 60000, 'Nhỏ', 'Popcorn & Drink'),
-('Combo Gia đình', '2 bắp lớn, 4 nước ngọt lớn.', 200000, 'Lớn', 'Popcorn & Drink'),
-('Combo Snack', '1 snack lớn, 1 nước ngọt lớn.', 80000, 'Lớn', 'Snack & Drink'),
-('Combo Đặc biệt', '1 bắp lớn, 2 snack lớn, 2 nước ngọt.', 150000, 'Lớn', 'Popcorn & Snack'),
-('Combo Trẻ em', '1 bắp nhỏ, 1 nước trái cây.', 50000, 'Nhỏ', 'Popcorn & Juice'),
-('Combo Cặp đôi', '1 bắp lớn, 2 nước ngọt.', 110000, 'Lớn', 'Popcorn & Drink'),
-('Combo Người lớn', '1 bắp lớn, 1 nước ngọt, 1 bia.', 130000, 'Lớn', 'Popcorn & Beer'),
-('Combo Snack Mix', '1 bắp, 1 snack, 1 nước ngọt.', 90000, 'Vừa', 'Popcorn & Snack');
+('Combo Lớn', '1 bắp lớn, 2 nước ngọt lớn.', 120000, 'Lớn', 'Popcorn & Drink', 'combo.jpg'),
+('Combo Vừa', '1 bắp vừa, 1 nước ngọt vừa.', 90000, 'Vừa', 'Popcorn & Drink', 'combo.jpg'),
+('Combo Nhỏ', '1 bắp nhỏ, 1 nước ngọt nhỏ.', 60000, 'Nhỏ', 'Popcorn & Drink', 'combo.jpg'),
+('Combo Gia đình', '2 bắp lớn, 4 nước ngọt lớn.', 200000, 'Lớn', 'Popcorn & Drink', 'combo.jpg'),
+('Combo Snack', '1 snack lớn, 1 nước ngọt lớn.', 80000, 'Lớn', 'Snack & Drink', 'combo.jpg'),
+('Combo Đặc biệt', '1 bắp lớn, 2 snack lớn, 2 nước ngọt.', 150000, 'Lớn', 'Popcorn & Snack', 'combo.jpg'),
+('Combo Trẻ em', '1 bắp nhỏ, 1 nước trái cây.', 50000, 'Nhỏ', 'Popcorn & Juice', 'combo.jpg'),
+('Combo Cặp đôi', '1 bắp lớn, 2 nước ngọt.', 110000, 'Lớn', 'Popcorn & Drink', 'combo.jpg'),
+('Combo Người lớn', '1 bắp lớn, 1 nước ngọt, 1 bia.', 130000, 'Lớn', 'Popcorn & Beer', 'combo.jpg'),
+('Combo Snack Mix', '1 bắp, 1 snack, 1 nước ngọt.', 90000, 'Vừa', 'Popcorn & Snack', 'combo.jpg');
 
 
 -- Thêm dữ liệu vào bảng BookingCombos
