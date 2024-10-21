@@ -52,7 +52,7 @@ CREATE TABLE Seats (
 -- Tạo bảng Users (Thông tin người dùng)
 CREATE TABLE Users (
     UserId INT PRIMARY KEY IDENTITY(1,1),
-    Username NVARCHAR(100) NOT NULL UNIQUE,
+    UserName NVARCHAR(100) NOT NULL UNIQUE,
     [Password] NVARCHAR(255) NOT NULL, -- lưu trữ mật khẩu đã mã hóa
     Email NVARCHAR(255),
     Phone NVARCHAR(50),
@@ -175,7 +175,7 @@ BEGIN
 END;
 
 -- Thêm dữ liệu vào bảng Users
-INSERT INTO Users (Username, [Password], Email, Phone, Role)
+INSERT INTO Users (UserName, [Password], Email, Phone, Role)
 VALUES 
 ('user1', 'password1', 'user1@example.com', '0123456789', 'User'),
 ('user2', 'password2', 'user2@example.com', '0123456781', 'User'),
