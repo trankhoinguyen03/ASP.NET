@@ -9,41 +9,101 @@
     <link rel="stylesheet" href="~/CinemaBookingWeb.styles.css" asp-append-version="true" />
 </head>
 <body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">CinemaBookingWeb</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
-                    </ul>
-                </div>
+    <div class="sidebar">
+        <nav class="nav flex-column">
+            <a class="navbar-brand mb-3 text-center" asp-area="" asp-controller="Home" asp-action="Index">CinemaBookingWeb</a>
+
+            <a class="nav-link text-light" data-bs-toggle="collapse" href="#overviewMenu" role="button" aria-expanded="false" aria-controls="overviewMenu">
+                Tổng quan
+                <span class="arrow-icon collapsed">&#10148;</span>
+            </a>
+            <div class="collapse" id="overviewMenu">
+                <a class="nav-link text-light ps-5" asp-area="" asp-controller="" asp-action="">Khách hàng mới</a>
+                <a class="nav-link text-light ps-5" asp-area="" asp-controller="" asp-action="">Số vé bán ra</a>
+                <a class="nav-link text-light ps-5" asp-area="" asp-controller="" asp-action="">Doanh thu phim</a>
+                <a class="nav-link text-light ps-5" asp-area="" asp-controller="" asp-action="">Doanh thu rạp</a>
+                <a class="nav-link text-light ps-5" asp-area="" asp-controller="" asp-action="">Doanh thu ngày</a>
+                <a class="nav-link text-light ps-5" asp-area="" asp-controller="" asp-action="">Doanh thu tháng</a>
+            </div>
+
+            <a class="nav-link text-light" data-bs-toggle="collapse" href="#movieManagementMenu" role="button" aria-expanded="false" aria-controls="movieManagementMenu">
+                Quản lý phim
+                <span class="arrow-icon collapsed">&#10148;</span>
+            </a>
+            <div class="collapse" id="movieManagementMenu">
+                <a class="nav-link text-light ps-5" asp-area="" asp-controller="" asp-action="">Danh sách phim</a>
+                <a class="nav-link text-light ps-5" asp-area="" asp-controller="" asp-action="">Thêm phim mới</a>
+            </div>
+
+            <a class="nav-link text-light" data-bs-toggle="collapse" href="#theaterManagementMenu" role="button" aria-expanded="false" aria-controls="theaterManagementMenu">
+                Quản lý rạp chiếu
+                <span class="arrow-icon collapsed">&#10148;</span>
+            </a>
+            <div class="collapse" id="theaterManagementMenu">
+                <a class="nav-link text-light ps-5" asp-area="" asp-controller="" asp-action="">Danh sách rạp</a>
+                <a class="nav-link text-light ps-5" asp-area="" asp-controller="" asp-action="">Thêm rạp mới</a>
+            </div>
+
+            <a class="nav-link text-light" data-bs-toggle="collapse" href="#showtimeManagementMenu" role="button" aria-expanded="false" aria-controls="showtimeManagementMenu">
+                Quản lý suất chiếu
+                <span class="arrow-icon collapsed">&#10148;</span>
+            </a>
+            <div class="collapse" id="showtimeManagementMenu">
+                <a class="nav-link text-light ps-5" asp-area="" asp-controller="" asp-action="">Danh sách suất chiếu</a>
+                <a class="nav-link text-light ps-5" asp-area="" asp-controller="" asp-action="">Thêm suất chiếu mới</a>
+            </div>
+
+            <a class="nav-link text-light" data-bs-toggle="collapse" href="#orderManagementMenu" role="button" aria-expanded="false" aria-controls="orderManagementMenu">
+                Quản lý đơn hàng
+                <span class="arrow-icon collapsed">&#10148;</span>
+            </a>
+            <div class="collapse" id="orderManagementMenu">
+                <a class="nav-link text-light ps-5" asp-area="" asp-controller="" asp-action="">Danh sách đơn hàng</a>
+            </div>
+
+            <a class="nav-link text-light" data-bs-toggle="collapse" href="#comboManagementMenu" role="button" aria-expanded="false" aria-controls="comboManagementMenu">
+                Quản lý combo
+                <span class="arrow-icon collapsed">&#10148;</span>
+            </a>
+            <div class="collapse" id="comboManagementMenu">
+                <a class="nav-link text-light ps-5" asp-area="" asp-controller="" asp-action="">Danh sách combo</a>
+                <a class="nav-link text-light ps-5" asp-area="" asp-controller="" asp-action="">Thêm combo mới</a>
+            </div>
+
+            <a class="nav-link text-light" data-bs-toggle="collapse" href="#userManagementMenu" role="button" aria-expanded="false" aria-controls="userManagementMenu">
+                Quản lý người dùng
+                <span class="arrow-icon collapsed">&#10148;</span>
+            </a>
+            <div class="collapse" id="userManagementMenu">
+                <a class="nav-link text-light ps-5" asp-area="" asp-controller="" asp-action="">Danh sách người dùng</a>
             </div>
         </nav>
-    </header>
-    <div class="container">
+    </div>
+
+    <div class="main-content">
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
     </div>
-
-    <footer class="border-top footer text-muted">
-        <div class="container">
+    
+    <footer class="footer text-muted">
+        <div class="main-content">
             &copy; 2024 - CinemaBookingWeb - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>
     </footer>
+
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
+    <script>
+        // Xử lý thay đổi trạng thái của mũi tên khi mục sổ ra hoặc đóng lại
+        document.querySelectorAll('.nav-link[data-bs-toggle="collapse"]').forEach(link => {
+            link.addEventListener('click', function () {
+                const icon = this.querySelector('.arrow-icon');
+                icon.classList.toggle('collapsed');
+            });
+        });
+    </script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
