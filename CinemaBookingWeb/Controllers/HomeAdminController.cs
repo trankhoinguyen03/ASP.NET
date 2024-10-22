@@ -5,13 +5,13 @@ using System.Diagnostics;
 
 namespace CinemaBookingWeb.Controllers
 {
-    public class HomeController : Controller
+    public class HomeAdminController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        private readonly ILogger<HomeAdminController> _logger;
 
         private readonly ApplicationDbContext _context;
 
-        public HomeController(ILogger<HomeController> logger, ApplicationDbContext context)
+        public HomeAdminController(ILogger<HomeAdminController> logger, ApplicationDbContext context)
         {
             _logger = logger;
             _context = context;
