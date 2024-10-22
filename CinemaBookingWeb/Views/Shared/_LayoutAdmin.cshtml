@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - CinemaBookingWeb</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/CinemaBookingWeb.styles.css" asp-append-version="true" />
 </head>
@@ -14,68 +15,68 @@
             <a class="navbar-brand mb-3 text-center" asp-area="" asp-controller="HomeAdmin" asp-action="Index">CinemaBookingWeb</a>
 
             <a class="nav-link text-light" data-bs-toggle="collapse" href="#overviewMenu" role="button" aria-expanded="false" aria-controls="overviewMenu">
-                Tổng quan
+                <i class="bi bi-bar-chart-fill"></i> Tổng quan
                 <span class="arrow-icon collapsed">&#10148;</span>
             </a>
             <div class="collapse" id="overviewMenu">
-                <a class="nav-link text-light ps-5" asp-area="" asp-controller="Overview" asp-action="NewCustomers">Khách hàng mới</a>
-                <a class="nav-link text-light ps-5" asp-area="" asp-controller="Overview" asp-action="TotalTickets">Số vé bán ra</a>
-                <a class="nav-link text-light ps-5" asp-area="" asp-controller="Overview" asp-action="MoviesRevenue">Doanh thu phim</a>
-                <a class="nav-link text-light ps-5" asp-area="" asp-controller="Overview" asp-action="CinemasRevenue">Doanh thu rạp</a>
-                <a class="nav-link text-light ps-5" asp-area="" asp-controller="Overview" asp-action="DailyRevenue">Doanh thu ngày</a>
-                <a class="nav-link text-light ps-5" asp-area="" asp-controller="Overview" asp-action="MonthlyRevenue">Doanh thu tháng</a>
+                <a class="nav-link text-light ps-5" asp-area="" asp-controller="Overview" asp-action="NewCustomers"><i class="bi bi-people-fill"></i> Khách hàng mới</a>
+                <a class="nav-link text-light ps-5" asp-area="" asp-controller="Overview" asp-action="TotalTickets"><i class="bi bi-ticket-perforated-fill"></i> Số vé bán ra</a>
+                <a class="nav-link text-light ps-5" asp-area="" asp-controller="Overview" asp-action="MoviesRevenue"><i class="bi bi-cash"></i> Doanh thu phim</a>
+                <a class="nav-link text-light ps-5" asp-area="" asp-controller="Overview" asp-action="CinemasRevenue"><i class="bi bi-building"></i> Doanh thu rạp</a>
+                <a class="nav-link text-light ps-5" asp-area="" asp-controller="Overview" asp-action="DailyRevenue"><i class="bi bi-calendar-day"></i> Doanh thu ngày</a>
+                <a class="nav-link text-light ps-5" asp-area="" asp-controller="Overview" asp-action="MonthlyRevenue"><i class="bi bi-calendar-month"></i> Doanh thu tháng</a>
             </div>
 
             <a class="nav-link text-light" data-bs-toggle="collapse" href="#movieManagementMenu" role="button" aria-expanded="false" aria-controls="movieManagementMenu">
-                Quản lý phim
+                <i class="bi bi-film"></i> Quản lý phim
                 <span class="arrow-icon collapsed">&#10148;</span>
             </a>
             <div class="collapse" id="movieManagementMenu">
-                <a class="nav-link text-light ps-5" asp-area="" asp-controller="" asp-action="">Danh sách phim</a>
-                <a class="nav-link text-light ps-5" asp-area="" asp-controller="" asp-action="">Thêm phim mới</a>
+                <a class="nav-link text-light ps-5" asp-area="" asp-controller="" asp-action=""><i class="bi bi-list-ul"></i> Danh sách phim</a>
+                <a class="nav-link text-light ps-5" asp-area="" asp-controller="" asp-action=""><i class="bi bi-plus-circle-fill"></i> Thêm phim mới</a>
             </div>
 
             <a class="nav-link text-light" data-bs-toggle="collapse" href="#theaterManagementMenu" role="button" aria-expanded="false" aria-controls="theaterManagementMenu">
-                Quản lý rạp chiếu
+                <i class="bi bi-geo-alt-fill"></i> Quản lý rạp chiếu
                 <span class="arrow-icon collapsed">&#10148;</span>
             </a>
             <div class="collapse" id="theaterManagementMenu">
-                <a class="nav-link text-light ps-5" asp-area="" asp-controller="" asp-action="">Danh sách rạp</a>
-                <a class="nav-link text-light ps-5" asp-area="" asp-controller="" asp-action="">Thêm rạp mới</a>
+                <a class="nav-link text-light ps-5" asp-area="" asp-controller="" asp-action=""><i class="bi bi-list-ul"></i> Danh sách rạp</a>
+                <a class="nav-link text-light ps-5" asp-area="" asp-controller="" asp-action=""><i class="bi bi-plus-circle-fill"></i> Thêm rạp mới</a>
             </div>
 
             <a class="nav-link text-light" data-bs-toggle="collapse" href="#showtimeManagementMenu" role="button" aria-expanded="false" aria-controls="showtimeManagementMenu">
-                Quản lý suất chiếu
+                <i class="bi bi-clock-fill"></i> Quản lý suất chiếu
                 <span class="arrow-icon collapsed">&#10148;</span>
             </a>
             <div class="collapse" id="showtimeManagementMenu">
-                <a class="nav-link text-light ps-5" asp-area="" asp-controller="" asp-action="">Danh sách suất chiếu</a>
-                <a class="nav-link text-light ps-5" asp-area="" asp-controller="" asp-action="">Thêm suất chiếu mới</a>
+                <a class="nav-link text-light ps-5" asp-area="" asp-controller="" asp-action=""><i class="bi bi-list-ul"></i> Danh sách suất chiếu</a>
+                <a class="nav-link text-light ps-5" asp-area="" asp-controller="" asp-action=""><i class="bi bi-plus-circle-fill"></i> Thêm suất chiếu mới</a>
             </div>
 
             <a class="nav-link text-light" data-bs-toggle="collapse" href="#orderManagementMenu" role="button" aria-expanded="false" aria-controls="orderManagementMenu">
-                Quản lý đơn hàng
+                <i class="bi bi-cart2"></i> Quản lý đơn hàng
                 <span class="arrow-icon collapsed">&#10148;</span>
             </a>
             <div class="collapse" id="orderManagementMenu">
-                <a class="nav-link text-light ps-5" asp-area="" asp-controller="" asp-action="">Danh sách đơn hàng</a>
+                <a class="nav-link text-light ps-5" asp-area="" asp-controller="" asp-action=""><i class="bi bi-list-ul"></i> Danh sách đơn hàng</a>
             </div>
 
             <a class="nav-link text-light" data-bs-toggle="collapse" href="#comboManagementMenu" role="button" aria-expanded="false" aria-controls="comboManagementMenu">
-                Quản lý combo
+                <i class="bi bi-basket-fill"></i> Quản lý combo
                 <span class="arrow-icon collapsed">&#10148;</span>
             </a>
             <div class="collapse" id="comboManagementMenu">
-                <a class="nav-link text-light ps-5" asp-area="" asp-controller="" asp-action="">Danh sách combo</a>
-                <a class="nav-link text-light ps-5" asp-area="" asp-controller="" asp-action="">Thêm combo mới</a>
+                <a class="nav-link text-light ps-5" asp-area="" asp-controller="" asp-action=""><i class="bi bi-list-ul"></i> Danh sách combo</a>
+                <a class="nav-link text-light ps-5" asp-area="" asp-controller="" asp-action=""><i class="bi bi-plus-circle-fill"></i> Thêm combo mới</a>
             </div>
 
             <a class="nav-link text-light" data-bs-toggle="collapse" href="#userManagementMenu" role="button" aria-expanded="false" aria-controls="userManagementMenu">
-                Quản lý người dùng
+                <i class="bi bi-person-fill"></i> Quản lý người dùng
                 <span class="arrow-icon collapsed">&#10148;</span>
             </a>
             <div class="collapse" id="userManagementMenu">
-                <a class="nav-link text-light ps-5" asp-area="" asp-controller="" asp-action="">Danh sách người dùng</a>
+                <a class="nav-link text-light ps-5" asp-area="" asp-controller="" asp-action=""><i class="bi bi-list-ul"></i> Danh sách người dùng</a>
             </div>
         </nav>
     </div>
@@ -85,7 +86,7 @@
             @RenderBody()
         </main>
     </div>
-    
+
     <footer class="footer text-muted">
         <div class="main-content">
             &copy; 2024 - CinemaBookingWeb - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
