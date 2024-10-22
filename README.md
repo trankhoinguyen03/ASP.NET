@@ -17,7 +17,8 @@ _Thành viên: 6_
 
 #### Chức năng của Admin:
 
-![Admin Home Page](https://github.com/user-attachments/assets/e4a0b0a7-de17-4e1e-9e8d-6b47466e0c7c)
+![Admin Home Page](https://github.com/user-attachments/assets/f02b2b55-708c-45c1-b87a-4037b2fd9ffb)
+
 
 ##### 1. Xem tổng quan các thông tin của trang web
 _Admin có thể xem tổng quan các thông tin quan trọng như doanh thu theo ngày, khách hàng mới, tổng số vé bán ra, doanh thu theo tháng, doanh thu theo phim, và doanh thu theo rạp chiếu phim. Giao diện tổng quan cung cấp một cái nhìn toàn diện và chi tiết về hoạt động kinh doanh của trang web._
