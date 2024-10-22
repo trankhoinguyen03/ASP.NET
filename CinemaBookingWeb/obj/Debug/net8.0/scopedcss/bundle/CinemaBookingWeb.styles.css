@@ -1,46 +1,46 @@
-/* _content/CinemaBookingWeb/Views/Shared/_Layout.cshtml.rz.scp.css */
+/* _content/CinemaBookingWeb/Views/Shared/_LayoutAdmin.cshtml.rz.scp.css */
 /* Please see documentation at https://learn.microsoft.com/aspnet/core/client-side/bundling-and-minification
 for details on configuring this project to bundle and minify static web assets. */
 
-a.navbar-brand[b-jozwp9e1ko] {
+a.navbar-brand[b-rkcnjbd9oo] {
   white-space: normal;
   text-align: center;
   word-break: break-all;
 }
 
-a[b-jozwp9e1ko] {
+a[b-rkcnjbd9oo] {
   color: #0077cc;
 }
 
-.btn-primary[b-jozwp9e1ko] {
+.btn-primary[b-rkcnjbd9oo] {
   color: #fff;
   background-color: #1b6ec2;
   border-color: #1861ac;
 }
 
-.nav-pills .nav-link.active[b-jozwp9e1ko], .nav-pills .show > .nav-link[b-jozwp9e1ko] {
+.nav-pills .nav-link.active[b-rkcnjbd9oo], .nav-pills .show > .nav-link[b-rkcnjbd9oo] {
   color: #fff;
   background-color: #1b6ec2;
   border-color: #1861ac;
 }
 
-.border-top[b-jozwp9e1ko] {
+.border-top[b-rkcnjbd9oo] {
   border-top: 1px solid #e5e5e5;
 }
-.border-bottom[b-jozwp9e1ko] {
+.border-bottom[b-rkcnjbd9oo] {
   border-bottom: 1px solid #e5e5e5;
 }
 
-.box-shadow[b-jozwp9e1ko] {
+.box-shadow[b-rkcnjbd9oo] {
   box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
 }
 
-button.accept-policy[b-jozwp9e1ko] {
+button.accept-policy[b-rkcnjbd9oo] {
   font-size: 1rem;
   line-height: inherit;
 }
 
-.footer[b-jozwp9e1ko] {
+.footer[b-rkcnjbd9oo] {
   position: absolute;
   bottom: 0;
   width: 100%;

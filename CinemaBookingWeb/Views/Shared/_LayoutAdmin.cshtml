@@ -11,19 +11,19 @@
 <body>
     <div class="sidebar">
         <nav class="nav flex-column">
-            <a class="navbar-brand mb-3 text-center" asp-area="" asp-controller="Home" asp-action="Index">CinemaBookingWeb</a>
+            <a class="navbar-brand mb-3 text-center" asp-area="" asp-controller="HomeAdmin" asp-action="Index">CinemaBookingWeb</a>
 
             <a class="nav-link text-light" data-bs-toggle="collapse" href="#overviewMenu" role="button" aria-expanded="false" aria-controls="overviewMenu">
                 Tổng quan
                 <span class="arrow-icon collapsed">&#10148;</span>
             </a>
             <div class="collapse" id="overviewMenu">
-                <a class="nav-link text-light ps-5" asp-area="" asp-controller="" asp-action="">Khách hàng mới</a>
-                <a class="nav-link text-light ps-5" asp-area="" asp-controller="" asp-action="">Số vé bán ra</a>
-                <a class="nav-link text-light ps-5" asp-area="" asp-controller="" asp-action="">Doanh thu phim</a>
-                <a class="nav-link text-light ps-5" asp-area="" asp-controller="" asp-action="">Doanh thu rạp</a>
-                <a class="nav-link text-light ps-5" asp-area="" asp-controller="" asp-action="">Doanh thu ngày</a>
-                <a class="nav-link text-light ps-5" asp-area="" asp-controller="" asp-action="">Doanh thu tháng</a>
+                <a class="nav-link text-light ps-5" asp-area="" asp-controller="Overview" asp-action="NewCustomers">Khách hàng mới</a>
+                <a class="nav-link text-light ps-5" asp-area="" asp-controller="Overview" asp-action="TotalTickets">Số vé bán ra</a>
+                <a class="nav-link text-light ps-5" asp-area="" asp-controller="Overview" asp-action="MoviesRevenue">Doanh thu phim</a>
+                <a class="nav-link text-light ps-5" asp-area="" asp-controller="Overview" asp-action="CinemasRevenue">Doanh thu rạp</a>
+                <a class="nav-link text-light ps-5" asp-area="" asp-controller="Overview" asp-action="DailyRevenue">Doanh thu ngày</a>
+                <a class="nav-link text-light ps-5" asp-area="" asp-controller="Overview" asp-action="MonthlyRevenue">Doanh thu tháng</a>
             </div>
 
             <a class="nav-link text-light" data-bs-toggle="collapse" href="#movieManagementMenu" role="button" aria-expanded="false" aria-controls="movieManagementMenu">

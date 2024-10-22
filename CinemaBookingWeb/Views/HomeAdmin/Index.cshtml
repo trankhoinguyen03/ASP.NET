@@ -1,11 +1,68 @@
 ﻿@model CinemaBookingWeb.Models.Users
 
 @{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Admin Home Page";
+    Layout = "_LayoutAdmin";
 }
+
+<style>
+    @@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Pacifico&display=swap');
+
+    body {
+        background: linear-gradient(45deg, #fbd786, #f7797d, #c6ffdd, #ffafbd, #fffb7d);
+        background-size: 400% 400%;
+        animation: gradientAnimation 12s ease infinite;
+        transition: background-position 0.1s ease;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+    }
+
+    @@keyframes gradientAnimation {
+        0% {
+            background-position: 0% 50%;
+        }
+
+        50% {
+            background-position: 100% 50%;
+        }
+
+        100% {
+            background-position: 0% 50%;
+        }
+    }
+
+    .text-center h1 {
+        font-family: 'Pacifico', cursive;
+        font-size: 5rem; /* Larger font size */
+        background: linear-gradient(45deg, #2c3e50, #34495e, #4a4a4a, #2c2c54, #2f3640);
+        background-size: 400% 400%;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        animation: textGradientAnimation 8s ease infinite;
+        text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.6); /* Enhanced shadow for more contrast */
+    }
+
+    @@keyframes textGradientAnimation {
+        0% {
+            background-position: 0% 50%;
+        }
+
+        50% {
+            background-position: 100% 50%;
+        }
+
+        100% {
+            background-position: 0% 50%;
+        }
+    }
+</style>
 
 <div class="text-center">
     <h1 class="display-4">Welcome @Model.UserName</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
 </div>
+
+@*     <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p> *@
 
