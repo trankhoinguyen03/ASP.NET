@@ -30,6 +30,7 @@ body {
     background-color: #000;
     border-right: 1px solid #ddd;
     padding-top: 20px;
+    overflow-y: auto;
 }
 
     .sidebar .nav-link {
