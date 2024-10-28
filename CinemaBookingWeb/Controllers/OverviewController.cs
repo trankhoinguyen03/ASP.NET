@@ -1,10 +1,16 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using CinemaBookingWeb.Data;
+using Microsoft.AspNetCore.Mvc;
 
 namespace CinemaBookingWeb.Controllers
 {
     public class OverviewController : Controller
     {
-        public IActionResult NewCustomers()
+        private readonly ApplicationDbContext _context;
+        public OverviewController(ApplicationDbContext context)
+        {
+            _context = context;
+        }
+        public IActionResult NewUsers()
         {
             return View();
         }

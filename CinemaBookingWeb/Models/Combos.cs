@@ -8,7 +8,7 @@ namespace CinemaBookingWeb.Models
         public int ComboId { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
-        public double Price { get; set; }
+        public decimal Price { get; set; }
         public string Size { get; set; }
         public string Type { get; set; }
         public string ImageUrl { get; set; }
