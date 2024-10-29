@@ -56,7 +56,7 @@ CREATE TABLE Users (
     [Password] NVARCHAR(255) NOT NULL, -- lưu trữ mật khẩu đã mã hóa
     Email NVARCHAR(255),
     Phone NVARCHAR(50),
-	SignupDate DATE,
+	SignupDate DATETIME,
     Role NVARCHAR(50) -- Vai trò người dùng (User/Admin)
 );
 
@@ -178,16 +178,16 @@ END;
 -- Thêm dữ liệu vào bảng Users
 INSERT INTO Users (UserName, [Password], Email, Phone, SignupDate, Role)
 VALUES 
-('user1', 'password1', 'user1@example.com', '0123456789', '2019-04-26', 'User'),
-('user2', 'password2', 'user2@example.com', '0123456781','2019-04-26', 'User'),
-('user3', 'password3', 'user3@example.com', '0123456782','2019-04-26', 'User'),
-('user4', 'password4', 'user4@example.com', '0123456783','2019-04-26', 'User'),
-('user5', 'password5', 'user5@example.com', '0123456784','2019-04-26', 'User'),
-('user6', 'password6', 'user6@example.com', '0123456785','2019-04-26', 'User'),
-('user7', 'password7', 'user7@example.com', '0123456786','2019-04-26', 'Admin'),
-('user8', 'password8', 'user8@example.com', '0123456787','2019-04-26', 'User'),
-('user9', 'password9', 'user9@example.com', '0123456788','2019-04-26', 'User'),
-('user10', 'password10', 'user10@example.com', '0123456780','2019-04-26', 'Admin');
+('user1', 'password1', 'user1@example.com', '0123456789', '2024-10-01 21:00', 'User'),
+('user2', 'password2', 'user2@example.com', '0123456781', '2024-10-01 21:00', 'User'),
+('user3', 'password3', 'user3@example.com', '0123456782', '2024-10-01 21:00', 'User'),
+('user4', 'password4', 'user4@example.com', '0123456783', '2024-10-01 21:00', 'User'),
+('user5', 'password5', 'user5@example.com', '0123456784', '2024-10-01 21:00', 'User'),
+('user6', 'password6', 'user6@example.com', '0123456785', '2024-10-01 21:00', 'User'),
+('user7', 'password7', 'user7@example.com', '0123456786', '2024-10-01 21:00', 'Admin'),
+('user8', 'password8', 'user8@example.com', '0123456787', '2024-10-01 21:00', 'User'),
+('user9', 'password9', 'user9@example.com', '0123456788', '2024-10-01 21:00', 'User'),
+('user10', 'password10', 'user10@example.com', '0123456780', '2024-10-01 21:00', 'Admin');
 
 
 -- Thêm dữ liệu vào bảng Bookings

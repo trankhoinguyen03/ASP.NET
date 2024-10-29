@@ -2,11 +2,22 @@
 {
     public class OverviewModel
     {
-        public int NewUsers { get; set; }
-        public int TotalTickets { get; set; }
-        public decimal MoviesRevenue { get; set; }
-        public decimal CinemasRevenue { get; set; }
-        public decimal DailyRevenue { get; set; }
-        public decimal MonthlyRevenue { get; set; }
+        public List<DayStatistic> NewUsersByDay { get; set; }
+        public List<MonthStatistic> NewUsersByMonth { get; set; }
+        public List<DayStatistic> TotalTicketsByDay { get; set; }
+        public List<MonthStatistic> NewTicketsByMonth { get; set; }
+
+    }
+
+    public class DayStatistic
+    {
+        public DateTime Date { get; set; }
+        public int Count { get; set; }
+    }
+
+    public class MonthStatistic
+    {
+        public DateTime Month { get; set; }
+        public int Count { get; set; }
     }
 }

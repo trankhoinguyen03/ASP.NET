@@ -5,3 +5,86 @@
     ViewData["Title"] = "New Users";
     Layout = "_LayoutAdmin";
 }
+@model CinemaBookingWeb.Models.OverviewModel
+@using System.Text.Json
+@{
+    var startDate = ViewBag.StartDate as DateTime?;
+    var endDate = ViewBag.EndDate as DateTime?;
+}
+
+<div>
+    <h2>Chọn khoảng thời gian thống kê</h2>
+    <form method="get">
+        <label for="startDate">Ngày bắt đầu:</label>
+        <input type="date" id="startDate" name="startDate" value="@startDate?.ToString("yyyy-MM-dd")" />
+
+        <label for="endDate">Ngày kết thúc:</label>
+        <input type="date" id="endDate" name="endDate" value="@endDate?.ToString("yyyy-MM-dd")" />
+
+        <button type="submit">Lọc</button>
+    </form>
+</div>
+
+<div>
+    <h2>Thống kê người dùng mới theo ngày</h2>
+    <canvas id="userByDayChart" width="400" height="200"></canvas>
+
+    <h2>Thống kê người dùng mới theo tháng</h2>
+    <canvas id="userByMonthChart" width="400" height="200"></canvas>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    // Dữ liệu thống kê theo ngày
+    var userByDayLabels = @Html.Raw(JsonSerializer.Serialize(Model.NewUsersByDay.Select(x => x.Date.ToString("yyyy-MM-dd"))));
+    var userByDayData = @Html.Raw(JsonSerializer.Serialize(Model.NewUsersByDay.Select(x => x.Count)));
+
+    var ctxDay = document.getElementById('userByDayChart').getContext('2d');
+    var userByDayChart = new Chart(ctxDay, {
+        type: 'bar',
+        data: {
+            labels: userByDayLabels,
+            datasets: [{
+                label: 'Số người dùng mới',
+                data: userByDayData,
+                backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                borderColor: 'rgba(75, 192, 192, 1)',
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+
+    // Dữ liệu thống kê theo tháng
+    var userByMonthLabels = @Html.Raw(JsonSerializer.Serialize(Model.NewUsersByMonth.Select(x => x.Month.ToString("yyyy-MM"))));
+    var userByMonthData = @Html.Raw(JsonSerializer.Serialize(Model.NewUsersByMonth.Select(x => x.Count)));
+
+    var ctxMonth = document.getElementById('userByMonthChart').getContext('2d');
+    var userByMonthChart = new Chart(ctxMonth, {
+        type: 'bar',
+        data: {
+            labels: userByMonthLabels,
+            datasets: [{
+                label: 'Số người dùng mới',
+                data: userByMonthData,
+                backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                borderColor: 'rgba(54, 162, 235, 1)',
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+</script>
+

@@ -42,20 +42,16 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3ZlcnZpZXdcQ2luZW1hc1JldmVudWUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[F:/.NET/ASP.NET/CinemaBookingWeb/Views/Overview/DailyRevenue.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3ZlcnZpZXdcRGFpbHlSZXZlbnVlLmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[F:/.NET/ASP.NET/CinemaBookingWeb/Views/Overview/MonthlyRevenue.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3ZlcnZpZXdcTW9udGhseVJldmVudWUuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
 [F:/.NET/ASP.NET/CinemaBookingWeb/Views/Overview/MoviesRevenue.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3ZlcnZpZXdcTW92aWVzUmV2ZW51ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [F:/.NET/ASP.NET/CinemaBookingWeb/Views/Overview/NewUsers.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3ZlcnZpZXdcTmV3VXNlcnMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/.NET/ASP.NET/CinemaBookingWeb/Views/Overview/TotalRevenue.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3ZlcnZpZXdcVG90YWxSZXZlbnVlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [F:/.NET/ASP.NET/CinemaBookingWeb/Views/Overview/TotalTickets.cshtml]
