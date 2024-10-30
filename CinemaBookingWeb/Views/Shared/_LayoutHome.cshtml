@@ -1,95 +1,69 @@
 ﻿<!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trang Chủ - Đặt Lịch Xem Phim</title>
     <link rel="stylesheet" href="~/css/style.css">
+    <link rel="stylesheet" href="~/css/style_login.css">
+    <link rel="stylesheet" href="~/css/site.css">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="shortcut icon" type="img/png" href="~/img/shortcut-logo.png">
 </head>
 <body>
     <!-- Header -->
     <header class="header">
         <div class="logo">
-            <a href=""><img src="~/img/logo.png" width="100px" height="100px" /></a>
+            <a asp-area="" asp-controller="Home" asp-action="Index">
+                <img src="~/img/logo.png" width="100px" height="100px" />
+            </a>
         </div>
         <nav>
             <ul class="nav-links">
-                <li><a href="#">MUA VÉ</a></li>
-                <li><a href="#">PHIM</a></li>
-                <li><a href="#">RẠP</a></li>
-                <li><a href="#">GIÁ VÉ</a></li>
-                <li><a href="#">ĐĂNG NHẬP</a></li>
+                <li>
+                    <a href="#">
+                        <img alt="Ticket" loading="lazy" width="112" height="40" decoding="async" data-nimg="1" class="max-w-min w-[84px] h-[27px] lg:w-[112px] lg:h-[36px] object-cover duration-500 ease-in-out group-hover:opacity-100"
+                             style="color:transparent" src="~/img/ticket_mua.png">
+                    </a>
+                </li>
+                <li><a asp-area="" asp-controller="Rap" asp-action="Rap_Giave">RẠP/GIÁ VÉ</a></li>
+                <li><a asp-area="" asp-controller="Movies" asp-action="MoviesDangChieu">PHIM</a></li>
+                <li><a asp-area="" asp-controller="Login" asp-action="login">ĐĂNG NHẬP/ĐĂNG KÝ</a></li>
             </ul>
         </nav>
     </header>
-    <!-- Slideshow container -->
-    <div class="slideshow-container">
+    
 
-        <!-- Full-width images with number and caption text -->
-        <div class="mySlides fade">
-            <img src="~/img/venom.jpg" style="width:100%">
+    <!-- Section: Trailer -->
+    <section class="Trailer">
+        <div class="Trailer-container">
 
-        </div>
-
-        <div class="mySlides fade">
-            <img src="~/img/bocchi-the-rock-recap-part-2-1.jpg" style="width:100%">
-        </div>
-
-        <div class="mySlides fade">
-            <img src="~/img/thanhduoc.jpg" style="width:100%">
-        </div>
-
-        <!-- Next and previous buttons -->
-        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-        <a class="next" onclick="plusSlides(1)">&#10095;</a>
-
-        <!-- The dots/circles -->
-        <div class="dot-slides" style="text-align:center">
-            <span class="dot" onclick="currentSlide(1)"></span>
-            <span class="dot" onclick="currentSlide(2)"></span>
-            <span class="dot" onclick="currentSlide(3)"></span>
-        </div>
-    </div>
-
-
-    <!-- Section: Phim Đang Chiếu -->
-    <section class="movies">
-        <h2>Phim Đang Chiếu</h2>
-        <div class="movie-list">
-            <div class="movie-item">
-                <img src="https://via.placeholder.com/150" alt="Movie 1">
-                <h3>Tên Phim 1</h3>
-                <p>Thể loại: Hành Động</p>
-            </div>
-            <div class="movie-item">
-                <img src="https://via.placeholder.com/150" alt="Movie 2">
-                <h3>Tên Phim 2</h3>
-                <p>Thể loại: Hài Kịch</p>
-            </div>
-            <div class="movie-item">
-                <img src="https://via.placeholder.com/150" alt="Movie 3">
-                <h3>Tên Phim 3</h3>
-                <p>Thể loại: Kinh Dị</p>
-            </div>
-            <div class="movie-item">
-                <img src="https://via.placeholder.com/150" alt="Movie 4">
-                <h3>Tên Phim 4</h3>
-                <p>Thể loại: Lãng Mạn</p>
-            </div>
+            @RenderBody() <!-- Vị trí nội dung của từng view -->
         </div>
     </section>
 
-    <div class="main-content">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
-    </div>
+    <!-- Section: Phim Đang Chiếu -->
+    <section class="movies">
+        <div class="container">
+            
+            @RenderBody() <!-- Vị trí nội dung của từng view -->
+        </div>
+    </section>
+
+
+
+
+
+    
 
     <!-- Footer -->
     <footer class="footer">
         <p>&copy; 2024 CinemaBooking. All Rights Reserved.</p>
     </footer>
-
+    <!-- Thêm Bootstrap JS và jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="~/js/script.js"></script>
 </body>
 </html>

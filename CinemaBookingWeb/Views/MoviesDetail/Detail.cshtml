@@ -1,0 +1,60 @@
+﻿ @model CinemaBookingWeb.Models.Movies
+@{
+    ViewBag.Title = "Detail";
+    Layout = "~/Views/Shared/_LayoutHome.cshtml";
+}
+
+<section class="Trailer">
+    <div class="Trailer-container">
+        @* Chuyển đổi URL YouTube từ dạng youtu.be thành dạng nhúng *@
+        @if (!string.IsNullOrEmpty(Model.TrailerUrl))
+        {
+            // Lấy ID từ URL
+            var videoId = Model.TrailerUrl.Split('/').Last().Split('?').First();
+            var embedUrl = $"https://www.youtube.com/embed/{videoId}";
+
+            <iframe width="100%" height="500"
+                    src="@embedUrl" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+            </iframe>
+        }
+        else
+        {
+            <p>Trailer không khả dụng</p>
+        }
+    </div>
+</section>
+
+
+<section class="movie-details my-4">
+    <div class="row">
+        <div class="col-md-6">
+            @* Hình ảnh phim *@
+            <img src="~/img/@Model.ImageUrl" alt="@Model.Title" class="img-fluid rounded" width="200" height="200" />
+        </div>
+        <div class="col-md-6">
+            @* Thông tin phim *@
+            <style>
+                .movie-title {
+                    font-size: 2.5rem !important; /* Kích thước lớn */
+                    font-weight: bold !important; /* Làm đậm */
+                    color: var(--primary-color);
+                    !important; /* Màu sắc */
+                }
+            </style>
+            <h2 class="movie-title">@Model.Title</h2>
+            <p><strong>Rating:</strong> @Model.Rating</p>
+            <p><strong>Ngày ra mắt:</strong> @Model.ReleaseDate.ToString("dd/MM/yyyy")</p>
+            <p><strong>Thể loại:</strong> @Model.Genre</p>
+            <p><strong>Ngôn ngữ:</strong> @Model.Language</p>
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <div class="col-md-12">
+            @* Mô tả phim ở dưới hình *@
+            <p><strong>Mô tả:</strong> @Model.Description</p>
+        </div>
+    </div>
+</section>
+
+

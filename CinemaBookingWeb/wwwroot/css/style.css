@@ -1,4 +1,4 @@
-* {
+﻿* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -38,17 +38,24 @@ body {
     text-decoration: none;
     font-size: 18px;
 }
-    .nav-links a:hover {
-        color: #0045a0;
-    }
+.nav-links a:hover {
+        color: var(--primary-color);
+}
 * {box-sizing:border-box}
 
+
+
+
 /* Slideshow container */
-.slideshow-container {
-  max-width: 100%;
-  position: relative;
-  margin: auto;
+.banner {
+  
 }
+.slideshow-container {
+    max-width: 100%;
+    position: relative;
+    margin: auto;
+}
+
 .dot-slides{
     position: absolute;
     left: 0px;
@@ -112,19 +119,20 @@ body {
 
 /* The dots/bullets/indicators */
 .dot {
-  cursor: pointer;
-  height: 15px;
-  width: 15px;
-  margin: 0 2px;
-  background-color: #bbb;
-  border-radius: 50%;
-  display: inline-block;
-  transition: background-color 0.6s ease;
+    cursor: pointer;
+    height: 18px;
+    width: 18px;
+    margin: 0 2px;
+    background-color: transparent;
+    border: solid 1px #c9cdce;
+    border-radius: 18px !important;
+    display: inline-block;
+    transition: background-color 0.6s ease;
 }
 
-.active, .dot:hover {
-  background-color: #717171;
-}
+    .active, .dot:hover {
+        background-color: var(--primary-color);
+    }
 
 /* Fading animation */
 .fade {
@@ -153,14 +161,21 @@ body {
 }
 
 .movies {
-    padding: 20px;
+    padding: 10px 1px 10px 1px;
     text-align: center;
+    align-items:center;
+
 }
 
+    .movies .grid {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
     .movies h2 {
         font-size: 28px;
         margin-bottom: 20px;
-        color: #0045a0;
+        color: var(--primary-color);
     }
 
 .movie-list {
@@ -169,15 +184,25 @@ body {
     gap: 20px;
     flex-wrap: wrap;
 }
-
+.movie-item-title {
+    color: var(--primary-color);
+}
 .movie-item {
+
     background-color: white;
     border: 1px solid #ddd;
-    padding: 10px;
+    margin: 8px;
     width: 250px;
     text-align: center;
     border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
+    .movie-item:hover {
+        transform: scale(1.05);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    }
 
 .movie-item img {
     width: 100%;
@@ -205,4 +230,41 @@ body {
     text-align: center;
     padding: 20px 0;
     margin-top: 20px;
+    position: relative;
+    bottom: 0;
 }
+
+
+
+.container-giave {
+    width: 100%;
+    max-width: 1200px; 
+    margin: 0 auto;
+}
+.movie-details {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap; /* Cho phép dòng bẻ dòng */
+    gap: 16px; /* Khoảng cách giữa các phần tử */
+}
+
+.col {
+    flex: 1 1 calc(25% - 16px); /* Mỗi cột chiếm 25% chiều rộng */
+    box-sizing: border-box; /* Để padding không làm thay đổi kích thước */
+}
+
+.movie-item {
+    border: 1px solid #ccc; /* Đường viền */
+    border-radius: 8px; /* Bo góc */
+    padding: 16px; /* Padding */
+    text-align: center; /* Căn giữa văn bản */
+}
+
+/* Responsive Styles */
+
+
