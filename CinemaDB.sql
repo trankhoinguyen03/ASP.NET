@@ -6,11 +6,15 @@ GO
 USE CinemaDB;
 GO
 
+-- Hiển thị tiếng Việt
+ALTER DATABASE CinemaDB COLLATE Vietnamese_CI_AS;
+GO
+
 -- Tạo bảng Movies (Thông tin phim)
 CREATE TABLE Movies (
     MovieId INT PRIMARY KEY IDENTITY(1,1),
     Title NVARCHAR(255) NOT NULL,
-    Description TEXT,
+    Description NVARCHAR(1000),
     Duration INT, -- thời lượng phim tính bằng phút
     Rating NVARCHAR(10),
     ReleaseDate DATE,
@@ -114,30 +118,30 @@ CREATE TABLE BookingCombos (
 -- Thêm dữ liệu vào bảng Movies
 INSERT INTO Movies (Title, Description, Duration, Rating, ReleaseDate, Genre, Language, TrailerUrl, ImageUrl)
 VALUES 
-('Avengers: Endgame', 'Siêu anh hùng chiến đấu chống lại Thanos.', 180, 'PG-13', '2019-04-26', 'Action', 'English', 'url', 'avengers.jpg'),
-('Spider-Man: No Way Home', 'Spider-Man đối mặt với những thử thách mới.', 148, 'PG-13', '2021-12-17', 'Action', 'English', 'url', 'spiderman.jpg'),
-('The Lion King', 'Hành trình của Simba để trở thành vua sư tử.', 118, 'G', '2019-07-19', 'Animation', 'English', 'url', 'lionking.jpg'),
-('Frozen II', 'Anna và Elsa khám phá những bí ẩn về quá khứ của họ.', 103, 'PG', '2019-11-22', 'Animation', 'English', 'url', 'frozen2.jpg'),
-('Joker', 'Câu chuyện về kẻ thù đáng sợ của Batman.', 122, 'R', '2019-10-04', 'Drama', 'English', 'url', 'joker.jpg'),
-('Tenet', 'Một đặc vụ đi ngược thời gian để ngăn chặn Thế chiến III.', 150, 'PG-13', '2020-09-03', 'Sci-Fi', 'English', 'url', 'tenet.jpg'),
-('Parasite', 'Hai gia đình với cuộc sống trái ngược nhau.', 132, 'R', '2019-05-30', 'Thriller', 'Korean', 'url', 'parasite.jpg'),
-('The Matrix Resurrections', 'Trở lại với thế giới ảo Matrix.', 148, 'R', '2021-12-22', 'Sci-Fi', 'English', 'url', 'matrix.jpg'),
-('Dune', 'Câu chuyện sử thi về hành tinh sa mạc.', 155, 'PG-13', '2021-10-22', 'Adventure', 'English', 'url', 'dune.jpg'),
-('Black Widow', 'Câu chuyện về Natasha Romanoff.', 134, 'PG-13', '2021-07-09', 'Action', 'English', 'url', 'blackwidow.jpg');
+('Avengers: Endgame', N'Siêu anh hùng chiến đấu chống lại Thanos.', 180, 'PG-13', '2019-04-26', 'Action', 'English', 'url', 'avengers.jpg'),
+('Spider-Man: No Way Home', N'Spider-Man đối mặt với những thử thách mới.', 148, 'PG-13', '2021-12-17', 'Action', 'English', 'url', 'spiderman.jpg'),
+('The Lion King', N'Hành trình của Simba để trở thành vua sư tử.', 118, 'G', '2019-07-19', 'Animation', 'English', 'url', 'lionking.jpg'),
+('Frozen II', N'Anna và Elsa khám phá những bí ẩn về quá khứ của họ.', 103, 'PG', '2019-11-22', 'Animation', 'English', 'url', 'frozen2.jpg'),
+('Joker', N'Câu chuyện về kẻ thù đáng sợ của Batman.', 122, 'R', '2019-10-04', 'Drama', 'English', 'url', 'joker.jpg'),
+('Tenet', N'Một đặc vụ đi ngược thời gian để ngăn chặn Thế chiến III.', 150, 'PG-13', '2020-09-03', 'Sci-Fi', 'English', 'url', 'tenet.jpg'),
+('Parasite', N'Hai gia đình với cuộc sống trái ngược nhau.', 132, 'R', '2019-05-30', 'Thriller', 'Korean', 'url', 'parasite.jpg'),
+('The Matrix Resurrections', N'Trở lại với thế giới ảo Matrix.', 148, 'R', '2021-12-22', 'Sci-Fi', 'English', 'url', 'matrix.jpg'),
+('Dune', N'Câu chuyện sử thi về hành tinh sa mạc.', 155, 'PG-13', '2021-10-22', 'Adventure', 'English', 'url', 'dune.jpg'),
+('Black Widow', N'Câu chuyện về Natasha Romanoff.', 134, 'PG-13', '2021-07-09', 'Action', 'English', 'url', 'blackwidow.jpg');
 
 -- Thêm dữ liệu vào bảng Cinemas
 INSERT INTO Cinemas (Name, Location, Phone, City)
 VALUES 
-('Galaxy Nguyễn Du', '116 Nguyễn Du, Quận 1', '0123456789', 'Ho Chi Minh'),
-('Galaxy Quang Trung', '304A Quang Trung, Gò Vấp', '0123456781', 'Ho Chi Minh'),
-('Galaxy Kinh Dương Vương', '718 Kinh Dương Vương, Quận 6', '0123456782', 'Ho Chi Minh'),
-('Galaxy Tân Bình', '246 Nguyễn Hồng Đào, Tân Bình', '0123456783', 'Ho Chi Minh'),
-('Galaxy Cà Mau', '58 Lý Bôn, TP. Cà Mau', '0123456784', 'Cà Mau'),
-('Galaxy Đà Nẵng', '79 Điện Biên Phủ, Thanh Khê', '0123456785', 'Đà Nẵng'),
-('Galaxy Long Xuyên', '66 Trần Hưng Đạo, Long Xuyên', '0123456786', 'An Giang'),
-('Galaxy Bình Dương', '555 Đại Lộ Bình Dương, Thủ Dầu Một', '0123456787', 'Bình Dương'),
-('Galaxy Hà Nội', '76 Trần Duy Hưng, Cầu Giấy', '0123456788', 'Hà Nội'),
-('Galaxy Phú Nhuận', '212 Phan Xích Long, Phú Nhuận', '0123456780', 'Ho Chi Minh');
+(N'Galaxy Nguyễn Du', N'116 Nguyễn Du, Quận 1', '0123456789', N'Thành phố Hồ Chí Minh'),
+(N'Galaxy Quang Trung', N'304A Quang Trung, Gò Vấp', '0123456781', N'Thành phố Hồ Chí Minh'),
+(N'Galaxy Kinh Dương Vương', N'718 Kinh Dương Vương, Quận 6', '0123456782', N'Thành phố Hồ Chí Minh'),
+(N'Galaxy Tân Bình', N'246 Nguyễn Hồng Đào, Tân Bình', '0123456783', N'Thành phố Hồ Chí Minh'),
+(N'Galaxy Cà Mau', N'58 Lý Bôn, TP. Cà Mau', '0123456784', N'Cà Mau'),
+(N'Galaxy Đà Nẵng', N'79 Điện Biên Phủ, Thanh Khê', '0123456785', N'Đà Nẵng'),
+(N'Galaxy Long Xuyên', N'66 Trần Hưng Đạo, Long Xuyên', '0123456786', N'An Giang'),
+(N'Galaxy Bình Dương', N'555 Đại Lộ Bình Dương, Thủ Dầu Một', '0123456787', N'Bình Dương'),
+(N'Galaxy Hà Nội', N'76 Trần Duy Hưng, Cầu Giấy', '0123456788', N'Hà Nội'),
+(N'Galaxy Phú Nhuận', N'212 Phan Xích Long, Phú Nhuận', '0123456780', N'Thành phố Hồ Chí Minh');
 
 -- Thêm dữ liệu vào bảng Showtimes
 INSERT INTO Showtimes (MovieId, CinemaId, Price, StartTime, EndTime, Hall)
@@ -231,16 +235,16 @@ VALUES
 -- Thêm dữ liệu vào bảng Combos
 INSERT INTO Combos (Name, Description, Price, Size, Type, ImageUrl)
 VALUES 
-('Combo Lớn', '1 bắp lớn, 2 nước ngọt lớn.', 120000, 'Lớn', 'Popcorn & Drink', 'combo.jpg'),
-('Combo Vừa', '1 bắp vừa, 1 nước ngọt vừa.', 90000, 'Vừa', 'Popcorn & Drink', 'combo.jpg'),
-('Combo Nhỏ', '1 bắp nhỏ, 1 nước ngọt nhỏ.', 60000, 'Nhỏ', 'Popcorn & Drink', 'combo.jpg'),
-('Combo Gia đình', '2 bắp lớn, 4 nước ngọt lớn.', 200000, 'Lớn', 'Popcorn & Drink', 'combo.jpg'),
-('Combo Snack', '1 snack lớn, 1 nước ngọt lớn.', 80000, 'Lớn', 'Snack & Drink', 'combo.jpg'),
-('Combo Đặc biệt', '1 bắp lớn, 2 snack lớn, 2 nước ngọt.', 150000, 'Lớn', 'Popcorn & Snack', 'combo.jpg'),
-('Combo Trẻ em', '1 bắp nhỏ, 1 nước trái cây.', 50000, 'Nhỏ', 'Popcorn & Juice', 'combo.jpg'),
-('Combo Cặp đôi', '1 bắp lớn, 2 nước ngọt.', 110000, 'Lớn', 'Popcorn & Drink', 'combo.jpg'),
-('Combo Người lớn', '1 bắp lớn, 1 nước ngọt, 1 bia.', 130000, 'Lớn', 'Popcorn & Beer', 'combo.jpg'),
-('Combo Snack Mix', '1 bắp, 1 snack, 1 nước ngọt.', 90000, 'Vừa', 'Popcorn & Snack', 'combo.jpg');
+(N'Combo Lớn', N'1 bắp lớn, 2 nước ngọt lớn.', 120000, N'Lớn', 'Popcorn & Drink', 'combo.jpg'),
+(N'Combo Vừa', N'1 bắp vừa, 1 nước ngọt vừa.', 90000, N'Vừa', 'Popcorn & Drink', 'combo.jpg'),
+(N'Combo Nhỏ', N'1 bắp nhỏ, 1 nước ngọt nhỏ.', 60000, N'Nhỏ', 'Popcorn & Drink', 'combo.jpg'),
+(N'Combo Gia đình', N'2 bắp lớn, 4 nước ngọt lớn.', 200000, N'Lớn', 'Popcorn & Drink', 'combo.jpg'),
+(N'Combo Snack', N'1 snack lớn, 1 nước ngọt lớn.', 80000, N'Lớn', 'Snack & Drink', 'combo.jpg'),
+(N'Combo Đặc biệt', N'1 bắp lớn, 2 snack lớn, 2 nước ngọt.', 150000, N'Lớn', 'Popcorn & Snack', 'combo.jpg'),
+(N'Combo Trẻ em', N'1 bắp nhỏ, 1 nước trái cây.', 50000, N'Nhỏ', 'Popcorn & Juice', 'combo.jpg'),
+(N'Combo Cặp đôi', N'1 bắp lớn, 2 nước ngọt.', 110000, N'Lớn', 'Popcorn & Drink', 'combo.jpg'),
+(N'Combo Người lớn', N'1 bắp lớn, 1 nước ngọt, 1 bia.', 130000, N'Lớn', 'Popcorn & Beer', 'combo.jpg'),
+(N'Combo Snack Mix', N'1 bắp, 1 snack, 1 nước ngọt.', 90000, N'Vừa', 'Popcorn & Snack', 'combo.jpg');
 
 
 -- Thêm dữ liệu vào bảng BookingCombos
