@@ -60,11 +60,50 @@ namespace CinemaBookingWeb.Controllers
         {
             return View();
         }
-        public IActionResult MoviesRevenue()
-        {
-            return View();
-        }
-        public IActionResult CinemasRevenue()
+        //public IActionResult MoviesRevenue(DateTime? startDate, DateTime? endDate)
+        //{
+        //    startDate ??= DateTime.Now.AddMonths(-1);
+        //    endDate ??= DateTime.Now;
+
+        //    // Thống kê doanh thu theo ngày cho từng bộ phim
+        //    var movieRevenueByDay = _context.Bookings
+        //        .Where(b => b.BookingDate >= startDate && b.BookingDate <= endDate)
+        //        .Join(_context.Showtimes, b => b.ShowtimeId, s => s.ShowtimeId, (b, s) => new { b, s })
+        //        .GroupBy(bs => bs.s.MovieId)
+        //        .Select(g => new DayStatistic_Movies
+        //        {
+        //            Name = _context.Movies.FirstOrDefault(m => m.MovieId == g.Key)?.Title ?? "Unknown",
+        //            Revenue = g.Sum(bs => bs.b.TotalPrice)
+        //        })
+        //        .OrderByDescending(g => g.Revenue)
+        //        .ToList();
+
+        //    var movieRevenueByMonth = _context.Bookings
+        //        .Where(b => b.BookingDate >= startDate && b.BookingDate <= endDate)
+        //        .Join(_context.Showtimes, b => b.ShowtimeId, s => s.ShowtimeId, (b, s) => new { b, s })
+        //        .AsEnumerable()
+        //        .GroupBy(bs => bs.s.MovieId)
+        //        .Select(g => new MonthStatistic_Movies
+        //        {
+        //            Name = _context.Movies.FirstOrDefault(m => m.MovieId == g.Key)?.Title ?? "Unknown",
+        //            Revenue = g.Sum(bs => bs.b.TotalPrice)
+        //        })
+        //        .OrderByDescending(g => g.Revenue)
+        //        .ToList();
+
+        //    // Tạo model và truyền các thống kê vào view
+        //    var model = new OverviewModel
+        //    {
+        //        TotalRevenueByDay = totalRevenueByDay,
+        //        TotalRevenueByMonth = totalRevenueByMonth
+        //    };
+
+        //    ViewBag.StartDate = startDate;
+        //    ViewBag.EndDate = endDate;
+
+        //    return View(model)
+        //}
+            public IActionResult CinemasRevenue()
         {
             return View();
         }
