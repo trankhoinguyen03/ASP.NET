@@ -1,0 +1,131 @@
+﻿@{
+    ViewBag.Title = "rap gia ve";
+    Layout = "~/Views/Shared/_LayoutHome.cshtml";
+}
+
+@model List<Movies>
+
+<!-- Slideshow container -->
+<section class="banner">
+    <div class="slideshow-container">
+        <!-- Full-width images with number and caption text -->
+        <div class="mySlides fade">
+            <img src="~/img/rap1.jpg" style="width:100%">
+        </div>
+
+        <div class="mySlides fade">
+            <img src="~/img/rap2.jpg" style="width:100%">
+        </div>
+
+        <div class="mySlides fade">
+            <img src="~/img/rap3.jpg" style="width:100%">
+        </div>
+
+        <!-- Next and previous buttons -->
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+        <!-- The dots/circles -->
+        <div class="dot-slides" style="text-align:center">
+            <span class="dot" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+            <span class="dot" onclick="currentSlide(3)"></span>
+        </div>
+    </div>
+</section>
+
+<br />
+<div>
+    <h2 class="movie-title-dang-chieu text-center text-danger font-weight-bold mb-4">Giá Vé</h2>
+    <img src="~/img/banggiave.png" alt="Cinema" class="container-giave" style="width:100%; max-width: 800px;">
+</div>
+<section class="cinema-selection container-giave my-4 text-center">
+
+    <div class="container my-4">
+        <h2 class="movie-title-dang-chieu text-center text-danger font-weight-bold mb-4">Chọn Thành Phố và Rạp</h2>
+
+        <div class="d-flex justify-content-center align-items-center gap-4">
+            <!-- Dropdown Thành Phố -->
+            <div class="form-group mb-0">
+                <label for="citySelect" class="font-weight-bold">Thành Phố:</label>
+                <select id="citySelect" class="form-control" onchange="updateCinemas()">
+                    <option value="">Chọn thành phố</option>
+                    <option value="HCM">Hồ Chí Minh</option>
+                    <option value="HN">Hà Nội</option>
+                    <option value="DN">Đà Nẵng</option>
+                </select>
+            </div>
+            <!-- Dropdown Rạp -->
+            <div class="form-group mb-0">
+                <label for="cinemaSelect" class="font-weight-bold">Rạp:</label>
+                <select id="cinemaSelect" class="form-control">
+                    <option value="">Chọn rạp</option>
+                </select>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+
+
+
+<style>
+    .movie-title-dang-chieu {
+        text-align: center !important;
+        font-size: 2.5rem !important;
+        font-weight: bold !important;
+        color: var(--primary-color) !important;
+    }
+
+    .cinema-selection {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+</style>
+
+<h2 class="movie-title-dang-chieu text-2xl font-bold mb-4">Phim Đang Chiếu</h2>
+
+<section class="movies">
+    <div class="mx-auto">
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 justify-center">
+            @foreach (var item in Model)
+            {
+                <a href="@Url.Action("Detail","MoviesDetail", new{ Id = item.MovieId })">
+                    <div class="movie-item text-center p-4 border rounded shadow">
+                        <img src="~/img/@item.ImageUrl" alt="@item.Title" class="w-full h-auto mb-2">
+                        <h3 class="movie-item-title text-lg font-semibold">@item.Title</h3>
+                        <p>Thể loại: @item.Genre</p>
+                    </div>
+                </a>
+            }
+        </div>
+    </div>
+</section>
+
+<script>
+    function updateCinemas() {
+        var city = document.getElementById("citySelect").value;
+        var cinemaSelect = document.getElementById("cinemaSelect");
+
+        // Clear old options
+        cinemaSelect.innerHTML = '<option value="">Chọn rạp</option>';
+
+        // Add cinema options based on the selected city
+        if (city === "HCM") {
+            cinemaSelect.innerHTML += '<option value="CGV">CGV Hồ Chí Minh</option>';
+            cinemaSelect.innerHTML += '<option value="Lotte">Lotte Cinema Hồ Chí Minh</option>';
+        } else if (city === "HN") {
+            cinemaSelect.innerHTML += '<option value="CGV">CGV Hà Nội</option>';
+            cinemaSelect.innerHTML += '<option value="Lotte">Lotte Cinema Hà Nội</option>';
+        } else if (city === "DN") {
+            cinemaSelect.innerHTML += '<option value="CGV">CGV Đà Nẵng</option>';
+            cinemaSelect.innerHTML += '<option value="Lotte">Lotte Cinema Đà Nẵng</option>';
+        }
+    }
+</script>
