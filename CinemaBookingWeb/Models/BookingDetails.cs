@@ -9,5 +9,6 @@ namespace CinemaBookingWeb.Models
         public int BookingId { get; set; }
         public int SeatId { get; set; }
         public double Price { get; set; }
+        public byte Status { get; set; }
     }
 }

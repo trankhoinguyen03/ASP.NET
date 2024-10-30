@@ -8,7 +8,8 @@ namespace CinemaBookingWeb.Models
         public int BookingId { get; set; }
         public int UserId { get; set; }
         public int ShowtimeId { get; set; }
-        public DateOnly BookingDate { get; set; }
+        public DateTime BookingDate { get; set; }
         public double TotalPrice { get; set; }
+        public byte Status { get; set; }
     }
 }

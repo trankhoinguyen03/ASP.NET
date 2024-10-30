@@ -10,5 +10,6 @@ namespace CinemaBookingWeb.Models
         public string Location { get; set; }
         public string Phone { get; set; }
         public string City { get; set; }
+        public byte Status { get; set; }
     }
 }

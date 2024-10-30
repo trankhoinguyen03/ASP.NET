@@ -17,91 +17,79 @@ build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = CinemaBookingWeb
 build_property.RootNamespace = CinemaBookingWeb
-build_property.ProjectDir = D:\STUDY\HK7\.NET\ASP.NET\CinemaBookingWeb\
+build_property.ProjectDir = F:\.NET\ASP.NET\CinemaBookingWeb\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 8.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = D:\STUDY\HK7\.NET\ASP.NET\CinemaBookingWeb
+build_property.MSBuildProjectDirectory = F:\.NET\ASP.NET\CinemaBookingWeb
 build_property._RazorSourceGeneratorDebug = 
 
-[D:/STUDY/HK7/.NET/ASP.NET/CinemaBookingWeb/Views/HomeAdmin/Index.cshtml]
+[F:/.NET/ASP.NET/CinemaBookingWeb/Views/HomeAdmin/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZUFkbWluXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/STUDY/HK7/.NET/ASP.NET/CinemaBookingWeb/Views/HomeAdmin/Privacy.cshtml]
+[F:/.NET/ASP.NET/CinemaBookingWeb/Views/HomeAdmin/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZUFkbWluXFByaXZhY3kuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/STUDY/HK7/.NET/ASP.NET/CinemaBookingWeb/Views/Home/Index.cshtml]
+[F:/.NET/ASP.NET/CinemaBookingWeb/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/STUDY/HK7/.NET/ASP.NET/CinemaBookingWeb/Views/MoviesDetail/Detail.cshtml]
+[F:/.NET/ASP.NET/CinemaBookingWeb/Views/MoviesDetail/Detail.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTW92aWVzRGV0YWlsXERldGFpbC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/STUDY/HK7/.NET/ASP.NET/CinemaBookingWeb/Views/Movies/MoviesDangChieu.cshtml]
+[F:/.NET/ASP.NET/CinemaBookingWeb/Views/Movies/MoviesDangChieu.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTW92aWVzXE1vdmllc0RhbmdDaGlldS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/STUDY/HK7/.NET/ASP.NET/CinemaBookingWeb/Views/Overview/CinemasRevenue.cshtml]
+[F:/.NET/ASP.NET/CinemaBookingWeb/Views/Overview/CinemasRevenue.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3ZlcnZpZXdcQ2luZW1hc1JldmVudWUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/STUDY/HK7/.NET/ASP.NET/CinemaBookingWeb/Views/Overview/DailyRevenue.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3ZlcnZpZXdcRGFpbHlSZXZlbnVlLmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[D:/STUDY/HK7/.NET/ASP.NET/CinemaBookingWeb/Views/Overview/MonthlyRevenue.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3ZlcnZpZXdcTW9udGhseVJldmVudWUuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[D:/STUDY/HK7/.NET/ASP.NET/CinemaBookingWeb/Views/Overview/MoviesRevenue.cshtml]
+[F:/.NET/ASP.NET/CinemaBookingWeb/Views/Overview/MoviesRevenue.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3ZlcnZpZXdcTW92aWVzUmV2ZW51ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/STUDY/HK7/.NET/ASP.NET/CinemaBookingWeb/Views/Overview/NewCustomers.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3ZlcnZpZXdcTmV3Q3VzdG9tZXJzLmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[D:/STUDY/HK7/.NET/ASP.NET/CinemaBookingWeb/Views/Overview/NewUsers.cshtml]
+[F:/.NET/ASP.NET/CinemaBookingWeb/Views/Overview/NewUsers.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3ZlcnZpZXdcTmV3VXNlcnMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/STUDY/HK7/.NET/ASP.NET/CinemaBookingWeb/Views/Overview/TotalRevenue.cshtml]
+[F:/.NET/ASP.NET/CinemaBookingWeb/Views/Overview/TotalRevenue.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3ZlcnZpZXdcVG90YWxSZXZlbnVlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/STUDY/HK7/.NET/ASP.NET/CinemaBookingWeb/Views/Overview/TotalTickets.cshtml]
+[F:/.NET/ASP.NET/CinemaBookingWeb/Views/Overview/TotalTickets.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3ZlcnZpZXdcVG90YWxUaWNrZXRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/STUDY/HK7/.NET/ASP.NET/CinemaBookingWeb/Views/Rap/Rap_Giave.cshtml]
+[F:/.NET/ASP.NET/CinemaBookingWeb/Views/Rap/Rap_Giave.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmFwXFJhcF9HaWF2ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/STUDY/HK7/.NET/ASP.NET/CinemaBookingWeb/Views/Shared/Error.cshtml]
+[F:/.NET/ASP.NET/CinemaBookingWeb/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/STUDY/HK7/.NET/ASP.NET/CinemaBookingWeb/Views/Shared/_LayoutHome.cshtml]
+[F:/.NET/ASP.NET/CinemaBookingWeb/Views/Shared/_LayoutHome.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXRIb21lLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/STUDY/HK7/.NET/ASP.NET/CinemaBookingWeb/Views/Shared/_ValidationScriptsPartial.cshtml]
+[F:/.NET/ASP.NET/CinemaBookingWeb/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/STUDY/HK7/.NET/ASP.NET/CinemaBookingWeb/Views/_ViewImports.cshtml]
+[F:/.NET/ASP.NET/CinemaBookingWeb/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/STUDY/HK7/.NET/ASP.NET/CinemaBookingWeb/Views/_ViewStart.cshtml]
+[F:/.NET/ASP.NET/CinemaBookingWeb/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/STUDY/HK7/.NET/ASP.NET/CinemaBookingWeb/Views/Shared/_LayoutAdmin.cshtml]
+[F:/.NET/ASP.NET/CinemaBookingWeb/Views/Shared/_LayoutAdmin.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXRBZG1pbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = b-rkcnjbd9oo

@@ -12,5 +12,6 @@ namespace CinemaBookingWeb.Models
         public string Size { get; set; }
         public string Type { get; set; }
         public string ImageUrl { get; set; }
+        public byte Status { get; set; }
     }
 }

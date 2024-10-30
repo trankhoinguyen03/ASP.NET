@@ -12,5 +12,6 @@ namespace CinemaBookingWeb.Models
         public DateTime StartTime { get; set; }
         public DateTime EndTime { get; set; }
         public string Hall { get; set; }
+        public byte Status { get; set; }
     }
 }
