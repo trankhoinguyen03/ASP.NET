@@ -5,3 +5,94 @@
     ViewData["Title"] = "Monthly Revenue";
     Layout = "_LayoutAdmin";
 }
+@model CinemaBookingWeb.Models.OverviewModel
+@using System.Text.Json
+
+@{
+    var startDate = ViewBag.StartDate as DateTime?;
+    var endDate = ViewBag.EndDate as DateTime?;
+}
+
+<div>
+    <h2>Chọn khoảng thời gian thống kê</h2>
+    <form method="get">
+        <label for="startDate">Ngày bắt đầu:</label>
+        <input type="date" id="startDate" name="startDate" value="@startDate?.ToString("yyyy-MM-dd")" />
+
+        <label for="endDate">Ngày kết thúc:</label>
+        <input type="date" id="endDate" name="endDate" value="@endDate?.ToString("yyyy-MM-dd")" />
+
+        <button type="submit">Lọc</button>
+    </form>
+</div>
+
+<div>
+    <h2>Tổng doanh thu theo ngày</h2>
+    @if (Model.TotalRevenueByDay != null && Model.TotalRevenueByDay.Any())
+    {
+        <canvas id="revenueByDayChart" width="400" height="200"></canvas>
+    }
+    else
+    {
+        <p>Không có dữ liệu doanh thu theo ngày.</p>
+    }
+
+    <h2>Tổng doanh thu theo tháng</h2>
+    @if (Model.TotalRevenueByMonth != null && Model.TotalRevenueByMonth.Any())
+    {
+        <canvas id="revenueByMonthChart" width="400" height="200"></canvas>
+    }
+    else
+    {
+        <p>Không có dữ liệu doanh thu theo tháng.</p>
+    }
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    // Dữ liệu doanh thu theo ngày
+    var revenueByDayLabels = @Html.Raw(JsonSerializer.Serialize(Model.TotalRevenueByDay?.Select(x => x.Date.ToString("yyyy-MM-dd")) ?? new List<string>()));
+    var revenueByDayData = @Html.Raw(JsonSerializer.Serialize(Model.TotalRevenueByDay.Select(x => x.Revenue)));
+    // Tạo biểu đồ doanh thu theo ngày
+    if (revenueByDayLabels.length > 0 && revenueByDayData.length > 0) {
+        var ctxDay = document.getElementById('revenueByDayChart').getContext('2d');
+        new Chart(ctxDay, {
+            type: 'bar',
+            data: {
+                labels: revenueByDayLabels,
+                datasets: [{
+                    label: 'Doanh thu (VNĐ)',
+                    data: revenueByDayData,
+                    backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                    borderColor: 'rgba(255, 99, 132, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: { scales: { y: { beginAtZero: true } } }
+        });
+    }
+
+    // Dữ liệu doanh thu theo tháng
+    var revenueByMonthLabels = @Html.Raw(JsonSerializer.Serialize(Model.TotalRevenueByMonth?.Select(x => x.Month.ToString("yyyy-MM")) ?? new List<string>()));
+    var revenueByMonthData = @Html.Raw(JsonSerializer.Serialize(Model.TotalRevenueByMonth.Select(x => x.Revenue)));
+
+    // Tạo biểu đồ doanh thu theo tháng
+    if (revenueByMonthLabels.length > 0 && revenueByMonthData.length > 0) {
+        var ctxMonth = document.getElementById('revenueByMonthChart').getContext('2d');
+        new Chart(ctxMonth, {
+            type: 'bar',
+            data: {
+                labels: revenueByMonthLabels,
+                datasets: [{
+                    label: 'Doanh thu (VNĐ)',
+                    data: revenueByMonthData,
+                    backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                    borderColor: 'rgba(54, 162, 235, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: { scales: { y: { beginAtZero: true } } }
+        });
+    }
+</script>
+
