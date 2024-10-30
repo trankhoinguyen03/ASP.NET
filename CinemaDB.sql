@@ -6,6 +6,7 @@ GO
 USE CinemaDB;
 GO
 
+
 -- Tạo bảng Movies (Thông tin phim)
 CREATE TABLE Movies (
     MovieId INT PRIMARY KEY IDENTITY(1,1),
@@ -17,7 +18,8 @@ CREATE TABLE Movies (
     Genre NVARCHAR(100),
     Language NVARCHAR(50),
 	TrailerUrl NVARCHAR(255),
-    ImageUrl NVARCHAR(255)
+    ImageUrl NVARCHAR(255),
+	Status TINYINT NOT NULL DEFAULT 1
 );
 
 -- Tạo bảng Cinemas (Thông tin rạp chiếu phim)
@@ -26,7 +28,8 @@ CREATE TABLE Cinemas (
     Name NVARCHAR(255) NOT NULL,
     Location NVARCHAR(255),
     Phone NVARCHAR(50),
-    City NVARCHAR(100)
+    City NVARCHAR(100),
+	Status TINYINT NOT NULL DEFAULT 1
 );
 
 -- Tạo bảng Showtimes (Thông tin suất chiếu)
@@ -39,7 +42,8 @@ CREATE TABLE Showtimes (
     EndTime DATETIME NOT NULL,
     Hall NVARCHAR(50),
     FOREIGN KEY (MovieId) REFERENCES Movies(MovieId),
-    FOREIGN KEY (CinemaId) REFERENCES Cinemas(CinemaId)
+    FOREIGN KEY (CinemaId) REFERENCES Cinemas(CinemaId),
+	Status TINYINT NOT NULL DEFAULT 1
 );
 
 -- Tạo bảng Seats (Thông tin ghế ngồi)
@@ -47,6 +51,7 @@ CREATE TABLE Seats (
     SeatId INT PRIMARY KEY IDENTITY(1,1),
     SeatNumber NVARCHAR(10) NOT NULL,
     SeatType NVARCHAR(50),
+	Status TINYINT NOT NULL DEFAULT 1
 );
 
 -- Tạo bảng Users (Thông tin người dùng)
@@ -57,7 +62,8 @@ CREATE TABLE Users (
     Email NVARCHAR(255),
     Phone NVARCHAR(50),
 	SignupDate DATETIME,
-    Role NVARCHAR(50) -- Vai trò người dùng (User/Admin)
+    Role NVARCHAR(50), -- Vai trò người dùng (User/Admin)
+	Status TINYINT NOT NULL DEFAULT 1
 );
 
 -- Tạo bảng Bookings (Thông tin đặt vé)
@@ -67,6 +73,7 @@ CREATE TABLE Bookings (
     ShowtimeId INT NOT NULL,
     BookingDate DATETIME NOT NULL DEFAULT GETDATE(),
     TotalPrice DECIMAL(10, 2) NOT NULL,
+	Status TINYINT NOT NULL DEFAULT 1,
     FOREIGN KEY (UserId) REFERENCES Users(UserId),
     FOREIGN KEY (ShowtimeId) REFERENCES Showtimes(ShowtimeId)
 );
@@ -77,6 +84,7 @@ CREATE TABLE BookingDetails (
     BookingId INT NOT NULL,
     SeatId INT NOT NULL,
     Price DECIMAL(10, 2) NOT NULL,
+	Status TINYINT NOT NULL DEFAULT 1,
     FOREIGN KEY (BookingId) REFERENCES Bookings(BookingId),
     FOREIGN KEY (SeatId) REFERENCES Seats(SeatId)
 );
@@ -89,7 +97,8 @@ CREATE TABLE Combos (
     Price DECIMAL(10, 2) NOT NULL,
     Size NVARCHAR(50), -- Kích cỡ combo (Lớn, Vừa, Nhỏ)
     Type NVARCHAR(50), -- Loại combo (Ví dụ: Popcorn & Drink, Snack & Drink)
-	ImageUrl NVARCHAR(255)
+	ImageUrl NVARCHAR(255),
+	Status TINYINT NOT NULL DEFAULT 1
 );
 
 -- Tạo bảng BookingCombos (Thông tin combo đã được đặt)
@@ -99,7 +108,8 @@ CREATE TABLE BookingCombos (
     ComboId INT NOT NULL,
     Quantity INT NOT NULL, -- Số lượng combo
     FOREIGN KEY (BookingId) REFERENCES Bookings(BookingId),
-    FOREIGN KEY (ComboId) REFERENCES Combos(ComboId)
+    FOREIGN KEY (ComboId) REFERENCES Combos(ComboId),
+	Status TINYINT NOT NULL DEFAULT 1
 );
 
 -- Thêm dữ liệu vào bảng Movies
