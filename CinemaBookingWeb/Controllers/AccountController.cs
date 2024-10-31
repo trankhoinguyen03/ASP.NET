@@ -26,6 +26,7 @@ namespace CinemaBookingWeb.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Register(Users user)
         {
+           
             if (_context.Users.Any(u => u.UserName == user.UserName))
             {
                 ModelState.AddModelError("UserName", "UserName đã tồn tại, vui lòng chọn tên khác.");
