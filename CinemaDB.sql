@@ -14,25 +14,25 @@ GO
 CREATE TABLE Movies (
     MovieId INT PRIMARY KEY IDENTITY(1,1),
     Title NVARCHAR(255) NOT NULL,
-    Description NVARCHAR(1000),
+    [Description] NVARCHAR(1000),
     Duration INT, -- thời lượng phim tính bằng phút
     Rating NVARCHAR(10),
     ReleaseDate DATE,
     Genre NVARCHAR(100),
-    Language NVARCHAR(50),
+    [Language] NVARCHAR(50),
 	TrailerUrl NVARCHAR(255),
     ImageUrl NVARCHAR(255),
-	Status TINYINT NOT NULL DEFAULT 1
+	[Status] TINYINT NOT NULL DEFAULT 1
 );
 
 -- Tạo bảng Cinemas (Thông tin rạp chiếu phim)
 CREATE TABLE Cinemas (
     CinemaId INT PRIMARY KEY IDENTITY(1,1),
-    Name NVARCHAR(255) NOT NULL,
-    Location NVARCHAR(255),
+    [Name] NVARCHAR(255) NOT NULL,
+    [Location] NVARCHAR(255),
     Phone NVARCHAR(50),
     City NVARCHAR(100),
-	Status TINYINT NOT NULL DEFAULT 1
+	[Status] TINYINT NOT NULL DEFAULT 1
 );
 
 -- Tạo bảng Showtimes (Thông tin suất chiếu)
@@ -44,9 +44,9 @@ CREATE TABLE Showtimes (
     StartTime DATETIME NOT NULL,
     EndTime DATETIME NOT NULL,
     Hall NVARCHAR(50),
+	[Status] TINYINT NOT NULL DEFAULT 1
     FOREIGN KEY (MovieId) REFERENCES Movies(MovieId),
     FOREIGN KEY (CinemaId) REFERENCES Cinemas(CinemaId),
-	Status TINYINT NOT NULL DEFAULT 1
 );
 
 -- Tạo bảng Seats (Thông tin ghế ngồi)
@@ -54,7 +54,7 @@ CREATE TABLE Seats (
     SeatId INT PRIMARY KEY IDENTITY(1,1),
     SeatNumber NVARCHAR(10) NOT NULL,
     SeatType NVARCHAR(50),
-	Status TINYINT NOT NULL DEFAULT 1
+	[Status] TINYINT NOT NULL DEFAULT 1
 );
 
 -- Tạo bảng Users (Thông tin người dùng)
@@ -62,11 +62,11 @@ CREATE TABLE Users (
     UserId INT PRIMARY KEY IDENTITY(1,1),
     UserName NVARCHAR(100) NOT NULL UNIQUE,
     [Password] NVARCHAR(255) NOT NULL, -- lưu trữ mật khẩu đã mã hóa
-    Email NVARCHAR(255),
-    Phone NVARCHAR(50),
+    Email NVARCHAR(255) NOT NULL,
+    Phone NVARCHAR(50) NOT NULL,
 	SignupDate DATETIME,
-    Role NVARCHAR(50), -- Vai trò người dùng (User/Admin)
-	Status TINYINT NOT NULL DEFAULT 1
+    [Role] NVARCHAR(50) NOT NULL DEFAULT 'User', -- Vai trò người dùng (User/Admin)
+	[Status] TINYINT NOT NULL DEFAULT 1
 );
 
 -- Tạo bảng Bookings (Thông tin đặt vé)
@@ -76,7 +76,7 @@ CREATE TABLE Bookings (
     ShowtimeId INT NOT NULL,
     BookingDate DATETIME NOT NULL DEFAULT GETDATE(),
     TotalPrice DECIMAL(10, 2) NOT NULL,
-	Status TINYINT NOT NULL DEFAULT 1,
+	[Status] TINYINT NOT NULL DEFAULT 1,
     FOREIGN KEY (UserId) REFERENCES Users(UserId),
     FOREIGN KEY (ShowtimeId) REFERENCES Showtimes(ShowtimeId)
 );
@@ -87,7 +87,7 @@ CREATE TABLE BookingDetails (
     BookingId INT NOT NULL,
     SeatId INT NOT NULL,
     Price DECIMAL(10, 2) NOT NULL,
-	Status TINYINT NOT NULL DEFAULT 1,
+	[Status] TINYINT NOT NULL DEFAULT 1,
     FOREIGN KEY (BookingId) REFERENCES Bookings(BookingId),
     FOREIGN KEY (SeatId) REFERENCES Seats(SeatId)
 );
@@ -95,13 +95,13 @@ CREATE TABLE BookingDetails (
 -- Tạo bảng Combos (Thông tin combo bắp nước)
 CREATE TABLE Combos (
     ComboId INT PRIMARY KEY IDENTITY(1,1),
-    Name NVARCHAR(255) NOT NULL,
-    Description NVARCHAR(500),
+    [Name] NVARCHAR(255) NOT NULL,
+    [Description] NVARCHAR(500),
     Price DECIMAL(10, 2) NOT NULL,
     Size NVARCHAR(50), -- Kích cỡ combo (Lớn, Vừa, Nhỏ)
-    Type NVARCHAR(50), -- Loại combo (Ví dụ: Popcorn & Drink, Snack & Drink)
+    [Type] NVARCHAR(50), -- Loại combo (Ví dụ: Popcorn & Drink, Snack & Drink)
 	ImageUrl NVARCHAR(255),
-	Status TINYINT NOT NULL DEFAULT 1
+	[Status] TINYINT NOT NULL DEFAULT 1
 );
 
 -- Tạo bảng BookingCombos (Thông tin combo đã được đặt)
@@ -110,13 +110,13 @@ CREATE TABLE BookingCombos (
     BookingId INT NOT NULL,
     ComboId INT NOT NULL,
     Quantity INT NOT NULL, -- Số lượng combo
+	[Status] TINYINT NOT NULL DEFAULT 1,
     FOREIGN KEY (BookingId) REFERENCES Bookings(BookingId),
     FOREIGN KEY (ComboId) REFERENCES Combos(ComboId),
-	Status TINYINT NOT NULL DEFAULT 1
 );
 
 -- Thêm dữ liệu vào bảng Movies
-INSERT INTO Movies (Title, Description, Duration, Rating, ReleaseDate, Genre, Language, TrailerUrl, ImageUrl)
+INSERT INTO Movies (Title, [Description], Duration, Rating, ReleaseDate, Genre, [Language], TrailerUrl, ImageUrl)
 VALUES 
 ('Avengers: Endgame', N'Siêu anh hùng chiến đấu chống lại Thanos.', 180, 'PG-13', '2019-04-26', 'Action', 'English', 'url', 'avengers.jpg'),
 ('Spider-Man: No Way Home', N'Spider-Man đối mặt với những thử thách mới.', 148, 'PG-13', '2021-12-17', 'Action', 'English', 'url', 'spiderman.jpg'),
@@ -130,7 +130,7 @@ VALUES
 ('Black Widow', N'Câu chuyện về Natasha Romanoff.', 134, 'PG-13', '2021-07-09', 'Action', 'English', 'url', 'blackwidow.jpg');
 
 -- Thêm dữ liệu vào bảng Cinemas
-INSERT INTO Cinemas (Name, Location, Phone, City)
+INSERT INTO Cinemas ([Name], [Location], Phone, City)
 VALUES 
 (N'Galaxy Nguyễn Du', N'116 Nguyễn Du, Quận 1', '0123456789', N'Thành phố Hồ Chí Minh'),
 (N'Galaxy Quang Trung', N'304A Quang Trung, Gò Vấp', '0123456781', N'Thành phố Hồ Chí Minh'),
@@ -189,7 +189,7 @@ BEGIN
 END;
 
 -- Thêm dữ liệu vào bảng Users
-INSERT INTO Users (UserName, [Password], Email, Phone, SignupDate, Role)
+INSERT INTO Users (UserName, [Password], Email, Phone, SignupDate, [Role])
 VALUES 
 ('user1', 'password1', 'user1@example.com', '0123456789', '2024-10-01 21:00', 'User'),
 ('user2', 'password2', 'user2@example.com', '0123456781', '2024-10-01 21:00', 'User'),
@@ -233,7 +233,7 @@ VALUES
 (5, 10, 90000);
 
 -- Thêm dữ liệu vào bảng Combos
-INSERT INTO Combos (Name, Description, Price, Size, Type, ImageUrl)
+INSERT INTO Combos ([Name], [Description], Price, Size, [Type], ImageUrl)
 VALUES 
 (N'Combo Lớn', N'1 bắp lớn, 2 nước ngọt lớn.', 120000, N'Lớn', 'Popcorn & Drink', 'combo.jpg'),
 (N'Combo Vừa', N'1 bắp vừa, 1 nước ngọt vừa.', 90000, N'Vừa', 'Popcorn & Drink', 'combo.jpg'),

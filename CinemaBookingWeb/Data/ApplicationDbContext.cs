@@ -9,7 +9,6 @@ namespace CinemaBookingWeb.Data
         { 
         }
         public DbSet<Users> Users { get; set; }
-
         public DbSet<Movies> Movies { get; set; }
         public DbSet<Cinemas> Cinemas { get; set; }
         public DbSet<Showtimes> Showtimes { get; set; }

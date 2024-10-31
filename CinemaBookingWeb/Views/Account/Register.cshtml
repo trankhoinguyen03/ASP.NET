@@ -20,7 +20,8 @@
         </span>
 
         <form asp-action="Register" method="post">
-
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true)
             <div class="login__field">
                 <i class="login__icon fas fa-user"></i>
                 <input asp-for="UserName" type="text" id="userName" name="userName" required class="login__input" placeholder="Tên đăng nhập"></br>
@@ -42,8 +43,8 @@
                 <span class="edge"></span>
                 <span class="front"> ĐĂNG KÝ </span>
             </button>
-
         </form>
+
         </br>
         <p>Bạn đã có tài khoản?<a asp-action="Login" asp-controller="Account" style="color:var(--primary-color) !important"> ĐĂNG NHẬP </a></p>
         

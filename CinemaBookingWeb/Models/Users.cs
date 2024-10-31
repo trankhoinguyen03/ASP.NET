@@ -20,10 +20,10 @@ namespace CinemaBookingWeb.Models
 
         public string Phone { get; set; }
 
-        public DateTime SignupDate { get; set; } = DateTime.Now;
+        public DateTime SignupDate { get; set; }
 
         public string Role { get; set; } = "User";
 
-        public byte Status { get; set; } = 1; // 1: Active, 0: Inactive
+        public byte Status { get; set; }
     }
 }

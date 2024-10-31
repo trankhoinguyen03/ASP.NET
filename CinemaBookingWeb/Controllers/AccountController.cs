@@ -26,7 +26,6 @@ namespace CinemaBookingWeb.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Register(Users user)
         {
-           
             if (_context.Users.Any(u => u.UserName == user.UserName))
             {
                 ModelState.AddModelError("UserName", "UserName đã tồn tại, vui lòng chọn tên khác.");
@@ -35,12 +34,24 @@ namespace CinemaBookingWeb.Controllers
 
             if (ModelState.IsValid)
             {
+                user.SignupDate = DateTime.Now;
+                user.Status = 1;
                 _context.Users.Add(user);
                 _context.SaveChanges();
                 return RedirectToAction("Login", "Account");
             }
+            else
+            {
+                // Log ModelState errors for debugging
+                var errors = ModelState.Values.SelectMany(v => v.Errors);
+                foreach (var error in errors)
+                {
+                    Console.WriteLine(error.ErrorMessage);
+                }
+            }
             return View(user);
         }
+
 
         [HttpGet]
         public IActionResult Login()
