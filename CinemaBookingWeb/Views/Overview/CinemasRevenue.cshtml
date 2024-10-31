@@ -5,3 +5,85 @@
     ViewData["Title"] = "Cinemas Revenue";
     Layout = "_LayoutAdmin";
 }
+@model CinemaBookingWeb.Models.OverviewModel
+@using System.Text.Json
+@{
+    var startDate = ViewBag.StartDate as DateTime?;
+    var endDate = ViewBag.EndDate as DateTime?;
+}
+
+<div>
+    <h2>Chọn khoảng thời gian thống kê</h2>
+    <form method="get">
+        <label for="startDate">Ngày bắt đầu:</label>
+        <input type="date" id="startDate" name="startDate" value="@startDate?.ToString("yyyy-MM-dd")" />
+
+        <label for="endDate">Ngày kết thúc:</label>
+        <input type="date" id="endDate" name="endDate" value="@endDate?.ToString("yyyy-MM-dd")" />
+
+        <button type="submit">Lọc</button>
+    </form>
+</div>
+
+<div>
+    <h2>Doanh thu theo ngày của từng rạp</h2>
+    <canvas id="cinemasRevenueByDayChart" width="400" height="200"></canvas>
+
+    <h2>Doanh thu theo tháng của từng rạp</h2>
+    <canvas id="cinemasRevenueByMonthChart" width="400" height="200"></canvas>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    var cinemaDayLabels = @Html.Raw(JsonSerializer.Serialize(Model.CinemasRevenueByDay.Select(x => x.Name)));
+    var cinemaDayData = @Html.Raw(JsonSerializer.Serialize(Model.CinemasRevenueByDay.Select(x => x.Revenue)));
+
+    var ctxCinemaDay = document.getElementById('cinemasRevenueByDayChart').getContext('2d');
+    var cinemasRevenueByDayChart = new Chart(ctxCinemaDay, {
+        type: 'bar',
+        data: {
+            labels: cinemaDayLabels,
+            datasets: [{
+                label: 'Doanh thu',
+                data: cinemaDayData,
+                backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                borderColor: 'rgba(255, 99, 132, 1)',
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+
+    var cinemaMonthLabels = @Html.Raw(JsonSerializer.Serialize(Model.CinemasRevenueByMonth.Select(x => x.Name)));
+    var cinemaMonthData = @Html.Raw(JsonSerializer.Serialize(Model.CinemasRevenueByMonth.Select(x => x.Revenue)));
+
+    var ctxCinemaMonth = document.getElementById('cinemasRevenueByMonthChart').getContext('2d');
+    var cinemasRevenueByMonthChart = new Chart(ctxCinemaMonth, {
+        type: 'bar',
+        data: {
+            labels: cinemaMonthLabels,
+            datasets: [{
+                label: 'Doanh thu',
+                data: cinemaMonthData,
+                backgroundColor: 'rgba(153, 102, 255, 0.2)',
+                borderColor: 'rgba(153, 102, 255, 1)',
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+</script>
+
+
