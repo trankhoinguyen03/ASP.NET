@@ -21,14 +21,13 @@ _Thành viên: 6_
 
 
 ##### 1. Xem tổng quan các thông tin của trang web
-_Admin có thể xem tổng quan các thông tin quan trọng như doanh thu theo ngày, khách hàng mới, tổng số vé bán ra, doanh thu theo tháng, doanh thu theo phim, và doanh thu theo rạp chiếu phim. Giao diện tổng quan cung cấp một cái nhìn toàn diện và chi tiết về hoạt động kinh doanh của trang web._
+_Admin có thể xem tổng quan các thông tin quan trọng như khách hàng mới, tổng số vé bán ra, doanh thu theo phim, doanh thu theo rạp chiếu phim và tổng doanh thu. Giao diện tổng quan cung cấp một cái nhìn toàn diện và chi tiết về hoạt động kinh doanh của trang web._
 <br>
-- Doanh thu theo ngày: Hiển thị doanh thu hàng ngày, giúp admin nắm bắt được doanh thu từng ngày.
-- Khách hàng mới: Thống kê số lượng khách hàng mới đăng ký hàng ngày.
-- Tổng số vé bán ra: Tổng hợp số vé đã bán trong ngày.
-- Doanh thu theo tháng: Hiển thị doanh thu theo từng tháng, giúp admin đánh giá hiệu suất kinh doanh theo thời gian.
-- Doanh thu theo phim: Thống kê doanh thu của từng bộ phim, giúp xác định các phim bán chạy nhất.
-- Doanh thu theo rạp chiếu phim: Thống kê doanh thu của từng rạp, giúp đánh giá hiệu suất của từng địa điểm chiếu phim.
+- Khách hàng mới: Thống kê số lượng khách hàng mới đăng ký theo ngày và theo tháng.
+- Tổng số vé bán ra: Tổng hợp số vé đã bán theo ngày và theo tháng.
+- Doanh thu theo phim: Thống kê doanh thu của từng bộ phim, giúp xác định các phim bán chạy nhất theo ngày và theo tháng.
+- Doanh thu theo rạp chiếu phim: Thống kê doanh thu của từng rạp, giúp đánh giá hiệu suất của từng địa điểm chiếu phim theo ngày và theo tháng.
+- Tổng doanh thu: Hiển thị doanh thu theo ngày và theo tháng, giúp admin đánh giá hiệu suất kinh doanh theo thời gian.
 
 ##### 2. Quản lý phim
 _Admin có thể thực hiện các thao tác như thêm phim mới, sửa thông tin phim, xóa phim và xem danh sách tất cả các phim hiện có trên hệ thống._
