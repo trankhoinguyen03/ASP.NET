@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trang Chủ - Đặt Lịch Xem Phim</title>
     <link rel="stylesheet" href="~/css/style.css">
-    <link rel="stylesheet" href="~/css/style_login.css">
     <link rel="stylesheet" href="~/css/site.css">
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link rel="shortcut icon" type="img/png" href="~/img/shortcut-logo.png">
@@ -28,11 +27,28 @@
                 </li>
                 <li><a asp-area="" asp-controller="Rap" asp-action="Rap_Giave">RẠP/GIÁ VÉ</a></li>
                 <li><a asp-area="" asp-controller="Movies" asp-action="MoviesDangChieu">PHIM</a></li>
-                <li><a asp-area="" asp-controller="Login" asp-action="login">ĐĂNG NHẬP/ĐĂNG KÝ</a></li>
+
+                <!-- Kiểm tra trạng thái đăng nhập -->
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <li>
+                        <p style="font-size: 18px !important;">XIN CHÀO, @User.Identity.Name!</p>
+                    </li>
+                    <li>
+                        <form asp-action="Logout" asp-controller="Account" method="post" style="display:inline;">
+                            <button class="nav-link btn btn-link" style="font-size: 18px !important;" type="submit"><a>ĐĂNG XUẤT</a></button>
+                        </form>
+                    </li>
+                }
+                else
+                {
+                    <li><a asp-action="Login" asp-controller="Account">ĐĂNG NHẬP</a></li>
+                    <li><a asp-action="Register" asp-controller="Account">ĐĂNG KÝ</a></li>
+                }
             </ul>
         </nav>
     </header>
-    
+
 
     <!-- Section: Trailer -->
     <section class="Trailer">
@@ -42,19 +58,16 @@
         </div>
     </section>
 
-    <!-- Section: Phim Đang Chiếu -->
-    <section class="movies">
-        <div class="container">
-            
-            @RenderBody() <!-- Vị trí nội dung của từng view -->
-        </div>
-    </section>
+    <!-- Section: Phim Đang Chiếu  -->
+        
+       <section class="movies">
+          <div class="container-movie">
 
+          </div>
+      </section>
+   
 
-
-
-
-    
+    @RenderSection("Scripts", required: false)
 
     <!-- Footer -->
     <footer class="footer">

@@ -1,0 +1,51 @@
+﻿@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_LayoutHome.cshtml";
+}
+
+
+
+
+
+
+
+<!-- Login  -->
+<section class="container-lg">
+    <div class="login-form-left">
+        <img src="~/img/loginimg.png" alt="form">
+    </div>
+    <div class="login-form-right">
+
+        <span class="login100-logo">
+            <img class="login100-logo-img" src="~/img/logo.png" alt="form">
+        </span>
+        <span class="login100-form-title p-b-26">
+            XIN CHÀO BẠN !
+        </span>
+        @if (ViewBag.Error != null)
+        {
+            <p style="color:red">@ViewBag.Error</p>
+        }
+
+        <form asp-action="Login" method="post">
+           
+            <div class="login__field">
+                <i class="login__icon fas fa-user"></i>
+                <input type="text" id="userName" name="userName" required class="login__input" placeholder="Tên đăng nhập">
+            </div>
+			<div class="login__field">
+				<i class="login__icon fas fa-lock"></i>
+                <input type="password" id="password" name="password" required class="login__input" placeholder="Mật khẩu">
+			</div>
+            <button type ="submit" class="pushable">
+                <span class="shadow-btn"></span>
+                <span class="edge"></span>
+                <span class="front"> ĐĂNG NHẬP </span>
+            </button>
+        </form>
+        </br>
+        <p>Bạn chưa có tài khoản?<a asp-action="Register" asp-controller="Account" style="color:var(--primary-color) !important"> ĐĂNG KÝ</a></p>
+    </div>
+</section>
+
+

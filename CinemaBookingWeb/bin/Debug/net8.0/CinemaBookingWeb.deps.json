@@ -8,6 +8,8 @@
     ".NETCoreApp,Version=v8.0": {
       "CinemaBookingWeb/1.0.0": {
         "dependencies": {
+          "Font.Awesome": "5.15.4",
+          "FontAwesome-ASP.NET": "1.0.5578.25903",
           "Microsoft.EntityFrameworkCore": "8.0.10",
           "Microsoft.EntityFrameworkCore.SqlServer": "8.0.10",
           "Microsoft.EntityFrameworkCore.Tools": "8.0.10",
@@ -48,6 +50,15 @@
           "lib/netstandard2.0/Azure.Identity.dll": {
             "assemblyVersion": "1.10.3.0",
             "fileVersion": "1.1000.323.51804"
+          }
+        }
+      },
+      "Font.Awesome/5.15.4": {},
+      "FontAwesome-ASP.NET/1.0.5578.25903": {
+        "runtime": {
+          "lib/net451/FontAwesome.dll": {
+            "assemblyVersion": "1.0.5578.25903",
+            "fileVersion": "1.0.5578.25903"
           }
         }
       },
@@ -1922,6 +1933,20 @@
       "sha512": "sha512-l1Xm2MWOF2Mzcwuarlw8kWQXLZk3UeB55aQXVyjj23aBfDwOZ3gu5GP2kJ6KlmZeZv2TCzw7x4L3V36iNr3gww==",
       "path": "azure.identity/1.10.3",
       "hashPath": "azure.identity.1.10.3.nupkg.sha512"
+    },
+    "Font.Awesome/5.15.4": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-Okg91rA7RWbd+eKyBNNnvlvzFee7A4yIi0WdTrJMVPos1ntONAVn/m96Ex9qvVXKKiroBZ1vtCXtpFMnHNof1g==",
+      "path": "font.awesome/5.15.4",
+      "hashPath": "font.awesome.5.15.4.nupkg.sha512"
+    },
+    "FontAwesome-ASP.NET/1.0.5578.25903": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-q65jCaVvAQ2MeXHmCy2bqsDYqghQkow7AJdHBsnZNVRR3KI+lHnj66cSd6wxVabZ6tkk6yPvhWDAkQhSetKvJg==",
+      "path": "fontawesome-asp.net/1.0.5578.25903",
+      "hashPath": "fontawesome-asp.net.1.0.5578.25903.nupkg.sha512"
     },
     "Humanizer/2.14.1": {
       "type": "package",

@@ -5,7 +5,11 @@ namespace CinemaBookingWeb.Data
 {
     public class ApplicationDbContext : DbContext
     {
-        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options) { }
+        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options) 
+        { 
+        }
+        public DbSet<Users> Users { get; set; }
+
         public DbSet<Movies> Movies { get; set; }
         public DbSet<Cinemas> Cinemas { get; set; }
         public DbSet<Showtimes> Showtimes { get; set; }
@@ -14,6 +18,5 @@ namespace CinemaBookingWeb.Data
         public DbSet<BookingDetails> BookingDetails { get; set; }
         public DbSet<Combos> Combos { get; set; }
         public DbSet<BookingCombos> BookingCombos { get; set; }
-        public DbSet<Users> Users { get; set; }
     }
 }

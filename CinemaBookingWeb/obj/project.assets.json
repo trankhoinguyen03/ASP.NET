@@ -46,6 +46,18 @@
           }
         }
       },
+      "Font.Awesome/5.15.4": {
+        "type": "package"
+      },
+      "FontAwesome-ASP.NET/1.0.5578.25903": {
+        "type": "package",
+        "compile": {
+          "lib/net451/FontAwesome.dll": {}
+        },
+        "runtime": {
+          "lib/net451/FontAwesome.dll": {}
+        }
+      },
       "Humanizer/2.14.1": {
         "type": "package",
         "dependencies": {
@@ -2785,6 +2797,72 @@
         "azureicon.png",
         "lib/netstandard2.0/Azure.Identity.dll",
         "lib/netstandard2.0/Azure.Identity.xml"
+      ]
+    },
+    "Font.Awesome/5.15.4": {
+      "sha512": "Okg91rA7RWbd+eKyBNNnvlvzFee7A4yIi0WdTrJMVPos1ntONAVn/m96Ex9qvVXKKiroBZ1vtCXtpFMnHNof1g==",
+      "type": "package",
+      "path": "font.awesome/5.15.4",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Content/Content/all.css",
+        "Content/Content/all.min.css",
+        "Content/Content/brands.css",
+        "Content/Content/brands.min.css",
+        "Content/Content/fontawesome.css",
+        "Content/Content/fontawesome.min.css",
+        "Content/Content/regular.css",
+        "Content/Content/regular.min.css",
+        "Content/Content/solid.css",
+        "Content/Content/solid.min.css",
+        "Content/Content/svg-with-js.css",
+        "Content/Content/svg-with-js.min.css",
+        "Content/Content/v4-shims.css",
+        "Content/Content/v4-shims.min.css",
+        "Content/Scripts/fontawesome/all.js",
+        "Content/Scripts/fontawesome/all.min.js",
+        "Content/Scripts/fontawesome/brands.js",
+        "Content/Scripts/fontawesome/brands.min.js",
+        "Content/Scripts/fontawesome/conflict-detection.js",
+        "Content/Scripts/fontawesome/conflict-detection.min.js",
+        "Content/Scripts/fontawesome/fontawesome.js",
+        "Content/Scripts/fontawesome/fontawesome.min.js",
+        "Content/Scripts/fontawesome/regular.js",
+        "Content/Scripts/fontawesome/regular.min.js",
+        "Content/Scripts/fontawesome/solid.js",
+        "Content/Scripts/fontawesome/solid.min.js",
+        "Content/Scripts/fontawesome/v4-shims.js",
+        "Content/Scripts/fontawesome/v4-shims.min.js",
+        "Content/webfonts/fa-brands-400.eot",
+        "Content/webfonts/fa-brands-400.svg",
+        "Content/webfonts/fa-brands-400.ttf",
+        "Content/webfonts/fa-brands-400.woff",
+        "Content/webfonts/fa-brands-400.woff2",
+        "Content/webfonts/fa-regular-400.eot",
+        "Content/webfonts/fa-regular-400.svg",
+        "Content/webfonts/fa-regular-400.ttf",
+        "Content/webfonts/fa-regular-400.woff",
+        "Content/webfonts/fa-regular-400.woff2",
+        "Content/webfonts/fa-solid-900.eot",
+        "Content/webfonts/fa-solid-900.svg",
+        "Content/webfonts/fa-solid-900.ttf",
+        "Content/webfonts/fa-solid-900.woff",
+        "Content/webfonts/fa-solid-900.woff2",
+        "font.awesome.5.15.4.nupkg.sha512",
+        "font.awesome.nuspec"
+      ]
+    },
+    "FontAwesome-ASP.NET/1.0.5578.25903": {
+      "sha512": "q65jCaVvAQ2MeXHmCy2bqsDYqghQkow7AJdHBsnZNVRR3KI+lHnj66cSd6wxVabZ6tkk6yPvhWDAkQhSetKvJg==",
+      "type": "package",
+      "path": "fontawesome-asp.net/1.0.5578.25903",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "fontawesome-asp.net.1.0.5578.25903.nupkg.sha512",
+        "fontawesome-asp.net.nuspec",
+        "lib/net451/FontAwesome.dll"
       ]
     },
     "Humanizer/2.14.1": {
@@ -7708,6 +7786,8 @@
   },
   "projectFileDependencyGroups": {
     "net8.0": [
+      "Font.Awesome >= 5.15.4",
+      "FontAwesome-ASP.NET >= 1.0.5578.25903",
       "Microsoft.EntityFrameworkCore >= 8.0.10",
       "Microsoft.EntityFrameworkCore.SqlServer >= 8.0.10",
       "Microsoft.EntityFrameworkCore.Tools >= 8.0.10",
@@ -7715,19 +7795,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Acer\\.nuget\\packages\\": {}
+    "C:\\Users\\777th\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "F:\\.NET\\ASP.NET\\CinemaBookingWeb\\CinemaBookingWeb.csproj",
+      "projectUniqueName": "D:\\STUDY\\HK7\\.NET\\ASP.NET\\CinemaBookingWeb\\CinemaBookingWeb.csproj",
       "projectName": "CinemaBookingWeb",
-      "projectPath": "F:\\.NET\\ASP.NET\\CinemaBookingWeb\\CinemaBookingWeb.csproj",
-      "packagesPath": "C:\\Users\\Acer\\.nuget\\packages\\",
-      "outputPath": "F:\\.NET\\ASP.NET\\CinemaBookingWeb\\obj\\",
+      "projectPath": "D:\\STUDY\\HK7\\.NET\\ASP.NET\\CinemaBookingWeb\\CinemaBookingWeb.csproj",
+      "packagesPath": "C:\\Users\\777th\\.nuget\\packages\\",
+      "outputPath": "D:\\STUDY\\HK7\\.NET\\ASP.NET\\CinemaBookingWeb\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "C:\\Users\\Acer\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\777th\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -7759,6 +7844,14 @@
       "net8.0": {
         "targetAlias": "net8.0",
         "dependencies": {
+          "Font.Awesome": {
+            "target": "Package",
+            "version": "[5.15.4, )"
+          },
+          "FontAwesome-ASP.NET": {
+            "target": "Package",
+            "version": "[1.0.5578.25903, )"
+          },
           "Microsoft.EntityFrameworkCore": {
             "target": "Package",
             "version": "[8.0.10, )"
@@ -7800,5 +7893,17 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.403/PortableRuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'FontAwesome-ASP.NET 1.0.5578.25903' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net8.0'. This package may not be fully compatible with your project.",
+      "libraryId": "FontAwesome-ASP.NET",
+      "targetGraphs": [
+        "net8.0"
+      ]
+    }
+  ]
 }

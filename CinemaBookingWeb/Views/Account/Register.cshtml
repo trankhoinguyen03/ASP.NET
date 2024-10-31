@@ -1,0 +1,51 @@
+﻿@{
+    ViewBag.Title = "dang ky";
+    Layout = "~/Views/Shared/_LayoutHome.cshtml";
+}
+@model CinemaBookingWeb.Models.Users
+
+
+<!-- register   -->
+<section class="container-lg">
+    <div class="login-form-left">
+        <img src="~/img/loginimg.png" alt="form">
+    </div>
+    <div class="login-form-right">
+
+        <span class="login100-logo">
+            <img class="login100-logo-img" src="~/img/logo.png" alt="form">
+        </span>
+        <span class="login100-form-title p-b-26">
+            CHÀO MỪNG BẠN !
+        </span>
+
+        <form asp-action="Register" method="post">
+
+            <div class="login__field">
+                <i class="login__icon fas fa-user"></i>
+                <input asp-for="UserName" type="text" id="userName" name="userName" required class="login__input" placeholder="Tên đăng nhập"></br>
+            </div>
+            <div class="login__field">
+                <i class="login__icon fas fa-lock"></i>
+                <input asp-for="Password" type="password" id="password" name="password" required class="login__input" placeholder="Mật khẩu">
+            </div>
+            <div class="login__field">
+                <i class="login__icon fas fa-lock"></i>
+                <input asp-for="Email" type="email" id="email" name="email" required class="login__input" placeholder="Email">
+            </div>
+            <div class="login__field">
+                <i class="login__icon fas fa-lock"></i>
+                <input asp-for="Phone" class="login__input" required placeholder="Số điện thoại">
+            </div>
+            <button type="submit" class="pushable">
+                <span class="shadow-btn"></span>
+                <span class="edge"></span>
+                <span class="front"> ĐĂNG KÝ </span>
+            </button>
+
+        </form>
+        </br>
+        <p>Bạn đã có tài khoản?<a asp-action="Login" asp-controller="Account" style="color:var(--primary-color) !important"> ĐĂNG NHẬP </a></p>
+        
+    </div>
+</section>
