@@ -2,11 +2,13 @@
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
 @{
-    ViewData["Title"] = "Monthly Revenue";
+    ViewData["Title"] = "Total Revenue";
     Layout = "_LayoutAdmin";
 }
 @model CinemaBookingWeb.Models.OverviewModel
 @using System.Text.Json
+
+<link rel="stylesheet" href="~/css/css_overview.css" />
 
 @{
     var startDate = ViewBag.StartDate as DateTime?;
@@ -15,17 +17,20 @@
 
 <div>
     <h2>Chọn khoảng thời gian thống kê</h2>
-    <form method="get">
+    <form method="get" onsubmit="return validateDates()">
         <label for="startDate">Ngày bắt đầu:</label>
-        <input type="date" id="startDate" name="startDate" value="@startDate?.ToString("yyyy-MM-dd")" />
-
+        <input type="date" id="startDate" name="startDate" value="@startDate?.ToString("yyyy-MM-dd")" onchange="validateDates()" />
+        <br />
         <label for="endDate">Ngày kết thúc:</label>
-        <input type="date" id="endDate" name="endDate" value="@endDate?.ToString("yyyy-MM-dd")" />
+        <input type="date" id="endDate" name="endDate" value="@endDate?.ToString("yyyy-MM-dd")" onchange="validateDates()" />
 
         <button type="submit">Lọc</button>
+        <br />
+        <span id="dateError" style="color: red; display: none;">Ngày bắt đầu phải nhỏ hơn ngày kết thúc.</span>
     </form>
 </div>
-
+<br />
+<hr />
 <div>
     <h2>Tổng doanh thu theo ngày</h2>
     @if (Model.TotalRevenueByDay != null && Model.TotalRevenueByDay.Any())
@@ -34,7 +39,7 @@
     }
     else
     {
-        <p>Không có dữ liệu doanh thu theo ngày.</p>
+        <p>Không có dữ liệu.</p>
     }
 
     <h2>Tổng doanh thu theo tháng</h2>
@@ -44,12 +49,27 @@
     }
     else
     {
-        <p>Không có dữ liệu doanh thu theo tháng.</p>
+        <p>Không có dữ liệu.</p>
     }
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script>
+    // Kiểm tra ngày
+    function validateDates() {
+        const startDate = new Date(document.getElementById('startDate').value);
+        const endDate = new Date(document.getElementById('endDate').value);
+        const errorElement = document.getElementById('dateError');
+
+        if (startDate && endDate && startDate >= endDate) {
+            errorElement.style.display = 'inline';
+            return false;
+        } else {
+            errorElement.style.display = 'none';
+            return true;
+        }
+    }
+
     // Dữ liệu doanh thu theo ngày
     var revenueByDayLabels = @Html.Raw(JsonSerializer.Serialize(Model.TotalRevenueByDay?.Select(x => x.Date.ToString("yyyy-MM-dd")) ?? new List<string>()));
     var revenueByDayData = @Html.Raw(JsonSerializer.Serialize(Model.TotalRevenueByDay.Select(x => x.Revenue)));
@@ -63,12 +83,28 @@
                 datasets: [{
                     label: 'Doanh thu (VNĐ)',
                     data: revenueByDayData,
-                    backgroundColor: 'rgba(255, 99, 132, 0.2)',
-                    borderColor: 'rgba(255, 99, 132, 1)',
-                    borderWidth: 1
+                    backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                    borderColor: 'rgba(75, 192, 192, 1)',
+                    borderWidth: 1,
+                    hoverBackgroundColor: 'rgba(75, 192, 192, 0.4)',
+                    hoverBorderColor: 'rgba(75, 192, 192, 1)',
                 }]
             },
-            options: { scales: { y: { beginAtZero: true } } }
+            options: {
+                responsive: true,
+                animation: {
+                    duration: 1000,
+                    easing: 'easeOutQuart'
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        ticks: {
+                            stepSize: 1
+                        }
+                    }
+                }
+            }
         });
     }
 
@@ -86,12 +122,28 @@
                 datasets: [{
                     label: 'Doanh thu (VNĐ)',
                     data: revenueByMonthData,
-                    backgroundColor: 'rgba(54, 162, 235, 0.2)',
-                    borderColor: 'rgba(54, 162, 235, 1)',
-                    borderWidth: 1
+                    backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                    borderColor: 'rgba(75, 192, 192, 1)',
+                    borderWidth: 1,
+                    hoverBackgroundColor: 'rgba(75, 192, 192, 0.4)',
+                    hoverBorderColor: 'rgba(75, 192, 192, 1)',
                 }]
             },
-            options: { scales: { y: { beginAtZero: true } } }
+            options: {
+                responsive: true,
+                animation: {
+                    duration: 1000,
+                    easing: 'easeOutQuart'
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        ticks: {
+                            stepSize: 1
+                        }
+                    }
+                }
+            }
         });
     }
 </script>

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "UDChW7LQeRwBcfODRjddTknWR/ETaeSYbhkyQUCEVzE=",
+  "Hash": "3/MZYm4+rZZJ2VeLBSZaCkXRo6pPg4XsnXw2Squs2Eo=",
   "Source": "CinemaBookingWeb",
   "BasePath": "_content/CinemaBookingWeb",
   "Mode": "Default",
@@ -53,6 +53,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "F:\\.NET\\ASP.NET\\CinemaBookingWeb\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\CinemaBookingWeb.bundle.scp.css"
+    },
+    {
+      "Identity": "F:\\.NET\\ASP.NET\\CinemaBookingWeb\\wwwroot\\css\\css_overview.css",
+      "SourceId": "CinemaBookingWeb",
+      "SourceType": "Discovered",
+      "ContentRoot": "F:\\.NET\\ASP.NET\\CinemaBookingWeb\\wwwroot\\",
+      "BasePath": "_content/CinemaBookingWeb",
+      "RelativePath": "css/css_overview.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\css_overview.css"
     },
     {
       "Identity": "F:\\.NET\\ASP.NET\\CinemaBookingWeb\\wwwroot\\css\\site.css",

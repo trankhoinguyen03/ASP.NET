@@ -5,6 +5,10 @@
       "PackagePath": "staticwebassets\\CinemaBookingWeb.bundle.scp.css"
     },
     {
+      "Id": "F:\\.NET\\ASP.NET\\CinemaBookingWeb\\wwwroot\\css\\css_overview.css",
+      "PackagePath": "staticwebassets\\css\\css_overview.css"
+    },
+    {
       "Id": "F:\\.NET\\ASP.NET\\CinemaBookingWeb\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },

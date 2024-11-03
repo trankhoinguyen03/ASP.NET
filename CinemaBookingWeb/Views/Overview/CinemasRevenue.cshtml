@@ -7,6 +7,9 @@
 }
 @model CinemaBookingWeb.Models.OverviewModel
 @using System.Text.Json
+
+<link rel="stylesheet" href="~/css/css_overview.css" />
+
 @{
     var startDate = ViewBag.StartDate as DateTime?;
     var endDate = ViewBag.EndDate as DateTime?;
@@ -14,76 +17,80 @@
 
 <div>
     <h2>Chọn khoảng thời gian thống kê</h2>
-    <form method="get">
+    <form method="get" onsubmit="return validateDates()">
         <label for="startDate">Ngày bắt đầu:</label>
-        <input type="date" id="startDate" name="startDate" value="@startDate?.ToString("yyyy-MM-dd")" />
-
+        <input type="date" id="startDate" name="startDate" value="@startDate?.ToString("yyyy-MM-dd")" onchange="validateDates()" />
+        <br />
         <label for="endDate">Ngày kết thúc:</label>
-        <input type="date" id="endDate" name="endDate" value="@endDate?.ToString("yyyy-MM-dd")" />
+        <input type="date" id="endDate" name="endDate" value="@endDate?.ToString("yyyy-MM-dd")" onchange="validateDates()" />
 
         <button type="submit">Lọc</button>
+        <br />
+        <span id="dateError" style="color: red; display: none;">Ngày bắt đầu phải nhỏ hơn ngày kết thúc.</span>
     </form>
 </div>
-
+<br />
+<hr />
 <div>
-    <h2>Doanh thu theo ngày của từng rạp</h2>
-    <canvas id="cinemasRevenueByDayChart" width="400" height="200"></canvas>
-
-    <h2>Doanh thu theo tháng của từng rạp</h2>
-    <canvas id="cinemasRevenueByMonthChart" width="400" height="200"></canvas>
+    <h2>Doanh thu của từng rạp</h2>
+    @if (Model.CinemasRevenue != null && Model.CinemasRevenue.Any())
+    {
+        <canvas id="cinemasRevenueChart" width="400" height="200"></canvas>
+    }
+    else
+    {
+        <p>Không có dữ liệu.</p>
+    }
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script>
-    var cinemaDayLabels = @Html.Raw(JsonSerializer.Serialize(Model.CinemasRevenueByDay.Select(x => x.Name)));
-    var cinemaDayData = @Html.Raw(JsonSerializer.Serialize(Model.CinemasRevenueByDay.Select(x => x.Revenue)));
+    function validateDates() {
+        const startDate = new Date(document.getElementById('startDate').value);
+        const endDate = new Date(document.getElementById('endDate').value);
+        const errorElement = document.getElementById('dateError');
 
-    var ctxCinemaDay = document.getElementById('cinemasRevenueByDayChart').getContext('2d');
-    var cinemasRevenueByDayChart = new Chart(ctxCinemaDay, {
-        type: 'bar',
-        data: {
-            labels: cinemaDayLabels,
-            datasets: [{
-                label: 'Doanh thu',
-                data: cinemaDayData,
-                backgroundColor: 'rgba(255, 99, 132, 0.2)',
-                borderColor: 'rgba(255, 99, 132, 1)',
-                borderWidth: 1
-            }]
-        },
-        options: {
-            scales: {
-                y: {
-                    beginAtZero: true
-                }
-            }
+        if (startDate && endDate && startDate >= endDate) {
+            errorElement.style.display = 'inline';
+            return false;
+        } else {
+            errorElement.style.display = 'none';
+            return true;
         }
-    });
+    }
 
-    var cinemaMonthLabels = @Html.Raw(JsonSerializer.Serialize(Model.CinemasRevenueByMonth.Select(x => x.Name)));
-    var cinemaMonthData = @Html.Raw(JsonSerializer.Serialize(Model.CinemasRevenueByMonth.Select(x => x.Revenue)));
+    var cinemaLabels = @Html.Raw(JsonSerializer.Serialize(Model.CinemasRevenue.Select(x => x.Name)));
+    var cinemaData = @Html.Raw(JsonSerializer.Serialize(Model.CinemasRevenue.Select(x => x.Revenue)));
 
-    var ctxCinemaMonth = document.getElementById('cinemasRevenueByMonthChart').getContext('2d');
-    var cinemasRevenueByMonthChart = new Chart(ctxCinemaMonth, {
+    var ctxCinema = document.getElementById('cinemasRevenueChart').getContext('2d');
+    var cinemasRevenueChart = new Chart(ctxCinema, {
         type: 'bar',
         data: {
-            labels: cinemaMonthLabels,
+            labels: cinemaLabels,
             datasets: [{
-                label: 'Doanh thu',
-                data: cinemaMonthData,
-                backgroundColor: 'rgba(153, 102, 255, 0.2)',
-                borderColor: 'rgba(153, 102, 255, 1)',
-                borderWidth: 1
+                label: 'Doanh thu (VNĐ)',
+                data: cinemaData,
+                backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                borderColor: 'rgba(75, 192, 192, 1)',
+                borderWidth: 1,
+                hoverBackgroundColor: 'rgba(75, 192, 192, 0.4)',
+                hoverBorderColor: 'rgba(75, 192, 192, 1)',
             }]
         },
         options: {
+            responsive: true,
+            animation: {
+                duration: 1000,
+                easing: 'easeOutQuart'
+            },
             scales: {
                 y: {
-                    beginAtZero: true
+                    beginAtZero: true,
+                    ticks: {
+                        stepSize: 1
+                    }
                 }
             }
         }
     });
 </script>
-
-
