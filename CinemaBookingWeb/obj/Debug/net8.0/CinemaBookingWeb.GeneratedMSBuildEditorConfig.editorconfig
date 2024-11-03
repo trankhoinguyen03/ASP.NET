@@ -17,71 +17,83 @@ build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = CinemaBookingWeb
 build_property.RootNamespace = CinemaBookingWeb
-build_property.ProjectDir = F:\.NET\ASP.NET\CinemaBookingWeb\
+build_property.ProjectDir = C:\Users\Admin\OneDrive\Documents\GitHub\ASP.NET\CinemaBookingWeb\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 8.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = F:\.NET\ASP.NET\CinemaBookingWeb
+build_property.MSBuildProjectDirectory = C:\Users\Admin\OneDrive\Documents\GitHub\ASP.NET\CinemaBookingWeb
 build_property._RazorSourceGeneratorDebug = 
 
-[F:/.NET/ASP.NET/CinemaBookingWeb/Views/HomeAdmin/Index.cshtml]
+[C:/Users/Admin/OneDrive/Documents/GitHub/ASP.NET/CinemaBookingWeb/Views/HomeAdmin/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZUFkbWluXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[F:/.NET/ASP.NET/CinemaBookingWeb/Views/HomeAdmin/Privacy.cshtml]
+[C:/Users/Admin/OneDrive/Documents/GitHub/ASP.NET/CinemaBookingWeb/Views/HomeAdmin/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZUFkbWluXFByaXZhY3kuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[F:/.NET/ASP.NET/CinemaBookingWeb/Views/Home/Index.cshtml]
+[C:/Users/Admin/OneDrive/Documents/GitHub/ASP.NET/CinemaBookingWeb/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[F:/.NET/ASP.NET/CinemaBookingWeb/Views/Overview/CinemasRevenue.cshtml]
+[C:/Users/Admin/OneDrive/Documents/GitHub/ASP.NET/CinemaBookingWeb/Views/Overview/CinemasRevenue.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3ZlcnZpZXdcQ2luZW1hc1JldmVudWUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[F:/.NET/ASP.NET/CinemaBookingWeb/Views/Overview/DailyRevenue.cshtml]
+[C:/Users/Admin/OneDrive/Documents/GitHub/ASP.NET/CinemaBookingWeb/Views/Overview/DailyRevenue.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3ZlcnZpZXdcRGFpbHlSZXZlbnVlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[F:/.NET/ASP.NET/CinemaBookingWeb/Views/Overview/MonthlyRevenue.cshtml]
+[C:/Users/Admin/OneDrive/Documents/GitHub/ASP.NET/CinemaBookingWeb/Views/Overview/MonthlyRevenue.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3ZlcnZpZXdcTW9udGhseVJldmVudWUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[F:/.NET/ASP.NET/CinemaBookingWeb/Views/Overview/MoviesRevenue.cshtml]
+[C:/Users/Admin/OneDrive/Documents/GitHub/ASP.NET/CinemaBookingWeb/Views/Overview/MoviesRevenue.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3ZlcnZpZXdcTW92aWVzUmV2ZW51ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[F:/.NET/ASP.NET/CinemaBookingWeb/Views/Overview/NewUsers.cshtml]
+[C:/Users/Admin/OneDrive/Documents/GitHub/ASP.NET/CinemaBookingWeb/Views/Overview/NewUsers.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3ZlcnZpZXdcTmV3VXNlcnMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[F:/.NET/ASP.NET/CinemaBookingWeb/Views/Overview/TotalTickets.cshtml]
+[C:/Users/Admin/OneDrive/Documents/GitHub/ASP.NET/CinemaBookingWeb/Views/Overview/TotalTickets.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3ZlcnZpZXdcVG90YWxUaWNrZXRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[F:/.NET/ASP.NET/CinemaBookingWeb/Views/Shared/Error.cshtml]
+[C:/Users/Admin/OneDrive/Documents/GitHub/ASP.NET/CinemaBookingWeb/Views/Overview/View.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3ZlcnZpZXdcVmlldy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Admin/OneDrive/Documents/GitHub/ASP.NET/CinemaBookingWeb/Views/Overview/View1.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3ZlcnZpZXdcVmlldzEuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Admin/OneDrive/Documents/GitHub/ASP.NET/CinemaBookingWeb/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[F:/.NET/ASP.NET/CinemaBookingWeb/Views/Shared/_LayoutHome.cshtml]
+[C:/Users/Admin/OneDrive/Documents/GitHub/ASP.NET/CinemaBookingWeb/Views/Shared/_LayoutHome.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXRIb21lLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[F:/.NET/ASP.NET/CinemaBookingWeb/Views/Shared/_ValidationScriptsPartial.cshtml]
+[C:/Users/Admin/OneDrive/Documents/GitHub/ASP.NET/CinemaBookingWeb/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[F:/.NET/ASP.NET/CinemaBookingWeb/Views/_ViewImports.cshtml]
+[C:/Users/Admin/OneDrive/Documents/GitHub/ASP.NET/CinemaBookingWeb/Views/View.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVmlldy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Admin/OneDrive/Documents/GitHub/ASP.NET/CinemaBookingWeb/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[F:/.NET/ASP.NET/CinemaBookingWeb/Views/_ViewStart.cshtml]
+[C:/Users/Admin/OneDrive/Documents/GitHub/ASP.NET/CinemaBookingWeb/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[F:/.NET/ASP.NET/CinemaBookingWeb/Views/Shared/_LayoutAdmin.cshtml]
+[C:/Users/Admin/OneDrive/Documents/GitHub/ASP.NET/CinemaBookingWeb/Views/Shared/_LayoutAdmin.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXRBZG1pbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = b-rkcnjbd9oo
