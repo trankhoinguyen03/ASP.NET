@@ -11,5 +11,6 @@ namespace CinemaBookingWeb.Models
         public string Phone { get; set; }
         public string City { get; set; }
         public byte Status { get; set; }
+        public ICollection<Showtimes>? Showtimes { get; set; }
     }
 }
