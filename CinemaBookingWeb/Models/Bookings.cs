@@ -11,5 +11,6 @@ namespace CinemaBookingWeb.Models
         public DateTime BookingDate { get; set; }
         public decimal TotalPrice { get; set; }
         public byte Status { get; set; }
+        public ICollection<BookingDetails>? bookingDetails { get; set; }
     }
 }

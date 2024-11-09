@@ -9,5 +9,6 @@ namespace CinemaBookingWeb.Models
         public string SeatNumber { get; set; }
         public string SeatType { get; set; }
         public byte Status { get; set; }
+        public ICollection<BookingDetails>? bookingDetails { get; set; }
     }
 }

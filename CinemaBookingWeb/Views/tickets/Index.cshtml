@@ -1,0 +1,199 @@
+﻿@{
+    ViewData["Title"] = "ticket";
+    Layout = "_LayoutHome";
+}
+@model IEnumerable<Seats>
+
+<div>
+    <h1>Chọn vị trí</h1>
+    <ul class="">
+        @foreach (var cinema in ViewBag.cinemas)
+        {
+            <li><a asp-action="ChoiceCity" asp-controller="tickets" asp-route-id="@cinema.CinemaId">@cinema.City</a></li>
+        }
+    </ul>
+</div>
+@if (ViewBag.movies != null)
+{
+    <div>
+        <h1>Chọn phim</h1>
+        <ul class="">
+            @foreach (var movie in ViewBag.Movies)
+            {
+                <li><a asp-action="ChoiceMovie" asp-controller="tickets" asp-route-id="@movie.MovieId">@movie.Title</a></li>
+            }
+        </ul>
+    </div>
+}
+else
+{
+    <h1>Chọn phim</h1>
+}
+@if (ViewBag.showtimes != null)
+{
+    <div>
+        <h1>Chọn suất chiếu</h1>
+        <ul class="">
+            @foreach (var show in ViewBag.showtimes)
+            {
+                <li><a asp-action="ChoiceShowTime" asp-controller="tickets" asp-route-id="@show.ShowtimeId">@show.StartTime + @show.EndTime</a></li>
+            }
+        </ul>
+    </div>
+}
+else
+{
+    <h1>Chọn suất chiếu</h1>
+}
+
+@* ghế *@
+<div class="seat-layout">
+    
+    
+    
+    @if (ViewBag.seats != null)
+    {
+        <h1>chọn ghế</h1>
+        var temp = 0;
+        
+        @foreach (var seat in ViewBag.seats)
+        {
+            var v = false;
+            if(ViewBag.BookedSeats != null)
+            {
+                @foreach(var i in ViewBag.BookedSeats)
+                {
+                    if (i.SeatId == seat.SeatId)
+                    {
+                        v = true;
+                        break;
+                    }
+
+                }
+            }
+            if (v)
+            {
+                <b>@seat.SeatNumber</b>
+
+            }
+            else
+            {
+                <a asp-action="ChoiceSeats" asp-controller="tickets" asp-route-id="@seat.SeatId">@seat.SeatNumber</a>
+            }
+            temp++;
+            @if (temp >= 8)
+            {
+                <br />
+                temp = 0;
+            }
+        }
+
+    }
+    else
+    {
+        <h1>chọn ghế</h1>
+    }
+
+    
+</div>
+<div>
+    <button>Thanh toán</button>
+</div>
+@if (ViewBag.temp != null)
+{
+    <div>
+        <h1>Cai này vài bữa xóa</h1>
+        <ul class="">
+            @foreach (var temp in ViewBag.temp)
+            {
+                <li>@temp</li>
+            }
+        </ul>
+    </div>
+}
+else
+{
+    <h1>ô</h1>
+}
+<div>
+
+<div class="col-lg-8 table-responsive mb-5">
+    <table class="table table-light table-borderless table-hover text-center mb-0">
+        <thead class="thead-dark">
+            <tr>
+                <th>Products</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Total</th>
+                <th>Remove</th>
+            </tr>
+        </thead>
+        <tbody class="align-middle">
+                <form asp-action="ChoiceCombos" asp-controller="tickets">
+                    @foreach (var combo in ViewBag.Combo)
+                    {
+                    <tr>
+                        <td class="align-middle"><img src="#" alt="" style="width: 50px;"> @combo.Name</td>
+                        <td class="align-middle">@combo.Price</td>
+                        <td class="align-middle">
+                            <div class="input-group quantity mx-auto" style="width: 100px;">
+                                <div class="input-group-btn">
+                                    <button type="button" name="decrement" onclick="decrementQuantity(@combo.ComboId)" class="btn btn-sm btn-primary btn-minus">
+                                        -
+                                    </button>
+                                </div>
+                                <input type="text" id='@combo.ComboId' name="quantities[@combo.ComboId]" min="0" class="form-control form-control-sm bg-secondary border-0 text-center" value="0">
+                                <div class="input-group-btn">
+                                    <button type="button" name="increment" onclick="incrementQuantity(@combo.ComboId)" class="btn btn-sm btn-primary btn-plus">
+                                        +
+                                    </button>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="align-middle">chuatinh</td>
+                            @* <td class="align-middle"><button class="btn btn-sm btn-danger"><i class="fa fa-times"></i></button></td> *@
+                    </tr>
+                    <button type="submit">xác nhận</button>
+                    }
+          </form>
+        </tbody>
+    </table>
+</div>
+    @if (ViewBag.temp22 != null)
+    {
+        <div>
+            <h1>Cai này vài bữa xóa</h1>
+            <ul class="">
+                @foreach (var temp in ViewBag.temp22)
+                {
+                    <li>@temp.ComboId +@temp.Quantity</li>
+                }
+            </ul>
+        </div>
+    }
+    else
+    {
+        <h1>ơ</h1>
+    }
+    <div>
+        <a asp-action="Checkout" asp-controller="tickets">Thanh toán</a>
+    </div>
+<script>
+        function decrementQuantity(ComboId) {
+            let quantityInput = document.getElementById(ComboId);
+            let quantity = parseInt(quantityInput.value);
+
+            if (quantity > 0) {
+                quantity--;
+                quantityInput.value = quantity;
+            }
+        }
+        function incrementQuantity(ComboId) {
+            let quantityInput = document.getElementById(ComboId);
+            let quantity = parseInt(quantityInput.value);
+            quantity++;
+            quantityInput.value = quantity;
+
+        }
+</script>
+
