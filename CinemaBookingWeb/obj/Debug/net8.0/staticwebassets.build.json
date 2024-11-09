@@ -1,6 +1,10 @@
 {
   "Version": 1,
+<<<<<<< HEAD
   "Hash": "PFdM2Jv4XZrDZnUnDo0G1ghjNSQrU+e2cyzKSd9TU4Q=",
+=======
+  "Hash": "aXtDM4CWZTmwmOhsUd3Df+/KkOpUbrdL0wmvOGSgjGM=",
+>>>>>>> main
   "Source": "CinemaBookingWeb",
   "BasePath": "_content/CinemaBookingWeb",
   "Mode": "Default",
@@ -55,10 +59,36 @@
       "OriginalItemSpec": "D:\\.net\\ASP.NET\\CinemaBookingWeb\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\CinemaBookingWeb.bundle.scp.css"
     },
     {
+<<<<<<< HEAD
       "Identity": "D:\\.net\\ASP.NET\\CinemaBookingWeb\\wwwroot\\css\\site.css",
       "SourceId": "CinemaBookingWeb",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\.net\\ASP.NET\\CinemaBookingWeb\\wwwroot\\",
+=======
+      "Identity": "D:\\.net\\ASP.NET\\CinemaBookingWeb\\wwwroot\\css\\css_overview.css",
+      "SourceId": "CinemaBookingWeb",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\.net\\ASP.NET\\CinemaBookingWeb\\wwwroot\\",
+      "BasePath": "_content/CinemaBookingWeb",
+      "RelativePath": "css/css_overview.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\css_overview.css"
+    },
+    {
+      "Identity": "D:\\.net\\ASP.NET\\CinemaBookingWeb\\wwwroot\\css\\site.css",
+      "SourceId": "CinemaBookingWeb",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\.net\\ASP.NET\\CinemaBookingWeb\\wwwroot\\",
+>>>>>>> main
       "BasePath": "_content/CinemaBookingWeb",
       "RelativePath": "css/site.css",
       "AssetKind": "All",

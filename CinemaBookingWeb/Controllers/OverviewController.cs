@@ -21,9 +21,10 @@ namespace CinemaBookingWeb.Controllers
             endDate ??= DateTime.Now;
 
             // Số người dùng mới theo ngày
+
             var newUsersByDay = _context.Users
-                .Where(u => u.SignupDate >= startDate && u.SignupDate <= endDate && u.Status == 1)
-                .GroupBy(u => u.SignupDate)
+                .Where(u => u.SignupDate >= startDate && u.SignupDate <= endDate && u.Role == "User" && u.Status == 1)
+                .GroupBy(u => u.SignupDate.Date)
                 .Select(g => new DayStatistic_Count
                 {
                     Date = g.Key,
@@ -34,7 +35,7 @@ namespace CinemaBookingWeb.Controllers
 
             // Số người dùng mới theo tháng
             var newUsersByMonth = _context.Users
-                .Where(u => u.SignupDate >= startDate && u.SignupDate <= endDate && u.Status == 1)
+                .Where(u => u.SignupDate >= startDate && u.SignupDate <= endDate && u.Role == "User" && u.Status == 1)
                 .AsEnumerable() // Chuyển truy vấn sang client-side
                 .GroupBy(u => new { u.SignupDate.Year, u.SignupDate.Month })
                 .Select(g => new MonthStatistic_Count
@@ -64,9 +65,9 @@ namespace CinemaBookingWeb.Controllers
 
             // Số vé bán ra theo ngày
             var totalTicketsByDay = _context.Bookings
-                .Where(b => b.BookingDate >= startDate && b.BookingDate <= endDate)
+                .Where(b => b.BookingDate >= startDate && b.BookingDate <= endDate && b.Status == 1)
                 .Join(_context.BookingDetails, b => b.BookingId, s => s.BookingId, (b, s) => new { b, s })
-                .GroupBy(bs => bs.b.BookingDate)
+                .GroupBy(bs => bs.b.BookingDate.Date)
                 .Select(g => new DayStatistic_Count
                 {
                     Date = g.Key,
@@ -77,7 +78,7 @@ namespace CinemaBookingWeb.Controllers
 
             // Số vé bán ra theo tháng
             var totalTicketsByMonth = _context.Bookings
-                .Where(b => b.BookingDate >= startDate && b.BookingDate <= endDate)
+                .Where(b => b.BookingDate >= startDate && b.BookingDate <= endDate && b.Status == 1)
                 .Join(_context.BookingDetails, b => b.BookingId, s => s.BookingId, (b, s) => new { b, s })
                 .AsEnumerable()
                 .GroupBy(bs => new { bs.b.BookingDate.Year, bs.b.BookingDate.Month })
@@ -107,38 +108,23 @@ namespace CinemaBookingWeb.Controllers
             startDate ??= DateTime.Now.AddMonths(-1);
             endDate ??= DateTime.Now;
 
-            // Thống kê doanh thu theo ngày cho từng bộ phim
-            var moviesRevenueByDay = _context.Bookings
+            // Thống kê doanh thu cho từng bộ phim
+            var moviesRevenue = _context.Bookings
                 .Where(b => b.BookingDate >= startDate && b.BookingDate <= endDate && b.Status == 1)
-                .Join(_context.Showtimes, b => b.ShowtimeId, s => s.ShowtimeId, (b, s) => new { b, s })
-                .GroupBy(bs => bs.s.MovieId)
-                .Select(g => new DayStatistic_Movies_Cinemas
+                .Join(_context.Showtimes, b => b.ShowtimeId, s => s.ShowtimeId, (b, s) => new { b, s.MovieId })
+                .GroupBy(bs => bs.MovieId)
+                .Select(g => new Statistic_Movies_Cinemas
                 {
-                    Name = _context.Movies.FirstOrDefault(m => m.MovieId == g.Key).Title,
+                    Name = _context.Movies.Where(m => m.MovieId == g.Key).Select(m => m.Title).FirstOrDefault(),
                     Revenue = g.Sum(bs => bs.b.TotalPrice)
                 })
                 .OrderByDescending(g => g.Revenue)
                 .ToList();
 
-            // Thống kê doanh thu theo tháng cho từng bộ phim
-            var moviesRevenueByMonth = _context.Bookings
-                .Where(b => b.BookingDate >= startDate && b.BookingDate <= endDate && b.Status == 1)
-                .Join(_context.Showtimes, b => b.ShowtimeId, s => s.ShowtimeId, (b, s) => new { b, s })
-                .AsEnumerable()
-                .GroupBy(bs => bs.s.MovieId)
-                .Select(g => new MonthStatistic_Movies_Cinemas
-                {
-                    Name = _context.Movies.FirstOrDefault(m => m.MovieId == g.Key).Title,
-                    Revenue = g.Sum(bs => bs.b.TotalPrice)
-                })
-                .OrderByDescending(g => g.Revenue)
-                .ToList();
-
-            // Tạo model và truyền các thống kê vào view
+            // Tạo model và truyền thống kê vào view
             var model = new OverviewModel
             {
-                MoviesRevenueByDay = moviesRevenueByDay,
-                MoviesRevenueByMonth = moviesRevenueByMonth
+                MoviesRevenue = moviesRevenue
             };
 
             ViewBag.StartDate = startDate;
@@ -152,28 +138,14 @@ namespace CinemaBookingWeb.Controllers
             startDate ??= DateTime.Now.AddMonths(-1);
             endDate ??= DateTime.Now;
 
-            // Thống kê doanh thu theo ngày cho từng rạp
-            var cinemasRevenueByDay = _context.Bookings
+            // Thống kê doanh thu cho từng rạp
+            var cinemasRevenue = _context.Bookings
                 .Where(b => b.BookingDate >= startDate && b.BookingDate <= endDate && b.Status == 1)
-                .Join(_context.Showtimes, b => b.ShowtimeId, s => s.ShowtimeId, (b, s) => new { b, s })
-                .GroupBy(bs => bs.s.CinemaId)
-                .Select(g => new DayStatistic_Movies_Cinemas
+                .Join(_context.Showtimes, b => b.ShowtimeId, s => s.ShowtimeId, (b, s) => new { b, s.CinemaId })
+                .GroupBy(bs => bs.CinemaId)
+                .Select(g => new Statistic_Movies_Cinemas
                 {
-                    Name = _context.Cinemas.FirstOrDefault(m => m.CinemaId == g.Key).Name,
-                    Revenue = g.Sum(bs => bs.b.TotalPrice)
-                })
-                .OrderByDescending(g => g.Revenue)
-                .ToList();
-
-            // Thống kê doanh thu theo tháng cho từng rạp
-            var cinemasRevenueByMonth = _context.Bookings
-                .Where(b => b.BookingDate >= startDate && b.BookingDate <= endDate && b.Status == 1)
-                .Join(_context.Showtimes, b => b.ShowtimeId, s => s.ShowtimeId, (b, s) => new { b, s })
-                .AsEnumerable()
-                .GroupBy(bs => bs.s.CinemaId)
-                .Select(g => new MonthStatistic_Movies_Cinemas
-                {
-                    Name = _context.Cinemas.FirstOrDefault(m => m.CinemaId == g.Key).Name,
+                    Name = _context.Cinemas.Where(c => c.CinemaId == g.Key).Select(c => c.Name).FirstOrDefault(),
                     Revenue = g.Sum(bs => bs.b.TotalPrice)
                 })
                 .OrderByDescending(g => g.Revenue)
@@ -182,8 +154,7 @@ namespace CinemaBookingWeb.Controllers
             // Tạo model và truyền các thống kê vào view
             var model = new OverviewModel
             {
-                CinemasRevenueByDay = cinemasRevenueByDay,
-                CinemasRevenueByMonth = cinemasRevenueByMonth
+                CinemasRevenue = cinemasRevenue
             };
 
             ViewBag.StartDate = startDate;

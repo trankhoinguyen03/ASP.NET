@@ -17,7 +17,7 @@ _Thành viên: 6_
 
 #### Chức năng của Admin:
 
-![Admin Home Page](https://github.com/user-attachments/assets/f02b2b55-708c-45c1-b87a-4037b2fd9ffb)
+![Admin Home Page](https://github.com/user-attachments/assets/c42a19e5-bb13-4f40-a1f3-0af68a9b2b4f)
 
 
 ##### 1. Xem tổng quan các thông tin của trang web
@@ -25,8 +25,8 @@ _Admin có thể xem tổng quan các thông tin quan trọng như khách hàng 
 <br>
 - Khách hàng mới: Thống kê số lượng khách hàng mới đăng ký theo ngày và theo tháng.
 - Tổng số vé bán ra: Tổng hợp số vé đã bán theo ngày và theo tháng.
-- Doanh thu theo phim: Thống kê doanh thu của từng bộ phim, giúp xác định các phim bán chạy nhất theo ngày và theo tháng.
-- Doanh thu theo rạp chiếu phim: Thống kê doanh thu của từng rạp, giúp đánh giá hiệu suất của từng địa điểm chiếu phim theo ngày và theo tháng.
+- Doanh thu theo phim: Thống kê doanh thu của từng bộ phim, giúp xác định các phim bán chạy nhất.
+- Doanh thu theo rạp chiếu phim: Thống kê doanh thu của từng rạp, giúp đánh giá hiệu suất của từng địa điểm chiếu phim.
 - Tổng doanh thu: Hiển thị doanh thu theo ngày và theo tháng, giúp admin đánh giá hiệu suất kinh doanh theo thời gian.
 
 ##### 2. Quản lý phim

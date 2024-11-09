@@ -7,6 +7,9 @@
 }
 @model CinemaBookingWeb.Models.OverviewModel
 @using System.Text.Json
+
+<link rel="stylesheet" href="~/css/css_overview.css" />
+
 @{
     var startDate = ViewBag.StartDate as DateTime?;
     var endDate = ViewBag.EndDate as DateTime?;
@@ -14,76 +17,80 @@
 
 <div>
     <h2>Chọn khoảng thời gian thống kê</h2>
-    <form method="get">
+    <form method="get" onsubmit="return validateDates()">
         <label for="startDate">Ngày bắt đầu:</label>
-        <input type="date" id="startDate" name="startDate" value="@startDate?.ToString("yyyy-MM-dd")" />
-
+        <input type="date" id="startDate" name="startDate" value="@startDate?.ToString("yyyy-MM-dd")" onchange="validateDates()" />
+        <br />
         <label for="endDate">Ngày kết thúc:</label>
-        <input type="date" id="endDate" name="endDate" value="@endDate?.ToString("yyyy-MM-dd")" />
+        <input type="date" id="endDate" name="endDate" value="@endDate?.ToString("yyyy-MM-dd")" onchange="validateDates()" />
 
         <button type="submit">Lọc</button>
+        <br />
+        <span id="dateError" style="color: red; display: none;">Ngày bắt đầu phải nhỏ hơn ngày kết thúc.</span>
     </form>
 </div>
-
+<br />
+<hr />
 <div>
-    <h2>Doanh thu theo ngày của từng phim</h2>
-    <canvas id="moviesRevenueByDayChart" width="400" height="200"></canvas>
-
-    <h2>Doanh thu theo tháng của từng phim</h2>
-    <canvas id="moviesRevenueByMonthChart" width="400" height="200"></canvas>
+    <h2>Doanh thu của từng phim</h2>
+    @if (Model.MoviesRevenue != null && Model.MoviesRevenue.Any())
+    {
+        <canvas id="moviesRevenueChart" width="400" height="200"></canvas>
+    }
+    else
+    {
+        <p>Không có dữ liệu.</p>
+    }
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script>
-    var movieDayLabels = @Html.Raw(JsonSerializer.Serialize(Model.MoviesRevenueByDay.Select(x => x.Name)));
-    var movieDayData = @Html.Raw(JsonSerializer.Serialize(Model.MoviesRevenueByDay.Select(x => x.Revenue)));
+    function validateDates() {
+        const startDate = new Date(document.getElementById('startDate').value);
+        const endDate = new Date(document.getElementById('endDate').value);
+        const errorElement = document.getElementById('dateError');
 
-    var ctxMovieDay = document.getElementById('moviesRevenueByDayChart').getContext('2d');
-    var moviesRevenueByDayChart = new Chart(ctxMovieDay, {
+        if (startDate && endDate && startDate >= endDate) {
+            errorElement.style.display = 'inline';
+            return false;
+        } else {
+            errorElement.style.display = 'none';
+            return true;
+        }
+    }
+
+    var movieLabels = @Html.Raw(JsonSerializer.Serialize(Model.MoviesRevenue.Select(x => x.Name)));
+    var movieData = @Html.Raw(JsonSerializer.Serialize(Model.MoviesRevenue.Select(x => x.Revenue)));
+
+    var ctxMovie = document.getElementById('moviesRevenueChart').getContext('2d');
+    var moviesRevenueChart = new Chart(ctxMovie, {
         type: 'bar',
         data: {
-            labels: movieDayLabels,
+            labels: movieLabels,
             datasets: [{
-                label: 'Doanh thu',
-                data: movieDayData,
+                label: 'Doanh thu (VNĐ)',
+                data: movieData,
                 backgroundColor: 'rgba(75, 192, 192, 0.2)',
                 borderColor: 'rgba(75, 192, 192, 1)',
-                borderWidth: 1
+                borderWidth: 1,
+                hoverBackgroundColor: 'rgba(75, 192, 192, 0.4)',
+                hoverBorderColor: 'rgba(75, 192, 192, 1)',
             }]
         },
         options: {
+            responsive: true,
+            animation: {
+                duration: 1000,
+                easing: 'easeOutQuart'
+            },
             scales: {
                 y: {
-                    beginAtZero: true
-                }
-            }
-        }
-    });
-
-    var movieMonthLabels = @Html.Raw(JsonSerializer.Serialize(Model.MoviesRevenueByMonth.Select(x => x.Name)));
-    var movieMonthData = @Html.Raw(JsonSerializer.Serialize(Model.MoviesRevenueByMonth.Select(x => x.Revenue)));
-
-    var ctxMovieMonth = document.getElementById('moviesRevenueByMonthChart').getContext('2d');
-    var moviesRevenueByMonthChart = new Chart(ctxMovieMonth, {
-        type: 'bar',
-        data: {
-            labels: movieMonthLabels,
-            datasets: [{
-                label: 'Doanh thu',
-                data: movieMonthData,
-                backgroundColor: 'rgba(54, 162, 235, 0.2)',
-                borderColor: 'rgba(54, 162, 235, 1)',
-                borderWidth: 1
-            }]
-        },
-        options: {
-            scales: {
-                y: {
-                    beginAtZero: true
+                    beginAtZero: true,
+                    ticks: {
+                        stepSize: 1
+                    }
                 }
             }
         }
     });
 </script>
-
-

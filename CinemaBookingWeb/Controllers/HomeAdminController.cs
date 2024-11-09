@@ -19,8 +19,7 @@ namespace CinemaBookingWeb.Controllers
 
         public IActionResult Index()
         {
-            var admin = _context.Users.FirstOrDefault(p => p.UserId == 1);
-            return View(admin);
+            return View();
         }
 
         public IActionResult Privacy()
