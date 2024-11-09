@@ -21,5 +21,6 @@ namespace CinemaBookingWeb.Controllers
             return View(movies); // Truyền danh sách vào view
         }
         
+
     }
 }

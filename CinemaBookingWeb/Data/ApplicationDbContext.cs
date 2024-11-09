@@ -18,4 +18,5 @@ namespace CinemaBookingWeb.Data
         public DbSet<Combos> Combos { get; set; }
         public DbSet<BookingCombos> BookingCombos { get; set; }
     }
+   
 }

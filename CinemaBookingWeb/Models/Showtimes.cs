@@ -13,5 +13,7 @@ namespace CinemaBookingWeb.Models
         public DateTime EndTime { get; set; }
         public string Hall { get; set; }
         public byte Status { get; set; }
+        public Cinemas? Cinema { get; set; }
+        public Movies? Movie { get; set; }
     }
 }

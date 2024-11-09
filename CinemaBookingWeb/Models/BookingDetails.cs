@@ -10,5 +10,9 @@ namespace CinemaBookingWeb.Models
         public int SeatId { get; set; }
         public decimal Price { get; set; }
         public byte Status { get; set; }
+
+        public Seats? Seat {  get; set; } 
+
+        public Bookings? Booking { get; set; }
     }
 }
