@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    text-decoration:none !important;
 }
 
 body {
@@ -24,26 +25,26 @@ body {
     font-size: 24px;
 }
 
-.nav-links {
+.nav-link {
     list-style-type: none;
     display: flex;
 }
 
-.nav-links li {
+.nav-link li {
     margin-right: 20px;
 }
 
-.nav-links a {
+.nav-link  {
     color: #333;
     text-decoration: none;
-    font-size: 18px;
+    font-size: 20px !important;
 }
 
-.nav-links a:hover {
-        color: var(--primary-color);
+.nav-link:hover {
+        color: var(--primary-color) !important;
 }
-.nav-links button:hover {
-        color: var(--primary-color);
+.nav-link button:hover {
+        color: var(--primary-color) !important;
 }
 * {box-sizing:border-box}
 
@@ -51,118 +52,11 @@ body {
 
 
 /* Slideshow container */
-.banner {
-  
-}
-.slideshow-container {
-    max-width: 100%;
-    position: relative;
-    margin: auto;
-}
-
-.dot-slides{
-    position: absolute;
-    left: 0px;
-    right: 0px;
-    width: 500px;
-    margin: 0px auto;
-    bottom: 10px;
-}
-
-/* Hide the images by default */
-.mySlides {
-  display: none;
-}
-
-/* Next & previous buttons */
-.prev, .next {
-  cursor: pointer;
-  position: absolute;
-  top: 50%;
-  width: auto;
-  margin-top: -22px;
-  padding: 16px;
-  color: white;
-  font-weight: bold;
-  font-size: 18px;
-  transition: 0.6s ease;
-  border-radius: 0 3px 3px 0;
-  user-select: none;
-}
-
-/* Position the "next button" to the right */
-.next {
-  right: 0;
-  border-radius: 3px 0 0 3px;
-}
-
-/* On hover, add a black background color with a little bit see-through */
-.prev:hover, .next:hover {
-  background-color: rgba(0,0,0,0.8);
-}
-
-/* Caption text */
-.text {
-  color: #f2f2f2;
-  font-size: 15px;
-  padding: 8px 12px;
-  position: absolute;
-  bottom: 8px;
-  width: 100%;
-  text-align: center;
-}
-
-/* Number text (1/3 etc) */
-.numbertext {
-  color: #f2f2f2;
-  font-size: 12px;
-  padding: 8px 12px;
-  position: absolute;
-  top: 0;
-}
-
-/* The dots/bullets/indicators */
-.dot {
-    cursor: pointer;
-    height: 18px;
-    width: 18px;
-    margin: 0 2px;
-    background-color: transparent;
-    border: solid 1px #c9cdce;
-    border-radius: 18px !important;
-    display: inline-block;
-    transition: background-color 0.6s ease;
-}
-
-    .active, .dot:hover {
-        background-color: var(--primary-color);
-    }
-
-/* Fading animation */
-.fade {
-  animation-name: fade;
-  animation-duration: 1.5s;
-}
-
-@keyframes fade {
-  from {opacity: .4}
-  to {opacity: 1}
-}
 
 
-.btn-primary {
-    background-color: #e50914;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 18px;
-}
 
-.btn-primary:hover {
-    background-color: #b20710;
-}
+
+
 
 .movies {
     padding: 10px 1px 10px 1px;
@@ -192,7 +86,6 @@ body {
     color: var(--primary-color);
 }
 .movie-item {
-
     background-color: white;
     border: 1px solid #ddd;
     margin: 8px;
@@ -202,7 +95,11 @@ body {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     border-radius: 8px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    
 }
+    .movie-item p {
+        color: #333;
+    }
     .movie-item:hover {
         transform: scale(1.05);
         box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
@@ -216,27 +113,6 @@ body {
 
 
 
-.form-group {
-    margin-bottom: 15px;
-}
-
-.form-group label {
-    display: block;
-    margin-bottom: 5px;
-    font-size: 16px;
-}
-
-
-
-.footer {
-    background-color: #333;
-    color: white;
-    text-align: center;
-    padding: 20px 0;
-    margin-top: 20px;
-    position: relative;
-    bottom: 0;
-}
 
 .container-movie {
     width: 100%;
@@ -426,126 +302,18 @@ body {
     text-align: center; /* Căn giữa văn bản */
 }
 
-/* login Styles */
-body {
-	margin:  0;
-}
-.page-content {
-	width: 100%;
-	margin:  0 auto;
 
-	display: flex;
-	display: -webkit-flex;
-	justify-content: center;
-
-	-webkit-justify-content: center;
-	align-items: center;
-
-	-webkit-align-items: center;
+/* Làm cho body có chiều cao tối thiểu và sử dụng flexbox */
+html, body {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
 }
-.form-v6-content  {
-	background: #fff;
-	width: 968px;
-	border-radius: 8px;
-
-	-webkit-border-radius: 8px;
-	margin: 180px 0;
-	font-family: 'Nunito', sans-serif;
-	color: #fff;
-	font-weight: 700;
-	position: relative;
-	display: flex;
-	display: -webkit-flex;
-}
-.form-v6-content .form-left {
-	margin-bottom: -6px;
-}
-.form-v6-content .form-left img {
-	border-top-left-radius: 8px;
-	border-bottom-left-radius: 8px;
-}
-.form-v6-content .form-detail {
-    padding: 30px 40px;
-	position: relative;
-	width: 100%;
-}
-.form-v6-content .form-detail h2 {
-	color: #333;
-	font-size: 35px;
-	text-align: center;
-	position: relative;
-	padding: 6px 0 0;
-	margin-bottom: 47px;
-}
-.form-v6-content .form-row {
-    width: 100%;
-}
-.form-v6-content .form-detail .form-row-last {
-	text-align: center;
-}
-.form-v6-content .form-detail .input-text {
-	margin-bottom: 35px;
-}
-.form-v6-content .form-detail input {
-	width: 92%;
-    padding: 0px 15px 10px 15px;
-    border: 2px solid transparent;
-    border-bottom: 2px solid #e5e5e5;
-    appearance: unset;
-    -moz-appearance: unset;
-    -webkit-appearance: unset;
-
-    outline: none;
-
-    font-family: 'Nunito', sans-serif;
-    font-size: 16px;
-    font-weight: 700;
-    color: #333;
-}
-.form-v6-content .form-detail .form-row input:focus {
-	border-bottom: 2px solid #fe892a;
-}
-.form-v6-content .form-detail .register {
-	background: #fe892a;
-	border-radius: 6px;
-
-	-moz-border-radius: 6px;
-	-webkit-border-radius: 6px;
-	width: 160px;
-	box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.15);
-
-	-moz-box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.15);
-	-webkit-box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.15);
-	border: none;
-	margin: 11px 0 50px 0px;
-	cursor: pointer;
-	font-family: 'Nunito', sans-serif;
-	color: #fff;
-	font-weight: 700;
-	font-size: 18px;
-}
-.form-v6-content .form-detail .register:hover {
-	background: #e37b27;
-}
-.form-v6-content .form-detail .form-row-last input {
-	padding: 13px;
-}
-input::-webkit-input-placeholder { /* Chrome/Opera/Safari */
-  color: #666;
-  font-size: 16px;
-}
-input::-moz-placeholder { /* Firefox 19+ */
-  color: #666;
-  font-size: 16px;
-}
-input:-ms-input-placeholder { /* IE 10+ */
-  color: #666;
-  font-size: 16px;
-}
-input:-moz-placeholder { /* Firefox 18- */
-  color: #666;
-  font-size: 16px;
+/* Làm cho main có khả năng co giãn */
+main {
+    flex: 1;
 }
 
+footer {
 
-
+}
