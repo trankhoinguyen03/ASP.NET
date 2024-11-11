@@ -60,7 +60,7 @@ namespace CinemaBookingWeb.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Login(string userName, string password)
+        public async Task<IActionResult> Login(string userName, string password, bool rememberMe)
         {
             var user = _context.Users.FirstOrDefault(u => u.UserName == userName && u.Password == password);
 
@@ -68,17 +68,21 @@ namespace CinemaBookingWeb.Controllers
             {
                 // Tạo các claim
                 var claims = new List<Claim>
-            {
-                new Claim(ClaimTypes.Name, user.UserName),
-                new Claim(ClaimTypes.Role, user.Role)
-            };
+                    {
+                        new Claim(ClaimTypes.Name, user.UserName),
+                        new Claim(ClaimTypes.Role, user.Role)
+                    };
 
                 var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
+
+                // Thiết lập thời gian lưu cookie dựa trên giá trị "rememberMe"
                 var authProperties = new AuthenticationProperties
                 {
-                    IsPersistent = true
+                    IsPersistent = rememberMe,
+                    ExpiresUtc = rememberMe ? DateTime.UtcNow.AddDays(14) : DateTime.UtcNow.AddHours(1)
                 };
 
+                // Đăng nhập người dùng
                 await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(claimsIdentity), authProperties);
 
                 // Điều kiện chuyển hướng
@@ -96,6 +100,86 @@ namespace CinemaBookingWeb.Controllers
             ViewBag.Error = "Tên đăng nhập hoặc mật khẩu không đúng";
             return View();
         }
+        // Trang quên mật khẩu (GET)
+        [HttpGet]
+        public IActionResult ForgotPassword()
+        {
+            return View();
+        }
+
+        // Xử lý quên mật khẩu (POST)
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult ForgotPassword(string email, string userName)
+        {
+            // Kiểm tra xem email có tồn tại trong hệ thống không
+            var user = _context.Users.FirstOrDefault(u => u.Email == email && u.UserName == userName);
+            if (user == null)
+            {
+                ViewBag.Error = "Tài khoản hoặc Email không đúng.";
+                return View();
+            }
+
+            // Chuyển đến trang để người dùng thay đổi mật khẩu
+return RedirectToAction("ResetPassword", new { email = user.Email, userName = user.UserName });
+
+        }
+
+        // Trang đặt lại mật khẩu (GET)
+        [HttpGet]
+        public IActionResult ResetPassword(string email, string userName)
+        {
+            if (string.IsNullOrEmpty(email))
+            {
+                return RedirectToAction("Login", "Account");
+            }
+            // Kiểm tra name có tồn tại trong hệ thống không
+            var user = _context.Users.FirstOrDefault(u => u.UserName == userName && u.Email == email);
+            if (user == null)
+            {
+                ViewBag.Error = "Tài khoản hoặc Email không đúng.";
+                return RedirectToAction("ForgotPassword");
+            }
+
+
+            return View(new ResetPasswordViewModel { UserName = userName, Email = email });
+        }
+
+
+        // Xử lý đặt lại mật khẩu (POST)
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> ResetPassword(ResetPasswordViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                // Kiểm tra mật khẩu mới có đủ mạnh hay không
+                if (model.NewPassword.Length < 6) // Ví dụ: mật khẩu tối thiểu 6 ký tự
+                {
+                    ViewBag.Error = "Mật khẩu phải có ít nhất 6 ký tự.";
+                    return View(model);
+                }
+
+                var user = _context.Users.FirstOrDefault(u => u.UserName == model.UserName && u.Email == model.Email); 
+                if (user != null)
+                {
+                    user.Password = model.NewPassword;
+                    _context.Users.Update(user);
+                    await _context.SaveChangesAsync();
+
+                    TempData["Success"] = "Mật khẩu của bạn đã được thay đổi thành công.";
+                    return RedirectToAction("Login", "Account");
+                }
+                else
+                {
+                    ViewBag.Error = "Email không tồn tại.";
+                    return View();
+                }
+            }
+
+            return View(model);
+        }
+
 
         [HttpPost]
         public async Task<IActionResult> Logout()

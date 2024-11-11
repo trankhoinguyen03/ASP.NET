@@ -26,35 +26,41 @@
 
 
 <section class="movie-details my-4">
-    <div class="row">
-        <div class="col-md-6">
-            @* Hình ảnh phim *@
-            <img src="~/img/@Model.ImageUrl" alt="@Model.Title" class="img-fluid rounded" width="200" height="200" />
-        </div>
-        <div class="col-md-6">
-            @* Thông tin phim *@
-            <style>
-                .movie-title {
-                    font-size: 2.5rem !important; /* Kích thước lớn */
-                    font-weight: bold !important; /* Làm đậm */
-                    color: var(--primary-color);
-                    !important; /* Màu sắc */
-                }
-            </style>
-            <h2 class="movie-title">@Model.Title</h2>
-            <p><strong>Rating:</strong> @Model.Rating</p>
-            <p><strong>Ngày ra mắt:</strong> @Model.ReleaseDate.ToString("dd/MM/yyyy")</p>
-            <p><strong>Thể loại:</strong> @Model.Genre</p>
-            <p><strong>Ngôn ngữ:</strong> @Model.Language</p>
-        </div>
-    </div>
+    <div class="container">
+        <div class="row align-items-start">
+            <!-- Hình ảnh phim -->
+            <div class="col-sm-4 col-md-3 text-center">
+                <img src="~/img/@Model.ImageUrl" alt="@Model.Title" class="img-fluid rounded shadow-sm movie-poster" />
+            </div>
 
-    <div class="row mt-4">
-        <div class="col-md-12">
-            @* Mô tả phim ở dưới hình *@
-            <p><strong>Mô tả:</strong> @Model.Description</p>
+            <!-- Thông tin phim -->
+            <div class="col-sm-8 col-md-9">
+                <h2 class="movie-title mb-3">@Model.Title</h2>
+                <div class="movie-info mb-1">
+                    <span class="badge bg-warning text-dark me-2">@Model.Rating ⭐</span>
+                </div>
+                <div class="movie-info mb-1">
+                    <span class="text-muted">@Model.Duration phút</span> | <span>@Model.ReleaseDate.ToString("dd/MM/yyyy")</span>
+                </div>
+
+                <p><strong>Thể loại:</strong> <span class="badge bg-secondary">@Model.Genre</span></p>
+                <p><strong>Ngôn ngữ:</strong> <span class="badge bg-secondary">@Model.Language</span></p>
+            </div>
+        </div>
+
+        <!-- Nội dung phim -->
+        <div class="row mt-4">
+            <div class="col-12">
+                <h5 class="text-primary mb-3"><i class="bi bi-info-circle"></i> Nội Dung Phim</h5>
+                <p>@Model.Description</p>
+            </div>
         </div>
     </div>
 </section>
+
+
+
+
+
 
 

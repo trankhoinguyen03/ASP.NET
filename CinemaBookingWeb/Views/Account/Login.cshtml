@@ -1,51 +1,108 @@
 ﻿@{
-    ViewBag.Title = "Login";
+    ViewBag.Title = "Đăng Nhập";
     Layout = "~/Views/Shared/_LayoutHome.cshtml";
 }
 
-
-
-
-
-
-
 <!-- Login  -->
-<section class="container-lg">
-    <div class="login-form-left">
-        <img src="~/img/loginimg.png" alt="form">
-    </div>
-    <div class="login-form-right">
 
-        <span class="login100-logo">
-            <img class="login100-logo-img" src="~/img/logo.png" alt="form">
-        </span>
-        <span class="login100-form-title p-b-26">
-            XIN CHÀO BẠN !
-        </span>
-        @if (ViewBag.Error != null)
-        {
-            <p style="color:red">@ViewBag.Error</p>
-        }
+<section class="lg">
+    <div class="login-container d-flex">
+        <!-- Phần hình ảnh -->
+        <div class="login-image col-md-6 d-none d-md-block">
+                    <img src="~/img/loginimg.png" alt="form">
+        </div>
 
-        <form asp-action="Login" method="post">
-           
-            <div class="login__field">
-                <i class="login__icon fas fa-user"></i>
-                <input type="text" id="userName" name="userName" required class="login__input" placeholder="Tên đăng nhập">
-            </div>
-			<div class="login__field">
-				<i class="login__icon fas fa-lock"></i>
-                <input type="password" id="password" name="password" required class="login__input" placeholder="Mật khẩu">
-			</div>
-            <button type ="submit" class="pushable">
-                <span class="shadow-btn"></span>
-                <span class="edge"></span>
-                <span class="front"> ĐĂNG NHẬP </span>
-            </button>
-        </form>
-        </br>
-        <p>Bạn chưa có tài khoản?<a asp-action="Register" asp-controller="Account" style="color:var(--primary-color) !important"> ĐĂNG KÝ</a></p>
+        <!-- Phần form đăng nhập -->
+        <div class="login-form col-md-6">
+            <img src="~/img/logo.png" alt="Logo" class="login-logo">
+            <h2 class="form-title">Xin Chào Bạn !</h2>
+            @if (ViewBag.Error != null)
+            {
+                <p style="color:red">@ViewBag.Error</p>
+            }
+            @if (ViewBag.Success != null)
+            {
+                <p style="color:green">@ViewBag.Success</p>
+            }
+            <form asp-action="Login" method="post" id="loginForm">
+                <div class="mb-3">
+                    <input type="text" id="userName" name="userName" required class="login__input" placeholder="Nhập tên người dùng">
+                </div>
+                <div class="mb-3">
+                    <input type="password" id="password" name="password" required class="login__input" placeholder="Nhập mật khẩu">
+                </div>
+                <div class="mb-3 form-check">
+                    <input type="checkbox" class="form-check-input" id="rememberMe" name="rememberMe">
+                    <label class="form-check-label" for="rememberMe">Ghi nhớ đăng nhập</label>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-login">Đăng Nhập</button>
+                <p class="text-center mt-3">
+                    <a href="@Url.Action("ForgotPassword", "Account")">Quên mật khẩu?</a>
+                </p>
+            </form>
+
+            <!-- JavaScript -->
+            <script>
+                document.addEventListener("DOMContentLoaded", function () {
+                    // Tự động điền thông tin nếu có trong cookie
+                    const savedUserName = getCookie("userName");
+                    const savedPassword = getCookie("password");
+                    const rememberMe = getCookie("rememberMe") === "true";
+
+                    if (rememberMe && savedUserName && savedPassword) {
+                        document.getElementById("userName").value = savedUserName;
+                        document.getElementById("password").value = savedPassword;
+                        document.getElementById("rememberMe").checked = true;
+                    }
+
+                    // Lưu thông tin tài khoản khi form được submit
+                    document.getElementById("loginForm").addEventListener("submit", function () {
+                        const userName = document.getElementById("userName").value;
+                        const password = document.getElementById("password").value;
+                        const remember = document.getElementById("rememberMe").checked;
+
+                        if (remember) {
+                            // Lưu thông tin vào cookie
+                            setCookie("userName", userName, 14);  // Hết hạn sau 14 ngày
+                            setCookie("password", password, 14);  // Hết hạn sau 14 ngày
+                            setCookie("rememberMe", "true", 14);  // Hết hạn sau 14 ngày
+                        } else {
+                            // Xóa cookie nếu không chọn "Nhớ tài khoản"
+                            deleteCookie("userName");
+                            deleteCookie("password");
+                            deleteCookie("rememberMe");
+                        }
+                    });
+                });
+
+                // Hàm để thiết lập cookie
+                function setCookie(name, value, days) {
+                    const expires = new Date();
+                    expires.setTime(expires.getTime() + (days * 24 * 60 * 60 * 1000));
+                    document.cookie = name + "=" + (value || "") + ";expires=" + expires.toUTCString() + ";path=/";
+                }
+
+                // Hàm để lấy giá trị cookie
+                function getCookie(name) {
+                    const nameEQ = name + "=";
+                    const ca = document.cookie.split(';');
+                    for (let i = 0; i < ca.length; i++) {
+                        let c = ca[i];
+                        while (c.charAt(0) == ' ') c = c.substring(1, c.length);
+                        if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
+                    }
+                    return null;
+                }
+
+                // Hàm để xóa cookie
+                function deleteCookie(name) {
+                    document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 UTC;path=/";
+                }
+            </script>
+
+
+
+        </div>
     </div>
 </section>
-
-

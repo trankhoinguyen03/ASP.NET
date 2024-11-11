@@ -1,52 +1,58 @@
 ﻿@{
-    ViewBag.Title = "dang ky";
+    ViewBag.Title = "Đăng Ký";
     Layout = "~/Views/Shared/_LayoutHome.cshtml";
 }
 @model CinemaBookingWeb.Models.Users
 
 
 <!-- register   -->
-<section class="container-lg">
-    <div class="login-form-left">
-        <img src="~/img/loginimg.png" alt="form">
-    </div>
-    <div class="login-form-right">
+ 
+<section class="lg">
+    <div class="login-container d-flex">
+        <!-- Phần hình ảnh -->
+        <div class="login-image col-md-6 d-none d-md-block">
+            <img src="~/img/loginimg.png" alt="form">
+        </div>
 
-        <span class="login100-logo">
-            <img class="login100-logo-img" src="~/img/logo.png" alt="form">
-        </span>
-        <span class="login100-form-title p-b-26">
-            CHÀO MỪNG BẠN !
-        </span>
+        <!-- Phần form đăng nhập -->
+        <div class="login-form col-md-6">
+            <img src="~/img/logo.png" alt="Logo" class="login-logo">
+            <h2 class="form-title">Chào Mừng Bạn !</h2>
+            @if (ViewBag.Error != null)
+            {
+                <p style="color:red">@ViewBag.Error</p>
+            }
+            <form asp-action="Register" method="post">
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary(true)
+                <div class="mb-3">
+                    <i class="login__icon fas fa-user"></i>
+                    <input asp-for="UserName" type="text" id="userName" name="userName" required class="login__input" placeholder="Nhập tên người dùng"></br>
+                </div>
+                <div class="mb-3">
+                    <i class="login__icon fas fa-lock"></i>
+                    <input asp-for="Password" type="password" id="password" name="password" required class="login__input" placeholder="Mật khẩu">
+                </div>
+                <div class="mb-3">
+                    <i class="login__icon fas fa-lock"></i>
+                    <input asp-for="Email" type="email" id="email" name="email" required class="login__input" placeholder="Email">
+                </div>
+                <div class="mb-3">
+                    <i class="login__icon fas fa-lock"></i>
+                    <input asp-for="Phone" class="login__input" required placeholder="Số điện thoại">
+                </div>
+                <div class="mb-3 form-check">
+                    <input type="checkbox" class="form-check-input" id="rememberMe">
+                    <label class="form-check-label" for="rememberMe">Tôi cam kết tuân theo chính sách bảo mật và điều khoản sử dụng của SharkCinemas.</label>
+                </div>
 
-        <form asp-action="Register" method="post">
-            @Html.AntiForgeryToken()
-            @Html.ValidationSummary(true)
-            <div class="login__field">
-                <i class="login__icon fas fa-user"></i>
-                <input asp-for="UserName" type="text" id="userName" name="userName" required class="login__input" placeholder="Tên đăng nhập"></br>
-            </div>
-            <div class="login__field">
-                <i class="login__icon fas fa-lock"></i>
-                <input asp-for="Password" type="password" id="password" name="password" required class="login__input" placeholder="Mật khẩu">
-            </div>
-            <div class="login__field">
-                <i class="login__icon fas fa-lock"></i>
-                <input asp-for="Email" type="email" id="email" name="email" required class="login__input" placeholder="Email">
-            </div>
-            <div class="login__field">
-                <i class="login__icon fas fa-lock"></i>
-                <input asp-for="Phone" class="login__input" required placeholder="Số điện thoại">
-            </div>
-            <button type="submit" class="pushable">
-                <span class="shadow-btn"></span>
-                <span class="edge"></span>
-                <span class="front"> ĐĂNG KÝ </span>
-            </button>
-        </form>
+                <button type="submit" class="btn btn-primary btn-login">Đăng Ký</button>
+                <div class=" form-title1">
+                    </br>
 
-        </br>
-        <p>Bạn đã có tài khoản?<a asp-action="Login" asp-controller="Account" style="color:var(--primary-color) !important"> ĐĂNG NHẬP </a></p>
-        
+                    <p>Bạn đã có tài khoản?<a asp-action="Login" asp-controller="Account" style="color:var(--primary-color) !important"> ĐĂNG NHẬP </a></p>
+                </div>
+            </form>
+        </div> 
     </div>
 </section>

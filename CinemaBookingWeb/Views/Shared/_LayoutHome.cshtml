@@ -9,9 +9,10 @@
     <link rel="shortcut icon" type="img/png" href="~/img/shortcut-logo.png">
     <!-- Sử dụng Bootstrap CDN -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.5/font/bootstrap-icons.min.css">
+
 </head>
 <body>
-
     <!-- Header -->
     <header class="bg-white">
         <nav class="navbar navbar-expand-lg navbar-light">
@@ -35,7 +36,7 @@
                         <li class="nav-item"><a class="nav-link" href="~/Movies/MoviesDangChieu">PHIM</a></li>
                         @if (User.Identity.IsAuthenticated)
                         {
-                                <li class="nav-item"><span class="nav-link">XIN CHÀO, @User.Identity.Name!</span></li>
+                                <li class="nav-item"><span class="nav-link">XIN CHÀO, @User.Identity.Name !</span></li>
                                 <li class="nav-item">
                                     <form asp-action="Logout" asp-controller="Account" method="post">
                                         <button class="nav-link btn btn-link" type="submit">ĐĂNG XUẤT</button>
@@ -62,11 +63,14 @@
     </main>
 
     <!-- Footer -->
-    <footer class="bg-light text-center py-4">
-        <p>&copy; 2024 Beta Cinemas. All rights reserved.</p>
+    <footer class=" text-center py-4">
+        <p>&copy; 2024 Shark Cinemas. All rights reserved.</p>
+        <p>NHÓM 7 </p>
+
     </footer>
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
 </body>
 </html>

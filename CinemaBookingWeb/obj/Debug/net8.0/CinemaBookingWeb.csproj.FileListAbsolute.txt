@@ -1,3 +1,16 @@
+D:\STUDY\HK7\.NET\ASP.NET\CinemaBookingWeb\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.dll
+D:\STUDY\HK7\.NET\ASP.NET\CinemaBookingWeb\bin\Debug\net8.0\Newtonsoft.Json.dll
+D:\STUDY\HK7\.NET\ASP.NET\CinemaBookingWeb\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\STUDY\HK7\.NET\ASP.NET\CinemaBookingWeb\bin\Debug\net8.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
+D:\STUDY\HK7\.NET\ASP.NET\CinemaBookingWeb\obj\Debug\net8.0\CinemaBookingWeb.csproj.AssemblyReference.cache
+D:\STUDY\HK7\.NET\ASP.NET\CinemaBookingWeb\obj\Debug\net8.0\CinemaBookingWeb.GeneratedMSBuildEditorConfig.editorconfig
+D:\STUDY\HK7\.NET\ASP.NET\CinemaBookingWeb\obj\Debug\net8.0\CinemaBookingWeb.AssemblyInfoInputs.cache
+D:\STUDY\HK7\.NET\ASP.NET\CinemaBookingWeb\obj\Debug\net8.0\CinemaBookingWeb.AssemblyInfo.cs
+D:\STUDY\HK7\.NET\ASP.NET\CinemaBookingWeb\obj\Debug\net8.0\CinemaBookingWeb.csproj.CoreCompileInputs.cache
+D:\STUDY\HK7\.NET\ASP.NET\CinemaBookingWeb\obj\Debug\net8.0\CinemaBookingWeb.MvcApplicationPartsAssemblyInfo.cache
+D:\STUDY\HK7\.NET\ASP.NET\CinemaBookingWeb\obj\Debug\net8.0\CinemaBookingWeb.RazorAssemblyInfo.cache
+D:\STUDY\HK7\.NET\ASP.NET\CinemaBookingWeb\obj\Debug\net8.0\CinemaBookingWeb.RazorAssemblyInfo.cs
+D:\STUDY\HK7\.NET\ASP.NET\CinemaBookingWeb\obj\Debug\net8.0\CinemaBookingWeb.sourcelink.json
 D:\STUDY\HK7\.NET\ASP.NET\CinemaBookingWeb\bin\Debug\net8.0\appsettings.Development.json
 D:\STUDY\HK7\.NET\ASP.NET\CinemaBookingWeb\bin\Debug\net8.0\appsettings.json
 D:\STUDY\HK7\.NET\ASP.NET\CinemaBookingWeb\bin\Debug\net8.0\CinemaBookingWeb.staticwebassets.runtime.json
@@ -27,7 +40,6 @@ D:\STUDY\HK7\.NET\ASP.NET\CinemaBookingWeb\bin\Debug\net8.0\Microsoft.CodeAnalys
 D:\STUDY\HK7\.NET\ASP.NET\CinemaBookingWeb\bin\Debug\net8.0\Microsoft.Data.SqlClient.dll
 D:\STUDY\HK7\.NET\ASP.NET\CinemaBookingWeb\bin\Debug\net8.0\Microsoft.DiaSymReader.dll
 D:\STUDY\HK7\.NET\ASP.NET\CinemaBookingWeb\bin\Debug\net8.0\Microsoft.DotNet.Scaffolding.Shared.dll
-D:\STUDY\HK7\.NET\ASP.NET\CinemaBookingWeb\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.dll
 D:\STUDY\HK7\.NET\ASP.NET\CinemaBookingWeb\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Abstractions.dll
 D:\STUDY\HK7\.NET\ASP.NET\CinemaBookingWeb\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Design.dll
 D:\STUDY\HK7\.NET\ASP.NET\CinemaBookingWeb\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Relational.dll
@@ -58,7 +70,6 @@ D:\STUDY\HK7\.NET\ASP.NET\CinemaBookingWeb\bin\Debug\net8.0\Microsoft.VisualStud
 D:\STUDY\HK7\.NET\ASP.NET\CinemaBookingWeb\bin\Debug\net8.0\Microsoft.VisualStudio.Web.CodeGenerators.Mvc.dll
 D:\STUDY\HK7\.NET\ASP.NET\CinemaBookingWeb\bin\Debug\net8.0\Microsoft.Win32.SystemEvents.dll
 D:\STUDY\HK7\.NET\ASP.NET\CinemaBookingWeb\bin\Debug\net8.0\Mono.TextTemplating.dll
-D:\STUDY\HK7\.NET\ASP.NET\CinemaBookingWeb\bin\Debug\net8.0\Newtonsoft.Json.dll
 D:\STUDY\HK7\.NET\ASP.NET\CinemaBookingWeb\bin\Debug\net8.0\NuGet.Common.dll
 D:\STUDY\HK7\.NET\ASP.NET\CinemaBookingWeb\bin\Debug\net8.0\NuGet.Configuration.dll
 D:\STUDY\HK7\.NET\ASP.NET\CinemaBookingWeb\bin\Debug\net8.0\NuGet.DependencyResolver.Core.dll
@@ -178,7 +189,6 @@ D:\STUDY\HK7\.NET\ASP.NET\CinemaBookingWeb\bin\Debug\net8.0\it\Microsoft.CodeAna
 D:\STUDY\HK7\.NET\ASP.NET\CinemaBookingWeb\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
 D:\STUDY\HK7\.NET\ASP.NET\CinemaBookingWeb\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
 D:\STUDY\HK7\.NET\ASP.NET\CinemaBookingWeb\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-D:\STUDY\HK7\.NET\ASP.NET\CinemaBookingWeb\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
 D:\STUDY\HK7\.NET\ASP.NET\CinemaBookingWeb\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
 D:\STUDY\HK7\.NET\ASP.NET\CinemaBookingWeb\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
 D:\STUDY\HK7\.NET\ASP.NET\CinemaBookingWeb\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
@@ -225,7 +235,6 @@ D:\STUDY\HK7\.NET\ASP.NET\CinemaBookingWeb\bin\Debug\net8.0\zh-Hant\Microsoft.Co
 D:\STUDY\HK7\.NET\ASP.NET\CinemaBookingWeb\bin\Debug\net8.0\runtimes\unix\lib\net6.0\Microsoft.Data.SqlClient.dll
 D:\STUDY\HK7\.NET\ASP.NET\CinemaBookingWeb\bin\Debug\net8.0\runtimes\win\lib\net6.0\Microsoft.Data.SqlClient.dll
 D:\STUDY\HK7\.NET\ASP.NET\CinemaBookingWeb\bin\Debug\net8.0\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll
-D:\STUDY\HK7\.NET\ASP.NET\CinemaBookingWeb\bin\Debug\net8.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
 D:\STUDY\HK7\.NET\ASP.NET\CinemaBookingWeb\bin\Debug\net8.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
 D:\STUDY\HK7\.NET\ASP.NET\CinemaBookingWeb\bin\Debug\net8.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
 D:\STUDY\HK7\.NET\ASP.NET\CinemaBookingWeb\bin\Debug\net8.0\runtimes\win\lib\net7.0\Microsoft.Win32.SystemEvents.dll
@@ -233,15 +242,6 @@ D:\STUDY\HK7\.NET\ASP.NET\CinemaBookingWeb\bin\Debug\net8.0\runtimes\win\lib\net
 D:\STUDY\HK7\.NET\ASP.NET\CinemaBookingWeb\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Runtime.Caching.dll
 D:\STUDY\HK7\.NET\ASP.NET\CinemaBookingWeb\bin\Debug\net8.0\runtimes\win\lib\net7.0\System.Security.Cryptography.ProtectedData.dll
 D:\STUDY\HK7\.NET\ASP.NET\CinemaBookingWeb\bin\Debug\net8.0\runtimes\win\lib\net7.0\System.Windows.Extensions.dll
-D:\STUDY\HK7\.NET\ASP.NET\CinemaBookingWeb\obj\Debug\net8.0\CinemaBookingWeb.csproj.AssemblyReference.cache
-D:\STUDY\HK7\.NET\ASP.NET\CinemaBookingWeb\obj\Debug\net8.0\CinemaBookingWeb.GeneratedMSBuildEditorConfig.editorconfig
-D:\STUDY\HK7\.NET\ASP.NET\CinemaBookingWeb\obj\Debug\net8.0\CinemaBookingWeb.AssemblyInfoInputs.cache
-D:\STUDY\HK7\.NET\ASP.NET\CinemaBookingWeb\obj\Debug\net8.0\CinemaBookingWeb.AssemblyInfo.cs
-D:\STUDY\HK7\.NET\ASP.NET\CinemaBookingWeb\obj\Debug\net8.0\CinemaBookingWeb.csproj.CoreCompileInputs.cache
-D:\STUDY\HK7\.NET\ASP.NET\CinemaBookingWeb\obj\Debug\net8.0\CinemaBookingWeb.MvcApplicationPartsAssemblyInfo.cache
-D:\STUDY\HK7\.NET\ASP.NET\CinemaBookingWeb\obj\Debug\net8.0\CinemaBookingWeb.RazorAssemblyInfo.cache
-D:\STUDY\HK7\.NET\ASP.NET\CinemaBookingWeb\obj\Debug\net8.0\CinemaBookingWeb.RazorAssemblyInfo.cs
-D:\STUDY\HK7\.NET\ASP.NET\CinemaBookingWeb\obj\Debug\net8.0\CinemaBookingWeb.sourcelink.json
 D:\STUDY\HK7\.NET\ASP.NET\CinemaBookingWeb\obj\Debug\net8.0\staticwebassets.build.json
 D:\STUDY\HK7\.NET\ASP.NET\CinemaBookingWeb\obj\Debug\net8.0\staticwebassets.development.json
 D:\STUDY\HK7\.NET\ASP.NET\CinemaBookingWeb\obj\Debug\net8.0\staticwebassets\msbuild.CinemaBookingWeb.Microsoft.AspNetCore.StaticWebAssets.props

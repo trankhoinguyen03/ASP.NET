@@ -26,12 +26,20 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = D:\STUDY\HK7\.NET\ASP.NET\CinemaBookingWeb
 build_property._RazorSourceGeneratorDebug = 
 
+[D:/STUDY/HK7/.NET/ASP.NET/CinemaBookingWeb/Views/Account/ForgotPassword.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxGb3Jnb3RQYXNzd29yZC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/STUDY/HK7/.NET/ASP.NET/CinemaBookingWeb/Views/Account/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxMb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/STUDY/HK7/.NET/ASP.NET/CinemaBookingWeb/Views/Account/Register.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxSZWdpc3Rlci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/STUDY/HK7/.NET/ASP.NET/CinemaBookingWeb/Views/Account/ResetPassword.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxSZXNldFBhc3N3b3JkLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/STUDY/HK7/.NET/ASP.NET/CinemaBookingWeb/Views/HomeAdmin/Index.cshtml]
