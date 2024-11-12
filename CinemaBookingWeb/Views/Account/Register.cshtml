@@ -41,15 +41,11 @@
                     <i class="login__icon fas fa-lock"></i>
                     <input asp-for="Phone" class="login__input" required placeholder="Số điện thoại">
                 </div>
-                <div class="mb-3 form-check">
-                    <input type="checkbox" class="form-check-input" id="rememberMe">
-                    <label class="form-check-label" for="rememberMe">Tôi cam kết tuân theo chính sách bảo mật và điều khoản sử dụng của SharkCinemas.</label>
-                </div>
-
                 <button type="submit" class="btn btn-primary btn-login">Đăng Ký</button>
+
                 <div class=" form-title1">
                     </br>
-
+                    <hr>
                     <p>Bạn đã có tài khoản?<a asp-action="Login" asp-controller="Account" style="color:var(--primary-color) !important"> ĐĂNG NHẬP </a></p>
                 </div>
             </form>

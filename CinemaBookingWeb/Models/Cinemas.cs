@@ -6,10 +6,10 @@ namespace CinemaBookingWeb.Models
     {
         [Key]
         public int CinemaId { get; set; }
-        public string Name {  get; set; }
+        public string Name { get; set; }
         public string Location { get; set; }
         public string Phone { get; set; }
-        public string City { get; set; }
+        public string City { get; set; } // Thành phố
         public byte Status { get; set; }
         public ICollection<Showtimes>? Showtimes { get; set; }
     }
