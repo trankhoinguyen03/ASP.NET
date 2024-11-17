@@ -16,5 +16,7 @@ namespace CinemaBookingWeb.Models
         public string TrailerUrl { get; set; }
         public string ImageUrl { get; set; }
         public byte Status { get; set; }
+
+        public ICollection<Showtimes> Showtimes { get; set; }
     }
 }

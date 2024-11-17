@@ -1,0 +1,61 @@
+﻿@model CinemaBookingWeb.Models.Combos
+
+@{
+    ViewData["Title"] = "Thêm Combo Mới";
+    Layout = "_LayoutAdmin";
+}
+
+<h1>Thêm Combo Mới</h1>
+
+<form asp-action="Create" method="post" enctype="multipart/form-data">
+    <div class="form-group">
+        <label asp-for="Name"></label>
+        <input asp-for="Name" class="form-control" />
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Description"></label>
+        <textarea asp-for="Description" class="form-control"></textarea>
+        <span asp-validation-for="Description" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Price"></label>
+        <input asp-for="Price" class="form-control" type="number" step="0.01" />
+        <span asp-validation-for="Price" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="ImageUrl"></label>
+        <input asp-for="ImageUrl" class="form-control" />
+        <span asp-validation-for="ImageUrl" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Size"></label>
+        <select asp-for="Size" class="form-control">
+            <option>Lớn</option>
+            <option>Vừa</option>
+            <option>Nhỏ</option>
+        </select>
+        <span asp-validation-for="Size" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Type"></label>
+        <input asp-for="Type" class="form-control" />
+        <span asp-validation-for="Type" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Status"></label>
+        <select asp-for="Status" class="form-control">
+            <option value="1">Kích Hoạt</option>
+            <option value="0">Không Kích Hoạt</option>
+        </select>
+        <span asp-validation-for="Status" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Lưu</button>
+    <a asp-action="Index" class="btn btn-secondary">Quay Lại</a>
+</form>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

@@ -1,0 +1,22 @@
+﻿@model CinemaBookingWeb.Models.Combos
+
+@{
+    ViewData["Title"] = "Xóa Combo";
+    Layout = "_LayoutAdmin";
+}
+
+<h1>Xóa Combo</h1>
+
+<h3>Bạn có chắc chắn muốn xóa combo này?</h3>
+<div>
+    <h4>@Model.Name</h4>
+    <p>Giá: @Model.Price.ToString("C")</p>
+    <p>Hình ảnh: <img src="@Model.ImageUrl" alt="@Model.Name" style="width: 100px;" /></p>
+    <p>Trạng thái: @(Model.Status == 1 ? "Kích Hoạt" : "Không Kích Hoạt")</p>
+</div>
+
+<form asp-action="Delete" method="post">
+    <input type="hidden" asp-for="ComboId" />
+    <button type="submit" class="btn btn-danger">Xóa</button>
+    <a asp-action="Index" class="btn btn-secondary">Quay Lại</a>
+</form>

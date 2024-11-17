@@ -1,0 +1,44 @@
+﻿@{
+    ViewData["Title"] = "Danh Sách Suất Chiếu";
+    Layout = "_LayoutAdmin";
+}
+@model IEnumerable<CinemaBookingWeb.Models.Showtimes>
+@using System.Text.Json
+
+<div>
+    <h2>Danh Sách Suất Chiếu</h2>
+    <p>
+        <a asp-action="Create" class="btn btn-primary">Thêm Suất Chiếu Mới</a>
+    </p>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Phim</th>
+                <th>Rạp</th>
+                <th>Giá</th>
+                <th>Thời Gian Bắt Đầu</th>
+                <th>Thời Gian Kết Thúc</th>
+                <th>Trạng Thái</th>
+                <th>Hành Động</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var showtime in Model)
+            {
+                <tr>
+                    <td>@showtime.Movie.Title</td>
+                    <td>@showtime.Cinema.Name</td>
+                    <td>@showtime.Price.ToString("C")</td>
+                    <td>@showtime.StartTime.ToString("yyyy-MM-dd HH:mm")</td>
+                    <td>@showtime.EndTime.ToString("yyyy-MM-dd HH:mm")</td>
+                    <td>@(showtime.Status == 1 ? "Kích Hoạt" : "Không Kích Hoạt")</td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@showtime.ShowtimeId" class="btn btn-warning">Sửa</a>
+                        <a asp-action="Delete" asp-route-id="@showtime.ShowtimeId" class="btn btn-danger">Xóa</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
