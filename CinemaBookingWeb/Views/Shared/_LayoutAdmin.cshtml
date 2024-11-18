@@ -12,7 +12,10 @@
 <body>
     <div class="sidebar">
         <nav class="nav flex-column">
-            <a class="navbar-brand mb-3 text-center" asp-area="" asp-controller="HomeAdmin" asp-action="Index">CinemaBookingWeb</a>
+            <a class="navbar-brand mb-3 text-center" href="~/Home">
+                <img src="~/img/shortcut-logo.png" alt="Shark Cinemas Logo" height="100">
+            </a>
+            <a class="navbar-brand mb-3 text-center" asp-area="" asp-controller="HomeAdmin" asp-action="Index">Shark Cinema</a>
 
             <a class="nav-link text-light" data-bs-toggle="collapse" href="#overviewMenu" role="button" aria-expanded="false" aria-controls="overviewMenu">
                 <i class="bi bi-bar-chart-fill"></i> Tổng quan
@@ -89,7 +92,7 @@
 
     <footer class="footer text-muted">
         <div class="main-content">
-            &copy; 2024 - CinemaBookingWeb - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            &copy; 2024 - SharkCinemaBookingWeb - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>
     </footer>
 

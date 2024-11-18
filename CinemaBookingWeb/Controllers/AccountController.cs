@@ -28,7 +28,12 @@ namespace CinemaBookingWeb.Controllers
         {
             if (_context.Users.Any(u => u.UserName == user.UserName))
             {
-                ModelState.AddModelError("UserName", "UserName đã tồn tại, vui lòng chọn tên khác.");
+                ViewBag.Error = "UserName đã tồn tại, vui lòng chọn tên khác.";
+                return View(user);
+            }
+            if (_context.Users.Any(u => u.Email == user.Email))
+            {
+                ViewBag.Error = "Email đã tồn tại, vui lòng chọn email khác.";
                 return View(user);
             }
 
@@ -38,16 +43,8 @@ namespace CinemaBookingWeb.Controllers
                 user.Status = 1;
                 _context.Users.Add(user);
                 _context.SaveChanges();
+                TempData["Success"] = "Tài khoản của bạn đã được đăng ký thành công.";
                 return RedirectToAction("Login", "Account");
-            }
-            else
-            {
-                // Log ModelState errors for debugging
-                var errors = ModelState.Values.SelectMany(v => v.Errors);
-                foreach (var error in errors)
-                {
-                    Console.WriteLine(error.ErrorMessage);
-                }
             }
             return View(user);
         }
@@ -121,7 +118,7 @@ namespace CinemaBookingWeb.Controllers
             }
 
             // Chuyển đến trang để người dùng thay đổi mật khẩu
-return RedirectToAction("ResetPassword", new { email = user.Email, userName = user.UserName });
+            return RedirectToAction("ResetPassword", new { email = user.Email, userName = user.UserName });
 
         }
 
@@ -151,34 +148,30 @@ return RedirectToAction("ResetPassword", new { email = user.Email, userName = us
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> ResetPassword(ResetPasswordViewModel model)
         {
-            if (ModelState.IsValid)
+            // Kiểm tra tính hợp lệ của model
+            if (!ModelState.IsValid)
             {
-                // Kiểm tra mật khẩu mới có đủ mạnh hay không
-                if (model.NewPassword.Length < 6) // Ví dụ: mật khẩu tối thiểu 6 ký tự
-                {
-                    ViewBag.Error = "Mật khẩu phải có ít nhất 6 ký tự.";
-                    return View(model);
-                }
-
-                var user = _context.Users.FirstOrDefault(u => u.UserName == model.UserName && u.Email == model.Email); 
-                if (user != null)
-                {
-                    user.Password = model.NewPassword;
-                    _context.Users.Update(user);
-                    await _context.SaveChangesAsync();
-
-                    TempData["Success"] = "Mật khẩu của bạn đã được thay đổi thành công.";
-                    return RedirectToAction("Login", "Account");
-                }
-                else
-                {
-                    ViewBag.Error = "Email không tồn tại.";
-                    return View();
-                }
+                return View(model); // Trả về view với thông báo lỗi nếu model không hợp lệ
             }
 
-            return View(model);
+            var user = _context.Users.FirstOrDefault(u => u.UserName == model.UserName && u.Email == model.Email);
+            if (user != null)
+            {
+                user.Password = model.NewPassword;
+                _context.Users.Update(user);
+                await _context.SaveChangesAsync();
+
+                TempData["Success"] = "Mật khẩu của bạn đã được thay đổi thành công.";
+                return RedirectToAction("Login", "Account");
+            }
+            else
+            {
+                ViewBag.Error = "Email không tồn tại.";
+                return View(model);
+            }
         }
+
+
 
 
         [HttpPost]

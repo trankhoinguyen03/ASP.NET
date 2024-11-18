@@ -10,7 +10,7 @@ namespace CinemaBookingWeb.Models
         public string Email { get; set; }
 
         [Required]
-        [StringLength(100, MinimumLength = 6)]
+        [StringLength(100, MinimumLength = 6, ErrorMessage = "Mật khẩu ít nhất phải có 6 ký tự.")]
         public string NewPassword { get; set; }
 
         [Required]

@@ -24,6 +24,10 @@
             {
                 <p style="color:green">@ViewBag.Success</p>
             }
+            @if (TempData["Success"] != null)
+            {
+                <p style="color:green">@TempData["Success"]</p>
+            }
             <form asp-action="Login" method="post" id="loginForm">
                 <div class="mb-3">
                     <input type="text" id="userName" name="userName" required class="login__input" placeholder="Nhập tên người dùng">

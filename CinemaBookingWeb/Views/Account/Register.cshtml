@@ -7,48 +7,60 @@
 
 <!-- register   -->
  
+
 <section class="lg">
     <div class="login-container d-flex">
-        <!-- Phần hình ảnh -->
         <div class="login-image col-md-6 d-none d-md-block">
             <img src="~/img/loginimg.png" alt="form">
         </div>
 
-        <!-- Phần form đăng nhập -->
         <div class="login-form col-md-6">
             <img src="~/img/logo.png" alt="Logo" class="login-logo">
-            <h2 class="form-title">Chào Mừng Bạn !</h2>
+            <h2 class="form-title">Chào Mừng Bạn!</h2>
+
             @if (ViewBag.Error != null)
             {
                 <p style="color:red">@ViewBag.Error</p>
             }
+
             <form asp-action="Register" method="post">
-                @Html.AntiForgeryToken()
-                @Html.ValidationSummary(true)
+
                 <div class="mb-3">
-                    <i class="login__icon fas fa-user"></i>
-                    <input asp-for="UserName" type="text" id="userName" name="userName" required class="login__input" placeholder="Nhập tên người dùng"></br>
+                    <input asp-for="UserName" class="login__input" placeholder="Nhập tên người dùng">
+                    <span asp-validation-for="UserName" class="text-danger"></span>
                 </div>
+
                 <div class="mb-3">
-                    <i class="login__icon fas fa-lock"></i>
-                    <input asp-for="Password" type="password" id="password" name="password" required class="login__input" placeholder="Mật khẩu">
+                    <input asp-for="Password" type="password" class="login__input" placeholder="Nhập mật khẩu">
+                    <span asp-validation-for="Password" class="text-danger"></span>
                 </div>
+
                 <div class="mb-3">
-                    <i class="login__icon fas fa-lock"></i>
-                    <input asp-for="Email" type="email" id="email" name="email" required class="login__input" placeholder="Email">
+                    <input asp-for="ConfirmPassword" type="password" class="login__input" placeholder="Xác nhận mật khẩu">
+                    <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
                 </div>
+
                 <div class="mb-3">
-                    <i class="login__icon fas fa-lock"></i>
-                    <input asp-for="Phone" class="login__input" required placeholder="Số điện thoại">
+                    <input asp-for="Email" type="email" class="login__input" placeholder="Nhập email">
+                    <span asp-validation-for="Email" class="text-danger"></span>
                 </div>
+
+                <div class="mb-3">
+                    <input asp-for="Phone" class="login__input" placeholder="Nhập số điện thoại">
+                    <span asp-validation-for="Phone" class="text-danger"></span>
+                </div>
+
                 <button type="submit" class="btn btn-primary btn-login">Đăng Ký</button>
 
-                <div class=" form-title1">
-                    </br>
+                <div class="form-title1">
                     <hr>
-                    <p>Bạn đã có tài khoản?<a asp-action="Login" asp-controller="Account" style="color:var(--primary-color) !important"> ĐĂNG NHẬP </a></p>
+                    <p>Bạn đã có tài khoản? <a asp-action="Login" asp-controller="Account" style="color:var(--primary-color) !important">ĐĂNG NHẬP</a></p>
                 </div>
             </form>
-        </div> 
+        </div>
     </div>
 </section>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

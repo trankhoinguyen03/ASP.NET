@@ -1,14 +1,14 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "D:\\New folder\\ASP.NET\\CinemaBookingWeb\\",
+  "WorkspaceRootPath": "D:\\STUDY\\HK7\\.NET\\ASP.NET\\CinemaBookingWeb\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{4E7E4A78-1983-4395-8A78-225B2E4CBE98}|CinemaBookingWeb.csproj|d:\\new folder\\asp.net\\cinemabookingweb\\controllers\\ticketscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4E7E4A78-1983-4395-8A78-225B2E4CBE98}|CinemaBookingWeb.csproj|solutionrelative:controllers\\ticketscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{4E7E4A78-1983-4395-8A78-225B2E4CBE98}|CinemaBookingWeb.csproj|d:\\study\\hk7\\.net\\asp.net\\cinemabookingweb\\views\\shared\\_layoutadmin.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{4E7E4A78-1983-4395-8A78-225B2E4CBE98}|CinemaBookingWeb.csproj|solutionrelative:views\\shared\\_layoutadmin.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4E7E4A78-1983-4395-8A78-225B2E4CBE98}|CinemaBookingWeb.csproj|d:\\new folder\\asp.net\\cinemabookingweb\\views\\tickets\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{4E7E4A78-1983-4395-8A78-225B2E4CBE98}|CinemaBookingWeb.csproj|solutionrelative:views\\tickets\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{4E7E4A78-1983-4395-8A78-225B2E4CBE98}|CinemaBookingWeb.csproj|d:\\study\\hk7\\.net\\asp.net\\cinemabookingweb\\views\\shared\\_layouthome.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{4E7E4A78-1983-4395-8A78-225B2E4CBE98}|CinemaBookingWeb.csproj|solutionrelative:views\\shared\\_layouthome.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -67,27 +67,27 @@
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "D:\\New folder\\ASP.NET\\CinemaBookingWeb\\Views\\tickets\\Index.cshtml",
-              "RelativeDocumentMoniker": "Views\\tickets\\Index.cshtml",
-              "ToolTip": "D:\\New folder\\ASP.NET\\CinemaBookingWeb\\Views\\tickets\\Index.cshtml",
-              "RelativeToolTip": "Views\\tickets\\Index.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAIkAAAAvAAAAAAAAAA==",
+              "Title": "_LayoutHome.cshtml",
+              "DocumentMoniker": "D:\\STUDY\\HK7\\.NET\\ASP.NET\\CinemaBookingWeb\\Views\\Shared\\_LayoutHome.cshtml",
+              "RelativeDocumentMoniker": "Views\\Shared\\_LayoutHome.cshtml",
+              "ToolTip": "D:\\STUDY\\HK7\\.NET\\ASP.NET\\CinemaBookingWeb\\Views\\Shared\\_LayoutHome.cshtml",
+              "RelativeToolTip": "Views\\Shared\\_LayoutHome.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-11-18T10:34:38.234Z",
+              "WhenOpened": "2024-11-18T14:08:55.511Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "ticketsController.cs",
-              "DocumentMoniker": "D:\\New folder\\ASP.NET\\CinemaBookingWeb\\Controllers\\ticketsController.cs",
-              "RelativeDocumentMoniker": "Controllers\\ticketsController.cs",
-              "ToolTip": "D:\\New folder\\ASP.NET\\CinemaBookingWeb\\Controllers\\ticketsController.cs",
-              "RelativeToolTip": "Controllers\\ticketsController.cs",
-              "ViewState": "AgIAAOYAAAAAAAAAAAAAAAIBAAAaAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-15T03:39:40.35Z",
+              "Title": "_LayoutAdmin.cshtml",
+              "DocumentMoniker": "D:\\STUDY\\HK7\\.NET\\ASP.NET\\CinemaBookingWeb\\Views\\Shared\\_LayoutAdmin.cshtml",
+              "RelativeDocumentMoniker": "Views\\Shared\\_LayoutAdmin.cshtml",
+              "ToolTip": "D:\\STUDY\\HK7\\.NET\\ASP.NET\\CinemaBookingWeb\\Views\\Shared\\_LayoutAdmin.cshtml",
+              "RelativeToolTip": "Views\\Shared\\_LayoutAdmin.cshtml",
+              "ViewState": "AgIAAFEAAAAAAAAAAAAAAF4AAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-18T14:08:19.926Z",
               "EditorCaption": ""
             }
           ]
