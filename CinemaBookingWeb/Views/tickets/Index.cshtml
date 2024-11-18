@@ -3,188 +3,515 @@
     Layout = "_LayoutHome";
 }
 @model IEnumerable<Seats>
+<style>
 
-<div>
-    <h1>Chọn vị trí</h1>
-    <ul class="">
-        @foreach (var cinema in ViewBag.cinemas)
-        {
-            <li><a asp-action="ChoiceCity" asp-controller="tickets" asp-route-id="@cinema.CinemaId">@cinema.City</a></li>
+    .ticket_section {
+        display: none; /* Hide sections by default */
+        padding: 20px;
+    }
+
+    /* Active section */
+    .ticket_active {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+    }
+
+        .ticket_active > .ticket_left {
+            padding: 20px;
+            background-color: aqua;
+            width: 60%;
         }
-    </ul>
-</div>
-@if (ViewBag.movies != null)
-{
-    <div>
-        <h1>Chọn phim</h1>
-        <ul class="">
-            @foreach (var movie in ViewBag.Movies)
-            {
-                <li><a asp-action="ChoiceMovie" asp-controller="tickets" asp-route-id="@movie.MovieId">@movie.Title</a></li>
-            }
-        </ul>
-    </div>
-}
-else
-{
-    <h1>Chọn phim</h1>
-}
-@if (ViewBag.showtimes != null)
-{
-    <div>
-        <h1>Chọn suất chiếu</h1>
-        <ul class="">
-            @foreach (var show in ViewBag.showtimes)
-            {
-                <li><a asp-action="ChoiceShowTime" asp-controller="tickets" asp-route-id="@show.ShowtimeId">@show.StartTime + @show.EndTime</a></li>
-            }
-        </ul>
-    </div>
-}
-else
-{
-    <h1>Chọn suất chiếu</h1>
-}
 
-@* ghế *@
-<div class="seat-layout">
-    
-    
-    
-    @if (ViewBag.seats != null)
-    {
-        <h1>chọn ghế</h1>
-        var temp = 0;
+        .ticket_active > .ticket_sidebar {
+            padding: 20px;
+            width: 30%;
+            background-color: #333;
+        }
+    /* Navigation */
+    .ticket_nav-tabs {
+        display: flex;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+        .ticket_nav-tabs li {
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+
+    .ticket_active-tab {
+        border-bottom: 2px solid blue;
+        font-weight: bold;
+        color: blue;
+    }
+    .ticket_choice-movie{
+        width:100%
+    }
+    /* Seat selection styling */
+    .ticket_seat-container {
+        display: grid;
+        grid-template-columns: repeat(10, 1fr);
+        gap: 5px;
+        justify-items: center;
+    }
+
+    .ticket_seat {
+        width: 30px;
+        height: 30px;
+        border: 1px solid #333;
+        text-align: center;
+        line-height: 30px;
+        cursor: pointer;
+        border-radius: 10px 10px 10px 10px;
+    }
+
+    .ticket_reseveSeat {
+        width: 30px;
+        height: 30px;
+        border: 1px solid #333;
+        text-align: center;
+        line-height: 30px;
+        cursor: pointer;
+        background-color: red;
+        border-radius: 10px 10px 10px 10px;
+    }
+
+    .ticket_selected {
+        background-color: orange;
+    }
+
+    .ticket_legend {
+        margin-top: 20px;
+        display: flex;
+        justify-content: space-between;
+    }
+    /* tab1 */
+    .ticket_hidden {
+        display: none;
+    }
+
+    .equal-height {
+        height:390 px;
+    }
+    /*tab4*/
+    .ticket_card-header {
+        background-color: #ff7e00;
+        color: white;
+        font-weight: bold;
+    }
+
+    .ticket_price {
+        font-weight: bold;
+        color: #ff7e00;
+    }
+
+    .ticket_tag-rating {
+        background-color: #ffcc00;
+        color: black;
+        font-weight: bold;
+        padding: 2px 6px;
+        border-radius: 4px;
+    }
+
+    .ticket_movie-title {
+        font-weight: bold;
+    }
+
+    .ticket_total {
+        font-size: 1.2rem;
+        font-weight: bold;
+        color: #000;
+    }
+</style>
+<body>
+    <div class="mx-auto p-2">
         
-        @foreach (var seat in ViewBag.seats)
-        {
-            var v = false;
-            if(ViewBag.BookedSeats != null)
-            {
-                @foreach(var i in ViewBag.BookedSeats)
-                {
-                    if (i.SeatId == seat.SeatId)
-                    {
-                        v = true;
-                        break;
-                    }
 
-                }
-            }
-            if (v)
-            {
-                <b>@seat.SeatNumber</b>
-
-            }
-            else
-            {
-                <a asp-action="ChoiceSeats" asp-controller="tickets" asp-route-id="@seat.SeatId">@seat.SeatNumber</a>
-            }
-            temp++;
-            @if (temp >= 8)
-            {
-                <br />
-                temp = 0;
-            }
-        }
-
-    }
-    else
-    {
-        <h1>chọn ghế</h1>
-    }
-
-    
-</div>
-<div>
-    <button>Thanh toán</button>
-</div>
-@if (ViewBag.temp != null)
-{
-    <div>
-        <h1>Cai này vài bữa xóa</h1>
-        <ul class="">
-            @foreach (var temp in ViewBag.temp)
-            {
-                <li>@temp</li>
-            }
+        <!-- Navigation tabs -->
+        <ul class="ticket_nav-tabs" class="text-center" >
+            <li id="choose-movie">Chọn phim / Rạp / Suất</li>
+            <li id="choose-seat">Chọn ghế</li>
+            <li id="choose-combo">Chọn thức ăn</li>
+            <li id="choose-pay">Thanh toán</li>
         </ul>
-    </div>
-}
-else
-{
-    <h1>ô</h1>
-}
-<div>
+        <div id="movie-selection" class="ticket_section ">
+            <div class="ticket_left">
+                <h2>Chọn phim/rạp/suất</h2>
+                <div class="ticket_selection-container">
+                    <div class="ticket_location-selection">
+                        <h3>Chọn vị trí</h3>
+                        <form asp-action="ChoiceCity" asp-controller="tickets">
+                            <select class="form-select form-select-lg" id="location" name="id" onchange="this.form.submit()">
 
-<div class="col-lg-8 table-responsive mb-5">
-    <table class="table table-light table-borderless table-hover text-center mb-0">
-        <thead class="thead-dark">
-            <tr>
-                <th>Products</th>
-                <th>Price</th>
-                <th>Quantity</th>
-                <th>Total</th>
-                <th>Remove</th>
-            </tr>
-        </thead>
-        <tbody class="align-middle">
-                <form asp-action="ChoiceCombos" asp-controller="tickets">
-                    @foreach (var combo in ViewBag.Combo)
-                    {
-                    <tr>
-                        <td class="align-middle"><img src="#" alt="" style="width: 50px;"> @combo.Name</td>
-                        <td class="align-middle">@combo.Price</td>
-                        <td class="align-middle">
-                            <div class="input-group quantity mx-auto" style="width: 100px;">
-                                <div class="input-group-btn">
-                                    <button type="button" name="decrement" onclick="decrementQuantity(@combo.ComboId)" class="btn btn-sm btn-primary btn-minus">
-                                        -
-                                    </button>
-                                </div>
-                                <input type="text" id='@combo.ComboId' name="quantities[@combo.ComboId]" min="0" class="form-control form-control-sm bg-secondary border-0 text-center" value="0">
-                                <div class="input-group-btn">
-                                    <button type="button" name="increment" onclick="incrementQuantity(@combo.ComboId)" class="btn btn-sm btn-primary btn-plus">
-                                        +
-                                    </button>
-                                </div>
+                                @if (ViewBag.tempId != null)
+                                {
+                                    @foreach (var cinema in ViewBag.cinemas)
+                                    {
+                                        if (ViewBag.tempId == @cinema.CinemaId)
+                                        {
+                                            <option value="@cinema.CinemaId" selected>@cinema.City</option>
+                                        }
+                                        else
+                                        {
+                                            <option value="@cinema.CinemaId">@cinema.City</option>
+                                        }
+                                    }
+                                }
+                                else
+                                {
+                                    <option value="">Chọn vị trí</option>
+                                    @foreach (var cinema in ViewBag.cinemas)
+                                    {
+                                        <option value="@cinema.CinemaId">@cinema.City</option>
+                                    }
+                                }
+
+                            </select>
+                        </form>
+                    </div>
+
+                    <div class="ticket_choice-movie">
+                        @if (ViewBag.Movies != null)
+                        {
+                            <h3>Chọn phim</h3>
+                            <ul class="row justify-content-center list-unstyled">
+
+                                @foreach (var movie in ViewBag.Movies)
+                                {
+
+                                    <li class="col-4 p-6">
+                                        <a asp-action="ChoiceMovie" asp-controller="tickets" asp-route-id="@movie.MovieId">
+                                            <div class="movie-item text-center p-4 border rounded shadow" style="height: 390px;">
+                                                <img src="~/img/logo.png" alt="@movie.Title" class="w-full h-auto mb-2">
+                                                <h3 class="movie-item-title text-lg font-semibold">@movie.Title</h3>
+                                                <p>Thể loại: @movie.Genre</p>
+                                            </div>
+                                        </a>
+                                    </li>
+                                }
+
+                            </ul>
+                        }
+                        else
+                        {
+                            <h3>Chọn phim</h3>
+                        }
+
+                    </div>
+
+                    <div>
+                        <h3>Chọn suất chiếu</h3>
+
+                        @if (ViewBag.showtimes != null)
+                        {
+
+                            int numberOfDays = 7; // Số ngày bạn muốn hiển thị
+
+                            <div class="btn-group">
+                                @foreach (var i in Enumerable.Range(0, numberOfDays))
+                                {
+                                    if (ViewBag.choicedate == DateOnly.FromDateTime(DateTime.Today.AddDays(i)))
+                                    {
+                                        <a href="#" class="btn btn-outline-primary active">@DateTime.Today.AddDays(i).ToString("dd/MM")</a>
+                                    }
+                                    else
+                                    {
+                                        <a class="btn btn-outline-primary" asp-action="ChoiceDay" asp-controller="tickets" asp-route-days="@i">@DateTime.Today.AddDays(i).ToString("dd/MM")</a>
+
+                                    }
+                                }
+
                             </div>
-                        </td>
-                        <td class="align-middle">chuatinh</td>
-                            @* <td class="align-middle"><button class="btn btn-sm btn-danger"><i class="fa fa-times"></i></button></td> *@
-                    </tr>
-                    <button type="submit">xác nhận</button>
-                    }
-          </form>
-        </tbody>
-    </table>
-</div>
-    @if (ViewBag.temp22 != null)
-    {
-        <div>
-            <h1>Cai này vài bữa xóa</h1>
-            <ul class="">
-                @foreach (var temp in ViewBag.temp22)
-                {
-                    <li>@temp.ComboId +@temp.Quantity</li>
-                }
-            </ul>
+                            <table>
+                                @foreach (var cinema in ViewBag.showtimes)
+                                {
+                                    <tr>
+                                        <th>@cinema.cinemaName (@cinema.location)</th>
+                                    </tr>
+                                    <tr>
+                                        @foreach (var showtime in cinema.Showtimes)
+                                        {
+                                            <td>
+                                                <a class="btn btn-outline-primary" asp-action="ChoiceShowTime" asp-controller="tickets" asp-route-id="@showtime.showtimesId">
+                                                    @showtime.startTime - @showtime.endTime
+                                                </a>
+                                            </td>
+                                        }
+                                    </tr>
+                                }
+                            </table>
+                        }
+                    </div>
+                </div>
+            </div>
+
+            <div class="ticket_sidebar">
+                <div class="movie-info">
+                    <div class="movie-icon">
+                        <img src="https://via.placeholder.com/100" alt="Movie Icon">
+                    </div>
+                    <p>Tổng cộng</p>
+                    <p class="ticket_total-price">0 ₫</p>
+                </div>
+                <div class="ticket_action-buttons">
+                    <a asp-action="choiceView" asp-controller="tickets" asp-route-id="2">Tiếp tục</a>
+                </div>
+            </div>
         </div>
-    }
-    else
-    {
-        <h1>ơ</h1>
-    }
-    <div>
-        <a asp-action="Checkout" asp-controller="tickets">Thanh toán</a>
+
+        <!--choice seat-->
+        <div id="seat-selection" class="ticket_section">
+            <div class="ticket_left">
+                <h2>Chọn ghế</h2>
+                <form id="formSeats" asp-action="ChoiceSeats" asp-controller="tickets">
+
+                    @if (ViewBag.seats != null)
+                    {
+                        var temp = 0;
+
+                        @foreach (var seat in ViewBag.seats)
+                        {
+                            var v = false;
+                            if (ViewBag.BookedSeats != null)
+                            {
+                                @foreach (var i in ViewBag.BookedSeats)
+                                {
+                                    if (i.SeatId == seat.SeatId)
+                                    {
+                                        v = true;
+                                        break;
+                                    }
+
+                                }
+                            }
+                            if (v)
+                            {
+                                <button class="ticket_reseveSeat" disabled>@seat.SeatNumber</button>
+
+                            }
+                            else
+                            {
+                                <button type="button" class="ticket_seat" onclick="selectSeat(this)">@seat.SeatNumber</button>
+
+                                <input type="hidden" name="bookedSeats[@seat.SeatId]" value="0" />
+                                <input type="hidden" name="bookedSeats" value="@seat.SeatId" onclick="selectSeat(this)" />
+                            }
+                            temp++;
+                            @if (temp >= 8)
+                            {
+                                <br />
+                                temp = 0;
+                            }
+                        }
+                    }
+                </form>
+
+
+            </div>
+            <div class="ticket_sidebar">
+                <div class="ticket_movie-info">
+                    <div class="ticket_movie-icon">
+                        <img src="https://via.placeholder.com/100" alt="Movie Icon">
+                    </div>
+                    <p>Tổng cộng</p>
+                    <p class="ticket_total-price">0 ₫</p>
+                </div>
+                <div class="ticket_action-buttons">
+                    <button class="ticket_back-button">Quay lại</button>
+                    <button type="submit" form="formSeats" class="ticket_continue-button">Tiếp tục</button>
+                </div>
+            </div>
+
+        </div>
+        <!--choice combo-->
+        <div id="combo-selection" class="ticket_section ">
+
+            <div class="col-lg-8 table-responsive mb-5 text-center">
+                <h2>Chọn thức ăn</h2>
+                <table class="table table-striped table-borderless table-hover text-center mb-0">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>Products</th>
+                            <th>Price</th>
+                            <th>Quantity</th>
+                            <th>Total</th>
+                            <th>Remove</th>
+                        </tr>
+                    </thead>
+                    <tbody class="align-middle">
+                        <form id="formCombos" asp-action="ChoiceCombos" asp-controller="tickets">
+                            @foreach (var combo in ViewBag.Combo)
+                            {
+                            <tr>
+                                <td style="width:40%" class="align-middle"><img src="#" alt="" style="width: 50px;"> @combo.Name</td>
+                                <td style="width:15%" class="align-middle">
+                                    <input style="background-color: transparent; " class="border-0 form-control text-center" disabled id='price @combo.ComboId' value="@combo.Price" />
+                                </td>
+                                <td style="width:15%" class="align-middle">
+                                    <div class="input-group quantity mx-auto">
+                                        <div class="input-group-btn btn-group">
+                                            <button type="button" name="decrement" onclick="decrementQuantity(@combo.ComboId)" class="btn btn-outline-primary ">
+                                                -
+                                            </button>
+                                        </div>
+                                        <input type="text" id='@combo.ComboId' name="quantities[@combo.ComboId]" min="0" class="text-center fw-bold bg-dark-subtle text-dark-emphasis form-control" value="0">
+                                        <div class="input-group-btn">
+                                            <button type="button" name="increment" onclick="incrementQuantity(@combo.ComboId)" class="btn btn-outline-primary">
+                                                +
+                                            </button>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td style="width:20%" class="align-middle ">
+                                    <input style=" background-color: transparent;" class="border-0 form-control text-center " disabled type="text" id="totalCombo @combo.ComboId" value="0" />
+                                </td>
+                                <td style="width:10%">
+                                    <button type="button" class="btn btn-outline-danger" name="removeProduct" onclick="setvalueQuantity(@combo.ComboId)">
+                                        X
+                                    </button>
+                                </td>
+                            </tr>
+
+                            }
+                        </form>
+                    </tbody>
+                </table>
+            </div>
+            <div class="ticket_sidebar">
+                <div class="ticket_movie-info">
+                    <div class="ticket_movie-icon">
+                        <img src="https://via.placeholder.com/100" alt="Movie Icon">
+                    </div>
+                    <p>Tổng cộng</p>
+                    <p class="ticket_total-price">0 ₫</p>
+                </div>
+                <div class="ticket_action-buttons">
+                    <button class="ticket_back-button">Quay lại</button>
+                    <button type="submit" form="formCombos" class="ticket_continue-button">Tiếp tục</button>
+                </div>
+            </div>
+        </div>
+        <!--choice pay-->
+        <div id="pay-selection" class="ticket_section ">
+            <div class="container mt-5">
+                <div class="card">
+                    <div class="ticket_card-header text-center">
+                        Thanh Toán
+                    </div>
+                    <div class="card-body">
+                        <!-- Thông tin phim -->
+                        @if (ViewBag.viewTemp == 4 && ViewBag.Movies != null)
+                        {
+                            @foreach (var movie in ViewBag.Movies)
+                            {
+                                if (movie.MovieId == ViewBag.finalTicket.MovieId)
+                                {
+                                    <div class="d-flex">
+                                        <img src="https://via.placeholder.com/100x150" alt="Movie Poster" class="me-3">
+                                        <div>
+                                            <p class="ticket_movie-title">@movie.Title</p>
+                                            <p>Thời lượng phim: @movie.Duration - <span class="ticket_tag-rating">@movie.Rating</span></p>
+                                        </div>
+                                    </div>
+                                    break;
+                                }
+                            }
+                        }
+                        <hr>
+                        <!-- Thông tin rạp -->
+                        @if (ViewBag.viewTemp == 4)
+                        {
+                            @foreach (var cinema in ViewBag.showtimes)
+                            {
+                                if (cinema.cinemaId == ViewBag.finalTicket.CinemaId)
+                                {
+                                    @foreach (var showtime in cinema.Showtimes)
+                                    {
+                                        if (showtime.showtimesId == ViewBag.finalTicket.ShowtimeId)
+                                        {
+                                            <p>@cinema.cinemaName (@cinema.location) - @showtime.hall</p>
+                                            <p>Suất: <span class="text-primary fw-bold">@showtime.startTime</span> - Ngày @showtime.date</p>
+                                            break;
+                                        }
+
+                                    }
+                                    break;
+
+                                }
+                            }
+
+                            <hr>
+                            <!-- Thông tin vé -->
+                            @foreach (var seat in ViewBag.Seats)
+                            {
+                                @foreach (var bookedseat in ViewBag.finalTicket.seats)
+                                {
+                                    if (seat.SeatId == bookedseat.SeatId)
+                                    {
+                                        <div class="d-flex justify-content-between">
+                                            <p>@seat.SeatType - @seat.SeatNumber</p>
+                                            <p class="ticket_price">@bookedseat.Price</p>
+                                        </div>
+                                        break;
+                                    }
+                                }
+                            }
+
+                            <hr>
+                            @foreach (var combo in ViewBag.Combo)
+                            {
+                                @foreach (var bookedcombo in ViewBag.finalTicket.BookingCombo)
+                                {
+                                    if (combo.ComboId == bookedcombo.ComboId)
+                                    {
+                                        <div class="d-flex justify-content-between">
+                                            <p>@bookedcombo.Quantity x @combo.Name</p>
+                                            <p class="ticket_price">@bookedcombo.Quantity * @combo.Price</p>
+                                        </div>
+                                        break;
+                                    }
+                                }
+
+                            }
+
+                            <hr>
+                            <!-- Tổng cộng -->
+                            <div class="d-flex justify-content-between">
+                                <p class="ticket_total">Tổng cộng</p>
+                                <p class="ticket_total">184.000 đ</p>
+                            </div>
+                        }
+
+                    </div>
+                    <div class="card-footer text-center">
+                        <!-- Nút Quay lại và Thanh toán -->
+                        <div class="d-flex justify-content-between">
+                            <button class="btn btn-back">Quay lại</button>
+                            <a class="btn btn-pay" asp-action="Checkout" asp-controller="tickets">Thanh toán</a>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
     </div>
-<script>
+
+
+
+    <script>
         function decrementQuantity(ComboId) {
             let quantityInput = document.getElementById(ComboId);
             let quantity = parseInt(quantityInput.value);
 
             if (quantity > 0) {
                 quantity--;
+                priceCombo(ComboId, quantity);
                 quantityInput.value = quantity;
             }
         }
@@ -192,8 +519,103 @@ else
             let quantityInput = document.getElementById(ComboId);
             let quantity = parseInt(quantityInput.value);
             quantity++;
+            priceCombo(ComboId, quantity);
             quantityInput.value = quantity;
 
         }
-</script>
+        function setvalueQuantity(ComboId) {
+            let quantityInput = document.getElementById(ComboId);
+            priceCombo(ComboId, 0);
+            quantityInput.value = 0;
+        }
+        function priceCombo(ComboId, quantity) {
+            let valueInput = document.getElementById("price " + ComboId);
+            let value = parseInt(valueInput.value);
+            let totalcombo = document.getElementById("totalCombo " + ComboId);
+            totalcombo.value = value * quantity;
+        }
+        // JavaScript for tab switching
+        const tabs = document.querySelectorAll('.ticket_nav-tabs li');
 
+        tabs.forEach(tab => {
+            tab.addEventListener('click', function () {
+                tabs.forEach(t => t.classList.remove('ticket_active-tab'));
+                this.classList.add('ticket_active-tab');
+
+                const targetSectionId = this.id.replace('choose-', '') + '-selection';
+                const sections = document.querySelectorAll('.ticket_section');
+                sections.forEach(section => {
+                    section.classList.remove('ticket_active');
+                });
+                document.getElementById(targetSectionId).classList.add('ticket_active');
+            });
+        });
+
+
+        // Function to handle seat selection
+        function selectSeat(element) {
+            element.classList.toggle('ticket_selected');
+            const hiddenInput = element.nextElementSibling;//lay hidden input gan nhat
+            if (hiddenInput.value == 0) {
+                hiddenInput.value = 555;
+            } else {
+                hiddenInput.value = 0;
+            }
+            // Add more logic to update total price or selection display
+        }
+
+        // Function button continue
+        function screencontinue() {
+            var t = @ViewBag.viewTemp;
+            const sections = document.querySelectorAll('.ticket_section');
+            const tabs = document.querySelectorAll('.ticket_nav-tabs li');
+
+            sections.forEach(section => section.classList.remove('ticket_active'));
+            tabs.forEach(tab => tab.classList.remove('ticket_active-tab'));
+
+            if (t === 1) {
+                document.getElementById('seat-selection').classList.add('ticket_active');
+                document.getElementById('choose-seat').classList.add('ticket_active-tab');
+            }
+        }
+        document.addEventListener("DOMContentLoaded", function () {
+            function screencontinue() {
+
+                var t = @ViewBag.viewTemp; // Lấy giá trị từ ViewBag
+
+
+                const sections = document.querySelectorAll('.ticket_section');
+                const tabs = document.querySelectorAll('.ticket_nav-tabs li');
+
+                // Loại bỏ class 'ticket_active' và 'ticket_active-tab'
+                sections.forEach(section => section.classList.remove('ticket_active'));
+                tabs.forEach(tab => tab.classList.remove('ticket_active-tab'));
+
+                if (t == 1) {
+                    document.getElementById('choose-movie').classList.add('ticket_active-tab')
+                    document.getElementById('movie-selection').classList.add('ticket_active');
+                }
+                // Thêm class dựa trên giá trị t
+                if (t == 2) {
+                    document.getElementById('seat-selection').classList.add('ticket_active');
+                    document.getElementById('choose-seat').classList.add('ticket_active-tab');
+                }
+                if (t == 3) {
+                    document.getElementById('choose-combo').classList.add('ticket_active-tab')
+                    document.getElementById('combo-selection').classList.add('ticket_active');
+                }
+                if (t == 4) {
+                    document.getElementById('choose-pay').classList.add('ticket_active-tab')
+                    document.getElementById('pay-selection').classList.add('ticket_active');
+                }
+            }
+
+            // Gọi hàm khi tải trang
+            screencontinue();
+        });
+
+
+    </script>
+
+
+</body>

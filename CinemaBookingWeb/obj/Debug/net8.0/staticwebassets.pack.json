@@ -1,307 +1,307 @@
 {
   "Files": [
     {
-      "Id": "D:\\STUDY\\HK7\\.NET\\ASP.NET\\CinemaBookingWeb\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\CinemaBookingWeb.bundle.scp.css",
+      "Id": "D:\\New folder\\ASP.NET\\CinemaBookingWeb\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\CinemaBookingWeb.bundle.scp.css",
       "PackagePath": "staticwebassets\\CinemaBookingWeb.bundle.scp.css"
     },
     {
-      "Id": "D:\\STUDY\\HK7\\.NET\\ASP.NET\\CinemaBookingWeb\\wwwroot\\css\\css_overview.css",
+      "Id": "D:\\New folder\\ASP.NET\\CinemaBookingWeb\\wwwroot\\css\\css_overview.css",
       "PackagePath": "staticwebassets\\css\\css_overview.css"
     },
     {
-      "Id": "D:\\STUDY\\HK7\\.NET\\ASP.NET\\CinemaBookingWeb\\wwwroot\\css\\site.css",
+      "Id": "D:\\New folder\\ASP.NET\\CinemaBookingWeb\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },
     {
-      "Id": "D:\\STUDY\\HK7\\.NET\\ASP.NET\\CinemaBookingWeb\\wwwroot\\css\\style.css",
+      "Id": "D:\\New folder\\ASP.NET\\CinemaBookingWeb\\wwwroot\\css\\style.css",
       "PackagePath": "staticwebassets\\css\\style.css"
     },
     {
-      "Id": "D:\\STUDY\\HK7\\.NET\\ASP.NET\\CinemaBookingWeb\\wwwroot\\favicon.ico",
+      "Id": "D:\\New folder\\ASP.NET\\CinemaBookingWeb\\wwwroot\\favicon.ico",
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
-      "Id": "D:\\STUDY\\HK7\\.NET\\ASP.NET\\CinemaBookingWeb\\wwwroot\\img\\banggiave.png",
+      "Id": "D:\\New folder\\ASP.NET\\CinemaBookingWeb\\wwwroot\\img\\banggiave.png",
       "PackagePath": "staticwebassets\\img\\banggiave.png"
     },
     {
-      "Id": "D:\\STUDY\\HK7\\.NET\\ASP.NET\\CinemaBookingWeb\\wwwroot\\img\\bocchi-the-rock-recap-part-2-1.jpg",
+      "Id": "D:\\New folder\\ASP.NET\\CinemaBookingWeb\\wwwroot\\img\\bocchi-the-rock-recap-part-2-1.jpg",
       "PackagePath": "staticwebassets\\img\\bocchi-the-rock-recap-part-2-1.jpg"
     },
     {
-      "Id": "D:\\STUDY\\HK7\\.NET\\ASP.NET\\CinemaBookingWeb\\wwwroot\\img\\loginimg.png",
+      "Id": "D:\\New folder\\ASP.NET\\CinemaBookingWeb\\wwwroot\\img\\loginimg.png",
       "PackagePath": "staticwebassets\\img\\loginimg.png"
     },
     {
-      "Id": "D:\\STUDY\\HK7\\.NET\\ASP.NET\\CinemaBookingWeb\\wwwroot\\img\\logo.png",
+      "Id": "D:\\New folder\\ASP.NET\\CinemaBookingWeb\\wwwroot\\img\\logo.png",
       "PackagePath": "staticwebassets\\img\\logo.png"
     },
     {
-      "Id": "D:\\STUDY\\HK7\\.NET\\ASP.NET\\CinemaBookingWeb\\wwwroot\\img\\rap1.jpg",
+      "Id": "D:\\New folder\\ASP.NET\\CinemaBookingWeb\\wwwroot\\img\\rap1.jpg",
       "PackagePath": "staticwebassets\\img\\rap1.jpg"
     },
     {
-      "Id": "D:\\STUDY\\HK7\\.NET\\ASP.NET\\CinemaBookingWeb\\wwwroot\\img\\rap2.jpg",
+      "Id": "D:\\New folder\\ASP.NET\\CinemaBookingWeb\\wwwroot\\img\\rap2.jpg",
       "PackagePath": "staticwebassets\\img\\rap2.jpg"
     },
     {
-      "Id": "D:\\STUDY\\HK7\\.NET\\ASP.NET\\CinemaBookingWeb\\wwwroot\\img\\rap3.jpg",
+      "Id": "D:\\New folder\\ASP.NET\\CinemaBookingWeb\\wwwroot\\img\\rap3.jpg",
       "PackagePath": "staticwebassets\\img\\rap3.jpg"
     },
     {
-      "Id": "D:\\STUDY\\HK7\\.NET\\ASP.NET\\CinemaBookingWeb\\wwwroot\\img\\shortcut-logo.png",
+      "Id": "D:\\New folder\\ASP.NET\\CinemaBookingWeb\\wwwroot\\img\\shortcut-logo.png",
       "PackagePath": "staticwebassets\\img\\shortcut-logo.png"
     },
     {
-      "Id": "D:\\STUDY\\HK7\\.NET\\ASP.NET\\CinemaBookingWeb\\wwwroot\\img\\thanhduoc.jpg",
+      "Id": "D:\\New folder\\ASP.NET\\CinemaBookingWeb\\wwwroot\\img\\thanhduoc.jpg",
       "PackagePath": "staticwebassets\\img\\thanhduoc.jpg"
     },
     {
-      "Id": "D:\\STUDY\\HK7\\.NET\\ASP.NET\\CinemaBookingWeb\\wwwroot\\img\\ticket_mua.png",
+      "Id": "D:\\New folder\\ASP.NET\\CinemaBookingWeb\\wwwroot\\img\\ticket_mua.png",
       "PackagePath": "staticwebassets\\img\\ticket_mua.png"
     },
     {
-      "Id": "D:\\STUDY\\HK7\\.NET\\ASP.NET\\CinemaBookingWeb\\wwwroot\\img\\venom.jpg",
+      "Id": "D:\\New folder\\ASP.NET\\CinemaBookingWeb\\wwwroot\\img\\venom.jpg",
       "PackagePath": "staticwebassets\\img\\venom.jpg"
     },
     {
-      "Id": "D:\\STUDY\\HK7\\.NET\\ASP.NET\\CinemaBookingWeb\\wwwroot\\img\\venom_thumnail.jpg",
+      "Id": "D:\\New folder\\ASP.NET\\CinemaBookingWeb\\wwwroot\\img\\venom_thumnail.jpg",
       "PackagePath": "staticwebassets\\img\\venom_thumnail.jpg"
     },
     {
-      "Id": "D:\\STUDY\\HK7\\.NET\\ASP.NET\\CinemaBookingWeb\\wwwroot\\js\\script.js",
+      "Id": "D:\\New folder\\ASP.NET\\CinemaBookingWeb\\wwwroot\\js\\script.js",
       "PackagePath": "staticwebassets\\js\\script.js"
     },
     {
-      "Id": "D:\\STUDY\\HK7\\.NET\\ASP.NET\\CinemaBookingWeb\\wwwroot\\js\\site.js",
+      "Id": "D:\\New folder\\ASP.NET\\CinemaBookingWeb\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
     },
     {
-      "Id": "D:\\STUDY\\HK7\\.NET\\ASP.NET\\CinemaBookingWeb\\wwwroot\\lib\\bootstrap\\LICENSE",
+      "Id": "D:\\New folder\\ASP.NET\\CinemaBookingWeb\\wwwroot\\lib\\bootstrap\\LICENSE",
       "PackagePath": "staticwebassets\\lib\\bootstrap"
     },
     {
-      "Id": "D:\\STUDY\\HK7\\.NET\\ASP.NET\\CinemaBookingWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
+      "Id": "D:\\New folder\\ASP.NET\\CinemaBookingWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css"
     },
     {
-      "Id": "D:\\STUDY\\HK7\\.NET\\ASP.NET\\CinemaBookingWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
+      "Id": "D:\\New folder\\ASP.NET\\CinemaBookingWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map"
     },
     {
-      "Id": "D:\\STUDY\\HK7\\.NET\\ASP.NET\\CinemaBookingWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
+      "Id": "D:\\New folder\\ASP.NET\\CinemaBookingWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css"
     },
     {
-      "Id": "D:\\STUDY\\HK7\\.NET\\ASP.NET\\CinemaBookingWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
+      "Id": "D:\\New folder\\ASP.NET\\CinemaBookingWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map"
     },
     {
-      "Id": "D:\\STUDY\\HK7\\.NET\\ASP.NET\\CinemaBookingWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
+      "Id": "D:\\New folder\\ASP.NET\\CinemaBookingWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css"
     },
     {
-      "Id": "D:\\STUDY\\HK7\\.NET\\ASP.NET\\CinemaBookingWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
+      "Id": "D:\\New folder\\ASP.NET\\CinemaBookingWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map"
     },
     {
-      "Id": "D:\\STUDY\\HK7\\.NET\\ASP.NET\\CinemaBookingWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
+      "Id": "D:\\New folder\\ASP.NET\\CinemaBookingWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css"
     },
     {
-      "Id": "D:\\STUDY\\HK7\\.NET\\ASP.NET\\CinemaBookingWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
+      "Id": "D:\\New folder\\ASP.NET\\CinemaBookingWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map"
     },
     {
-      "Id": "D:\\STUDY\\HK7\\.NET\\ASP.NET\\CinemaBookingWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
+      "Id": "D:\\New folder\\ASP.NET\\CinemaBookingWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css"
     },
     {
-      "Id": "D:\\STUDY\\HK7\\.NET\\ASP.NET\\CinemaBookingWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
+      "Id": "D:\\New folder\\ASP.NET\\CinemaBookingWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map"
     },
     {
-      "Id": "D:\\STUDY\\HK7\\.NET\\ASP.NET\\CinemaBookingWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
+      "Id": "D:\\New folder\\ASP.NET\\CinemaBookingWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css"
     },
     {
-      "Id": "D:\\STUDY\\HK7\\.NET\\ASP.NET\\CinemaBookingWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
+      "Id": "D:\\New folder\\ASP.NET\\CinemaBookingWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map"
     },
     {
-      "Id": "D:\\STUDY\\HK7\\.NET\\ASP.NET\\CinemaBookingWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
+      "Id": "D:\\New folder\\ASP.NET\\CinemaBookingWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css"
     },
     {
-      "Id": "D:\\STUDY\\HK7\\.NET\\ASP.NET\\CinemaBookingWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
+      "Id": "D:\\New folder\\ASP.NET\\CinemaBookingWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map"
     },
     {
-      "Id": "D:\\STUDY\\HK7\\.NET\\ASP.NET\\CinemaBookingWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
+      "Id": "D:\\New folder\\ASP.NET\\CinemaBookingWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css"
     },
     {
-      "Id": "D:\\STUDY\\HK7\\.NET\\ASP.NET\\CinemaBookingWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
+      "Id": "D:\\New folder\\ASP.NET\\CinemaBookingWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map"
     },
     {
-      "Id": "D:\\STUDY\\HK7\\.NET\\ASP.NET\\CinemaBookingWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
+      "Id": "D:\\New folder\\ASP.NET\\CinemaBookingWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css"
     },
     {
-      "Id": "D:\\STUDY\\HK7\\.NET\\ASP.NET\\CinemaBookingWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
+      "Id": "D:\\New folder\\ASP.NET\\CinemaBookingWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map"
     },
     {
-      "Id": "D:\\STUDY\\HK7\\.NET\\ASP.NET\\CinemaBookingWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
+      "Id": "D:\\New folder\\ASP.NET\\CinemaBookingWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css"
     },
     {
-      "Id": "D:\\STUDY\\HK7\\.NET\\ASP.NET\\CinemaBookingWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
+      "Id": "D:\\New folder\\ASP.NET\\CinemaBookingWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map"
     },
     {
-      "Id": "D:\\STUDY\\HK7\\.NET\\ASP.NET\\CinemaBookingWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
+      "Id": "D:\\New folder\\ASP.NET\\CinemaBookingWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css"
     },
     {
-      "Id": "D:\\STUDY\\HK7\\.NET\\ASP.NET\\CinemaBookingWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
+      "Id": "D:\\New folder\\ASP.NET\\CinemaBookingWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map"
     },
     {
-      "Id": "D:\\STUDY\\HK7\\.NET\\ASP.NET\\CinemaBookingWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
+      "Id": "D:\\New folder\\ASP.NET\\CinemaBookingWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css"
     },
     {
-      "Id": "D:\\STUDY\\HK7\\.NET\\ASP.NET\\CinemaBookingWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
+      "Id": "D:\\New folder\\ASP.NET\\CinemaBookingWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map"
     },
     {
-      "Id": "D:\\STUDY\\HK7\\.NET\\ASP.NET\\CinemaBookingWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
+      "Id": "D:\\New folder\\ASP.NET\\CinemaBookingWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css"
     },
     {
-      "Id": "D:\\STUDY\\HK7\\.NET\\ASP.NET\\CinemaBookingWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
+      "Id": "D:\\New folder\\ASP.NET\\CinemaBookingWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css.map"
     },
     {
-      "Id": "D:\\STUDY\\HK7\\.NET\\ASP.NET\\CinemaBookingWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
+      "Id": "D:\\New folder\\ASP.NET\\CinemaBookingWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css"
     },
     {
-      "Id": "D:\\STUDY\\HK7\\.NET\\ASP.NET\\CinemaBookingWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
+      "Id": "D:\\New folder\\ASP.NET\\CinemaBookingWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map"
     },
     {
-      "Id": "D:\\STUDY\\HK7\\.NET\\ASP.NET\\CinemaBookingWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
+      "Id": "D:\\New folder\\ASP.NET\\CinemaBookingWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css"
     },
     {
-      "Id": "D:\\STUDY\\HK7\\.NET\\ASP.NET\\CinemaBookingWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
+      "Id": "D:\\New folder\\ASP.NET\\CinemaBookingWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map"
     },
     {
-      "Id": "D:\\STUDY\\HK7\\.NET\\ASP.NET\\CinemaBookingWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
+      "Id": "D:\\New folder\\ASP.NET\\CinemaBookingWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css"
     },
     {
-      "Id": "D:\\STUDY\\HK7\\.NET\\ASP.NET\\CinemaBookingWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
+      "Id": "D:\\New folder\\ASP.NET\\CinemaBookingWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map"
     },
     {
-      "Id": "D:\\STUDY\\HK7\\.NET\\ASP.NET\\CinemaBookingWeb\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
+      "Id": "D:\\New folder\\ASP.NET\\CinemaBookingWeb\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js"
     },
     {
-      "Id": "D:\\STUDY\\HK7\\.NET\\ASP.NET\\CinemaBookingWeb\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
+      "Id": "D:\\New folder\\ASP.NET\\CinemaBookingWeb\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map"
     },
     {
-      "Id": "D:\\STUDY\\HK7\\.NET\\ASP.NET\\CinemaBookingWeb\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
+      "Id": "D:\\New folder\\ASP.NET\\CinemaBookingWeb\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js"
     },
     {
-      "Id": "D:\\STUDY\\HK7\\.NET\\ASP.NET\\CinemaBookingWeb\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
+      "Id": "D:\\New folder\\ASP.NET\\CinemaBookingWeb\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map"
     },
     {
-      "Id": "D:\\STUDY\\HK7\\.NET\\ASP.NET\\CinemaBookingWeb\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
+      "Id": "D:\\New folder\\ASP.NET\\CinemaBookingWeb\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js"
     },
     {
-      "Id": "D:\\STUDY\\HK7\\.NET\\ASP.NET\\CinemaBookingWeb\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
+      "Id": "D:\\New folder\\ASP.NET\\CinemaBookingWeb\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map"
     },
     {
-      "Id": "D:\\STUDY\\HK7\\.NET\\ASP.NET\\CinemaBookingWeb\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
+      "Id": "D:\\New folder\\ASP.NET\\CinemaBookingWeb\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js"
     },
     {
-      "Id": "D:\\STUDY\\HK7\\.NET\\ASP.NET\\CinemaBookingWeb\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
+      "Id": "D:\\New folder\\ASP.NET\\CinemaBookingWeb\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map"
     },
     {
-      "Id": "D:\\STUDY\\HK7\\.NET\\ASP.NET\\CinemaBookingWeb\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
+      "Id": "D:\\New folder\\ASP.NET\\CinemaBookingWeb\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js"
     },
     {
-      "Id": "D:\\STUDY\\HK7\\.NET\\ASP.NET\\CinemaBookingWeb\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
+      "Id": "D:\\New folder\\ASP.NET\\CinemaBookingWeb\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js.map"
     },
     {
-      "Id": "D:\\STUDY\\HK7\\.NET\\ASP.NET\\CinemaBookingWeb\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
+      "Id": "D:\\New folder\\ASP.NET\\CinemaBookingWeb\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js"
     },
     {
-      "Id": "D:\\STUDY\\HK7\\.NET\\ASP.NET\\CinemaBookingWeb\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
+      "Id": "D:\\New folder\\ASP.NET\\CinemaBookingWeb\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map"
     },
     {
-      "Id": "D:\\STUDY\\HK7\\.NET\\ASP.NET\\CinemaBookingWeb\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
+      "Id": "D:\\New folder\\ASP.NET\\CinemaBookingWeb\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
       "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
     },
     {
-      "Id": "D:\\STUDY\\HK7\\.NET\\ASP.NET\\CinemaBookingWeb\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
+      "Id": "D:\\New folder\\ASP.NET\\CinemaBookingWeb\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js"
     },
     {
-      "Id": "D:\\STUDY\\HK7\\.NET\\ASP.NET\\CinemaBookingWeb\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
+      "Id": "D:\\New folder\\ASP.NET\\CinemaBookingWeb\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js"
     },
     {
-      "Id": "D:\\STUDY\\HK7\\.NET\\ASP.NET\\CinemaBookingWeb\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
+      "Id": "D:\\New folder\\ASP.NET\\CinemaBookingWeb\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
       "PackagePath": "staticwebassets\\lib\\jquery-validation\\LICENSE.md"
     },
     {
-      "Id": "D:\\STUDY\\HK7\\.NET\\ASP.NET\\CinemaBookingWeb\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
+      "Id": "D:\\New folder\\ASP.NET\\CinemaBookingWeb\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.js"
     },
     {
-      "Id": "D:\\STUDY\\HK7\\.NET\\ASP.NET\\CinemaBookingWeb\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
+      "Id": "D:\\New folder\\ASP.NET\\CinemaBookingWeb\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.min.js"
     },
     {
-      "Id": "D:\\STUDY\\HK7\\.NET\\ASP.NET\\CinemaBookingWeb\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
+      "Id": "D:\\New folder\\ASP.NET\\CinemaBookingWeb\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.js"
     },
     {
-      "Id": "D:\\STUDY\\HK7\\.NET\\ASP.NET\\CinemaBookingWeb\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
+      "Id": "D:\\New folder\\ASP.NET\\CinemaBookingWeb\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.min.js"
     },
     {
-      "Id": "D:\\STUDY\\HK7\\.NET\\ASP.NET\\CinemaBookingWeb\\wwwroot\\lib\\jquery\\LICENSE.txt",
+      "Id": "D:\\New folder\\ASP.NET\\CinemaBookingWeb\\wwwroot\\lib\\jquery\\LICENSE.txt",
       "PackagePath": "staticwebassets\\lib\\jquery\\LICENSE.txt"
     },
     {
-      "Id": "D:\\STUDY\\HK7\\.NET\\ASP.NET\\CinemaBookingWeb\\wwwroot\\lib\\jquery\\dist\\jquery.js",
+      "Id": "D:\\New folder\\ASP.NET\\CinemaBookingWeb\\wwwroot\\lib\\jquery\\dist\\jquery.js",
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.js"
     },
     {
-      "Id": "D:\\STUDY\\HK7\\.NET\\ASP.NET\\CinemaBookingWeb\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
+      "Id": "D:\\New folder\\ASP.NET\\CinemaBookingWeb\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.js"
     },
     {
-      "Id": "D:\\STUDY\\HK7\\.NET\\ASP.NET\\CinemaBookingWeb\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
+      "Id": "D:\\New folder\\ASP.NET\\CinemaBookingWeb\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
     },
     {

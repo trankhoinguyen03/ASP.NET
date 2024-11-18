@@ -33,18 +33,31 @@ namespace CinemaBookingWeb.Controllers
             var moviesQuery = _context.Movies
                                       .Include(m => m.Showtimes)
                                       .AsQueryable();
-            ViewBag.Seats = null;
-            ViewBag.Showtimes = null;
-            ViewBag.bookedSeats = null;
-            ViewBag.bookSeats = null;
-            ViewBag.temp = null;
+
+            if (currentTicket.viewTemp <=0 || currentTicket.viewTemp==null)
+            {
+                currentTicket.viewTemp = 1;
+            }
+            ViewBag.viewTemp=currentTicket.viewTemp;
+            if (currentTicket.date == null)
+            {
+                currentTicket.date= DateOnly.FromDateTime(DateTime.Now);
+                
+            }
+            ViewBag.choicedate = currentTicket.date;
             if (cinema == null)
             {
-                ViewBag.Movies = null;
+                /*ViewBag.Movies = null;
+                ViewBag.tempId = null;
+                ViewBag.Seats = null;
+                ViewBag.Showtimes = null;
+                ViewBag.bookedSeats = null;
+                ViewBag.finalTicket = null;*/
             }
             else
-            {
-                ViewBag.Movies = moviesQuery
+            {   
+                ViewBag.tempid=currentTicket.CinemaId;
+                ViewBag.Movies =moviesQuery
                                     .Where(m => m.Showtimes.Any(s => s.Cinema.City == cinema.City))
                                     .ToList();
 
@@ -54,25 +67,45 @@ namespace CinemaBookingWeb.Controllers
                     ViewBag.Showtimes= _context.Showtimes
                               .Include(s => s.Movie)
                               .Include(s => s.Cinema)
-                              .Where(s => s.Cinema.City == cinema.City && s.Movie.Title == movie.Title)
+                              .Where(s => s.Cinema.City == cinema.City && s.Movie.Title == movie.Title && DateOnly.FromDateTime( s.StartTime.Date)== currentTicket.date)
+                              .GroupBy(s => new
+                              {
+                                  s.Cinema.CinemaId,
+                                  s.Cinema.Name,
+                                  s.Cinema.Location
+                              })
+                              .Select(group=>new
+                              {
+                                  cinemaId=group.Key.CinemaId,
+                                  cinemaName=group.Key.Name,
+                                  location=group.Key.Location,
+                                  Showtimes=group.Select(s => new
+                                  {
+                                      showtimesId=s.ShowtimeId,
+                                      startTime=s.StartTime.ToString("HH:mm"),
+                                      endTime=s.EndTime.ToString("HH:mm"),
+                                      hall=s.Hall,
+                                      date= s.StartTime.ToString("dd/MM/yyyy"),
+                                      price = s.Price
+
+                                  }).ToList()
+                              })
                               .ToList();
                     
                     
 
-                    
+                  /*  xoa*/
                     if (currentTicket.ShowtimeId!=null)
                     {
                         var bookedSeats = _context.BookingDetails
                                     .Where(bd => bd.Booking.ShowtimeId == currentTicket.ShowtimeId)
                                     .ToList();
-                        /*if (currentTicket.seats.Count > 0)
-                        {
-                            ViewBag.bookSeats = currentTicket.seats.ToList();
-                        }*/
+                      
                         ViewBag.Seats = _context.Seats.ToList();
                         ViewBag.bookedSeats= bookedSeats;
 
                     }
+                    ViewBag.finalTicket = currentTicket;
 
                 }
                     
@@ -83,17 +116,8 @@ namespace CinemaBookingWeb.Controllers
                                        .GroupBy(c => c.City)
                                        .Select(g => g.First())
                                        .ToList();
-            if (currentTicket.seats !=null)
-            {
-                ViewBag.temp = currentTicket.seats.ToList();
-            }
-            if (currentTicket.BookingCombo != null)
-            {
-                ViewBag.temp22 = currentTicket.BookingCombo.ToList();
-            }
-
-
             return View();
+
         }
 
         public IActionResult ChoiceCity(int id)
@@ -116,51 +140,50 @@ namespace CinemaBookingWeb.Controllers
 
         public IActionResult ChoiceShowTime(int id)
         {
-            var updatedTicket = Ticket;
-            updatedTicket.ShowtimeId = id;
-
+            tickets updatedTicket = Ticket;
+            updatedTicket.ShowtimeId= id;
+            updatedTicket.viewTemp = 2;
             Ticket = updatedTicket;
 
 
             return RedirectToAction("Index");
         }
-        public IActionResult ChoiceSeats(int id)
+
+        public IActionResult ChoiceDay(int days)
         {
-            var temp = -1;
+            var updatedTicket = Ticket;
+            updatedTicket.date = DateOnly.FromDateTime( DateTime.Today.AddDays(days));
+            Ticket=updatedTicket;
+            return RedirectToAction("Index");
+        }
+        public IActionResult ChoiceSeats(Dictionary<int,decimal>bookedSeats)
+        {
+            
+
             var updatedTicket= Ticket;
+            updatedTicket.viewTemp = 3;
             if (updatedTicket.seats == null)
             {
-                updatedTicket.seats = new List<int>();
+                updatedTicket.seats = new List<BookingDetails> ();
             }
-            else
+            foreach(var temp in bookedSeats)
             {
-                for(var i=0;i<updatedTicket.seats.Count;i++)
+                if (temp.Value != 0)
                 {
-                    if (updatedTicket.seats[i] == id)
-                    {
-                        temp = i;
-                        break;
-                    }
+                    var seat = new BookingDetails();
+                    seat.SeatId = temp.Key;
+                    seat.Price = temp.Value;
+                    updatedTicket.seats.Add(seat);
                 }
-
             }
            
-            if (temp<0)
-            {
-                updatedTicket.seats.Add(id);
-            }
-            else
-            {
-                updatedTicket.seats.RemoveAt(temp);
-            }
-            
             Ticket = updatedTicket;
             return RedirectToAction("Index");
         }
         public IActionResult ChoiceCombos(Dictionary<int, int> quantities)
         {
             var updatedTicket = Ticket;
-            
+            updatedTicket.viewTemp = 4;
             updatedTicket.BookingCombo = new List<BookingCombos> { };
             
             foreach (var quant in quantities)
@@ -174,12 +197,21 @@ namespace CinemaBookingWeb.Controllers
             Ticket = updatedTicket;
             return RedirectToAction("Index");
         }
+        
+        public IActionResult choiceView(int id)
+        {
+            var updatedTicket = Ticket;
+            updatedTicket.viewTemp = id;
+            Ticket = updatedTicket;
+            return RedirectToAction("Index");
+        }
         public IActionResult Checkout()
         {
+            var temp = Ticket;
             var booking = new Bookings
             {
                 UserId = 1,
-                ShowtimeId = Ticket.ShowtimeId ?? 0,
+                ShowtimeId = temp.ShowtimeId,
                 BookingDate=DateTime.Now,
                 TotalPrice = 0,
                 Status = 2
@@ -198,8 +230,8 @@ namespace CinemaBookingWeb.Controllers
                     bookingdetails.Add(new BookingDetails
                     {
                         BookingId = booking.BookingId,
-                        SeatId = item,
-                        Price = 0,
+                        SeatId = item.SeatId,
+                        Price = item.Price,
                         Status = 1
                     });
                 }
@@ -223,8 +255,8 @@ namespace CinemaBookingWeb.Controllers
                 
                 
             }
-            
 
+            Ticket = null;
             return RedirectToAction("Index");
         }
 
