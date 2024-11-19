@@ -18,9 +18,48 @@ namespace CinemaBookingWeb.Controllers
         }
 
 
-        public async Task<IActionResult> Index()
+        //public async Task<IActionResult> Index()
+        //{
+        //    // Truy xuất tất cả các phim có Status = 1 (hiển thị)
+        //    var cinema = await _context.Cinemas
+        //        .Where(m => m.Status == 1)
+        //        .ToListAsync();
+
+        //    return View(cinema);
+        //}
+
+        public async Task<IActionResult> Index(string searchString)
         {
-            return View(await _context.Cinemas.ToListAsync());
+
+            var cinema = from m in _context.Cinemas
+                         select m;
+
+            if (!string.IsNullOrEmpty(searchString))
+            {
+                cinema = cinema.Where(m => m.Name.Contains(searchString));
+            }
+
+            return View(await cinema.ToListAsync());
+        }
+
+
+
+        public async Task<IActionResult> Details(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var cinema = await _context.Cinemas
+                .FirstOrDefaultAsync(c => c.CinemaId == id);
+
+            if (cinema == null)
+            {
+                return NotFound();
+            }
+
+            return View(cinema);
         }
 
         public IActionResult Create()
@@ -30,7 +69,7 @@ namespace CinemaBookingWeb.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Name,Location,Phone,City")] Cinemas cinema)
+        public async Task<IActionResult> Create([Bind("CinemaId, Name, Location, Phone, City")] Cinemas cinema)
         {
             if (ModelState.IsValid)
             {
@@ -53,7 +92,7 @@ namespace CinemaBookingWeb.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("CinemaId,Name,Location,Phone,City")] Cinemas cinema)
+        public async Task<IActionResult> Edit(int id, [Bind("CinemaId, Name, Location, Phone, City, Status")] Cinemas cinema)
         {
             if (id != cinema.CinemaId) return NotFound();
 
@@ -74,27 +113,6 @@ namespace CinemaBookingWeb.Controllers
             return View(cinema);
         }
 
-        public async Task<IActionResult> Delete(int? id)
-        {
-            if (id == null) return NotFound();
-
-            var cinema = await _context.Cinemas
-                .FirstOrDefaultAsync(m => m.CinemaId == id);
-            if (cinema == null) return NotFound();
-
-            return View(cinema);
-        }
-
-
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
-        {
-            var cinema = await _context.Cinemas.FindAsync(id);
-            _context.Cinemas.Remove(cinema);
-            await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
-        }
 
         private bool CinemaExists(int id)
         {

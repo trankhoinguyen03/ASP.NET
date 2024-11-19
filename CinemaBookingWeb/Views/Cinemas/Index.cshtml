@@ -1,0 +1,76 @@
+﻿@model IEnumerable<CinemaBookingWeb.Models.Cinemas>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+
+<form method="get" asp-controller="Cinemas" asp-action="Index">
+    <div class="form-group">
+        <input type="text" name="searchString" class="form-control" placeholder="Search by Title" value="@ViewData["CurrentFilter"]" />
+    </div>
+    <button type="submit" class="btn btn-primary">Search</button>
+</form>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Location)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Phone)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.City)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Status)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Location)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Phone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.City)
+            </td>
+            @* <td>
+                @Html.DisplayFor(modelItem => item.Status)
+            </td> *@
+                <td>
+                    @if (item.Status == 1)
+                    {
+                        <span class="">Đang mở</span>
+                    }
+                    else
+                    {
+                        <span class="">Đã đóng</span>
+                    }
+                </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.CinemaId">Edit</a> 
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

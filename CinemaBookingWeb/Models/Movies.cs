@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using CinemaBookingWeb.Models;
+using System.ComponentModel.DataAnnotations;
 
 namespace CinemaBookingWeb.Models
 {
@@ -15,6 +16,7 @@ namespace CinemaBookingWeb.Models
         public string Language { get; set; }
         public string TrailerUrl { get; set; }
         public string ImageUrl { get; set; }
-        public byte Status { get; set; }
+        public byte Status { get; set; } = 1;
     }
 }
+
