@@ -1,7 +1,10 @@
 ﻿using CinemaBookingWeb.Data;
 using CinemaBookingWeb.Models;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
+using System.Collections.Generic;
+using System.IO;
+using OfficeOpenXml;
+using Newtonsoft.Json;
 
 namespace CinemaBookingWeb.Controllers
 {
@@ -17,7 +20,7 @@ namespace CinemaBookingWeb.Controllers
         public IActionResult NewUsers(DateTime? startDate, DateTime? endDate)
         {
             // Đặt ngày bắt đầu và kết thúc mặc định nếu không được truyền vào
-            startDate ??= DateTime.Now.AddMonths(-1);
+            startDate ??= DateTime.Now.AddMonths(-3);
             endDate ??= DateTime.Now;
 
             // Số người dùng mới theo ngày
@@ -60,7 +63,7 @@ namespace CinemaBookingWeb.Controllers
         public IActionResult TotalTickets(DateTime? startDate, DateTime? endDate)
         {
             // Đặt ngày bắt đầu và kết thúc mặc định nếu không được truyền vào
-            startDate ??= DateTime.Now.AddMonths(-1);
+            startDate ??= DateTime.Now.AddMonths(-3);
             endDate ??= DateTime.Now;
 
             // Số vé bán ra theo ngày
@@ -105,7 +108,7 @@ namespace CinemaBookingWeb.Controllers
         public IActionResult MoviesRevenue(DateTime? startDate, DateTime? endDate)
         {
             // Đặt ngày bắt đầu và kết thúc mặc định nếu không được truyền vào
-            startDate ??= DateTime.Now.AddMonths(-1);
+            startDate ??= DateTime.Now.AddMonths(-3);
             endDate ??= DateTime.Now;
 
             // Thống kê doanh thu cho từng bộ phim
@@ -135,7 +138,7 @@ namespace CinemaBookingWeb.Controllers
         public IActionResult CinemasRevenue(DateTime? startDate, DateTime? endDate)
         {
             // Đặt ngày bắt đầu và kết thúc mặc định nếu không được truyền vào
-            startDate ??= DateTime.Now.AddMonths(-1);
+            startDate ??= DateTime.Now.AddMonths(-3);
             endDate ??= DateTime.Now;
 
             // Thống kê doanh thu cho từng rạp
@@ -165,7 +168,7 @@ namespace CinemaBookingWeb.Controllers
         public IActionResult TotalRevenue(DateTime? startDate, DateTime? endDate)
         {
             // Đặt giá trị mặc định cho ngày bắt đầu và ngày kết thúc nếu chúng không được truyền vào
-            startDate ??= DateTime.Now.AddMonths(-1);
+            startDate ??= DateTime.Now.AddMonths(-3);
             endDate ??= DateTime.Now;
 
             // Tính tổng doanh thu theo ngày
@@ -204,6 +207,202 @@ namespace CinemaBookingWeb.Controllers
             ViewBag.EndDate = endDate;
 
             return View(model);
+        }
+
+        [HttpPost]
+        public IActionResult ExportChartDataToExcel_NewUsers([FromBody] ChartExportRequest_Users_Tickets request)
+        {
+            ExcelPackage.LicenseContext = LicenseContext.NonCommercial; // Thiết lập giấy phép phi thương mại
+
+            using (var package = new ExcelPackage())
+            {
+                // Thêm log để kiểm tra dữ liệu nhận được
+                Console.WriteLine(JsonConvert.SerializeObject(request));
+                // Sheet thống kê theo ngày
+                var daySheet = package.Workbook.Worksheets.Add("Thống kê theo ngày");
+                daySheet.Cells[1, 1].Value = "Ngày";
+                daySheet.Cells[1, 2].Value = "Số người dùng mới";
+
+                for (int i = 0; i < request.DayChartData.Labels.Count; i++)
+                {
+                    daySheet.Cells[i + 2, 1].Value = request.DayChartData.Labels[i];
+                    daySheet.Cells[i + 2, 2].Value = request.DayChartData.Data[i];
+                }
+
+                // Sheet thống kê theo tháng
+                var monthSheet = package.Workbook.Worksheets.Add("Thống kê theo tháng");
+                monthSheet.Cells[1, 1].Value = "Tháng";
+                monthSheet.Cells[1, 2].Value = "Số người dùng mới";
+
+                for (int i = 0; i < request.MonthChartData.Labels.Count; i++)
+                {
+                    monthSheet.Cells[i + 2, 1].Value = request.MonthChartData.Labels[i];
+                    monthSheet.Cells[i + 2, 2].Value = request.MonthChartData.Data[i];
+                }
+
+                // Xuất file Excel
+                var stream = new MemoryStream(package.GetAsByteArray());
+                stream.Position = 0;
+
+                return File(stream, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", "NewUsers.xlsx");
+            }
+        }
+        [HttpPost]
+        public IActionResult ExportChartDataToExcel_TotalTickets([FromBody] ChartExportRequest_Users_Tickets request)
+        {
+            ExcelPackage.LicenseContext = LicenseContext.NonCommercial; // Thiết lập giấy phép phi thương mại
+
+            using (var package = new ExcelPackage())
+            {
+                // Thêm log để kiểm tra dữ liệu nhận được
+                Console.WriteLine(JsonConvert.SerializeObject(request));
+                // Sheet thống kê theo ngày
+                var daySheet = package.Workbook.Worksheets.Add("Thống kê theo ngày");
+                daySheet.Cells[1, 1].Value = "Ngày";
+                daySheet.Cells[1, 2].Value = "Số vé bán ra";
+
+                for (int i = 0; i < request.DayChartData.Labels.Count; i++)
+                {
+                    daySheet.Cells[i + 2, 1].Value = request.DayChartData.Labels[i];
+                    daySheet.Cells[i + 2, 2].Value = request.DayChartData.Data[i];
+                }
+
+                // Sheet thống kê theo tháng
+                var monthSheet = package.Workbook.Worksheets.Add("Thống kê theo tháng");
+                monthSheet.Cells[1, 1].Value = "Tháng";
+                monthSheet.Cells[1, 2].Value = "Số vé bán ra";
+
+                for (int i = 0; i < request.MonthChartData.Labels.Count; i++)
+                {
+                    monthSheet.Cells[i + 2, 1].Value = request.MonthChartData.Labels[i];
+                    monthSheet.Cells[i + 2, 2].Value = request.MonthChartData.Data[i];
+                }
+
+                // Xuất file Excel
+                var stream = new MemoryStream(package.GetAsByteArray());
+                stream.Position = 0;
+
+                return File(stream, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", "TotalTickets.xlsx");
+            }
+        }
+        [HttpPost]
+        public IActionResult ExportChartDataToExcel_TotalRevenue([FromBody] ChartExportRequest_Revenue request)
+        {
+            ExcelPackage.LicenseContext = LicenseContext.NonCommercial; // Thiết lập giấy phép phi thương mại
+
+            using var package = new ExcelPackage();
+            // Thêm log để kiểm tra dữ liệu nhận được
+            Console.WriteLine(JsonConvert.SerializeObject(request));
+            // Sheet thống kê theo ngày
+            var daySheet = package.Workbook.Worksheets.Add("Thống kê theo ngày");
+            daySheet.Cells[1, 1].Value = "Ngày";
+            daySheet.Cells[1, 2].Value = "Tổng doanh thu";
+
+            for (int i = 0; i < request.DayChartData.Labels.Count; i++)
+            {
+                daySheet.Cells[i + 2, 1].Value = request.DayChartData.Labels[i];
+                daySheet.Cells[i + 2, 2].Value = request.DayChartData.Data[i];
+            }
+
+            // Sheet thống kê theo tháng
+            var monthSheet = package.Workbook.Worksheets.Add("Thống kê theo tháng");
+            monthSheet.Cells[1, 1].Value = "Tháng";
+            monthSheet.Cells[1, 2].Value = "Tổng doanh thu";
+
+            for (int i = 0; i < request.MonthChartData.Labels.Count; i++)
+            {
+                monthSheet.Cells[i + 2, 1].Value = request.MonthChartData.Labels[i];
+                monthSheet.Cells[i + 2, 2].Value = request.MonthChartData.Data[i];
+            }
+
+            // Xuất file Excel
+            var stream = new MemoryStream(package.GetAsByteArray());
+            stream.Position = 0;
+
+            return File(stream, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", "TotalRevenue.xlsx");
+        }
+        [HttpPost]
+        public IActionResult ExportChartDataToExcel_MoviesRevenue([FromBody] ChartExportRequest_Movies_Cinemas request)
+        {
+            ExcelPackage.LicenseContext = LicenseContext.NonCommercial; // Thiết lập giấy phép phi thương mại
+
+            using (var package = new ExcelPackage())
+            {
+                // Thêm log để kiểm tra dữ liệu nhận được
+                Console.WriteLine(JsonConvert.SerializeObject(request));
+                // Sheet thống kê
+                var moviesSheet = package.Workbook.Worksheets.Add("Thống kê theo phim");
+                moviesSheet.Cells[1, 1].Value = "Tên phim";
+                moviesSheet.Cells[1, 2].Value = "Doanh thu phim";
+
+                for (int i = 0; i < request.RevenueChartData.Labels.Count; i++)
+                {
+                    moviesSheet.Cells[i + 2, 1].Value = request.RevenueChartData.Labels[i];
+                    moviesSheet.Cells[i + 2, 2].Value = request.RevenueChartData.Data[i];
+                }
+
+                // Xuất file Excel
+                var stream = new MemoryStream(package.GetAsByteArray());
+                stream.Position = 0;
+
+                return File(stream, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", "MoviesRevenue.xlsx");
+            }
+        }
+        [HttpPost]
+        public IActionResult ExportChartDataToExcel_CinemasRevenue([FromBody] ChartExportRequest_Movies_Cinemas request)
+        {
+            ExcelPackage.LicenseContext = LicenseContext.NonCommercial; // Thiết lập giấy phép phi thương mại
+
+            using (var package = new ExcelPackage())
+            {
+                // Thêm log để kiểm tra dữ liệu nhận được
+                Console.WriteLine(JsonConvert.SerializeObject(request));
+                // Sheet thống kê
+                var cinemasSheet = package.Workbook.Worksheets.Add("Thống kê theo rạp");
+                cinemasSheet.Cells[1, 1].Value = "Tên rạp";
+                cinemasSheet.Cells[1, 2].Value = "Doanh thu rạp";
+
+                for (int i = 0; i < request.RevenueChartData.Labels.Count; i++)
+                {
+                    cinemasSheet.Cells[i + 2, 1].Value = request.RevenueChartData.Labels[i];
+                    cinemasSheet.Cells[i + 2, 2].Value = request.RevenueChartData.Data[i];
+                }
+
+                // Xuất file Excel
+                var stream = new MemoryStream(package.GetAsByteArray());
+                stream.Position = 0;
+
+                return File(stream, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", "CinemasRevenue.xlsx");
+            }
+        }
+        public class ChartExportRequest_Users_Tickets
+        {
+            public ChartData_Users_Tickets DayChartData { get; set; }
+            public ChartData_Users_Tickets MonthChartData { get; set; }
+        }
+        public class ChartData_Users_Tickets
+        {
+            public List<string> Labels { get; set; }
+            public List<int> Data { get; set; }
+        }
+        public class ChartExportRequest_Revenue
+        {
+            public ChartData_Revenue DayChartData { get; set; }
+            public ChartData_Revenue MonthChartData { get; set; }
+        }
+        public class ChartData_Revenue
+        {
+            public List<string> Labels { get; set; }
+            public List<decimal> Data { get; set; }
+        }
+        public class ChartExportRequest_Movies_Cinemas
+        {
+            public ChartData_Movies_Cinemas RevenueChartData { get; set; }
+        }
+        public class ChartData_Movies_Cinemas
+        {
+            public List<string> Labels { get; set; }
+            public List<decimal> Data { get; set; }
         }
     }
 }

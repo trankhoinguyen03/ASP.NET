@@ -27,6 +27,13 @@
         <button type="submit">Lọc</button>
         <br />
         <span id="dateError" style="color: red; display: none;">Ngày bắt đầu phải nhỏ hơn ngày kết thúc.</span>
+
+        <hr />
+        <div>
+            <button onclick="exportChartToExcel()" class="btn btn-success" style="float: right;"><i class="bi bi-file-earmark-spreadsheet"></i> Xuất Excel</button>
+        </div>
+        <br />
+        <br />
     </form>
 </div>
 <br />
@@ -84,13 +91,72 @@
                 easing: 'easeOutQuart'
             },
             scales: {
+                x: {
+                    ticks: {
+                        autoSkip: false,
+                        maxRotation: 0,
+                        minRotation: 0
+                    }
+                },
                 y: {
                     beginAtZero: true,
                     ticks: {
-                        stepSize: 1
+                        stepSize: 10000,
+                        autoSkip: true
                     }
                 }
             }
         }
     });
+</script>
+<script>
+    function getChartData(chart) {
+        return {
+            labels: chart.data.labels,
+            data: chart.data.datasets[0].data
+        };
+    }
+
+    function exportChartToExcel() {
+        // Lấy dữ liệu từ biểu đồ
+        const revenueChartData = getChartData(cinemasRevenueChart);
+
+        // Thêm loading trạng thái để ngăn việc nhấn nút nhiều lần
+        const button = document.querySelector(".btn.btn-success");
+        button.disabled = true;
+        button.textContent = "Đang xử lý...";
+
+        // Gửi dữ liệu tới server
+        fetch('/Overview/ExportChartDataToExcel_CinemasRevenue', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ revenueChartData })
+        })
+            .then(response => {
+                if (response.ok) {
+                    return response.blob();
+                }
+                throw new Error('Xuất file Excel thất bại!');
+            })
+            .then(blob => {
+                const url = window.URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.style.display = 'none';
+                a.href = url;
+                a.download = 'CinemasRevenue.xlsx';
+                document.body.appendChild(a);
+                a.click();
+                window.URL.revokeObjectURL(url);
+            })
+            .catch(error => {
+                console.error(error);
+                alert("Đã xảy ra lỗi khi xuất Excel.");
+            })
+            .finally(() => {
+                button.disabled = false;
+                button.textContent = "Xuất Excel";
+            });
+    }
 </script>

@@ -27,6 +27,13 @@
         <button type="submit">Lọc</button>
         <br />
         <span id="dateError" style="color: red; display: none;">Ngày bắt đầu phải nhỏ hơn ngày kết thúc.</span>
+
+        <hr />
+        <div>
+            <button onclick="exportChartToExcel()" class="btn btn-success" style="float: right;"><i class="bi bi-file-earmark-spreadsheet"></i> Xuất Excel</button>
+        </div>
+        <br />
+        <br />
     </form>
 </div>
 <br />
@@ -73,78 +80,140 @@
     // Dữ liệu doanh thu theo ngày
     var revenueByDayLabels = @Html.Raw(JsonSerializer.Serialize(Model.TotalRevenueByDay?.Select(x => x.Date.ToString("yyyy-MM-dd")) ?? new List<string>()));
     var revenueByDayData = @Html.Raw(JsonSerializer.Serialize(Model.TotalRevenueByDay.Select(x => x.Revenue)));
-    // Tạo biểu đồ doanh thu theo ngày
-    if (revenueByDayLabels.length > 0 && revenueByDayData.length > 0) {
-        var ctxDay = document.getElementById('revenueByDayChart').getContext('2d');
-        new Chart(ctxDay, {
-            type: 'bar',
-            data: {
-                labels: revenueByDayLabels,
-                datasets: [{
-                    label: 'Doanh thu (VNĐ)',
-                    data: revenueByDayData,
-                    backgroundColor: 'rgba(75, 192, 192, 0.2)',
-                    borderColor: 'rgba(75, 192, 192, 1)',
-                    borderWidth: 1,
-                    hoverBackgroundColor: 'rgba(75, 192, 192, 0.4)',
-                    hoverBorderColor: 'rgba(75, 192, 192, 1)',
-                }]
+
+    var ctxDay = document.getElementById('revenueByDayChart').getContext('2d');
+    var revenueByDayChart = new Chart(ctxDay, {
+        type: 'bar',
+        data: {
+            labels: revenueByDayLabels,
+            datasets: [{
+                label: 'Doanh thu (VNĐ)',
+                data: revenueByDayData,
+                backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                borderColor: 'rgba(75, 192, 192, 1)',
+                borderWidth: 1,
+                hoverBackgroundColor: 'rgba(75, 192, 192, 0.4)',
+                hoverBorderColor: 'rgba(75, 192, 192, 1)',
+            }]
+        },
+        options: {
+            responsive: true,
+            animation: {
+                duration: 1000,
+                easing: 'easeOutQuart'
             },
-            options: {
-                responsive: true,
-                animation: {
-                    duration: 1000,
-                    easing: 'easeOutQuart'
+            scales: {
+                x: {
+                    ticks: {
+                        autoSkip: false,
+                        maxRotation: 0,
+                        minRotation: 0
+                    }
                 },
-                scales: {
-                    y: {
-                        beginAtZero: true,
-                        ticks: {
-                            stepSize: 1
-                        }
+                y: {
+                    beginAtZero: true,
+                    ticks: {
+                        stepSize: 10000,
+                        autoSkip: true
                     }
                 }
             }
-        });
-    }
+        }
+    });
 
     // Dữ liệu doanh thu theo tháng
     var revenueByMonthLabels = @Html.Raw(JsonSerializer.Serialize(Model.TotalRevenueByMonth?.Select(x => x.Month.ToString("yyyy-MM")) ?? new List<string>()));
     var revenueByMonthData = @Html.Raw(JsonSerializer.Serialize(Model.TotalRevenueByMonth.Select(x => x.Revenue)));
 
-    // Tạo biểu đồ doanh thu theo tháng
-    if (revenueByMonthLabels.length > 0 && revenueByMonthData.length > 0) {
-        var ctxMonth = document.getElementById('revenueByMonthChart').getContext('2d');
-        new Chart(ctxMonth, {
-            type: 'bar',
-            data: {
-                labels: revenueByMonthLabels,
-                datasets: [{
-                    label: 'Doanh thu (VNĐ)',
-                    data: revenueByMonthData,
-                    backgroundColor: 'rgba(75, 192, 192, 0.2)',
-                    borderColor: 'rgba(75, 192, 192, 1)',
-                    borderWidth: 1,
-                    hoverBackgroundColor: 'rgba(75, 192, 192, 0.4)',
-                    hoverBorderColor: 'rgba(75, 192, 192, 1)',
-                }]
+    var ctxMonth = document.getElementById('revenueByMonthChart').getContext('2d');
+    var revenueByMonthChart = new Chart(ctxMonth, {
+        type: 'bar',
+        data: {
+            labels: revenueByMonthLabels,
+            datasets: [{
+                label: 'Doanh thu (VNĐ)',
+                data: revenueByMonthData,
+                backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                borderColor: 'rgba(75, 192, 192, 1)',
+                borderWidth: 1,
+                hoverBackgroundColor: 'rgba(75, 192, 192, 0.4)',
+                hoverBorderColor: 'rgba(75, 192, 192, 1)',
+            }]
+        },
+        options: {
+            responsive: true,
+            animation: {
+                duration: 1000,
+                easing: 'easeOutQuart'
             },
-            options: {
-                responsive: true,
-                animation: {
-                    duration: 1000,
-                    easing: 'easeOutQuart'
+            scales: {
+                x: {
+                    ticks: {
+                        autoSkip: false,
+                        maxRotation: 0,
+                        minRotation: 0
+                    }
                 },
-                scales: {
-                    y: {
-                        beginAtZero: true,
-                        ticks: {
-                            stepSize: 1
-                        }
+                y: {
+                    beginAtZero: true,
+                    ticks: {
+                        stepSize: 10000,
+                        autoSkip: true
                     }
                 }
             }
-        });
+        }
+    });
+</script>
+<script>
+    function getChartData(chart) {
+        return {
+            labels: chart.data.labels,
+            data: chart.data.datasets[0].data
+        };
+    }
+
+    function exportChartToExcel() {
+        // Lấy dữ liệu từ cả hai biểu đồ
+        const dayChartData = getChartData(revenueByDayChart);
+        const monthChartData = getChartData(revenueByMonthChart);
+
+        // Thêm loading trạng thái để ngăn việc nhấn nút nhiều lần
+        const button = document.querySelector(".btn.btn-success");
+        button.disabled = true;
+        button.textContent = "Đang xử lý...";
+
+        // Gửi dữ liệu tới server
+        fetch('/Overview/ExportChartDataToExcel_TotalRevenue', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ dayChartData, monthChartData })
+        })
+            .then(response => {
+                if (response.ok) {
+                    return response.blob();
+                }
+                throw new Error('Xuất file Excel thất bại!');
+            })
+            .then(blob => {
+                const url = window.URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.style.display = 'none';
+                a.href = url;
+                a.download = 'TotalRevenue.xlsx';
+                document.body.appendChild(a);
+                a.click();
+                window.URL.revokeObjectURL(url);
+            })
+            .catch(error => {
+                console.error(error);
+                alert("Đã xảy ra lỗi khi xuất Excel.");
+            })
+            .finally(() => {
+                button.disabled = false;
+                button.textContent = "Xuất Excel";
+            });
     }
 </script>
-

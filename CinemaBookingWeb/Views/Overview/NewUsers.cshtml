@@ -27,6 +27,13 @@
         <button type="submit">Lọc</button>
         <br />
         <span id="dateError" style="color: red; display: none;">Ngày bắt đầu phải nhỏ hơn ngày kết thúc.</span>
+
+        <hr />
+        <div>
+            <button onclick="exportChartToExcel()" class="btn btn-success" style="float: right;"><i class="bi bi-file-earmark-spreadsheet"></i> Xuất Excel</button>
+        </div>
+        <br />
+        <br />
     </form>
 </div>
 <br />
@@ -35,7 +42,7 @@
     <h2>Số người dùng mới theo ngày</h2>
     @if (Model.NewUsersByDay != null && Model.NewUsersByDay.Any())
     {
-        <canvas id="userByDayChart" width="400" height="200"></canvas>
+        <canvas id="usersByDayChart" width="400" height="200"></canvas>
     }
     else
     {
@@ -45,7 +52,7 @@
     <h2>Số người dùng mới theo tháng</h2>
     @if (Model.NewUsersByMonth != null && Model.NewUsersByMonth.Any())
     {
-        <canvas id="userByMonthChart" width="400" height="200"></canvas>
+        <canvas id="usersByMonthChart" width="400" height="200"></canvas>
     }
     else
     {
@@ -71,17 +78,17 @@
     }
 
     // Dữ liệu thống kê theo ngày
-    var userByDayLabels = @Html.Raw(JsonSerializer.Serialize(Model.NewUsersByDay.Select(x => x.Date.ToString("yyyy-MM-dd"))));
-    var userByDayData = @Html.Raw(JsonSerializer.Serialize(Model.NewUsersByDay.Select(x => x.Count)));
+    var usersByDayLabels = @Html.Raw(JsonSerializer.Serialize(Model.NewUsersByDay.Select(x => x.Date.ToString("yyyy-MM-dd"))));
+    var usersByDayData = @Html.Raw(JsonSerializer.Serialize(Model.NewUsersByDay.Select(x => x.Count)));
 
-    var ctxDay = document.getElementById('userByDayChart').getContext('2d');
-    var userByDayChart = new Chart(ctxDay, {
+    var ctxDay = document.getElementById('usersByDayChart').getContext('2d');
+    var usersByDayChart = new Chart(ctxDay, {
         type: 'bar',
         data: {
-            labels: userByDayLabels,
+            labels: usersByDayLabels,
             datasets: [{
                 label: 'Số người dùng mới',
-                data: userByDayData,
+                data: usersByDayData,
                 backgroundColor: 'rgba(75, 192, 192, 0.2)',
                 borderColor: 'rgba(75, 192, 192, 1)',
                 borderWidth: 1,
@@ -96,6 +103,13 @@
                 easing: 'easeOutQuart'
             },
             scales: {
+                x: {
+                    ticks: {
+                        autoSkip: false,
+                        maxRotation: 0,
+                        minRotation: 0
+                    }
+                },
                 y: {
                     beginAtZero: true,
                     ticks: {
@@ -107,17 +121,17 @@
     });
 
     // Dữ liệu thống kê theo tháng
-    var userByMonthLabels = @Html.Raw(JsonSerializer.Serialize(Model.NewUsersByMonth.Select(x => x.Month.ToString("yyyy-MM"))));
-    var userByMonthData = @Html.Raw(JsonSerializer.Serialize(Model.NewUsersByMonth.Select(x => x.Count)));
+    var usersByMonthLabels = @Html.Raw(JsonSerializer.Serialize(Model.NewUsersByMonth.Select(x => x.Month.ToString("yyyy-MM"))));
+    var usersByMonthData = @Html.Raw(JsonSerializer.Serialize(Model.NewUsersByMonth.Select(x => x.Count)));
 
-    var ctxMonth = document.getElementById('userByMonthChart').getContext('2d');
-    var userByMonthChart = new Chart(ctxMonth, {
+    var ctxMonth = document.getElementById('usersByMonthChart').getContext('2d');
+    var usersByMonthChart = new Chart(ctxMonth, {
         type: 'bar',
         data: {
-            labels: userByMonthLabels,
+            labels: usersByMonthLabels,
             datasets: [{
                 label: 'Số người dùng mới',
-                data: userByMonthData,
+                data: usersByMonthData,
                 backgroundColor: 'rgba(75, 192, 192, 0.2)',
                 borderColor: 'rgba(75, 192, 192, 1)',
                 borderWidth: 1,
@@ -132,6 +146,13 @@
                 easing: 'easeOutQuart'
             },
             scales: {
+                x: {
+                    ticks: {
+                        autoSkip: false,
+                        maxRotation: 0,
+                        minRotation: 0
+                    }
+                },
                 y: {
                     beginAtZero: true,
                     ticks: {
@@ -141,6 +162,58 @@
             }
         }
     });
+</script>
+<script>
+    function getChartData(chart) {
+        return {
+            labels: chart.data.labels,
+            data: chart.data.datasets[0].data
+        };
+    }
+
+    function exportChartToExcel() {
+        // Lấy dữ liệu từ cả hai biểu đồ
+        const dayChartData = getChartData(usersByDayChart);
+        const monthChartData = getChartData(usersByMonthChart);
+
+        // Thêm loading trạng thái để ngăn việc nhấn nút nhiều lần
+        const button = document.querySelector(".btn.btn-success");
+        button.disabled = true;
+        button.textContent = "Đang xử lý...";
+
+        // Gửi dữ liệu tới server
+        fetch('/Overview/ExportChartDataToExcel_NewUsers', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ dayChartData, monthChartData })
+        })
+            .then(response => {
+                if (response.ok) {
+                    return response.blob();
+                }
+                throw new Error('Xuất file Excel thất bại!');
+            })
+            .then(blob => {
+                const url = window.URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.style.display = 'none';
+                a.href = url;
+                a.download = 'NewUsers.xlsx';
+                document.body.appendChild(a);
+                a.click();
+                window.URL.revokeObjectURL(url);
+            })
+            .catch(error => {
+                console.error(error);
+                alert("Đã xảy ra lỗi khi xuất Excel.");
+            })
+            .finally(() => {
+                button.disabled = false;
+                button.textContent = "Xuất Excel";
+            });
+    }
 </script>
 
 

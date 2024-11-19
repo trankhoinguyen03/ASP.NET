@@ -19,7 +19,7 @@ p {
 }
 
 form {
-    max-width: 500px;
+    max-width: 70%;
     margin: 0 auto;
     padding: 20px;
     background-color: #ffffff;
@@ -37,6 +37,7 @@ input[type="date"] {
     padding: 5px;
     font-size: 1em;
     margin: 0 5px;
+    width: calc(100% - 12px);
 }
 
 button {
