@@ -237,8 +237,6 @@ D:\STUDY\HK7\.NET\ASP.NET\CinemaBookingWeb\bin\Debug\net8.0\runtimes\win\lib\net
 D:\STUDY\HK7\.NET\ASP.NET\CinemaBookingWeb\bin\Debug\net8.0\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll
 D:\STUDY\HK7\.NET\ASP.NET\CinemaBookingWeb\bin\Debug\net8.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
 D:\STUDY\HK7\.NET\ASP.NET\CinemaBookingWeb\bin\Debug\net8.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
-D:\STUDY\HK7\.NET\ASP.NET\CinemaBookingWeb\bin\Debug\net8.0\runtimes\win\lib\net7.0\Microsoft.Win32.SystemEvents.dll
-D:\STUDY\HK7\.NET\ASP.NET\CinemaBookingWeb\bin\Debug\net8.0\runtimes\win\lib\net7.0\System.Drawing.Common.dll
 D:\STUDY\HK7\.NET\ASP.NET\CinemaBookingWeb\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Runtime.Caching.dll
 D:\STUDY\HK7\.NET\ASP.NET\CinemaBookingWeb\bin\Debug\net8.0\runtimes\win\lib\net7.0\System.Security.Cryptography.ProtectedData.dll
 D:\STUDY\HK7\.NET\ASP.NET\CinemaBookingWeb\bin\Debug\net8.0\runtimes\win\lib\net7.0\System.Windows.Extensions.dll
@@ -785,3 +783,12 @@ F:\.NET\ASP.NET\CinemaBookingWeb\obj\Debug\net8.0\refint\CinemaBookingWeb.dll
 F:\.NET\ASP.NET\CinemaBookingWeb\obj\Debug\net8.0\CinemaBookingWeb.pdb
 F:\.NET\ASP.NET\CinemaBookingWeb\obj\Debug\net8.0\CinemaBookingWeb.genruntimeconfig.cache
 F:\.NET\ASP.NET\CinemaBookingWeb\obj\Debug\net8.0\ref\CinemaBookingWeb.dll
+D:\STUDY\HK7\.NET\ASP.NET\CinemaBookingWeb\bin\Debug\net8.0\EPPlus.dll
+D:\STUDY\HK7\.NET\ASP.NET\CinemaBookingWeb\bin\Debug\net8.0\EPPlus.Interfaces.dll
+D:\STUDY\HK7\.NET\ASP.NET\CinemaBookingWeb\bin\Debug\net8.0\EPPlus.System.Drawing.dll
+D:\STUDY\HK7\.NET\ASP.NET\CinemaBookingWeb\bin\Debug\net8.0\Microsoft.Extensions.Configuration.FileExtensions.dll
+D:\STUDY\HK7\.NET\ASP.NET\CinemaBookingWeb\bin\Debug\net8.0\Microsoft.Extensions.Configuration.Json.dll
+D:\STUDY\HK7\.NET\ASP.NET\CinemaBookingWeb\bin\Debug\net8.0\Microsoft.IO.RecyclableMemoryStream.dll
+D:\STUDY\HK7\.NET\ASP.NET\CinemaBookingWeb\bin\Debug\net8.0\System.Security.Cryptography.Pkcs.dll
+D:\STUDY\HK7\.NET\ASP.NET\CinemaBookingWeb\bin\Debug\net8.0\runtimes\win\lib\net8.0\Microsoft.Win32.SystemEvents.dll
+D:\STUDY\HK7\.NET\ASP.NET\CinemaBookingWeb\bin\Debug\net8.0\runtimes\win\lib\net8.0\System.Security.Cryptography.Pkcs.dll

@@ -27,11 +27,22 @@
 
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ms-auto">
+                        @if (User.Identity.IsAuthenticated)
+                        {
                         <li class="nav-item">
-                        <a class="nav-link" asp-action="Index" asp-controller="tickets">
-                            <img alt="Ticket" loading="lazy" width="112" height="40" src="~/img/ticket_mua.png">
-                        </a>
+                            <a class="nav-link" asp-action="Index" asp-controller="tickets">
+                                <img alt="Ticket" loading="lazy" width="112" height="40" src="~/img/ticket_mua.png">
+                            </a>
                         </li>
+                        }
+                        else
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link" asp-action="Login" asp-controller="Account" asp-route-message="Bạn cần đăng nhập để đặt vé.">
+                                    <img alt="Ticket" loading="lazy" width="112" height="40" src="~/img/ticket_mua.png">
+                                </a>
+                            </li>
+                        }
                         <li class="nav-item"><a class="nav-link" href="~/Rap/Rap_Giave">RẠP/GIÁ VÉ</a></li>
                         <li class="nav-item"><a class="nav-link" href="~/Movies/MoviesDangChieu">PHIM</a></li>
                         @if (User.Identity.IsAuthenticated)
@@ -58,9 +69,6 @@
     <!-- Main Content -->
     @RenderBody()
 
-    <main role="main" class="container mt-4">
-        @RenderBody()
-    </main>
     @RenderSection("Scripts", required: false)
 
     <!-- Footer -->

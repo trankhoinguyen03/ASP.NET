@@ -51,10 +51,15 @@ namespace CinemaBookingWeb.Controllers
 
 
         [HttpGet]
-        public IActionResult Login()
+        public IActionResult Login(string? message = null)
         {
+            if (!string.IsNullOrEmpty(message))
+            {
+                ViewBag.Error = message;
+            }
             return View();
         }
+
 
         [HttpPost]
         public async Task<IActionResult> Login(string userName, string password, bool rememberMe)
@@ -110,10 +115,10 @@ namespace CinemaBookingWeb.Controllers
         public IActionResult ForgotPassword(string email, string userName)
         {
             // Kiểm tra xem email có tồn tại trong hệ thống không
-            var user = _context.Users.FirstOrDefault(u => u.Email == email && u.UserName == userName);
+            var user = _context.Users.FirstOrDefault(u => u.Email == email );
             if (user == null)
             {
-                ViewBag.Error = "Tài khoản hoặc Email không đúng.";
+                ViewBag.Error = "Email không tồn tại.";
                 return View();
             }
 

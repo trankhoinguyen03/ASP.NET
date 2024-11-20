@@ -31,5 +31,23 @@ namespace CinemaBookingWeb.Controllers
                 .ToList();
             return Json(cinemas);
         }
+        [HttpGet]
+        public JsonResult GetMoviesByCinema(int cinemaId)
+        {
+            var movies = _context.Showtimes
+                .Where(s => s.CinemaId == cinemaId)
+                .Select(s => new
+                {
+                    s.Movie.MovieId,
+                    s.Movie.Title,
+                    s.Movie.Genre,
+                    s.Movie.ImageUrl
+                })
+                .Distinct()
+                .ToList();
+
+            return Json(movies);
+        }
+
     }
 }

@@ -97,6 +97,40 @@
                     $('#cinemaLocation').text(selectedLocation ? `Địa chỉ: ${selectedLocation}` : '');
                 });
             });
+
+            $('#cinemaDropdown').change(function () {
+                var selectedCinemaId = $(this).val();
+                $('#cinemaLocation').text('');
+                $('#moviesByCinema').empty();
+
+                var selectedLocation = $(this).find(':selected').data('location');
+                $('#cinemaLocation').text(selectedLocation ? `Địa chỉ: ${selectedLocation}` : '');
+
+                if (selectedCinemaId) {
+                    // Gọi API để lấy danh sách phim tại rạp
+                    $.getJSON('/Rap/GetMoviesByCinema', { cinemaId: selectedCinemaId }, function (data) {
+                        if (data.length > 0) {
+                            $.each(data, function (index, movie) {
+                                $('#moviesByCinema').append(`
+                                    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 justify-center">
+                                        <a href="/MoviesDetail/Detail/${movie.movieId}" class="text-decoration-none">
+                                            <div class="movie-item text-center p-4 border rounded shadow">
+                                                <img src="/img/${movie.imageUrl}" class="w-full h-auto mb-2 alt="${movie.title}">
+                                                <h3 class=""movie-item-title text-lg font-semibold">${movie.title}</h3>
+                                                <p class="card-text">Thể loại: ${movie.genre}</p>
+                                            </div>
+                                        </a>
+                                    </div>
+
+                                `);
+                            });
+                        } else {
+                            $('#moviesByCinema').html('<p class="text-center">Không có phim nào đang chiếu tại rạp này.</p>');
+                        }
+                    });
+                }
+            });
+
         </script>
 
 
@@ -121,22 +155,10 @@
     }
 </style>
 
-<h2 class="movie-title-dang-chieu text-2xl font-bold mb-4">Phim Đang Chiếu</h2>
-
+<h2 class="movie-title-dang-chieu text-2xl font-bold mb-4">Phim Đang Chiếu Tại Rạp</h2>
 <section class="movies">
-    <div class="mx-auto">
-        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 justify-center">
-            @foreach (var item in Model)
-            {
-                <a href="@Url.Action("Detail","MoviesDetail", new{ Id = item.MovieId })">
-                    <div class="movie-item text-center p-4 border rounded shadow">
-                        <img src="~/img/@item.ImageUrl" alt="@item.Title" class="w-full h-auto mb-2">
-                        <h3 class="movie-item-title text-lg font-semibold">@item.Title</h3>
-                        <p>Thể loại: @item.Genre</p>
-                    </div>
-                </a>
-            }
-        </div>
+    <div id="moviesByCinema" class="mx-auto">
+        <!-- Danh sách phim tại rạp sẽ được hiển thị tại đây -->
     </div>
 </section>
 
