@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "PYtAzkH7Mng7uJ2z4GYVWuhqbImJ5tDs1XTGmsX/o5U=",
+  "Hash": "fTH5SJeRjFV6JwJPK8QzhtbgZ1eowP/1lKvGmaPpJQ4=",
   "Source": "CinemaBookingWeb",
   "BasePath": "_content/CinemaBookingWeb",
   "Mode": "Default",
@@ -1459,6 +1459,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
+    },
+    {
+      "Identity": "C:\\Users\\Admin\\OneDrive\\Documents\\GitHub\\ASP.NET\\CinemaBookingWeb\\wwwroot\\movies_img\\350x495_6_.jpg",
+      "SourceId": "CinemaBookingWeb",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Admin\\OneDrive\\Documents\\GitHub\\ASP.NET\\CinemaBookingWeb\\wwwroot\\",
+      "BasePath": "_content/CinemaBookingWeb",
+      "RelativePath": "movies_img/350x495_6_.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\movies_img\\350x495_6_.jpg"
     }
   ]
 }

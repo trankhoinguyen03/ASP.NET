@@ -38,24 +38,12 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2luZW1hc1xDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Admin/OneDrive/Documents/GitHub/ASP.NET/CinemaBookingWeb/Views/Cinemas/Details.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2luZW1hc1xEZXRhaWxzLmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
 [C:/Users/Admin/OneDrive/Documents/GitHub/ASP.NET/CinemaBookingWeb/Views/Cinemas/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2luZW1hc1xFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Admin/OneDrive/Documents/GitHub/ASP.NET/CinemaBookingWeb/Views/Cinemas/HideConfirmed.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2luZW1hc1xIaWRlQ29uZmlybWVkLmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
 [C:/Users/Admin/OneDrive/Documents/GitHub/ASP.NET/CinemaBookingWeb/Views/Cinemas/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2luZW1hc1xJbmRleC5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/Admin/OneDrive/Documents/GitHub/ASP.NET/CinemaBookingWeb/Views/Cinemas/Show.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2luZW1hc1xTaG93LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Admin/OneDrive/Documents/GitHub/ASP.NET/CinemaBookingWeb/Views/HomeAdmin/Index.cshtml]
@@ -78,10 +66,6 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTW92aWVzXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Admin/OneDrive/Documents/GitHub/ASP.NET/CinemaBookingWeb/Views/Movies/Details.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTW92aWVzXERldGFpbHMuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
 [C:/Users/Admin/OneDrive/Documents/GitHub/ASP.NET/CinemaBookingWeb/Views/Movies/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTW92aWVzXEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
@@ -92,10 +76,6 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/Admin/OneDrive/Documents/GitHub/ASP.NET/CinemaBookingWeb/Views/Movies/MoviesDangChieu.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTW92aWVzXE1vdmllc0RhbmdDaGlldS5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/Admin/OneDrive/Documents/GitHub/ASP.NET/CinemaBookingWeb/Views/Movies/Show.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTW92aWVzXFNob3cuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Admin/OneDrive/Documents/GitHub/ASP.NET/CinemaBookingWeb/Views/Overview/CinemasRevenue.cshtml]

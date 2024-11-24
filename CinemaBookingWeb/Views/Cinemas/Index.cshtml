@@ -6,17 +6,17 @@
 
 <h1>Index</h1>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
+<div class="mb-3">
+    <a asp-action="Create" class="btn btn-success">Thêm rạp</a>
+</div>
 
-<form method="get" asp-controller="Cinemas" asp-action="Index">
-    <div class="form-group">
-        <input type="text" name="searchString" class="form-control" placeholder="Search by Title" value="@ViewData["CurrentFilter"]" />
-    </div>
-    <button type="submit" class="btn btn-primary">Search</button>
+
+
+
+<form method="get" asp-controller="Cinemas" asp-action="Index" class="d-flex mb-3">
+    <input type="text" name="searchString" class="form-control me-2 w-auto" placeholder="Tìm kiếm" value="@ViewData["CurrentFilter"]" />
+    <button type="submit" class="btn btn-primary w-auto">Tìm kiếm</button>
 </form>
-
 
 <table class="table">
     <thead>

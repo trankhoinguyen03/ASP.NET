@@ -4,13 +4,13 @@
     ViewData["Title"] = "Create";
 }
 
-<h1>Create</h1>
+<h1>THÊM PHIM</h1>
 
 <h4>Movies</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="Create">
+        <form asp-action="Create" method="post" enctype="multipart/form-data">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="Title" class="control-label"></label>
@@ -47,29 +47,51 @@
                 <input asp-for="Language" class="form-control" />
                 <span asp-validation-for="Language" class="text-danger"></span>
             </div>
+
+
             <div class="form-group">
                 <label asp-for="TrailerUrl" class="control-label"></label>
                 <input asp-for="TrailerUrl" class="form-control" />
                 <span asp-validation-for="TrailerUrl" class="text-danger"></span>
             </div>
+
             <div class="form-group">
-                <label asp-for="ImageUrl" class="control-label"></label>
-                <input asp-for="ImageUrl" class="form-control" />
-                <span asp-validation-for="ImageUrl" class="text-danger"></span>
+                <a href="https://www.youtube.com/" target="_blank" class="btn btn-secondary mt-2">
+                    Tìm trailer trên YouTube
+                </a>
+            </div>
+
+
+            <div class="form-group">
+                <label for="fileInput">Chọn file:</label>
+                <input type="file" class="form-control" id="fileInput" name="fileInput" onchange="displayFilePath()">
             </div>
             <div class="form-group">
+                <label asp-for="ImageUrl">Đường dẫn file:</label>
+                <input asp-for="ImageUrl" class="form-control" id="ImageUrl" readonly>
+            </div>
+            <script>
+                function displayFilePath() {
+                    var fileInput = document.getElementById('fileInput');
+                    var filePath = document.getElementById('ImageUrl');
+                    filePath.value = fileInput.value;
+                }
+            </script>
+
+
+           @*  <div class="form-group">
                 <label asp-for="Status" class="control-label"></label>
                 <input asp-for="Status" class="form-control" />
                 <span asp-validation-for="Status" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+            </div> *@
+
+
+            <div class="form-group d-flex justify-content-between mt-2">
+                <input type="submit" value="Lưu" class="btn btn-primary" />
+                <a asp-action="Index" class="btn btn-secondary">Trở về</a>
             </div>
         </form>
     </div>
 </div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
 
