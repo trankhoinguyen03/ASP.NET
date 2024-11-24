@@ -73,6 +73,7 @@ namespace CinemaBookingWeb.Controllers
         {
             if (ModelState.IsValid)
             {
+                // set = 1 ở đây
                 _context.Add(cinema);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
