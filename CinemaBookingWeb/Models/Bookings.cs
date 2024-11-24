@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace CinemaBookingWeb.Models
 {
@@ -12,5 +13,8 @@ namespace CinemaBookingWeb.Models
         public decimal TotalPrice { get; set; }
         public byte Status { get; set; }
         public ICollection<BookingDetails>? bookingDetails { get; set; }
+
+        [ForeignKey("UserId")]
+        public Users Users { get; set; }
     }
 }

@@ -1,0 +1,87 @@
+﻿@model CinemaBookingWeb.Models.BookingDetailViewModel
+
+<h2>Chi tiết Đơn Hàng</h2>
+
+<div class="booking-info">
+    <h3>Thông tin Đơn Hàng</h3>
+    <p><strong>Booking ID:</strong> @Model.Booking.BookingId</p>
+    <p><strong>User ID:</strong> @Model.Booking.UserId</p>
+    <p><strong>Số Điện Thoại:</strong> @Model.UserPhoneNumber</p>
+    <p><strong>Showtime ID:</strong> @Model.Booking.ShowtimeId</p>
+    <p><strong>Ngày Đặt:</strong> @Model.Booking.BookingDate.ToString("yyyy-MM-dd HH:mm")</p>
+    <p><strong>Tổng Giá:</strong> @Model.Booking.TotalPrice.ToString("C")</p>
+
+    <form asp-action="UpdateBookingStatus" method="post" style="display: inline;">
+        <!-- Gửi bookingId và trạng thái mới -->
+        <input type="hidden" name="bookingId" value="@Model.Booking.BookingId" />
+        <p>
+            <strong>Trạng Thái:</strong>
+            <select name="status" class="form-control" style="display: inline; width: auto;">
+                @foreach (var item in Model.StatusList)
+                {
+                    <option value="@item.Value" selected="@item.Selected">@item.Text</option>
+                }
+            </select>
+        </p>
+
+        <!-- Nút Lưu để lưu trạng thái mới -->
+        <button type="submit" class="btn btn-primary">Lưu</button>
+    </form>
+</div>
+
+
+
+
+<div style="display: flex; gap: 20px;">
+    <!-- Chi tiết Ghế Ngồi -->
+    <div>
+        <h3>Chi tiết Ghế Ngồi</h3>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>BookingDetailId</th>
+                    <th>SeatId</th>
+                    <th>Price</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var detail in Model.BookingDetails)
+                {
+                    <tr>
+                        <td>@detail.BookingDetailId</td>
+                        <td>@detail.SeatId</td>
+                        <td>@detail.Price.ToString("C")</td>
+                        <td>@(detail.Status == 1 ? "Đã đặt" : "Chưa đặt")</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Chi tiết Combo -->
+    <div>
+        <h3>Chi tiết Combo</h3>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>BookingComboId</th>
+                    <th>ComboId</th>
+                    <th>Quantity</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var combo in Model.BookingCombos)
+                {
+                    <tr>
+                        <td>@combo.BookingComboId</td>
+                        <td>@combo.ComboId</td>
+                        <td>@combo.Quantity</td>
+                        <td>@(combo.Status == 1 ? "Đã đặt" : "Chưa đặt")</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

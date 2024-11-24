@@ -8390,19 +8390,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Acer\\.nuget\\packages\\": {}
+    "C:\\Users\\SY_TiHZ\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "F:\\.NET\\ASP.NET\\CinemaBookingWeb\\CinemaBookingWeb.csproj",
+      "projectUniqueName": "D:\\C#\\dognext\\New folder\\ASP.NET\\CinemaBookingWeb\\CinemaBookingWeb.csproj",
       "projectName": "CinemaBookingWeb",
-      "projectPath": "F:\\.NET\\ASP.NET\\CinemaBookingWeb\\CinemaBookingWeb.csproj",
-      "packagesPath": "C:\\Users\\Acer\\.nuget\\packages\\",
-      "outputPath": "F:\\.NET\\ASP.NET\\CinemaBookingWeb\\obj\\",
+      "projectPath": "D:\\C#\\dognext\\New folder\\ASP.NET\\CinemaBookingWeb\\CinemaBookingWeb.csproj",
+      "packagesPath": "C:\\Users\\SY_TiHZ\\.nuget\\packages\\",
+      "outputPath": "D:\\C#\\dognext\\New folder\\ASP.NET\\CinemaBookingWeb\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Acer\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\SY_TiHZ\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -8410,7 +8410,6 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -8480,7 +8479,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.403/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.202/PortableRuntimeIdentifierGraph.json"
       }
     }
   },

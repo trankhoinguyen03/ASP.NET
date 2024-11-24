@@ -1,0 +1,51 @@
+﻿@model List<CinemaBookingWeb.Models.Bookings>
+
+<h2>Danh sách Đơn Hàng</h2>
+<form method="get" asp-action="Index">
+	<label for="phoneNumber">Tìm kiếm theo Số Điện Thoại:</label>
+	<input type="text" id="phoneNumber" name="phoneNumber" placeholder="Nhập số điện thoại" />
+	<button type="submit">Tìm kiếm</button>
+	<a asp-action="Index" class="btn btn-secondary">Reset</a>
+</form>
+
+<table class="table">
+	<thead>
+		<tr>
+			<th>BookingId</th>
+			<th>UserId</th>
+			<th>PhoneNumber</th>
+			<th>ShowtimeId</th>
+			<th>BookingDate</th>
+			<th>TotalPrice</th>
+			<th>Status</th>
+			<th>Actions</th>
+		</tr>
+	</thead>
+	<tbody>
+		@foreach (var bookings in Model)
+		{
+			<tr>
+				<td>@bookings.BookingId</td>
+				<td>@bookings.UserId</td>
+				<td>@bookings.Users?.Phone</td>
+				<td>@bookings.ShowtimeId</td>
+				<td>@bookings.BookingDate.ToString("yyyy-MM-dd HH:mm")</td>
+				<td>@bookings.TotalPrice</td>
+				<td>
+					@{
+						string statusText = bookings.Status switch
+						{
+							1 => "Đã thanh toán",
+							2 => "Chưa thanh toán",
+							_ => "Hủy"
+						};
+					}
+					@statusText
+				</td>
+				<td>
+					@Html.ActionLink("Xem chi tiết", "BookingsDetails", new { id = bookings.BookingId })
+				</td>
+			</tr>
+		}
+	</tbody>
+</table>
