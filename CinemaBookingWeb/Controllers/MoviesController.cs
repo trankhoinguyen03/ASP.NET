@@ -27,14 +27,6 @@ namespace CinemaBookingWeb.Controllers
         }
 
 
-        //public async Task<IActionResult> Index()
-        //{
-        //    var movies = await _context.Movies
-        //        .Where(m => m.Status == 1)
-        //        .ToListAsync();
-
-        //    return View(movies);
-        //}
 
 
         public async Task<IActionResult> Index(string searchString)
@@ -52,16 +44,6 @@ namespace CinemaBookingWeb.Controllers
         }
 
 
-        //public async Task<IActionResult> Index()
-        //{
-        //    // Chỉ hiển thị các phim có Status = 1 (Hiển thị)
-        //    return View(await _context.Movies.Where(m => m.Status == 1).ToListAsync());
-        //}
-
-        //public async Task<IActionResult> Index()
-        //{
-        //    return View(await _context.Movies.ToListAsync());
-        //}
 
 
         public IActionResult Create()
@@ -70,15 +52,41 @@ namespace CinemaBookingWeb.Controllers
         }
 
 
+
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("MovieId, Title, Description, Duration, Rating, ReleaseDate, Genre, Language, TrailerUrl, ImageUrl")] Movies movie)
+        public async Task<IActionResult> Create([Bind("MovieId, Title, Description, Duration, Rating, ReleaseDate, Genre, Language, TrailerUrl, ImageUrl, Status")] Movies movie, IFormFile fileInput)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(movie);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                try
+                {
+                    // Nếu có file upload
+                    if (fileInput != null && fileInput.Length > 0)
+                    {
+                        // Đường dẫn lưu file
+                        var fileName = Path.GetFileName(fileInput.FileName);
+                        var filePath = Path.Combine("wwwroot/movies_img", fileName);
+
+                        // Lưu file vào hệ thống
+                        using (var stream = new FileStream(filePath, FileMode.Create))
+                        {
+                            await fileInput.CopyToAsync(stream);
+                        }
+
+                        // Cập nhật đường dẫn ảnh
+                        movie.ImageUrl = "/movies_img/" + fileName;
+                    }
+                    movie.Status = 1;
+                    _context.Add(movie);
+                    await _context.SaveChangesAsync();
+                    return RedirectToAction(nameof(Index));
+                }
+                catch (Exception ex)
+                {
+                    // Log lỗi nếu cần
+                    ModelState.AddModelError(string.Empty, "Có lỗi xảy ra: " + ex.Message);
+                }
             }
             return View(movie);
         }
@@ -94,32 +102,9 @@ namespace CinemaBookingWeb.Controllers
         }
 
 
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        //public async Task<IActionResult> Edit(int id, [Bind("MovieId, Title, Description, Duration, Rating, ReleaseDate, Genre, Language, TrailerUrl, ImageUrl, Status")] Movies movie)
-        //{
-        //    if (id != movie.MovieId) return NotFound();
-
-        //    if (ModelState.IsValid)
-        //    {
-        //        try
-        //        {
-        //            _context.Update(movie);
-        //            await _context.SaveChangesAsync();
-        //        }
-        //        catch (DbUpdateConcurrencyException)
-        //        {
-        //            if (!MovieExists(movie.MovieId)) return NotFound();
-        //            else throw;
-        //        }
-        //        return RedirectToAction(nameof(Index));
-        //    }
-        //    return View(movie);
-        //}
-
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("MovieId, Title, Description, Duration, Rating, ReleaseDate, Genre, Language, TrailerUrl, ImageUrl, Status")] Movies movie, IFormFile fileInput)
+        public async Task<IActionResult> Edit(int id, [Bind("MovieId, Title, Description, Duration, Rating, ReleaseDate, Genre, Language, TrailerUrl, ImageUrl, Status")] Movies movie, IFormFile? fileInput)
         {
             if (id != movie.MovieId) return NotFound();
 
@@ -157,31 +142,31 @@ namespace CinemaBookingWeb.Controllers
             return View(movie);
         }
 
+
+
         //[HttpPost]
         //[ValidateAntiForgeryToken]
-        //public async Task<IActionResult> Edit(int id, [Bind("MovieId, Title, Description, Duration, Rating, ReleaseDate, Genre, Language, TrailerUrl, ImageUrl, Status")] Movies movie, IFormFile ImageFile)
+        //public async Task<IActionResult> Edit(int id, [Bind("MovieId, Title, Description, Duration, Rating, ReleaseDate, Genre, Language, TrailerUrl, ImageUrl, Status")] Movies movie, IFormFile fileInput)
         //{
-        //    if (id != movie.MovieId)
-        //    {
-        //        return NotFound();
-        //    }
+        //    if (id != movie.MovieId) return NotFound();
 
         //    if (ModelState.IsValid)
         //    {
         //        try
         //        {
-        //            // Nếu người dùng upload ảnh mới
-        //            if (ImageFile != null && ImageFile.Length > 0)
+        //            if(fileInput!=null && fileInput.Length> 0)
         //            {
-        //                // Lưu ảnh vào thư mục wwwroot/images
-        //                var filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/movies_img", ImageFile.FileName);
+        //                // Xử lý lưu file mới
+        //                var fileName = Path.GetFileName(fileInput.FileName);
+        //                var filePath = Path.Combine("wwwroot/movies_img", fileName);
+
         //                using (var stream = new FileStream(filePath, FileMode.Create))
         //                {
-        //                    await ImageFile.CopyToAsync(stream);
+        //                    await fileInput.CopyToAsync(stream);
         //                }
 
         //                // Cập nhật đường dẫn ảnh
-        //                movie.ImageUrl = "/movies_img/" + ImageFile.FileName;
+        //                movie.ImageUrl = "/movies_img/" + fileName;
         //            }
 
         //            _context.Update(movie);
@@ -189,19 +174,16 @@ namespace CinemaBookingWeb.Controllers
         //        }
         //        catch (DbUpdateConcurrencyException)
         //        {
-        //            if (!MovieExists(movie.MovieId))
-        //            {
-        //                return NotFound();
-        //            }
-        //            else
-        //            {
-        //                throw;
-        //            }
+        //            if (!MovieExists(movie.MovieId)) return NotFound();
+        //            else throw;
         //        }
         //        return RedirectToAction(nameof(Index));
         //    }
         //    return View(movie);
         //}
+
+
+
 
         private bool MovieExists(int id)
         {
