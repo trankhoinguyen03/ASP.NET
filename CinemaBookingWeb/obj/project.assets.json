@@ -8390,19 +8390,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\SY_TiHZ\\.nuget\\packages\\": {}
+    "C:\\Users\\Admin\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\C#\\dognext\\New folder\\ASP.NET\\CinemaBookingWeb\\CinemaBookingWeb.csproj",
+      "projectUniqueName": "C:\\Users\\Admin\\OneDrive\\Documents\\GitHub\\ASP.NET\\CinemaBookingWeb\\CinemaBookingWeb.csproj",
       "projectName": "CinemaBookingWeb",
-      "projectPath": "D:\\C#\\dognext\\New folder\\ASP.NET\\CinemaBookingWeb\\CinemaBookingWeb.csproj",
-      "packagesPath": "C:\\Users\\SY_TiHZ\\.nuget\\packages\\",
-      "outputPath": "D:\\C#\\dognext\\New folder\\ASP.NET\\CinemaBookingWeb\\obj\\",
+      "projectPath": "C:\\Users\\Admin\\OneDrive\\Documents\\GitHub\\ASP.NET\\CinemaBookingWeb\\CinemaBookingWeb.csproj",
+      "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Admin\\OneDrive\\Documents\\GitHub\\ASP.NET\\CinemaBookingWeb\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\SY_TiHZ\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -8410,6 +8410,7 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -8479,17 +8480,11 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.202/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.403/PortableRuntimeIdentifierGraph.json"
       }
     }
   },
   "logs": [
-    {
-      "code": "NU1900",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Error occurred while getting package vulnerability data: Unable to load the service index for source https://api.nuget.org/v3/index.json."
-    },
     {
       "code": "NU1701",
       "level": "Warning",
