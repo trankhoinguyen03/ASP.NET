@@ -9,37 +9,42 @@
 
 <form asp-action="Edit" method="post">
     <div class="form-group">
-        <label asp-for="MovieId"></label>
-        <input asp-for="MovieId" class="form-control" />
+        <label asp-for="MovieId">Chọn Phim</label>
+        <select asp-for="MovieId" class="form-control" asp-items="ViewBag.Movies">
+            <option value="">-- Chọn Phim --</option>
+        </select>
         <span asp-validation-for="MovieId" class="text-danger"></span>
     </div>
+
     <div class="form-group">
-        <label asp-for="CinemaId"></label>
-        <input asp-for="CinemaId" class="form-control" />
+        <label asp-for="CinemaId">Chọn Rạp</label>
+        <select asp-for="CinemaId" class="form-control" asp-items="ViewBag.Cinemas">
+            <option value="">-- Chọn Rạp --</option>
+        </select>
         <span asp-validation-for="CinemaId" class="text-danger"></span>
     </div>
     <div class="form-group">
-        <label asp-for="Price"></label>
+        <label asp-for="Price">Giá</label>
         <input asp-for="Price" class="form-control" type="number" step="0.01" />
         <span asp-validation-for="Price" class="text-danger"></span>
     </div>
     <div class="form-group">
-        <label asp-for="StartTime"></label>
+        <label asp-for="StartTime">Thời gian bắt đầu</label>
         <input asp-for="StartTime" class="form-control" type="datetime-local" />
         <span asp-validation-for="StartTime" class="text-danger"></span>
     </div>
     <div class="form-group">
-        <label asp-for="EndTime"></label>
+        <label asp-for="EndTime">Tời gian kết thúc</label>
         <input asp-for="EndTime" class="form-control" type="datetime-local" />
         <span asp-validation-for="EndTime" class="text-danger"></span>
     </div>
     <div class="form-group">
-        <label asp-for="Hall"></label>
+        <label asp-for="Hall">Phòng</label>
         <input asp-for="Hall" class="form-control" />
         <span asp-validation-for="Hall" class="text-danger"></span>
     </div>
     <div class="form-group">
-        <label asp-for="Status"></label>
+        <label asp-for="Status">Trạng thái</label>
         <select asp-for="Status" class="form-control">
             <option value="1">Kích Hoạt</option>
             <option value="0">Không Kích Hoạt</option>

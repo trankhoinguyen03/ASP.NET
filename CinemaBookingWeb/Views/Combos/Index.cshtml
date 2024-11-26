@@ -2,13 +2,26 @@
     ViewData["Title"] = "Danh Sách Combo";
     Layout = "_LayoutAdmin";
 }
+
 @model IEnumerable<CinemaBookingWeb.Models.Combos>
 
 <div>
     <h2>Danh Sách Combo</h2>
+    <br>
     <p>
         <a asp-action="Create" class="btn btn-primary">Thêm Combo Mới</a>
     </p>
+    <br>
+    <form method="get" class="form-inline mb-3">
+        <div class="form-group row">
+            <div class="col-md-6">
+                <input type="text" name="searchString" class="form-control" placeholder="Tìm kiếm combo" value="@(ViewContext.HttpContext.Request.Query["searchString"].ToString() ??"")" />
+            </div>
+            <div class="col-md-2">
+                <button type="submit" class="btn btn-info ml-2">Tìm kiếm</button>
+            </div>
+        </div>
+    </form>
 
     <table class="table">
         <thead>
@@ -27,7 +40,7 @@
                     <td>@combo.Name</td>
                     <td>@combo.Price.ToString("C")</td>
                     <td>
-                        <img src="@combo.ImageUrl" alt="@combo.Name" style="width: 100px;" />
+                        <img src="@Url.Content($"~/images/{combo.ImageUrl}")" alt="@combo.Name" style="width: 100px;" />
                     </td>
                     <td>@(combo.Status == 1 ? "Kích Hoạt" : "Không Kích Hoạt")</td>
                     <td>
