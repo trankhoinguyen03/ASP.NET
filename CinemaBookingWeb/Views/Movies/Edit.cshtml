@@ -63,6 +63,7 @@
             <div class="form-group">
                 <label for="fileInput">Chọn file:</label>
                 <input type="file" class="form-control" id="fileInput" name="fileInput" onchange="displayFilePath()">
+                <span asp-validation-for="ImageUrl" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="ImageUrl">Đường dẫn file:</label>
@@ -81,7 +82,7 @@
                 <label asp-for="Status" class="control-label">Status</label>
                 <select asp-for="Status" class="form-control">
                     <option value="1" selected="@(Model.Status == 1)">Đang chiếu</option>
-                    <option value="0" selected="@(Model.Status == 0)">Không còn chiếu</option>
+                    <option value="0" selected="@(Model.Status == 0)">Ngừng chiếu</option>
                 </select>
                 <span asp-validation-for="Status" class="text-danger"></span>
             </div>
@@ -93,6 +94,11 @@
         </form>
     </div>
 </div>
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
 
 
 

@@ -18,16 +18,6 @@ namespace CinemaBookingWeb.Controllers
         }
 
 
-        //public async Task<IActionResult> Index()
-        //{
-        //    // Truy xuất tất cả các phim có Status = 1 (hiển thị)
-        //    var cinema = await _context.Cinemas
-        //        .Where(m => m.Status == 1)
-        //        .ToListAsync();
-
-        //    return View(cinema);
-        //}
-
         public async Task<IActionResult> Index(string searchString)
         {
 
@@ -74,6 +64,7 @@ namespace CinemaBookingWeb.Controllers
             if (ModelState.IsValid)
             {
                 // set = 1 ở đây
+                cinema.Status = 1;
                 _context.Add(cinema);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -103,6 +94,7 @@ namespace CinemaBookingWeb.Controllers
                 {
                     _context.Update(cinema);
                     await _context.SaveChangesAsync();
+
                 }
                 catch (DbUpdateConcurrencyException)
                 {
