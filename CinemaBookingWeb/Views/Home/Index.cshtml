@@ -14,7 +14,7 @@
             {
                 var banner = Model.Banners[i];
                 <div class="carousel-item @(i == 0 ? "active" : "")">
-                    <img src="~/img/banners/@banner.ImageUrl" class="d-block w-100" alt="Banner @i">
+                    <img src="@banner.ImageUrl" class="d-block w-100" alt="Banner @i">
                 </div>
             }
         }
