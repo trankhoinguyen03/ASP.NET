@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.Text.Json.Serialization;
 
 namespace CinemaBookingWeb.Models
 {
@@ -20,6 +21,7 @@ namespace CinemaBookingWeb.Models
         [Required(ErrorMessage = "Thành phố không được để trống.")]
         public string City { get; set; } // Thành phố
         public byte Status { get; set; }
+        [JsonIgnore]
         public ICollection<Showtimes>? Showtimes { get; set; }
     }
 }

@@ -6,6 +6,14 @@ using Microsoft.EntityFrameworkCore;
 using System.Linq;
 using Microsoft.Extensions.Logging.Abstractions;
 using System.Net.Sockets;
+using CinemaBookingWeb.Data;
+using CinemaBookingWeb.Models;
+using Microsoft.AspNetCore.Mvc;
+using System.Linq;
+using NuGet.Protocol;
+using Newtonsoft.Json;
+using static System.Runtime.InteropServices.JavaScript.JSType;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
 namespace CinemaBookingWeb.Controllers
 {
@@ -27,205 +35,288 @@ namespace CinemaBookingWeb.Controllers
 
         public IActionResult Index()
         {
-            var currentTicket = Ticket;
-            var cinema = _context.Cinemas.FirstOrDefault(c => c.CinemaId == currentTicket.CinemaId);
 
-            var moviesQuery = _context.Movies
-                                      .Include(m => m.Showtimes)
-                                      .AsQueryable();
+            Ticket = new tickets();
 
-            if (currentTicket.viewTemp <=0 || currentTicket.viewTemp==null)
-            {
-                currentTicket.viewTemp = 1;
-            }
-            ViewBag.viewTemp=currentTicket.viewTemp;
-            if (currentTicket.date == null)
-            {
-                currentTicket.date= DateOnly.FromDateTime(DateTime.Now);
-                
-            }
-            ViewBag.choicedate = currentTicket.date;
-            if (cinema == null)
-            {
-                /*ViewBag.Movies = null;
-                ViewBag.tempId = null;
-                ViewBag.Seats = null;
-                ViewBag.Showtimes = null;
-                ViewBag.bookedSeats = null;
-                ViewBag.finalTicket = null;*/
-            }
-            else
-            {   
-                ViewBag.tempid=currentTicket.CinemaId;
-                ViewBag.Movies =moviesQuery
-                                    .Where(m => m.Showtimes.Any(s => s.Cinema.City == cinema.City))
-                                    .ToList();
-
-                var movie = _context.Movies.FirstOrDefault(m => m.MovieId == currentTicket.MovieId);
-                if (movie != null)
-                {
-                    ViewBag.Showtimes= _context.Showtimes
-                              .Include(s => s.Movie)
-                              .Include(s => s.Cinema)
-                              .Where(s => s.Cinema.City == cinema.City && s.Movie.Title == movie.Title && DateOnly.FromDateTime( s.StartTime.Date)== currentTicket.date)
-                              .GroupBy(s => new
-                              {
-                                  s.Cinema.CinemaId,
-                                  s.Cinema.Name,
-                                  s.Cinema.Location
-                              })
-                              .Select(group=>new
-                              {
-                                  cinemaId=group.Key.CinemaId,
-                                  cinemaName=group.Key.Name,
-                                  location=group.Key.Location,
-                                  Showtimes=group.Select(s => new
-                                  {
-                                      showtimesId=s.ShowtimeId,
-                                      startTime=s.StartTime.ToString("HH:mm"),
-                                      endTime=s.EndTime.ToString("HH:mm"),
-                                      hall=s.Hall,
-                                      date= s.StartTime.ToString("dd/MM/yyyy"),
-                                      price = s.Price
-
-                                  }).ToList()
-                              })
-                              .ToList();
-                    
-                    
-
-                  /*  xoa*/
-                    if (currentTicket.ShowtimeId!=null)
-                    {
-                        var bookedSeats = _context.BookingDetails
-                                    .Where(bd => bd.Booking.ShowtimeId == currentTicket.ShowtimeId)
-                                    .ToList();
-                      
-                        ViewBag.Seats = _context.Seats.ToList();
-                        ViewBag.bookedSeats= bookedSeats;
-
-                    }
-                    ViewBag.finalTicket = currentTicket;
-
-                }
-                    
-            }
-            ViewBag.Combo=_context.Combos.ToList();
-
+            //cần
             ViewBag.Cinemas = _context.Cinemas
                                        .GroupBy(c => c.City)
                                        .Select(g => g.First())
                                        .ToList();
+
+
+
+
+
+
+
             return View();
+        }
+        [HttpGet]
+        public JsonResult GetCinemasByCity(string city)
+        {
+            if (!int.TryParse(city, out int cityId))
+            {
+                return Json(new List<object>()); // Trả về danh sách trống nếu không hợp lệ
+            }
 
+            var tempcinema = _context.Cinemas.FirstOrDefault(c => c.CinemaId == cityId);
+
+            var today = DateTime.Today;
+            var tem = _context.Movies.ToList();
+
+            var moviesInCity = _context.Showtimes
+                            .Join(
+                                _context.Cinemas,          // Thực hiện join với bảng Cinemas
+                                s => s.CinemaId,           // Khóa ngoại từ Showtimes
+                                c => c.CinemaId,           // Khóa chính của Cinemas
+                                (s, c) => new { Showtime = s, Cinema = c }
+                            )
+                            .Where(sc => sc.Cinema.City == tempcinema.City && sc.Showtime.StartTime.Date >= today) // Lọc theo thành phố và ngày chiếu
+                            .Join(
+                                _context.Movies,           // Thực hiện join với bảng Movies
+                                sc => sc.Showtime.MovieId, // Khóa ngoại từ Showtimes
+                                m => m.MovieId,            // Khóa chính của Movies
+                                (sc, m) => new
+                                {
+                                    m.MovieId,
+                                    m.Title,
+                                    m.ImageUrl,
+                                    m.Genre,
+                                    Cinema = sc.Cinema.Name,
+                                    StartTime = sc.Showtime.StartTime
+                                }
+                            )
+                            .GroupBy(movie => movie.Title) // Nhóm các phim theo tiêu đề để loại bỏ trùng lặp
+                            .Select(group => group.First()) // Lấy phim đầu tiên trong mỗi nhóm
+                            .ToList();
+            Ticket.cinema = null;
+            var updatedTicket = Ticket;
+            updatedTicket.cinema = tempcinema;
+            Ticket = updatedTicket;
+            return (Json(moviesInCity));
         }
 
-        public IActionResult ChoiceCity(int id)
+
+
+        [HttpGet]
+        public IActionResult ChoiceMovie(int id, int? date)
         {
             var updatedTicket = Ticket;
-            updatedTicket.CinemaId = id;
+
+            var cinema = _context.Cinemas.FirstOrDefault(c => c.CinemaId == updatedTicket.cinema.CinemaId);
+            var movie = _context.Movies.FirstOrDefault(m => m.MovieId == id);
+
+            updatedTicket.date = DateOnly.FromDateTime(DateTime.Today.AddDays(date ?? 0));
+
+
+            var showtimes = _context.Showtimes
+                            .Include(s => s.Movie)
+                            .Include(s => s.Cinema)
+                               .Where(s => s.Cinema.City == cinema.City && s.Movie.Title == movie.Title && DateOnly.FromDateTime(s.StartTime.Date) == updatedTicket.date)
+                               .GroupBy(s => new
+                               {
+                                   s.Cinema.CinemaId,
+                                   s.Cinema.Name,
+                                   s.Cinema.Location
+
+                               })
+                               .Select(group => new
+                               {
+                                   cinemaId = group.Key.CinemaId,
+                                   cinemaName = group.Key.Name,
+                                   location = group.Key.Location,
+                                   imageUrl = movie.ImageUrl,
+                                   title = movie.Title,
+                                   Showtimes = group.Select(s => new
+                                   {
+                                       showtimeId = s.ShowtimeId,
+                                       startTime = s.StartTime.ToString("HH:mm"),
+                                       endTime = s.EndTime.ToString("HH:mm"),
+                                       hall = s.Hall,
+                                       date = s.StartTime.ToString("dd/MM/yyyy"),
+                                       price = s.Price
+                                   }).ToList()
+                               })
+                               .ToList();
+
+
+            Ticket.movie = null;
+            updatedTicket.movie = movie;
             Ticket = updatedTicket;
-
-            return RedirectToAction("Index");
+            return Json(showtimes);
         }
-
-        public IActionResult ChoiceMovie(int id)
-        {
-            var updatedTicket = Ticket;
-            updatedTicket.MovieId = id;
-            Ticket = updatedTicket;
-
-            return RedirectToAction("Index");
-        }
-
+        [HttpGet]
         public IActionResult ChoiceShowTime(int id)
         {
+
+            Ticket.showtime = null;
+            Ticket.cinema = null;
+            Ticket.movie = null;
             tickets updatedTicket = Ticket;
-            updatedTicket.ShowtimeId= id;
-            updatedTicket.viewTemp = 2;
+            var tempshowtime = _context.Showtimes.FirstOrDefault(s => s.ShowtimeId == id);
+            var tempmovie = _context.Movies.FirstOrDefault(s => s.MovieId == tempshowtime.MovieId);
+            var tempcinema = _context.Cinemas.FirstOrDefault(s => s.CinemaId == tempshowtime.CinemaId);
+            updatedTicket.showtime = tempshowtime;
+            updatedTicket.movie = tempmovie;
+            updatedTicket.cinema = tempcinema;
             Ticket = updatedTicket;
 
 
-            return RedirectToAction("Index");
+            return Json(updatedTicket);
         }
 
-        public IActionResult ChoiceDay(int days)
+        public IActionResult ViewChoiceSeat()
         {
-            var updatedTicket = Ticket;
-            updatedTicket.date = DateOnly.FromDateTime( DateTime.Today.AddDays(days));
-            Ticket=updatedTicket;
-            return RedirectToAction("Index");
+            Ticket.totalPrice = 0;
+            Ticket.priceCombo = 0;
+            var bookedSeats = _context.BookingDetails
+                                   .Where(bd => bd.Booking.ShowtimeId == Ticket.showtime.ShowtimeId)
+                                   .ToList();
+            ViewBag.Seats = _context.Seats.ToList();
+            ViewBag.bookedSeats = bookedSeats;
+            DateTime startTime = Ticket.showtime.StartTime;
+
+            // Định dạng thời gian (giờ:phút)
+            string formattedTime = startTime.ToString("HH:mm");
+
+            // Định dạng ngày tháng (ngày/tháng/năm)
+            string formattedDate = startTime.ToString("dd/MM/yyyy");
+            Dictionary<string, string> viewTicket = new Dictionary<string, string>
+                                                                                        {
+                                                                                            { "CinemaName", Ticket.cinema.Name },
+                                                                                            { "CinemaLocation", Ticket.cinema.Location },
+                                                                                            { "MovieTitle", Ticket.movie.Title },
+                                                                                            { "MovieImageUrl", Ticket.movie.ImageUrl },
+                                                                                            { "ShowtimeHall", Ticket.showtime.Hall },
+                                                                                            { "FormattedTime", formattedTime },
+                                                                                            { "FormattedDate", formattedDate },
+                                                                                            {"price",Ticket.showtime.Price.ToString() },
+                                                                                        };
+
+
+            ViewBag.ViewTicket = viewTicket;
+            return View();
         }
-        public IActionResult ChoiceSeats(Dictionary<int,decimal>bookedSeats)
+
+        [HttpPost]
+        public IActionResult ChoiceSeats(Dictionary<int, decimal> bookedSeats)
         {
             
-
-            var updatedTicket= Ticket;
-            updatedTicket.viewTemp = 3;
-            if (updatedTicket.seats == null)
-            {
-                updatedTicket.seats = new List<BookingDetails> ();
-            }
-            foreach(var temp in bookedSeats)
+            decimal temptotalprice = 0;
+            var updatedTicket = Ticket;
+            updatedTicket.seats = new List<BookingDetails>();
+            foreach (var temp in bookedSeats)
             {
                 if (temp.Value != 0)
                 {
                     var seat = new BookingDetails();
                     seat.SeatId = temp.Key;
                     seat.Price = temp.Value;
+                    temptotalprice = temptotalprice + temp.Value;
                     updatedTicket.seats.Add(seat);
                 }
             }
-           
+            updatedTicket.totalPrice = temptotalprice;
             Ticket = updatedTicket;
-            return RedirectToAction("Index");
-        }
-        public IActionResult ChoiceCombos(Dictionary<int, int> quantities)
-        {
-            var updatedTicket = Ticket;
-            updatedTicket.viewTemp = 4;
-            updatedTicket.BookingCombo = new List<BookingCombos> { };
-            
-            foreach (var quant in quantities)
+
+            if (ViewBag.Seats == null)
             {
-                if (quant.Value > 0)
-                {
-                    var combo = new BookingCombos { ComboId = quant.Key, Quantity = quant.Value };
-                    updatedTicket.BookingCombo.Add(combo);
-                }
+                ViewBag.Seats = _context.Seats.ToList();
             }
-            Ticket = updatedTicket;
-            return RedirectToAction("Index");
+            if (ViewBag.Combo == null)
+            {
+                ViewBag.Combo = _context.Combos.ToList();
+            }
+
+            return View(updatedTicket);
+
         }
-        
+        [HttpPost]
+        public IActionResult ChoiceCombos(Dictionary<int, decimal> quantities)
+        {
+            tickets updatedTicket1 = Ticket;
+
+            if (quantities != null)
+            {
+
+                decimal temppriceCombo = 0;
+                decimal totalPrice = updatedTicket1.totalPrice - updatedTicket1.priceCombo;
+                updatedTicket1.priceCombo = 0;
+                updatedTicket1.BookingCombo = new List<BookingCombos> { };
+
+                foreach (var quant in quantities)
+                {
+                    if (quant.Value > 0)
+                    {
+                        var combo = new BookingCombos { ComboId = quant.Key, Quantity = (int?)quant.Value };
+                        updatedTicket1.BookingCombo.Add(combo);
+                        var pricecombo = _context.Combos.Where(s => s.ComboId == quant.Key).FirstOrDefault();
+                        temppriceCombo += pricecombo.Price * quant.Value;
+                    }
+                }
+                updatedTicket1.totalPrice = totalPrice + temppriceCombo;
+                updatedTicket1.priceCombo = temppriceCombo;
+                Ticket = updatedTicket1;
+            }
+            if (ViewBag.Seats == null)
+            {
+                ViewBag.Seats = _context.Seats.ToList();
+            }
+            if (ViewBag.Combo == null)
+            {
+                ViewBag.Combo = _context.Combos.ToList();
+            }
+
+            return View(updatedTicket1);
+        }
+
         public IActionResult choiceView(int id)
         {
-            var updatedTicket = Ticket;
-            updatedTicket.viewTemp = id;
-            Ticket = updatedTicket;
-            return RedirectToAction("Index");
+            if (id == 1)
+            {
+                return RedirectToAction("Index");
+            }
+            if (id == 2)
+            {
+                return RedirectToAction("ViewChoiceSeat");
+            }
+            if (id == 3)
+            {
+                if (ViewBag.Seats == null)
+                {
+                    ViewBag.Seats = _context.Seats.ToList();
+                }
+                if (ViewBag.Combo == null)
+                {
+                    ViewBag.Combo = _context.Combos.ToList();
+                }
+                return View("ChoiceSeats", Ticket);
+            }
+            return NoContent();
         }
         public IActionResult Checkout()
         {
-            var temp = Ticket;
-            var booking = new Bookings
+            tickets temp = Ticket;
+
+            Bookings booking = new Bookings
             {
                 UserId = 1,
-                ShowtimeId = temp.ShowtimeId,
-                BookingDate=DateTime.Now,
-                TotalPrice = 0,
+                ShowtimeId = temp.showtime.ShowtimeId,
+                BookingDate = DateTime.Now,
+                TotalPrice = Ticket.totalPrice,
                 Status = 2
             };
 
             _context.Database.BeginTransaction();
-            
+
             {
                 _context.Database.CommitTransaction();
                 _context.Add(booking);
                 _context.SaveChanges();
 
-                var bookingdetails=new List<BookingDetails>();
-                foreach(var item in Ticket.seats)
+                var bookingdetails = new List<BookingDetails>();
+                foreach (var item in Ticket.seats)
                 {
                     bookingdetails.Add(new BookingDetails
                     {
@@ -236,10 +327,10 @@ namespace CinemaBookingWeb.Controllers
                     });
                 }
                 _context.AddRange(bookingdetails);
-                
 
-                var bookingcombos=new List<BookingCombos>();
-                foreach(var item in Ticket.BookingCombo)
+
+                var bookingcombos = new List<BookingCombos>();
+                foreach (var item in Ticket.BookingCombo)
                 {
                     bookingcombos.Add(new BookingCombos
                     {
@@ -252,11 +343,11 @@ namespace CinemaBookingWeb.Controllers
                 _context.AddRange(bookingcombos);
                 _context.SaveChanges();
 
-                
-                
+
+
             }
 
-            Ticket = null;
+            Ticket = new tickets();
             return RedirectToAction("Index");
         }
 

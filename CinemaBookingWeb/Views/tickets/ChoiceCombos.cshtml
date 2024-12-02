@@ -1,0 +1,218 @@
+﻿@{
+    ViewData["Title"] = "ticket";
+    Layout = "_LayoutHome";
+}
+@model tickets;
+<style>
+
+    .ticket_section {
+        display: none; /* Hide sections by default */
+        padding: 20px;
+    }
+
+    /* Active section */
+    .ticket_active {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+    }
+
+        .ticket_active > .ticket_left {
+            padding: 20px;
+            width: 60%;
+        }
+
+        .ticket_active > .ticket_sidebar {
+            padding: 20px;
+            width: 30%;
+        }
+    /* Navigation */
+    .ticket_nav-tabs {
+        display: flex;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+        .ticket_nav-tabs li {
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+
+    .ticket_active-tab {
+        border-bottom: 2px solid blue;
+        font-weight: bold;
+        color: blue;
+    }
+
+    .ticket_choice-movie {
+        width: 100%
+    }
+    /* Seat selection styling */
+    .ticket_seat-container {
+        display: grid;
+        grid-template-columns: repeat(10, 1fr);
+        gap: 5px;
+        justify-items: center;
+    }
+
+    .ticket_seat {
+        width: 30px;
+        height: 30px;
+        border: 1px solid #333;
+        text-align: center;
+        line-height: 30px;
+        cursor: pointer;
+        border-radius: 10px 10px 10px 10px;
+    }
+
+    .ticket_reseveSeat {
+        width: 30px;
+        height: 30px;
+        border: 1px solid #333;
+        text-align: center;
+        line-height: 30px;
+        cursor: pointer;
+        background-color: red;
+        border-radius: 10px 10px 10px 10px;
+    }
+
+    .ticket_selected {
+        background-color: orange;
+    }
+
+    .ticket_legend {
+        margin-top: 20px;
+        display: flex;
+        justify-content: space-between;
+    }
+    /* tab1 */
+    .ticket_hidden {
+        display: none;
+    }
+
+    .equal-height {
+        height: 390 px;
+    }
+    /*tab4*/
+    .ticket_card-header {
+        background-color: #ff7e00;
+        color: white;
+        font-weight: bold;
+    }
+
+    .ticket_price {
+        font-weight: bold;
+        color: #ff7e00;
+    }
+
+    .ticket_tag-rating {
+        background-color: #ffcc00;
+        color: black;
+        font-weight: bold;
+        padding: 2px 6px;
+        border-radius: 4px;
+    }
+
+    .ticket_movie-title {
+        font-weight: bold;
+        border: 0;
+    }
+
+    .ticket_total {
+        font-size: 1.2rem;
+        font-weight: bold;
+        color: #000;
+    }
+</style>
+<body>
+
+    @if (Model != null)
+    {
+        <!--choice pay-->
+        <div id="pay-selection" class="ticket_section ticket_active ">
+            <div class="container mt-5">
+                <div class="card">
+                    <div class="ticket_card-header text-center">
+                        Thanh Toán
+                    </div>
+                    <div class="card-body">
+                        <!-- Thông tin phim -->
+
+                        <div class="d-flex">
+                            <img width="100px" height="150px" src="https://localhost:5001/img/@Model.movie.ImageUrl" alt="Movie Poster" class="me-3">
+                            <div>
+                                <p class="ticket_movie-title">@Model.movie.Title</p>
+                                <p>Thời lượng phim: @Model.movie.Duration - <span class="ticket_tag-rating">@Model.movie.Rating</span></p>
+                            </div>
+                        </div>
+
+                        <hr>
+                        <!-- Thông tin rạp -->
+
+
+                        <p>@Model.cinema.Name (@Model.cinema.Location) - @Model.showtime.Hall</p>
+                        <p>Suất: <span class="text-primary fw-bold">@Model.showtime.StartTime.ToString("HH:mm")</span> - Ngày: @Model.showtime.StartTime.ToString("dd/MM/yyyy")</p>
+
+                        <hr>
+                        <!-- Thông tin vé -->
+                        @foreach (var choiceseat in Model.seats)
+                        {
+                            @foreach (var seat in ViewBag.Seats)
+                            {
+                                if (choiceseat.SeatId == seat.SeatId)
+                                {
+                                    <div class="d-flex justify-content-between">
+                                        <p>Số ghế:@seat.SeatNumber (Loại ghế:@seat.SeatType)</p>
+                                        <p class="ticket_price">@choiceseat.Price VNĐ</p>
+                                    </div>
+                                    break;
+                                }
+                            }
+                        }
+                        <hr>
+                        @foreach (var choiceCombo in Model.BookingCombo)
+                        {
+                            @foreach (var combo in ViewBag.Combo)
+                            {
+                                if (choiceCombo.ComboId == combo.ComboId)
+                                {
+                                    <div class="d-flex justify-content-between">
+                                        <p>@choiceCombo.Quantity x @combo.Name</p>
+                                        @{
+                                            var price = choiceCombo.Quantity * combo.Price;
+                                            var formattedPrice = price.ToString("N0", System.Globalization.CultureInfo.GetCultureInfo("vi-VN"));
+                                        }
+                                        <p class="ticket_price">@formattedPrice</p>
+                                    </div>
+                                    break;
+                                }
+                            }
+                        }
+
+
+                        <hr>
+                        <!-- Tổng cộng -->
+                        <div class="d-flex justify-content-between">
+                            <p class="ticket_total">Tổng cộng</p>
+                            <p class="ticket_total"><input type="text" value="@Model.totalPrice" disabled />VNĐ</p>
+                        </div>
+
+
+                    </div>
+                    <div class="card-footer text-center">
+                        <!-- Nút Quay lại và Thanh toán -->
+                        <div class="d-flex justify-content-between">
+                            <a type="button" class="btn btn-secondary" asp-action="choiceView" asp-controller="tickets" asp-route-id="3">Quay lại</a>
+                            <a class="btn btn-pay btn btn-primary float-end" asp-action="Checkout" asp-controller="tickets">Thanh toán</a>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    }
+
+
+</body>
