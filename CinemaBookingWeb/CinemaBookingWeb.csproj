@@ -19,6 +19,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="wwwroot\img\banners\" />
     <Folder Include="wwwroot\movies_img\" />
   </ItemGroup>
 

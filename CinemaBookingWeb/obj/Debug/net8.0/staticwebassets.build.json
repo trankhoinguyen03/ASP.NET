@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "vLu39VPbv8NJphVsSpIL0FnYH4cW0SRLHPkwWTLfg3A=",
+  "Hash": "gkzjBYJwsjKc7Xmx3Y7W9UHhvaBoTrtesqW+49c52nk=",
   "Source": "CinemaBookingWeb",
   "BasePath": "_content/CinemaBookingWeb",
   "Mode": "Default",
@@ -186,6 +186,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.ico"
+    },
+    {
+      "Identity": "F:\\.NET\\ASP.NET\\CinemaBookingWeb\\wwwroot\\img\\banners\\9e34012f-7d10-4e86-9006-8e0164e20abe.jpg",
+      "SourceId": "CinemaBookingWeb",
+      "SourceType": "Discovered",
+      "ContentRoot": "F:\\.NET\\ASP.NET\\CinemaBookingWeb\\wwwroot\\",
+      "BasePath": "_content/CinemaBookingWeb",
+      "RelativePath": "img/banners/9e34012f-7d10-4e86-9006-8e0164e20abe.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\banners\\9e34012f-7d10-4e86-9006-8e0164e20abe.jpg"
     },
     {
       "Identity": "F:\\.NET\\ASP.NET\\CinemaBookingWeb\\wwwroot\\img\\banggiave.png",

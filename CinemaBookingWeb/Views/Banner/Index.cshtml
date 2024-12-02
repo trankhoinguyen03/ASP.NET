@@ -1,0 +1,55 @@
+﻿@model CinemaBookingWeb.Models.Banner
+@{
+    ViewData["Title"] = "Index";
+    var banners = ViewBag.Banners as List<CinemaBookingWeb.Models.Banner>;
+}
+<link rel="stylesheet" href="~/css/css_admin_list.css" />
+
+<h1>Quản lý Banners</h1>
+
+<!-- Form thêm mới -->
+<h4>Thêm mới Banner</h4>
+<form asp-action="Create" method="post" enctype="multipart/form-data" class="d-flex mb-3">
+    <div class="form-group">
+        <label for="bannerImage">Chọn ảnh</label>
+        <input type="file" name="bannerImage" class="form-control" />
+        <span asp-validation-for="ImageUrl" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary w-auto">Thêm</button>
+    <a asp-action="Index" class="btn btn-secondary">Hủy</a>
+</form>
+
+<!-- Danh sách banners -->
+<h4>Danh sách Banners</h4>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Banner ID</th>
+            <th>Image</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (banners != null && banners.Count > 0)
+        {
+            foreach (var banner in banners)
+            {
+                <tr>
+                    <td>@banner.BannerId</td>
+                    <td>
+                        <img src="@banner.ImageUrl" alt="Banner Image" style="max-width: 150px; max-height: 100px;" />
+                    </td>
+                    <td>
+                        <a asp-action="Delete" asp-route-id="@banner.BannerId" class="btn btn-danger">Xóa</a>
+                    </td>
+                </tr>
+            }
+        }
+        else
+        {
+            <tr>
+                <td colspan="3" class="text-center">Không có dữ liệu</td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -82,6 +82,13 @@
                 <a class="nav-link text-light ps-4" asp-area="" asp-controller="User" asp-action="Index"><i class="bi bi-list-ul"></i> Danh sách người dùng</a>
                 <a class="nav-link text-light ps-4" asp-area="" asp-controller="User" asp-action="Create"><i class="bi bi-plus-circle-fill"></i> Thêm người dùng mới</a>
             </div>
+            <a class="nav-link text-light" data-bs-toggle="collapse" href="#bannerManagementMenu" role="button" aria-expanded="false" aria-controls="bannerManagementMenu">
+                <i class="bi bi-image"></i> Quản lý banner
+                <span class="arrow-icon collapsed">&#10148;</span>
+            </a>
+            <div class="collapse" id="bannerManagementMenu">
+                <a class="nav-link text-light ps-4" asp-area="" asp-controller="Banner" asp-action="Index"><i class="bi bi-list-ul"></i> Danh sách banner</a>
+            </div>
             <div style="height: 200px;"></div>
         </nav>
     </div>

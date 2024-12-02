@@ -230,7 +230,9 @@ VALUES
 (4, 7, 60000),
 (4, 8, 60000),
 (5, 9, 90000),
-(5, 10, 90000);
+(5, 10, 90000),
+(6, 9, 90000),
+(7, 10, 90000);
 
 -- Thêm dữ liệu vào bảng Combos
 INSERT INTO Combos ([Name], [Description], Price, Size, [Type], ImageUrl)
@@ -260,4 +262,11 @@ VALUES
 (8, 8, 1),
 (9, 9, 2),
 (10, 10, 1);
+
+-- Tạo bảng Banner (Thông tin Banners)
+CREATE TABLE Banner (
+    BannerId INT IDENTITY(1,1) PRIMARY KEY,
+    ImageUrl NVARCHAR(MAX) NOT NULL
+);
+
 
