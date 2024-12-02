@@ -18,17 +18,27 @@
         <input type="hidden" name="bookingId" value="@Model.Booking.BookingId" />
         <p>
             <strong>Trạng Thái:</strong>
-            <select name="status" class="form-control" style="display: inline; width: auto;">
+            <select name="status" class="form-control" style="display: inline; width: auto;" 
+            @(Model.Booking.Status == 0 || Model.Booking.Status == 1 ? "disabled" : "")>
                 @foreach (var item in Model.StatusList)
                 {
-                    <option value="@item.Value" selected="@item.Selected">@item.Text</option>
+                    if (item.Value == "1" || item.Value == "2")
+                    {
+                        <option value="@item.Value" selected="@item.Selected">@item.Text</option>
+                    }
+                    else if (item.Selected)
+                    {
+                        <option value="@item.Value" selected="@item.Selected">@item.Text</option>
+                    }
                 }
             </select>
         </p>
-
         <!-- Nút Lưu để lưu trạng thái mới -->
-        <button type="submit" class="btn btn-primary">Lưu</button>
+        <button type="submit" class="btn btn-primary" 
+        @(Model.Booking.Status == 0 || Model.Booking.Status == 1 ? "disabled" : "")>Lưu</button>
+        <a asp-action="Index" class="btn btn-secondary">Trở về</a>
     </form>
+
 </div>
 
 <div class="tables-container">

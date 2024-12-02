@@ -16,5 +16,6 @@ namespace CinemaBookingWeb.Models
 
         [ForeignKey("UserId")]
         public Users Users { get; set; }
+        public Showtimes Showtime { get; set; }
     }
 }

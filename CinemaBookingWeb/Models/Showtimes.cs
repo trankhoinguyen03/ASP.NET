@@ -18,5 +18,6 @@ namespace CinemaBookingWeb.Models
         public Cinemas? Cinema { get; set; }
         [JsonIgnore]
         public Movies? Movie { get; set; }
+        public ICollection<Bookings> Bookings { get; set; }
     }
 }

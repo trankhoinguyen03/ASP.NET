@@ -17,21 +17,42 @@ namespace CinemaBookingWeb.Controllers
             _context = context;
         }
 
-		public IActionResult Index(string phoneNumber)
-		{
-			var bookings = _context.Bookings
-				.Include(b => b.Users)
-				.AsQueryable();
+        public void UpdateExpiredBookings()
+        {
+            var now = DateTime.Now;
 
-			if (!string.IsNullOrEmpty(phoneNumber))
-			{
-				bookings = bookings.Where(b => b.Users.Phone.Contains(phoneNumber));
-			}
+            // Lấy danh sách các booking có showtimes đã qua và trạng thái là "Chưa thanh toán"
+            var expiredBookings = _context.Bookings
+                .Include(b => b.Showtime) // Bao gồm thông tin liên quan đến Showtime
+                .Where(b => b.Showtime.StartTime < now && b.Status == 2) // Chỉ áp dụng cho trạng thái "Chưa thanh toán"
+                .ToList();
 
-			return View(bookings.ToList());
-		}
+            foreach (var booking in expiredBookings)
+            {
+                booking.Status = 0; // Chuyển trạng thái thành "Hủy"
+            }
 
-		public IActionResult BookingsDetails(int id)
+            _context.SaveChanges();
+        }
+
+
+        public IActionResult Index(string phoneNumber)
+        {
+            UpdateExpiredBookings(); // Cập nhật trạng thái các booking hết hạn
+
+            var bookings = _context.Bookings
+                .Include(b => b.Users)
+                .AsQueryable();
+
+            if (!string.IsNullOrEmpty(phoneNumber))
+            {
+                bookings = bookings.Where(b => b.Users.Phone.Contains(phoneNumber));
+            }
+
+            return View(bookings.ToList());
+        }
+
+        public IActionResult BookingsDetails(int id)
         {
             var booking = _context.Bookings.FirstOrDefault(b => b.BookingId == id);
             if (booking == null)
