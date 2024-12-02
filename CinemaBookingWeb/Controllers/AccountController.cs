@@ -70,10 +70,12 @@ namespace CinemaBookingWeb.Controllers
             {
                 // Tạo các claim
                 var claims = new List<Claim>
-                    {
-                        new Claim(ClaimTypes.Name, user.UserName),
-                        new Claim(ClaimTypes.Role, user.Role)
-                    };
+                {
+                    new Claim(ClaimTypes.Name, user.UserName),
+                    new Claim(ClaimTypes.Role, user.Role),
+                    new Claim("email", user.Email),        
+                    new Claim("phone", user.Phone)          
+                };
 
                 var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
 
@@ -102,6 +104,7 @@ namespace CinemaBookingWeb.Controllers
             ViewBag.Error = "Tên đăng nhập hoặc mật khẩu không đúng";
             return View();
         }
+
         // Trang quên mật khẩu (GET)
         [HttpGet]
         public IActionResult ForgotPassword()

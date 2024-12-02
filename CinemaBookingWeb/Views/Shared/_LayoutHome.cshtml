@@ -29,11 +29,11 @@
                     <ul class="navbar-nav ms-auto">
                         @if (User.Identity.IsAuthenticated)
                         {
-                        <li class="nav-item">
-                            <a class="nav-link" asp-action="Index" asp-controller="tickets">
-                                <img alt="Ticket" loading="lazy" width="112" height="40" src="~/img/ticket_mua.png">
-                            </a>
-                        </li>
+                            <li class="nav-item">
+                                <a class="nav-link" asp-action="Index" asp-controller="tickets">
+                                    <img alt="Ticket" loading="lazy" width="112" height="40" src="~/img/ticket_mua.png">
+                                </a>
+                            </li>
                         }
                         else
                         {
@@ -47,23 +47,64 @@
                         <li class="nav-item"><a class="nav-link" href="~/Movies/MoviesDangChieu">PHIM</a></li>
                         @if (User.Identity.IsAuthenticated)
                         {
-                                <li class="nav-item"><span class="nav-link">XIN CHÀO, @User.Identity.Name !</span></li>
-                                <li class="nav-item">
-                                    <form asp-action="Logout" asp-controller="Account" method="post">
-                                        <button class="nav-link btn btn-link" type="submit">ĐĂNG XUẤT</button>
-                                    </form>
-                                </li>
+                            <li class="nav-item">
+                                <!-- Nút mở modal -->
+                                <button type="button" class="nav-link " data-bs-toggle="modal" data-bs-target="#userInfoModal">
+                                    XIN CHÀO, @User.Identity.Name!
+                                </button>
+                            </li>
+                            @if (User.IsInRole("Admin"))
+                            {
+                                <li class="nav-item"><a class="nav-link" href="~/HomeAdmin">QUẢN LÝ</a></li>
+                            }
+                            <li class="nav-item">
+                                <form asp-action="Logout" asp-controller="Account" method="post">
+                                    <button class="nav-link " type="submit">ĐĂNG XUẤT</button>
+                                </form>
+                            </li>
                         }
                         else
                         {
-                                <li class="nav-item"><a class="nav-link" href="~/Account/Login">ĐĂNG NHẬP</a></li>
-                                <li class="nav-item"><a class="nav-link" href="~/Account/Register">ĐĂNG KÝ</a></li>
+                            <li class="nav-item"><a class="nav-link" href="~/Account/Login">ĐĂNG NHẬP</a></li>
+                            <li class="nav-item"><a class="nav-link" href="~/Account/Register">ĐĂNG KÝ</a></li>
                         }
                     </ul>
                 </div>
             </div>
         </nav>
     </header>
+    <!-- Modal -->
+    <div class="modal fade" id="userInfoModal" tabindex="-1" aria-labelledby="userInfoModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="userInfoModalLabel" style="color:var(--primary-color)">Thông Tin Tài Khoản</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <!-- Hiển thị thông tin người dùng -->
+                    <p><strong>Tên đăng nhập:</strong> @User.Identity.Name</p>
+                    <p><strong>Email:</strong> @User.Claims.FirstOrDefault(c => c.Type == "email")?.Value</p>
+                    <p><strong>Số điện thoại:</strong> @User.Claims.FirstOrDefault(c => c.Type == "phone")?.Value</p>
+                    <p>
+                        <strong>Vai trò:</strong>
+                        @if (User.IsInRole("Admin"))
+                        {
+                            <span>Quản trị viên</span>
+                        }
+                        else
+                        {
+                            <span>Người dùng</span>
+                        }
+                    </p>
+                </div>
+                <hr />
+                    <p class="text-center ">
+                        <a href="@Url.Action("ForgotPassword", "Account")">Đổi mật khẩu ?</a>
+                    </p>
+            </div>
+        </div>
+    </div>
 
     <!-- Nội dung chính sẽ được hiển thị ở đây -->
     <!-- Main Content -->

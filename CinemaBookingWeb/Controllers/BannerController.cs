@@ -52,7 +52,7 @@ namespace CinemaBookingWeb.Controllers
                 // Lưu thông tin vào cơ sở dữ liệu
                 Banner banner = new Banner
                 {
-                    ImageUrl = "/img/banners/" + uniqueFileName
+                    ImageUrl =  uniqueFileName
                 };
 
                 _context.Banner.Add(banner);
