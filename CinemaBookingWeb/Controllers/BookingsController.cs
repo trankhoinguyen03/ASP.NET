@@ -5,9 +5,11 @@ using System.Linq;
 using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Authorization;
 
 namespace CinemaBookingWeb.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class BookingsController : Controller
     {
         private readonly ApplicationDbContext _context;

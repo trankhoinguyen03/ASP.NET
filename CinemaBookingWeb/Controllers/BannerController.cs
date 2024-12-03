@@ -4,9 +4,11 @@ using CinemaBookingWeb.Models; // Namespace chứa model Banner
 using System.IO;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Authorization;
 
 namespace CinemaBookingWeb.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class BannerController : Controller
     {
         private readonly ApplicationDbContext _context;

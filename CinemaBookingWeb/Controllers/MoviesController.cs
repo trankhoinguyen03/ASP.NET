@@ -5,12 +5,13 @@ using Microsoft.EntityFrameworkCore;
 using CinemaBookingWeb.Models;
 using CinemaBookingWeb.Data;
 using System.Text;
+using Microsoft.AspNetCore.Authorization;
 
 
 
 namespace CinemaBookingWeb.Controllers
 {
-
+    [Authorize(Roles = "Admin")]
     public class MoviesController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -19,15 +20,6 @@ namespace CinemaBookingWeb.Controllers
         {
             _context = context;
         }
-
-        public IActionResult MoviesDangChieu()
-        {
-            var movies = _context.Movies.ToList();
-            return View(movies);
-        }
-
-
-
 
         public async Task<IActionResult> Index(string searchString)
         {

@@ -269,5 +269,3 @@ CREATE TABLE Banner (
     ImageUrl NVARCHAR(MAX) NOT NULL,
     Category NVARCHAR(MAX) NOT NULL
 );
-
-

@@ -5,9 +5,11 @@ using System.Collections.Generic;
 using System.IO;
 using OfficeOpenXml;
 using Newtonsoft.Json;
+using Microsoft.AspNetCore.Authorization;
 
 namespace CinemaBookingWeb.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class OverviewController : Controller
     {
         private readonly ApplicationDbContext _context;
