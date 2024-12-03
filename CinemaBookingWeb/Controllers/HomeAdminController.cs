@@ -1,10 +1,12 @@
 using CinemaBookingWeb.Data;
 using CinemaBookingWeb.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
 namespace CinemaBookingWeb.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class HomeAdminController : Controller
     {
         private readonly ILogger<HomeAdminController> _logger;

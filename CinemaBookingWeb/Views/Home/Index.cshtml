@@ -5,14 +5,14 @@
 
 @model CinemaBookingWeb.ViewModels.HomePageViewModel
 
-<!-- Sử dụng Model.Banners cho carousel -->
+<!-- Sử dụng Model.MainBanners cho carousel -->
 <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-inner">
-        @if (Model.Banners != null && Model.Banners.Any())
+        @if (Model.MainBanners != null && Model.MainBanners.Any())
         {
-            for (int i = 0; i < Model.Banners.Count; i++)
+            for (int i = 0; i < Model.MainBanners.Count; i++)
             {
-                var banner = Model.Banners[i];
+                var banner = Model.MainBanners[i];
                 <div class="carousel-item @(i == 0 ? "active" : "")">
                     <img src="@banner.ImageUrl" class="d-block w-100" alt="Banner @i">
                 </div>
@@ -28,6 +28,7 @@
         <span class="visually-hidden">Next</span>
     </button>
 </div>
+
 </br>
 
 <style>

@@ -266,7 +266,8 @@ VALUES
 -- Tạo bảng Banner (Thông tin Banners)
 CREATE TABLE Banner (
     BannerId INT IDENTITY(1,1) PRIMARY KEY,
-    ImageUrl NVARCHAR(MAX) NOT NULL
+    ImageUrl NVARCHAR(MAX) NOT NULL,
+    Category NVARCHAR(MAX) NOT NULL
 );
 
 

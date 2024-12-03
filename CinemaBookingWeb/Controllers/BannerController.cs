@@ -21,50 +21,52 @@ namespace CinemaBookingWeb.Controllers
         // Hiển thị trang Index
         public IActionResult Index()
         {
-            var banners = _context.Banner.ToList();
-            ViewBag.Banners = banners;
+            // Lấy danh sách banner chính và banner rạp
+            ViewBag.MainBanners = _context.Banner.Where(b => b.Category == "Main").ToList();
+            ViewBag.CinemaBanners = _context.Banner.Where(b => b.Category == "Cinema").ToList();
             return View(new Banner());
         }
 
-        // Xử lý thêm mới banner
         [HttpPost]
-        public IActionResult Create(IFormFile bannerImage)
+        public IActionResult Create(IFormFile bannerImage, string category)
         {
             if (bannerImage != null && bannerImage.Length > 0)
             {
-                // Tạo đường dẫn lưu file
                 string uploadsFolder = Path.Combine(_webHostEnvironment.WebRootPath, "img/banners");
                 if (!Directory.Exists(uploadsFolder))
                 {
                     Directory.CreateDirectory(uploadsFolder);
                 }
 
-                // Tạo tên file duy nhất
                 string uniqueFileName = Guid.NewGuid().ToString() + Path.GetExtension(bannerImage.FileName);
                 string filePath = Path.Combine(uploadsFolder, uniqueFileName);
 
-                // Lưu file vào wwwroot/uploads/banners
                 using (var fileStream = new FileStream(filePath, FileMode.Create))
                 {
                     bannerImage.CopyTo(fileStream);
                 }
 
-                // Lưu thông tin vào cơ sở dữ liệu
                 Banner banner = new Banner
                 {
-                    ImageUrl = "/img/banners/" + uniqueFileName
+                    ImageUrl = "/img/banners/" + uniqueFileName,
+                    Category = category
                 };
 
                 _context.Banner.Add(banner);
                 _context.SaveChanges();
+
+                // Cập nhật lại ViewBag
+                ViewBag.MainBanners = _context.Banner.Where(b => b.Category == "Main").ToList();
+                ViewBag.CinemaBanners = _context.Banner.Where(b => b.Category == "Cinema").ToList();
+
                 return RedirectToAction("Index");
             }
 
-            // Nếu không có file, hiển thị lại trang
-            ViewBag.Banners = _context.Banner.ToList();
             ModelState.AddModelError("ImageUrl", "Vui lòng chọn một file ảnh hợp lệ.");
             return View("Index");
         }
+
+
 
         // Xóa banner
         public IActionResult Delete(int id)

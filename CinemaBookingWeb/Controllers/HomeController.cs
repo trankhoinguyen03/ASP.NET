@@ -17,17 +17,18 @@ namespace CinemaBookingWeb.Controllers
 
         public IActionResult Index()
         {
-            var movies = _context.Movies.ToList(); // Lấy danh sách phim
-            var banners = _context.Banner.ToList(); // Lấy danh sách banner
+            var mainBanners = _context.Banner.Where(b => b.Category == "Main").ToList();
+            var movies = _context.Movies.ToList();
 
             var viewModel = new HomePageViewModel
             {
-                Movies = movies,
-                Banners = banners
+                MainBanners = mainBanners,
+                Movies = movies
             };
 
-            return View(viewModel); // Truyền ViewModel vào view
+            return View(viewModel);
         }
+
 
     }
 }
