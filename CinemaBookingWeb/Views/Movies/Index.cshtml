@@ -3,8 +3,9 @@
 @{
     ViewData["Title"] = "Index";
 }
+<link rel="stylesheet" href="~/css/css_admin_list.css" />
 
-<h1>Index</h1>
+<h1>DANH SÁCH PHIM</h1>
 
 <div class="mb-3">
     <a asp-action="Create" class="btn btn-success">Thêm phim mới</a>
@@ -14,6 +15,7 @@
 <form method="get" asp-controller="Movies" asp-action="Index" class="d-flex mb-3">
     <input type="text" name="searchString" class="form-control me-2 w-auto" placeholder="Tìm kiếm" value="@ViewData["CurrentFilter"]" />
     <button type="submit" class="btn btn-primary w-auto">Tìm kiếm</button>
+    <a asp-action="Index" class="btn btn-secondary">Reset</a>
 </form>
 
 
@@ -89,11 +91,11 @@
                 <td>
                     @if (item.Status == 1)
                     {
-                        <span class="">Đang Chiếu</span>
+                        <span class="status-active">Đang Chiếu</span>
                     }
                     else
                     {
-                        <span class="">Ngừng chiếu</span>
+                        <span class="status-inactive">Ngừng chiếu</span>
                     }
                 </td>
             <td>

@@ -8,22 +8,27 @@
 <!-- Slideshow container -->
 <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-inner">
-        <!-- Slide 1 -->
-        <div class="carousel-item active">
-            <div class="d-flex justify-content-center">
-                <img src="~/img/rap1.jpg" class="d-block w-100" alt="Cinema Interior">
+        @if (ViewBag.CinemaBanners != null && ((List<CinemaBookingWeb.Models.Banner>)ViewBag.CinemaBanners).Any())
+        {
+            var banners = (List<CinemaBookingWeb.Models.Banner>)ViewBag.CinemaBanners;
+            for (int i = 0; i < banners.Count; i++)
+            {
+                var banner = banners[i];
+                <div class="carousel-item @(i == 0 ? "active" : "")">
+                    <div class="d-flex justify-content-center">
+                        <img src="@banner.ImageUrl" class="d-block w-100" alt="Banner @i">
+                    </div>
+                </div>
+            }
+        }
+        else
+        {
+            <div class="carousel-item active">
+                <div class="d-flex justify-content-center">
+                    <img src="~/img/default-banner.jpg" class="d-block w-100" alt="Default Banner">
+                </div>
             </div>
-        </div>
-        <div class="carousel-item active">
-            <div class="d-flex justify-content-center">
-                <img src="~/img/rap2.jpg" class="d-block w-100" alt="Cinema Interior">
-            </div>
-        </div>
-        <div class="carousel-item active">
-            <div class="d-flex justify-content-center">
-                <img src="~/img/rap3.jpg" class="d-block w-100" alt="Cinema Interior">
-            </div>
-        </div>
+        }
     </div>
     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -34,6 +39,7 @@
         <span class="visually-hidden">Next</span>
     </button>
 </div>
+
 
 <br />
 <div class="container-giave mt-4">
@@ -65,6 +71,9 @@
 
                 <!-- Hiển thị địa chỉ -->
                 <div id="cinemaLocation" class="mt-3 "></div>
+                <a class="nav-link" asp-action="Index" asp-controller="tickets">
+                    <img alt="Ticket" loading="lazy" width="112" height="40" src="~/img/ticket_mua.png">
+                </a>
             </div>
         </div>
 

@@ -11,6 +11,12 @@ namespace CinemaBookingWeb.Controllers
             _context = context;
         }
 
+        public IActionResult MoviesDangChieu()
+        {
+            var movies = _context.Movies.ToList();
+            return View(movies);
+        }
+
         public IActionResult Detail(int Id)
         {
             var movies = _context.Movies.Where(n => n.MovieId == Id).FirstOrDefault();

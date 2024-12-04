@@ -3,26 +3,21 @@
     Layout = "_LayoutHome";
 }
 
-@model List<Movies>
+@model CinemaBookingWeb.ViewModels.HomePageViewModel
 
-
-<!-- Slideshow container -->
+<!-- Sử dụng Model.MainBanners cho carousel -->
 <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-inner">
-        <!-- Slide 1 -->
-        <div class="carousel-item active">
-            <div class="d-flex justify-content-center">
-                <img src="~/img/venom.jpg" class="d-block w-100" alt="Cinema Interior">
-            </div>
-        </div>
-        <!-- Slide 2 -->
-        <div class="carousel-item">
-            <img src="~/img/bocchi-the-rock-recap-part-2-1.jpg" class="d-block w-100" alt="Movie Poster">
-        </div>
-        <!-- Slide 2 -->
-        <div class="carousel-item">
-            <img src="~/img/thanhduoc.jpg" class="d-block w-100" alt="Movie Poster">
-        </div>
+        @if (Model.MainBanners != null && Model.MainBanners.Any())
+        {
+            for (int i = 0; i < Model.MainBanners.Count; i++)
+            {
+                var banner = Model.MainBanners[i];
+                <div class="carousel-item @(i == 0 ? "active" : "")">
+                    <img src="@banner.ImageUrl" class="d-block w-100" alt="Banner @i">
+                </div>
+            }
+        }
     </div>
     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -33,6 +28,7 @@
         <span class="visually-hidden">Next</span>
     </button>
 </div>
+
 </br>
 
 <style>
@@ -50,13 +46,13 @@
 <section class="movies">
     <div class="container">
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 justify-center">
-            @foreach (var item in Model)
+            @foreach (var movie in Model.Movies)
             {
-                <a href="@Url.Action("Detail","MoviesDetail", new{ Id = item.MovieId })">
+                <a href="@Url.Action("Detail", "MoviesDetail", new { Id = movie.MovieId })">
                     <div class="movie-item text-center p-4 border rounded shadow">
-                        <img src="~/img/@item.ImageUrl" alt="@item.Title" class="w-full h-auto mb-2">
-                        <h3 class="movie-item-title text-lg font-semibold">@item.Title</h3>
-                        <p>Thể loại: @item.Genre</p>
+                        <img src="~/img/@movie.ImageUrl" alt="@movie.Title" class="w-full h-auto mb-2">
+                        <h3 class="movie-item-title text-lg font-semibold">@movie.Title</h3>
+                        <p>Thể loại: @movie.Genre</p>
                     </div>
                 </a>
             }

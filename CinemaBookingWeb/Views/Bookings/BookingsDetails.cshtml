@@ -1,6 +1,8 @@
 ﻿@model CinemaBookingWeb.Models.BookingDetailViewModel
 
-<h2>Chi tiết Đơn Hàng</h2>
+<link rel="stylesheet" href="~/css/css_bookingdetails.css" />
+
+<h1>Chi tiết Đơn Hàng</h1>
 
 <div class="booking-info">
     <h3>Thông tin Đơn Hàng</h3>
@@ -16,23 +18,30 @@
         <input type="hidden" name="bookingId" value="@Model.Booking.BookingId" />
         <p>
             <strong>Trạng Thái:</strong>
-            <select name="status" class="form-control" style="display: inline; width: auto;">
+            <select name="status" class="form-control" style="display: inline; width: auto;" 
+            @(Model.Booking.Status == 0 || Model.Booking.Status == 1 ? "disabled" : "")>
                 @foreach (var item in Model.StatusList)
                 {
-                    <option value="@item.Value" selected="@item.Selected">@item.Text</option>
+                    if (item.Value == "1" || item.Value == "2")
+                    {
+                        <option value="@item.Value" selected="@item.Selected">@item.Text</option>
+                    }
+                    else if (item.Selected)
+                    {
+                        <option value="@item.Value" selected="@item.Selected">@item.Text</option>
+                    }
                 }
             </select>
         </p>
-
         <!-- Nút Lưu để lưu trạng thái mới -->
-        <button type="submit" class="btn btn-primary">Lưu</button>
+        <button type="submit" class="btn btn-primary" 
+        @(Model.Booking.Status == 0 || Model.Booking.Status == 1 ? "disabled" : "")>Lưu</button>
+        <a asp-action="Index" class="btn btn-secondary">Trở về</a>
     </form>
+
 </div>
 
-
-
-
-<div style="display: flex; gap: 20px;">
+<div class="tables-container">
     <!-- Chi tiết Ghế Ngồi -->
     <div>
         <h3>Chi tiết Ghế Ngồi</h3>

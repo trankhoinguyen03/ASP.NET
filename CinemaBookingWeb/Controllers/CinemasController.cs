@@ -2,12 +2,14 @@
 using System.Threading.Tasks;
 using CinemaBookingWeb.Data;
 using CinemaBookingWeb.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 
 namespace CinemaBookingWeb.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class CinemasController : Controller
     {
         private readonly ApplicationDbContext _context;

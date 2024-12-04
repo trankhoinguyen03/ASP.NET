@@ -16,23 +16,25 @@
 }
 
 <div>
-    <h2>Chọn khoảng thời gian thống kê</h2>
+    <h1>Thống kê tổng doanh thu</h1>
     <form method="get" onsubmit="return validateDates()">
+        <label>Chọn khoảng thời gian thống kê</label>
+        <br />
         <label for="startDate">Ngày bắt đầu:</label>
         <input type="date" id="startDate" name="startDate" value="@startDate?.ToString("yyyy-MM-dd")" onchange="validateDates()" />
         <br />
         <label for="endDate">Ngày kết thúc:</label>
         <input type="date" id="endDate" name="endDate" value="@endDate?.ToString("yyyy-MM-dd")" onchange="validateDates()" />
-
-        <button type="submit">Lọc</button>
+        <br />
+        <br />
+        <button type="submit" style="float: right;">Lọc</button>
         <br />
         <span id="dateError" style="color: red; display: none;">Ngày bắt đầu phải nhỏ hơn ngày kết thúc.</span>
-
+        <br />
         <hr />
         <div>
-            <button onclick="exportChartToExcel()" class="btn btn-success" style="float: right;"><i class="bi bi-file-earmark-spreadsheet"></i> Xuất Excel</button>
+            <button onclick="exportChartToExcel()" class="btn btn-success"><i class="bi bi-file-earmark-spreadsheet"></i> Xuất Excel</button>
         </div>
-        <br />
         <br />
     </form>
 </div>

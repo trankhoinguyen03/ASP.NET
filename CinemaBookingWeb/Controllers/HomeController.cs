@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using CinemaBookingWeb.Data;
 using Microsoft.EntityFrameworkCore;
-
+using CinemaBookingWeb.ViewModels;
 
 namespace CinemaBookingWeb.Controllers
 {
@@ -17,10 +17,18 @@ namespace CinemaBookingWeb.Controllers
 
         public IActionResult Index()
         {
-            var movies = _context.Movies.ToList(); // Lấy danh sách các phim từ database
-            return View(movies); // Truyền danh sách vào view
+            var mainBanners = _context.Banner.Where(b => b.Category == "Main").ToList();
+            var movies = _context.Movies.ToList();
+
+            var viewModel = new HomePageViewModel
+            {
+                MainBanners = mainBanners,
+                Movies = movies
+            };
+
+            return View(viewModel);
         }
-        
+
 
     }
 }

@@ -15,7 +15,11 @@ namespace CinemaBookingWeb.Controllers
         {
             _context = context;
         }
-
+        [HttpGet]
+        public IActionResult AccessDenied()
+        {
+            return View();
+        }
         [HttpGet]
         public IActionResult Register()
         {
@@ -64,16 +68,27 @@ namespace CinemaBookingWeb.Controllers
         [HttpPost]
         public async Task<IActionResult> Login(string userName, string password, bool rememberMe)
         {
+            // Tìm kiếm người dùng dựa trên username và password
             var user = _context.Users.FirstOrDefault(u => u.UserName == userName && u.Password == password);
 
             if (user != null)
             {
+                // Kiểm tra trạng thái của người dùng
+                if (user.Status != 1)
+                {
+                    // Nếu trạng thái không hợp lệ, thông báo lỗi
+                    ViewBag.Error = "Tài khoản của bạn đang bị khóa hoặc chưa được kích hoạt.";
+                    return View();
+                }
+
                 // Tạo các claim
                 var claims = new List<Claim>
-                    {
-                        new Claim(ClaimTypes.Name, user.UserName),
-                        new Claim(ClaimTypes.Role, user.Role)
-                    };
+                {
+                    new Claim(ClaimTypes.Name, user.UserName),
+                    new Claim(ClaimTypes.Role, user.Role),
+                    new Claim("email", user.Email),
+                    new Claim("phone", user.Phone)
+                };
 
                 var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
 
@@ -102,6 +117,8 @@ namespace CinemaBookingWeb.Controllers
             ViewBag.Error = "Tên đăng nhập hoặc mật khẩu không đúng";
             return View();
         }
+
+
         // Trang quên mật khẩu (GET)
         [HttpGet]
         public IActionResult ForgotPassword()

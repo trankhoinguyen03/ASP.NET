@@ -45,9 +45,13 @@
 
                 <p><strong>Thể loại:</strong> <span class="badge bg-secondary">@Model.Genre</span></p>
                 <p><strong>Ngôn ngữ:</strong> <span class="badge bg-secondary">@Model.Language</span></p>
+                </br>
+                    <a class="nav-link" asp-action="Index" asp-controller="tickets">
+                        <img alt="Ticket" loading="lazy" width="112" height="40" src="~/img/ticket_mua.png">
+                    </a>
             </div>
         </div>
-
+        <hr/>
         <!-- Nội dung phim -->
         <div class="row mt-4">
             <div class="col-12">

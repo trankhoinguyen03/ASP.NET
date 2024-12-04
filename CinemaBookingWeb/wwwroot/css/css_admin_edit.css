@@ -1,0 +1,161 @@
+﻿/* Toàn bộ trang */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f6f8;
+    color: #333;
+    margin: 20px;
+}
+
+h1 {
+    text-align: center;
+    font-size: 2.5em;
+    color: #2c3e50;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.row {
+    margin-bottom: 200px;
+}
+
+/* Form styling */
+form {
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+label {
+    font-weight: bold;
+    font-size: 0.9em;
+/*    margin-top: 15px;*/
+    margin-bottom: 5px;
+    display: inline-block;
+}
+
+input,
+input[type="text"],
+input[type="file"],
+input[type="number"],
+input[type="url"],
+textarea,
+select {
+    font-size: 1em;
+    padding: 10px;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    width: 100%;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+    background-color: #fdfdfd;
+    transition: border-color 0.3s ease;
+}
+
+    input[type="text"]:focus,
+    input[type="file"]:focus,
+    input[type="number"]:focus,
+    input[type="url"]:focus,
+    textarea:focus,
+    select:focus {
+        border-color: #007bff;
+        outline: none;
+        background-color: #f8f9fa;
+    }
+
+/* Nút bấm */
+button.btn-primary, a.btn-secondary {
+    display: inline-block;
+    width: 100px; /* Đặt chiều rộng cố định cho cả hai nút */
+    padding: 10px;
+    text-align: center;
+    font-size: 1em;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+a.btn:hover {
+    background-color: #5a6268;
+    color: #fff;
+}
+
+a.btn-secondary {
+    background-color: #17a2b8;
+}
+
+    a.btn-secondary:hover {
+        background-color: #138496;
+    }
+
+/* Nút tìm trên YouTube */
+.btn-thirdly {
+    background-color: #ff5733; /* Màu nền tùy chỉnh */
+    color: #fff; /* Màu chữ */
+    border: none; /* Không viền */
+    padding: 10px 20px; /* Khoảng cách bên trong */
+    text-align: center; /* Căn giữa chữ */
+    text-decoration: none; /* Không gạch chân */
+    display: inline-block; /* Hiển thị dạng khối nội tuyến */
+    font-size: 16px; /* Kích thước chữ */
+    margin: 4px 2px; /* Khoảng cách bên ngoài */
+    cursor: pointer; /* Con trỏ chuột */
+    border-radius: 5px; /* Bo góc */
+    transition: background-color 0.3s ease; /* Hiệu ứng chuyển màu nền */
+}
+
+    .btn-thirdly:hover {
+        background-color: #e04e2a; /* Màu nền khi hover */
+    }
+
+
+/* Validation text */
+.text-danger {
+    font-size: 0.85em;
+    margin-top: -10px;
+    display: block;
+}
+
+/* Bố cục */
+.d-flex {
+    display: flex;
+}
+
+.justify-content-between {
+    justify-content: space-between;
+}
+
+.mt-2 {
+    margin-top: 15px;
+}
+
+.col-md-4 {
+    margin: 0 auto;
+    max-width: 500px;
+}
+
+/* Hiển thị thông báo lỗi cho input */
+input[type="text"].invalid,
+input[type="file"].invalid,
+input[type="number"].invalid,
+input[type="url"].invalid {
+    border-color: #dc3545;
+}
+
+    input[type="text"].invalid:focus,
+    input[type="file"].invalid:focus,
+    input[type="number"].invalid:focus,
+    input[type="url"].invalid:focus {
+        background-color: #f8d7da;
+    }
+
+/* File input đường dẫn */
+input[readonly] {
+    background-color: #e9ecef;
+    cursor: not-allowed;
+}

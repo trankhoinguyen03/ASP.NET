@@ -1,10 +1,11 @@
 ﻿@model List<CinemaBookingWeb.Models.Bookings>
 
-<h2>Danh sách Đơn Hàng</h2>
-<form method="get" asp-action="Index">
-	<label for="phoneNumber">Tìm kiếm theo Số Điện Thoại:</label>
-	<input type="text" id="phoneNumber" name="phoneNumber" placeholder="Nhập số điện thoại" />
-	<button type="submit">Tìm kiếm</button>
+<link rel="stylesheet" href="~/css/css_admin_list.css" />
+
+<h1>Danh sách Đơn Hàng</h1>
+<form method="get" asp-action="Index" class="d-flex mb-3">
+	<input type="text" id="phoneNumber" name="phoneNumber" class="form-control me-2 w-auto" placeholder="Nhập số điện thoại" />
+	<button type="submit" class="btn btn-primary w-auto">Tìm kiếm</button>
 	<a asp-action="Index" class="btn btn-secondary">Reset</a>
 </form>
 
@@ -32,15 +33,18 @@
 				<td>@bookings.BookingDate.ToString("yyyy-MM-dd HH:mm")</td>
 				<td>@bookings.TotalPrice</td>
 				<td>
-					@{
-						string statusText = bookings.Status switch
-						{
-							1 => "Đã thanh toán",
-							2 => "Chưa thanh toán",
-							_ => "Hủy"
-						};
+					@if (@bookings.Status == 1)
+					{
+						<span class="status-active">Đã thanh toán</span>
 					}
-					@statusText
+					else if (bookings.Status == 2)
+					{
+						<span class="status-inactive">Chưa thanh toán</span>
+					}
+					else
+					{
+						<span class="status-cancel">Hủy</span>
+					}
 				</td>
 				<td>
 					@Html.ActionLink("Xem chi tiết", "BookingsDetails", new { id = bookings.BookingId })

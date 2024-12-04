@@ -18,7 +18,11 @@ namespace CinemaBookingWeb.Controllers
         {
             var movies = _context.Movies.ToList();
             var cities = _context.Cinemas.Select(c => c.City).Distinct().ToList();
+            var cinemaBanners = _context.Banner.Where(b => b.Category == "Cinema").ToList();
+
             ViewBag.Cities = cities;
+            ViewBag.CinemaBanners = cinemaBanners;
+
             return View(movies);
         }
 

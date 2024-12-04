@@ -1,0 +1,84 @@
+﻿@model CinemaBookingWeb.Models.Banner
+@{
+    ViewData["Title"] = "Index";
+    var banners = ViewBag.Banners as List<CinemaBookingWeb.Models.Banner>;
+}
+<link rel="stylesheet" href="~/css/css_admin_list.css" />
+
+<h1>Quản lý Banners</h1>
+
+
+<h4>Quản lý Banner Chính</h4>
+<form asp-action="Create" method="post" enctype="multipart/form-data" class="d-flex mb-3">
+    <input type="hidden" name="category" value="Main" />
+    <div class="form-group">
+        <input type="file" name="bannerImage" class="form-control" />
+    </div>
+    <button type="submit" class="btn btn-primary w-auto">Thêm</button>
+    <a asp-action="Index" class="btn btn-secondary">Hủy</a>
+</form>
+<!-- Danh sách banners -->
+<h4>Danh sách Banners Chính</h4>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Ảnh</th>
+            <th>Hành động</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var banner in ViewBag.MainBanners)
+        {
+            <tr>
+                <td>
+                    <img src="@banner.ImageUrl" alt="Banner" width="150" />
+                </td>
+                <td>
+                    <form asp-action="Delete" method="post">
+                        <input type="hidden" name="id" value="@banner.BannerId" />
+                        <button type="submit" class="btn btn-danger">Xóa</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<br />
+<hr />
+
+<h4>Quản lý Banner Rạp</h4>
+<form asp-action="Create" method="post" enctype="multipart/form-data" class="d-flex mb-3">
+    <input type="hidden" name="category" value="Cinema" />
+    <div class="form-group">
+        <input type="file" name="bannerImage" class="form-control" />
+    </div>
+    <button type="submit" class="btn btn-primary w-auto">Thêm</button>
+    <a asp-action="Index" class="btn btn-secondary">Hủy</a>
+</form>
+<!-- Danh sách banners -->
+<h4>Danh sách Banners Rạp</h4>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Ảnh</th>
+            <th>Hành động</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var banner in ViewBag.CinemaBanners)
+        {
+            <tr>
+                <td>
+                    <img src="@banner.ImageUrl" alt="Banner" width="150" />
+                </td>
+                <td>
+                    <form asp-action="Delete" method="post">
+                        <input type="hidden" name="id" value="@banner.BannerId" />
+                        <button type="submit" class="btn btn-danger">Xóa</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
