@@ -66,7 +66,7 @@ namespace CinemaBookingWeb.Controllers
 
                         // Lưu file
                         var fileName = Path.GetFileName(fileInput.FileName);
-                        var filePath = Path.Combine("wwwroot/img/movies_img", fileName);
+                        var filePath = Path.Combine("wwwroot/img/movies", fileName);
 
                         using (var stream = new FileStream(filePath, FileMode.Create))
                         {
@@ -74,7 +74,7 @@ namespace CinemaBookingWeb.Controllers
                         }
 
                         // Cập nhật đường dẫn ảnh
-                        movie.ImageUrl = "/img/movies_img/" + fileName;
+                        movie.ImageUrl = "/img/movies/" + fileName;
                     }
 
                     movie.Status = 1; // Mặc định trạng thái
@@ -133,14 +133,14 @@ namespace CinemaBookingWeb.Controllers
 
                 // Lưu file
                 var fileName = Path.GetFileName(fileInput.FileName);
-                var filePath = Path.Combine("wwwroot/img/movies_img", fileName);
+                var filePath = Path.Combine("wwwroot/img/movies", fileName);
 
                 using (var stream = new FileStream(filePath, FileMode.Create))
                 {
                     await fileInput.CopyToAsync(stream);
                 }
 
-                movie.ImageUrl = "/img/movies_img/" + fileName;
+                movie.ImageUrl = "/img/movies/" + fileName;
             }
 
             try

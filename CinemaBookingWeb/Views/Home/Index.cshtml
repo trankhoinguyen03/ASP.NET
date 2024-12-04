@@ -50,7 +50,7 @@
             {
                 <a href="@Url.Action("Detail", "MoviesDetail", new { Id = movie.MovieId })">
                     <div class="movie-item text-center p-4 border rounded shadow">
-                        <img src="~/img/@movie.ImageUrl" alt="@movie.Title" class="w-full h-auto mb-2">
+                        <img src="@movie.ImageUrl" alt="@movie.Title" class="w-full h-auto mb-2">
                         <h3 class="movie-item-title text-lg font-semibold">@movie.Title</h3>
                         <p>Thể loại: @movie.Genre</p>
                     </div>

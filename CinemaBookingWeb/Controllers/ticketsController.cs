@@ -6,19 +6,14 @@ using Microsoft.EntityFrameworkCore;
 using System.Linq;
 using Microsoft.Extensions.Logging.Abstractions;
 using System.Net.Sockets;
-using CinemaBookingWeb.Data;
-using CinemaBookingWeb.Models;
-using Microsoft.AspNetCore.Mvc;
 using System.Linq;
 using NuGet.Protocol;
 using Newtonsoft.Json;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
-using Microsoft.AspNetCore.Authorization;
 
 namespace CinemaBookingWeb.Controllers
 {
-    [Authorize(Roles = "Admin")]
     public class TicketsController : Controller
     {
         private readonly ApplicationDbContext _context;
