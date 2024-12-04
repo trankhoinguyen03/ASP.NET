@@ -118,16 +118,16 @@ CREATE TABLE BookingCombos (
 -- Thêm dữ liệu vào bảng Movies
 INSERT INTO Movies (Title, [Description], Duration, Rating, ReleaseDate, Genre, [Language], TrailerUrl, ImageUrl)
 VALUES 
-('Avengers: Endgame', N'Siêu anh hùng chiến đấu chống lại Thanos.', 180, 'PG-13', '2019-04-26', 'Action', 'English', 'url', 'avengers.jpg'),
-('Spider-Man: No Way Home', N'Spider-Man đối mặt với những thử thách mới.', 148, 'PG-13', '2021-12-17', 'Action', 'English', 'url', 'spiderman.jpg'),
-('The Lion King', N'Hành trình của Simba để trở thành vua sư tử.', 118, 'G', '2019-07-19', 'Animation', 'English', 'url', 'lionking.jpg'),
-('Frozen II', N'Anna và Elsa khám phá những bí ẩn về quá khứ của họ.', 103, 'PG', '2019-11-22', 'Animation', 'English', 'url', 'frozen2.jpg'),
-('Joker', N'Câu chuyện về kẻ thù đáng sợ của Batman.', 122, 'R', '2019-10-04', 'Drama', 'English', 'url', 'joker.jpg'),
-('Tenet', N'Một đặc vụ đi ngược thời gian để ngăn chặn Thế chiến III.', 150, 'PG-13', '2020-09-03', 'Sci-Fi', 'English', 'url', 'tenet.jpg'),
-('Parasite', N'Hai gia đình với cuộc sống trái ngược nhau.', 132, 'R', '2019-05-30', 'Thriller', 'Korean', 'url', 'parasite.jpg'),
-('The Matrix Resurrections', N'Trở lại với thế giới ảo Matrix.', 148, 'R', '2021-12-22', 'Sci-Fi', 'English', 'url', 'matrix.jpg'),
-('Dune', N'Câu chuyện sử thi về hành tinh sa mạc.', 155, 'PG-13', '2021-10-22', 'Adventure', 'English', 'url', 'dune.jpg'),
-('Black Widow', N'Câu chuyện về Natasha Romanoff.', 134, 'PG-13', '2021-07-09', 'Action', 'English', 'url', 'blackwidow.jpg');
+('Avengers: Endgame', N'Siêu anh hùng chiến đấu chống lại Thanos.', 180, 'PG-13', '2019-04-26', 'Action', 'English', 'url', '/img/movies/venom_thumnail.jpg'),
+('Spider-Man: No Way Home', N'Spider-Man đối mặt với những thử thách mới.', 148, 'PG-13', '2021-12-17', 'Action', 'English', 'url', '/img/movies/venom_thumnail.jpg'),
+('The Lion King', N'Hành trình của Simba để trở thành vua sư tử.', 118, 'G', '2019-07-19', 'Animation', 'English', 'url', '/img/movies/venom_thumnail.jpg'),
+('Frozen II', N'Anna và Elsa khám phá những bí ẩn về quá khứ của họ.', 103, 'PG', '2019-11-22', 'Animation', 'English', 'url', '/img/movies/venom_thumnail.jpg'),
+('Joker', N'Câu chuyện về kẻ thù đáng sợ của Batman.', 122, 'R', '2019-10-04', 'Drama', 'English', 'url', '/img/movies/venom_thumnail.jpg'),
+('Tenet', N'Một đặc vụ đi ngược thời gian để ngăn chặn Thế chiến III.', 150, 'PG-13', '2020-09-03', 'Sci-Fi', 'English', 'url', '/img/movies/venom_thumnail.jpg'),
+('Parasite', N'Hai gia đình với cuộc sống trái ngược nhau.', 132, 'R', '2019-05-30', 'Thriller', 'Korean', 'url', '/img/movies/venom_thumnail.jpg'),
+('The Matrix Resurrections', N'Trở lại với thế giới ảo Matrix.', 148, 'R', '2021-12-22', 'Sci-Fi', 'English', 'url', '/img/movies/venom_thumnail.jpg'),
+('Dune', N'Câu chuyện sử thi về hành tinh sa mạc.', 155, 'PG-13', '2021-10-22', 'Adventure', 'English', 'url', '/img/movies/venom_thumnail.jpg'),
+('Black Widow', N'Câu chuyện về Natasha Romanoff.', 134, 'PG-13', '2021-07-09', 'Action', 'English', 'url', '/img/movies/venom_thumnail.jpg');
 
 -- Thêm dữ liệu vào bảng Cinemas
 INSERT INTO Cinemas ([Name], [Location], Phone, City)
@@ -269,3 +269,11 @@ CREATE TABLE Banner (
     ImageUrl NVARCHAR(MAX) NOT NULL,
     Category NVARCHAR(MAX) NOT NULL
 );
+INSERT INTO Banner(ImageUrl, Category)
+VALUES
+('/img/banners/cbfa76d3-a46a-4c2e-b0d3-baaae101f799.jpg','Main'),
+('/img/banners/7c3075f7-9f3f-464f-b17d-bce87303243a.jpg', 'Main'),
+('/img/banners/1600e54a-a791-438c-bd6e-473dbcddf5f8.jpg', 'Main'),
+('/img/banners/952552e3-5e90-459d-b445-27c7a1ef1b26.jpg', 'Cinema'),
+('/img/banners/238b6f91-955a-4b87-9529-125445e33f2a.jpg', 'Cinema'),
+('/img/banners/bf752ffc-a72e-4736-b5f7-dc8657b4f378.jpg', 'Cinema');
