@@ -13,7 +13,8 @@ namespace CinemaBookingWeb.Models
         [Required(ErrorMessage = "Mô tả không được để trống.")]
         public string Description { get; set; }
 
-        [Required(ErrorMessage = "Mô tả không được để trống.")]
+        [Required(ErrorMessage = "Duration không được để trống.")]
+        [Range(1, int.MaxValue, ErrorMessage = "Duration phải lớn hơn 0.")]
         public int Duration { get; set; }
 
         [Required(ErrorMessage = "Không được để trống.")]
