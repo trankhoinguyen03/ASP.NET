@@ -38,10 +38,21 @@
         <span asp-validation-for="Type" class="text-danger"></span>
     </div>
     <div class="form-group">
-        <label asp-for="ImageUrl" class="control-label">Hình Ảnh</label>
-        <input type="file" name="ImageFile" class="form-control" />
+        <label for="ImageFile">Chọn file:</label>
+        <input type="file" class="form-control" id="ImageFile" name="ImageFile" onchange="FilePath()">
         <span asp-validation-for="ImageUrl" class="text-danger"></span>
     </div>
+    <div class="form-group">
+        <label asp-for="ImageUrl">Đường dẫn file:</label>
+        <input asp-for="ImageUrl" class="form-control" id="ImageUrl">
+    </div>
+    <script>
+        function FilePath() {
+            var ImageFile = document.getElementById('ImageFile');
+            var filePath = document.getElementById('ImageUrl');
+            filePath.value = ImageFile.value; 
+        }
+    </script>
     <div class="form-group">
         <label asp-for="Status" class="control-label"></label>
         <select asp-for="Status" class="form-control">

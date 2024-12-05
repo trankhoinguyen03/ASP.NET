@@ -20,7 +20,7 @@
     </div>
     <div class="form-group">
         <label asp-for="Price" class="control-label">Giá</label>
-        <input asp-for="Price" class="form-control" />
+        <input asp-for="Price" class="form-control" type="number" step="1" />
         <span asp-validation-for="Price" class="text-danger"></span>
     </div>
     <div class="form-group">
@@ -37,11 +37,30 @@
         <input asp-for="Type" class="form-control" />
         <span asp-validation-for="Type" class="text-danger"></span>
     </div>
-    <div class="form-group">
+    @*<div class="form-group">
         <label asp-for="ImageUrl" class="control-label">Hình Ảnh</label>
-        <input type="file" name="ImageFile" class="form-control" value="@ViewBag.ImageFile" />
+        <input type="file" name="ImageFile" class="form-control" />
+        <!-- Hidden field giữ lại giá trị ảnh cũ -->
+        <input type="hidden" asp-for="ImageUrl" />
         <span asp-validation-for="ImageUrl" class="text-danger"></span>
     </div>
+    *@
+    <div class="form-group">
+        <label for="ImageFile">Chọn file:</label>
+        <input type="file" class="form-control" id="ImageFile" name="ImageFile" onchange="displayFilePath()">
+        <span asp-validation-for="ImageUrl" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="ImageUrl">Đường dẫn file:</label>
+        <input asp-for="ImageUrl" class="form-control" id="ImageUrl">
+    </div>
+    <script>
+        function displayFilePath() {
+            var ImageFile = document.getElementById('ImageFile');
+            var filePath = document.getElementById('ImageUrl');
+            filePath.value = ImageFile.value;
+        }
+    </script>
     <div class="form-group">
         <label asp-for="Status" class="control-label">Trạng thái</label>
         <select asp-for="Status" class="form-control">
