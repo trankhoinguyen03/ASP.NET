@@ -1,5 +1,6 @@
 ﻿using CinemaBookingWeb.Data;
 using CinemaBookingWeb.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
@@ -7,10 +8,11 @@ using System.Threading.Tasks;
 
 namespace CinemaBookingWeb.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class CombosController : Controller
     {
         private readonly ApplicationDbContext _context;
-        private readonly string _imageFolder = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "img");
+        private readonly string _imageFolder = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "img", "combos");
 
         public CombosController(ApplicationDbContext context)
         {
@@ -39,19 +41,19 @@ namespace CinemaBookingWeb.Controllers
         // POST: Combos/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Create(Combos combo, IFormFile ImageFile)
+        public IActionResult Create(Combos combo, IFormFile? ImageFile)
         {
             // Kiểm tra và xử lý file ảnh
             if (ImageFile != null && ImageFile.Length > 0)
             {
                 // Lấy tên file và đường dẫn lưu file
                 var fileName = Path.GetFileName(ImageFile.FileName);
-                var filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "img", fileName);
+                var filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "img", "combos", fileName);
 
                 // Đảm bảo thư mục lưu trữ tồn tại
-                if (!Directory.Exists(Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "img")))
+                if (!Directory.Exists(Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "img", "combos")))
                 {
-                    Directory.CreateDirectory(Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "img"));
+                    Directory.CreateDirectory(Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "img", "combos"));
                 }
 
                 // Lưu file
@@ -61,7 +63,7 @@ namespace CinemaBookingWeb.Controllers
                 }
 
                 // Gán tên file vào trường ImageUrl
-                combo.ImageUrl = "/img/" + fileName;
+                combo.ImageUrl = "/img/combos/" + fileName;
             }
 
             else if (string.IsNullOrEmpty(combo.ImageUrl))
@@ -148,7 +150,7 @@ namespace CinemaBookingWeb.Controllers
         // POST: Combos/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Edit(int id, Combos combo, IFormFile ImageFile)
+        public IActionResult Edit(int id, Combos combo, IFormFile? ImageFile)
         {
             if (id != combo.ComboId)
             {
@@ -161,14 +163,14 @@ namespace CinemaBookingWeb.Controllers
                 if (ImageFile != null && ImageFile.Length > 0)
                 {
                     var fileName = Path.GetFileName(ImageFile.FileName);
-                    var filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "img", fileName);
+                    var filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "img", "combos", fileName);
 
                     using (var stream = new FileStream(filePath, FileMode.Create))
                     {
                         ImageFile.CopyTo(stream);
                     }
 
-                    combo.ImageUrl = "/img/" + fileName;
+                    combo.ImageUrl = "/img/combos/" + fileName;
                 }
 
                 // Nếu không chọn ảnh mới, giữ lại tên ảnh cũ

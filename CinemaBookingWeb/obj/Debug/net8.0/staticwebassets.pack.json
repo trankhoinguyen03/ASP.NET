@@ -89,6 +89,14 @@
       "PackagePath": "staticwebassets\\img\\bocchi-the-rock-recap-part-2-1.jpg"
     },
     {
+      "Id": "F:\\.NET\\ASP.NET\\CinemaBookingWeb\\wwwroot\\img\\combos\\ET MUSIC CLUB.png",
+      "PackagePath": "staticwebassets\\img\\combos\\ET MUSIC CLUB.png"
+    },
+    {
+      "Id": "F:\\.NET\\ASP.NET\\CinemaBookingWeb\\wwwroot\\img\\combos\\Phone Case.png",
+      "PackagePath": "staticwebassets\\img\\combos\\Phone Case.png"
+    },
+    {
       "Id": "F:\\.NET\\ASP.NET\\CinemaBookingWeb\\wwwroot\\img\\loginimg.png",
       "PackagePath": "staticwebassets\\img\\loginimg.png"
     },

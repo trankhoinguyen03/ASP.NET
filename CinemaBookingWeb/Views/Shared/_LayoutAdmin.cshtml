@@ -53,8 +53,8 @@
                 <span class="arrow-icon collapsed">&#10148;</span>
             </a>
             <div class="collapse" id="showtimeManagementMenu">
-                <a class="nav-link text-light ps-4" asp-area="" asp-controller="" asp-action=""><i class="bi bi-list-ul"></i> Danh sách suất chiếu</a>
-                <a class="nav-link text-light ps-4" asp-area="" asp-controller="" asp-action=""><i class="bi bi-plus-circle-fill"></i> Thêm suất chiếu mới</a>
+                <a class="nav-link text-light ps-4" asp-area="" asp-controller="ShowTimes" asp-action="Index"><i class="bi bi-list-ul"></i> Danh sách suất chiếu</a>
+                <a class="nav-link text-light ps-4" asp-area="" asp-controller="ShowTimes" asp-action="Create"><i class="bi bi-plus-circle-fill"></i> Thêm suất chiếu mới</a>
             </div>
 
             <a class="nav-link text-light" data-bs-toggle="collapse" href="#orderManagementMenu" role="button" aria-expanded="false" aria-controls="orderManagementMenu">
@@ -70,8 +70,8 @@
                 <span class="arrow-icon collapsed">&#10148;</span>
             </a>
             <div class="collapse" id="comboManagementMenu">
-                <a class="nav-link text-light ps-4" asp-area="" asp-controller="" asp-action=""><i class="bi bi-list-ul"></i> Danh sách combo</a>
-                <a class="nav-link text-light ps-4" asp-area="" asp-controller="" asp-action=""><i class="bi bi-plus-circle-fill"></i> Thêm combo mới</a>
+                <a class="nav-link text-light ps-4" asp-area="" asp-controller="Combos" asp-action="Index"><i class="bi bi-list-ul"></i> Danh sách combo</a>
+                <a class="nav-link text-light ps-4" asp-area="" asp-controller="Combos" asp-action="Create"><i class="bi bi-plus-circle-fill"></i> Thêm combo mới</a>
             </div>
 
             <a class="nav-link text-light" data-bs-toggle="collapse" href="#userManagementMenu" role="button" aria-expanded="false" aria-controls="userManagementMenu">
@@ -98,7 +98,7 @@
             @RenderBody()
         </main>
     </div>
-
+    <div style="height: 200px;"></div>
     <footer class="footer text-muted">
         <div class="main-content">
             &copy; 2024 - SharkCinemaBookingWeb - <a asp-area="" asp-controller="HomeAdmin" asp-action="Privacy">Privacy</a>

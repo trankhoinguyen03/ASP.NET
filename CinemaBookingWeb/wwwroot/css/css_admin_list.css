@@ -71,6 +71,7 @@ table.table {
     width: 100%;
     border-collapse: collapse;
     margin-top: 20px;
+    margin-bottom: 200px;
     background-color: #fff;
     border-radius: 8px;
     overflow: hidden;

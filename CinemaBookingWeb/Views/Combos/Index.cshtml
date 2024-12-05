@@ -4,51 +4,53 @@
 }
 
 @model IEnumerable<CinemaBookingWeb.Models.Combos>
+<link rel="stylesheet" href="~/css/css_admin_list.css" />
 
-<div>
-    <h2>Danh Sách Combo</h2>
-    <br>
-    <p>
-        <a asp-action="Create" class="btn btn-primary">Thêm Combo Mới</a>
-    </p>
-    <br>
-    <form method="get" class="form-inline mb-3">
-        <div class="form-group row">
-            <div class="col-md-6">
-                <input type="text" name="searchString" class="form-control" placeholder="Tìm kiếm combo" value="@(ViewContext.HttpContext.Request.Query["searchString"].ToString() ??"")" />
-            </div>
-            <div class="col-md-2">
-                <button type="submit" class="btn btn-info ml-2">Tìm kiếm</button>
-            </div>
-        </div>
-    </form>
+<h1>Danh Sách Combo</h1>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Tên</th>
-                <th>Giá</th>
-                <th>Hình Ảnh</th>
-                <th>Trạng Thái</th>
-                <th>Hành Động</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var combo in Model)
-            {
-                <tr>
-                    <td>@combo.Name</td>
-                    <td>@combo.Price.ToString("C")</td>
-                    <td>
-                        <img src="@Url.Content($"~/images/{combo.ImageUrl}")" alt="@combo.Name" style="width: 100px;" />
-                    </td>
-                    <td>@(combo.Status == 1 ? "Kích Hoạt" : "Không Kích Hoạt")</td>
-                    <td>
-                        <a asp-action="Edit" asp-route-id="@combo.ComboId" class="btn btn-warning">Sửa</a>
-
-                    </td>
-                </tr>
-            }
-        </tbody>
-    </table>
+<div class="mb-3">
+    <a asp-action="Create" class="btn btn-success">Thêm Combo Mới</a>
 </div>
+
+<form method="get" class="d-flex mb-3">
+    <input type="text" name="searchString" class="form-control" placeholder="Tìm kiếm combo" value="@(ViewContext.HttpContext.Request.Query["searchString"].ToString() ??"")" />
+    <button type="submit" class="btn btn-primary w-auto">Tìm kiếm</button>
+    <a asp-action="Index" class="btn btn-secondary">Reset</a>
+</form>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Tên</th>
+            <th>Giá</th>
+            <th>Hình Ảnh</th>
+            <th>Trạng Thái</th>
+            <th>Hành Động</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var combo in Model)
+        {
+            <tr>
+                <td>@combo.Name</td>
+                <td>@combo.Price.ToString("C")</td>
+                <td>
+                    <img src="@combo.ImageUrl" alt="@combo.Name" width="80"/>
+                </td>
+                <td>
+                    @if (combo.Status == 1)
+                    {
+                        <span class="status-active">Đang bán</span>
+                    }
+                    else
+                    {
+                        <span class="status-inactive">Ngừng bán</span>
+                    }
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@combo.ComboId">Sửa</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

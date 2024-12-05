@@ -12,8 +12,6 @@
 </div>
 
 
-
-
 <form method="get" asp-controller="Cinemas" asp-action="Index" class="d-flex mb-3">
     <input type="text" name="searchString" class="form-control me-2 w-auto" placeholder="Tìm kiếm" value="@ViewData["CurrentFilter"]" />
     <button type="submit" class="btn btn-primary w-auto">Tìm kiếm</button>
@@ -42,37 +40,37 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Location)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Phone)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.City)
-            </td>
-            @* <td>
-                @Html.DisplayFor(modelItem => item.Status)
-            </td> *@
+        @foreach (var item in Model) {
+            <tr>
                 <td>
-                    @if (item.Status == 1)
-                    {
-                        <span class="status-active">Đang hoạt động</span>
-                    }
-                    else
-                    {
-                        <span class="status-inactive">Ngừng hoạt động</span>
-                    }
+                    @Html.DisplayFor(modelItem => item.Name)
                 </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.CinemaId">Sửa</a> 
-            </td>
-        </tr>
-}
+                <td>
+                    @Html.DisplayFor(modelItem => item.Location)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Phone)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.City)
+                </td>
+                @* <td>
+                    @Html.DisplayFor(modelItem => item.Status)
+                </td> *@
+                    <td>
+                        @if (item.Status == 1)
+                        {
+                            <span class="status-active">Đang hoạt động</span>
+                        }
+                        else
+                        {
+                            <span class="status-inactive">Ngừng hoạt động</span>
+                        }
+                    </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.CinemaId">Sửa</a> 
+                </td>
+            </tr>
+        }
     </tbody>
 </table>
