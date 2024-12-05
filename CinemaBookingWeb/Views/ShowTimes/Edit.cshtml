@@ -25,17 +25,18 @@
     </div>
     <div class="form-group">
         <label asp-for="Price">Giá</label>
-        <input asp-for="Price" class="form-control" type="number" step="0.01" />
+        <input asp-for="Price" class="form-control" type="number" step="1" />
         <span asp-validation-for="Price" class="text-danger"></span>
     </div>
     <div class="form-group">
-        <label asp-for="StartTime">Thời gian bắt đầu</label>
-        <input asp-for="StartTime" class="form-control" type="datetime-local" />
+        <label for="startTime">Giờ bắt đầu</label>
+        <input asp-for="StartTime" class="form-control" type="datetime-local" id="startTime" />
         <span asp-validation-for="StartTime" class="text-danger"></span>
     </div>
+
     <div class="form-group">
-        <label asp-for="EndTime">Tời gian kết thúc</label>
-        <input asp-for="EndTime" class="form-control" type="datetime-local" />
+        <label for="endTime">Giờ kết thúc</label>
+        <input asp-for="EndTime" class="form-control" type="datetime-local" id="endTime" name="EndTime" />
         <span asp-validation-for="EndTime" class="text-danger"></span>
     </div>
     <div class="form-group">
