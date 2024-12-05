@@ -1,0 +1,109 @@
+﻿@model CinemaBookingWeb.Models.Showtimes
+
+@{
+    ViewData["Title"] = "Thêm Suất Chiếu Mới";
+    Layout = "_LayoutAdmin";
+}
+<br />
+<h1>Thêm Suất Chiếu Mới</h1>
+
+<form asp-action="Create" method="post">
+    <div class="form-group">
+        <label asp-for="MovieId">Chọn Phim</label>
+        <select asp-for="MovieId" class="form-control" asp-items="ViewBag.Movies">
+            <option value="">-- Chọn Phim --</option>
+        </select>
+        <span asp-validation-for="MovieId" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="CinemaId">Chọn Rạp</label>
+        <select asp-for="CinemaId" class="form-control" asp-items="ViewBag.Cinemas">
+            <option value="">-- Chọn Rạp --</option>
+        </select>
+        <span asp-validation-for="CinemaId" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Price">Giá vé</label>
+        <input asp-for="Price" class="form-control" type="number" step="1" placeholder="Nhập giá vé (VNĐ)" />
+        <span asp-validation-for="Price" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label for="startTime">Giờ bắt đầu</label>  
+        <input asp-for="StartTime" class="form-control" type="datetime-local" id="startTime" />
+        <span asp-validation-for="StartTime" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label for="endTime">Giờ kết thúc</label> 
+        <input asp-for="EndTime" class="form-control" type="datetime-local" id="endTime" name="EndTime" />
+        <span asp-validation-for="EndTime" class="text-danger"></span>
+    </div>
+    
+    <div class="form-group">
+        <label asp-for="Hall">Phòng chiếu</label>
+        <input asp-for="Hall" class="form-control" placeholder="Tên phòng chiếu" />
+        <span asp-validation-for="Hall" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Status">Trạng thái</label>
+        <select asp-for="Status" class="form-control">
+            <option value="1">Kích Hoạt</option>
+            <option value="0">Không Kích Hoạt</option>
+        </select>
+        <span asp-validation-for="Status" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Lưu</button>
+    <a asp-action="Index" class="btn btn-secondary">Quay Lại</a>
+</form>
+
+@if (!ViewData.ModelState.IsValid)
+{
+    foreach (var modelState in ViewData.ModelState.Values)
+    {
+        foreach (var error in modelState.Errors)
+        {
+            <div class="text-danger">@error.ErrorMessage</div>
+        }
+    }
+}
+
+@section Scripts {
+    @await Html.PartialAsync("_ValidationScriptsPartial")
+    <script>
+        $(document).ready(function () {
+          
+            $('#startTime').change(function () {
+                calculateEndTime();
+            });
+
+            function calculateEndTime() {
+                var startTime = $('#startTime').val();  
+                var movieId = $('#MovieId').val(); 
+
+               
+                if (startTime && movieId) {
+                   
+                    $.ajax({
+                        url: '@Url.Action("GetMovieDuration", "Movies")', // URL gọi API
+                        type: 'GET',
+                        data: { movieId: movieId },
+                        success: function (data) {
+                            if (data) {
+                                // Chuyển StartTime thành đối tượng Date
+                                var startDateTime = new Date(startTime);
+                                var durationMinutes = data.Duration;
+
+                                // Tính toán EndTime bằng cách cộng Duration vào StartTime
+                                startDateTime.setMinutes(startDateTime.getMinutes() + durationMinutes);
+
+                                // Chuyển EndTime thành định dạng datetime-local và hiển thị vào input
+                                var endTime = startDateTime.toISOString().slice(0, 16); // Định dạng ISO, cắt bỏ phần giây và múi giờ
+                                $('#endTime').val(endTime);
+                            }
+                        }
+                    });
+                }
+            }
+        });
+    </script>
+}

@@ -1,0 +1,54 @@
+﻿@{
+    ViewData["Title"] = "Danh Sách Combo";
+    Layout = "_LayoutAdmin";
+}
+
+@model IEnumerable<CinemaBookingWeb.Models.Combos>
+
+<div>
+    <h2>Danh Sách Combo</h2>
+    <br>
+    <p>
+        <a asp-action="Create" class="btn btn-primary">Thêm Combo Mới</a>
+    </p>
+    <br>
+    <form method="get" class="form-inline mb-3">
+        <div class="form-group row">
+            <div class="col-md-6">
+                <input type="text" name="searchString" class="form-control" placeholder="Tìm kiếm combo" value="@(ViewContext.HttpContext.Request.Query["searchString"].ToString() ??"")" />
+            </div>
+            <div class="col-md-2">
+                <button type="submit" class="btn btn-info ml-2">Tìm kiếm</button>
+            </div>
+        </div>
+    </form>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Tên</th>
+                <th>Giá</th>
+                <th>Hình Ảnh</th>
+                <th>Trạng Thái</th>
+                <th>Hành Động</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var combo in Model)
+            {
+                <tr>
+                    <td>@combo.Name</td>
+                    <td>@combo.Price.ToString("C")</td>
+                    <td>
+                        <img src="@Url.Content($"~/images/{combo.ImageUrl}")" alt="@combo.Name" style="width: 100px;" />
+                    </td>
+                    <td>@(combo.Status == 1 ? "Kích Hoạt" : "Không Kích Hoạt")</td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@combo.ComboId" class="btn btn-warning">Sửa</a>
+
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
