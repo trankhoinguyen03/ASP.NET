@@ -24,19 +24,21 @@
     </div>
     <div class="form-group">
         <label asp-for="Price">Giá vé</label>
-        <input asp-for="Price" class="form-control" type="number" step="0.01" placeholder="Nhập giá vé (VNĐ)" />
+        <input asp-for="Price" class="form-control" type="number" step="1" placeholder="Nhập giá vé (VNĐ)" />
         <span asp-validation-for="Price" class="text-danger"></span>
     </div>
     <div class="form-group">
-        <label asp-for="StartTime">Giờ bắt đầu</label>
-        <input asp-for="StartTime" class="form-control" type="datetime-local" />
+        <label for="startTime">Giờ bắt đầu</label>  
+        <input asp-for="StartTime" class="form-control" type="datetime-local" id="startTime" />
         <span asp-validation-for="StartTime" class="text-danger"></span>
     </div>
+
     <div class="form-group">
-        <label asp-for="EndTime">Giờ kết thúc</label>
-        <input asp-for="EndTime" class="form-control" type="datetime-local" />
+        <label for="endTime">Giờ kết thúc</label> 
+        <input asp-for="EndTime" class="form-control" type="datetime-local" id="endTime" name="EndTime" />
         <span asp-validation-for="EndTime" class="text-danger"></span>
     </div>
+    
     <div class="form-group">
         <label asp-for="Hall">Phòng chiếu</label>
         <input asp-for="Hall" class="form-control" placeholder="Tên phòng chiếu" />
@@ -67,4 +69,41 @@
 
 @section Scripts {
     @await Html.PartialAsync("_ValidationScriptsPartial")
+    <script>
+        $(document).ready(function () {
+          
+            $('#startTime').change(function () {
+                calculateEndTime();
+            });
+
+            function calculateEndTime() {
+                var startTime = $('#startTime').val();  
+                var movieId = $('#MovieId').val(); 
+
+               
+                if (startTime && movieId) {
+                   
+                    $.ajax({
+                        url: '@Url.Action("GetMovieDuration", "Movies")', // URL gọi API
+                        type: 'GET',
+                        data: { movieId: movieId },
+                        success: function (data) {
+                            if (data) {
+                                // Chuyển StartTime thành đối tượng Date
+                                var startDateTime = new Date(startTime);
+                                var durationMinutes = data.Duration;
+
+                                // Tính toán EndTime bằng cách cộng Duration vào StartTime
+                                startDateTime.setMinutes(startDateTime.getMinutes() + durationMinutes);
+
+                                // Chuyển EndTime thành định dạng datetime-local và hiển thị vào input
+                                var endTime = startDateTime.toISOString().slice(0, 16); // Định dạng ISO, cắt bỏ phần giây và múi giờ
+                                $('#endTime').val(endTime);
+                            }
+                        }
+                    });
+                }
+            }
+        });
+    </script>
 }

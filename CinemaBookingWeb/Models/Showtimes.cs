@@ -14,7 +14,7 @@ namespace CinemaBookingWeb.Models
         public int CinemaId { get; set; }
 
         [Required(ErrorMessage = "Giá vé là bắt buộc.")]
-        [Range(0.01, 1000000, ErrorMessage = "Giá phải lớn hơn 0.")]
+        [Range(1, 1000000, ErrorMessage = "Giá phải lớn hơn 0.")]
         public decimal Price { get; set; }
 
         [Required(ErrorMessage = "Thời gian bắt đầu là bắt buộc.")]

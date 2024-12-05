@@ -39,31 +39,30 @@ namespace CinemaBookingWeb.Controllers
         // POST: Combos/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult CreateCreate(Combos combo, IFormFile ImageFile)
+        public IActionResult Create(Combos combo, IFormFile ImageFile)
         {
             if (ImageFile != null && ImageFile.Length > 0)
             {
                 try
                 {
-                    // Tạo tên file
+                    // Tạo tên file và đường dẫn để lưu
                     var fileName = Path.GetFileName(ImageFile.FileName);
+                    var filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "img", fileName);
 
-                    // Tạo đường dẫn lưu ảnh
+                    // Đảm bảo thư mục hình ảnh tồn tại
                     var imagesPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "img");
                     if (!Directory.Exists(imagesPath))
                     {
                         Directory.CreateDirectory(imagesPath);
                     }
 
-                    var filePath = Path.Combine(imagesPath, fileName);
-
-                    // Lưu ảnh vào thư mục "wwwroot/images"
+                    // Lưu hình ảnh vào thư mục
                     using (var stream = new FileStream(filePath, FileMode.Create))
                     {
                         ImageFile.CopyTo(stream);
                     }
 
-                    // Gán giá trị cho trường ImageUrl
+                    // Cập nhật tên file vào trường ImageUrl của combo
                     combo.ImageUrl = fileName;
                 }
                 catch (Exception ex)
@@ -72,14 +71,33 @@ namespace CinemaBookingWeb.Controllers
                     return View(combo);
                 }
             }
+            else if (!string.IsNullOrEmpty(combo.ImageUrl))
+            {
+                // Nếu không có hình ảnh mới, nhưng đã có tên hình ảnh từ trước, giữ nguyên tên file
+                // (giả sử combo.ImageUrl đã chứa tên file từ trước hoặc bạn muốn sử dụng một hình ảnh có sẵn)
+                var existingFilePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "img", combo.ImageUrl);
+
+                // Kiểm tra xem file đã tồn tại trong thư mục hay chưa
+                if (System.IO.File.Exists(existingFilePath))
+                {
+                    // Nếu hình ảnh đã có, bạn chỉ cần giữ lại tên file
+                    combo.ImageUrl = combo.ImageUrl; // Không thay đổi gì nếu đã có tên file
+                }
+                else
+                {
+                    ModelState.AddModelError("ImageUrl", "Hình ảnh không tồn tại trong thư mục.");
+                    return View(combo);
+                }
+            }
+
             else
             {
-                // Nếu không có file tải lên, hiển thị lỗi
+
                 ModelState.AddModelError("ImageUrl", "Hãy chọn hình ảnh.");
                 return View(combo);
             }
 
-            // Kiểm tra ModelState sau khi gán ImageUrl
+            // Kiểm tra ModelState trước khi lưu vào cơ sở dữ liệu
             if (ModelState.IsValid)
             {
                 _context.Combos.Add(combo);
@@ -91,8 +109,8 @@ namespace CinemaBookingWeb.Controllers
         }
 
 
-        // GET: Combos/Edit/5
-        public IActionResult Edit(int? id)
+            // GET: Combos/Edit/5
+            public IActionResult Edit(int? id)
         {
             if (id == null)
             {

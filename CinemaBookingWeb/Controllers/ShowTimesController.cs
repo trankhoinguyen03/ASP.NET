@@ -56,6 +56,15 @@ namespace CinemaBookingWeb.Controllers
         {
             try
             {
+                Console.WriteLine($"MovieId: {showtime.MovieId}, CinemaId: {showtime.CinemaId}");
+                
+                var movie = _context.Movies.FirstOrDefault(m => m.MovieId == showtime.MovieId);
+                if (movie != null)
+                {
+                    // Tính toán EndTime bằng cách cộng Duration vào StartTime
+                    showtime.EndTime = showtime.StartTime.AddMinutes(movie.Duration);
+                }
+
                 if (showtime.EndTime <= showtime.StartTime)
                 {
                     ModelState.AddModelError("", "Thời gian kết thúc phải sau thời gian bắt đầu.");
@@ -96,6 +105,17 @@ namespace CinemaBookingWeb.Controllers
             ViewBag.Movies = new SelectList(_context.Movies.Where(m => m.Status == 1), "MovieId", "Title", showtime.MovieId);
             ViewBag.Cinemas = new SelectList(_context.Cinemas.Where(c => c.Status == 1), "CinemaId", "Name", showtime.CinemaId);
             return View(showtime);
+        }
+
+        public IActionResult GetMovieDuration(int movieId)
+        {
+            var movie = _context.Movies.FirstOrDefault(m => m.MovieId == movieId);
+            if (movie != null)
+            {
+                return Json(new { Duration = movie.Duration });
+            }
+
+            return Json(new { Duration = 0 });
         }
 
         public IActionResult Edit(int? id)
