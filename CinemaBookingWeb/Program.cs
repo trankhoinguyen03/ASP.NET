@@ -1,4 +1,5 @@
 ﻿using CinemaBookingWeb.Data;
+using CinemaBookingWeb.Services;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.EntityFrameworkCore;
 
@@ -14,6 +15,8 @@ builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationSc
 builder.Services.AddAuthorization();
 //Add session
 builder.Services.AddDistributedMemoryCache();
+//add VnPay
+builder.Services.AddSingleton<IVnPayService, VnPayService>();
 
 builder.Services.AddSession(options =>
 {

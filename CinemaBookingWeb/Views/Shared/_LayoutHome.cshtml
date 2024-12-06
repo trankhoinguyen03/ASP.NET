@@ -30,7 +30,7 @@
                         @if (User.Identity.IsAuthenticated)
                         {
                             <li class="nav-item">
-                                <a class="nav-link" asp-action="Index" asp-controller="tickets">
+                                <a class="nav-link" asp-action="Index" asp-controller="tickets" asp-route-username="@User.Identity.Name">
                                     <img alt="Ticket" loading="lazy" width="112" height="40" src="~/img/ticket_mua.png">
                                 </a>
                             </li>
