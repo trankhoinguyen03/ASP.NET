@@ -327,7 +327,7 @@ namespace CinemaBookingWeb.Controllers
                 ShowtimeId = temp.showtime.ShowtimeId,
                 BookingDate = DateTime.Now,
                 TotalPrice = temp.totalPrice,
-                Status = 2
+                Status = 1
             };
 
             // Xử lý giao dịch và lưu dữ liệu
