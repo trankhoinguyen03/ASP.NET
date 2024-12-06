@@ -11,6 +11,7 @@
         justify-content: center;
         width: 100%;
         padding: 20px;
+        padding-bottom: 200px !important;
     }
 
         .ticket_active > .ticket_left {
@@ -28,6 +29,7 @@
         list-style: none;
         padding: 0;
         margin: 0;
+        font-size: 1.4rem;
     }
 
         .ticket_nav-tabs li {
@@ -36,13 +38,11 @@
         }
 
     .ticket_active-tab {
-        border-bottom: 2px solid blue;
+        border-bottom: 2px solid #0045a0;
         font-weight: bold;
-        color: blue;
-    }
-
-    .ticket_choice-movie {
-        width: 100%
+        color: #0045a0;
+        font-size: 1.4rem;
+        font-weight: bold;
     }
 
 
@@ -86,6 +86,15 @@
     }
 </style>
 <body>
+    <div style="display:flex; justify-content:center;">
+        <ul class="ticket_nav-tabs" class="text-center ">
+            <li id="choose-movie">Chọn phim / Rạp / Suất</li>
+            <li id="choose-seat">Chọn ghế</li>
+            <li class="ticket_active-tab" id="choose-combo">Chọn thức ăn</li>
+            <li id="choose-pay">Thanh toán</li>
+        </ul>
+
+    </div>
     @if (ViewBag.Nhan != null)
     {
         <h1>@ViewBag.Nhan;</h1>
@@ -152,7 +161,7 @@
                 </div>
 
                 <div class="d-flex card-body">
-                    <img width="100px" height="150px" id="myImage3" src="https://localhost:5001/img/@Model.movie.ImageUrl" alt="Movie Poster" class="me-3">
+                    <img width="100px" height="150px" id="myImage3" src="https://localhost:5001/@Model.movie.ImageUrl" alt="Movie Poster" class="me-3">
 
                     <input class="ticket_movie-title" id="myTitle3" value="@Model.movie.Title" readonly />
 
@@ -273,12 +282,12 @@
         if (quantity > 0) {
             if (viewComboDiv) {
                 viewComboDiv.innerHTML = `<p>${quantity} x ${textnamecombo}</p>
-                                                  <p class="ticket_price">${totalcombo.value} VNĐ</p>`;
+                                                      <p class="ticket_price">${totalcombo.value} VNĐ</p>`;
             } else {
                 let viewComboHTML = `<div id="viewCombo${ComboId}" class="d-flex justify-content-between">
-                                                    <p>${quantity} x ${textnamecombo}</p>
-                                                    <p class="ticket_price">${totalcombo.value} VNĐ</p>
-                                             </div>`;
+                                                        <p>${quantity} x ${textnamecombo}</p>
+                                                        <p class="ticket_price">${totalcombo.value} VNĐ</p>
+                                                 </div>`;
                 document.getElementById("ViewCombo").insertAdjacentHTML("beforeend", viewComboHTML);
             }
         } else if (viewComboDiv) {

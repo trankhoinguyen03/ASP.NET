@@ -9,6 +9,10 @@ namespace CinemaBookingWeb.Models
         public int ShowtimeId { get; set; }
         public int MovieId { get; set; }
         public int CinemaId { get; set; }
+
+        [Range(0, double.MaxValue, ErrorMessage = "Giá phải lớn hơn hoặc bằng 0")]
+
+        [Required]
         public decimal Price { get; set; }
         public DateTime StartTime { get; set; }
         public DateTime EndTime { get; set; }
@@ -18,6 +22,5 @@ namespace CinemaBookingWeb.Models
         public Cinemas? Cinema { get; set; }
         [JsonIgnore]
         public Movies? Movie { get; set; }
-        public ICollection<Bookings> Bookings { get; set; }
     }
 }

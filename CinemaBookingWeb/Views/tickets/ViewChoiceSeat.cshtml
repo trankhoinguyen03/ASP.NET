@@ -103,6 +103,7 @@
     }
 </style>
 <body>
+
     <div style="display:flex; justify-content:center;">
         <ul class="ticket_nav-tabs" class="text-center ">
             <li id="choose-movie">Chọn phim / Rạp / Suất</li>
@@ -169,7 +170,7 @@
                 {
 
                     <div class="d-flex card-body">
-                        <img width="100px" height="150px" id="myImage1" src="https://localhost:5001/img/@ViewBag.ViewTicket["MovieImageUrl"]" alt="Movie Poster" class="me-3">
+                        <img width="100px" height="150px" id="myImage1" src="https://localhost:5001/@ViewBag.ViewTicket["MovieImageUrl"]" alt="Movie Poster" class="me-3">
 
                         <input class="ticket_movie-title" id="myTitle1" value="@ViewBag.ViewTicket["MovieTitle"]" readonly />
 
@@ -194,7 +195,7 @@
             </div>
             <div class="ticket_action-buttons d-flex justify-content-between">
                 <a type="button" class="btn btn-secondary" asp-action="choiceView" asp-controller="tickets" asp-route-id="1">Quay lại</a>
-                <button type="submit" class="btn btn-primary float-end" form="formSeats">Tiếp tục</button>
+                <button id="checkButton" type="submit" class="btn btn-primary float-end" form="formSeats" disabled>Tiếp tục</button>
             </div>
         </div>
     </div>
@@ -203,6 +204,25 @@
 
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const viewSeat = document.getElementById("viewSeat");
+        const checkButton = document.getElementById("checkButton");
+
+        // Quan sát sự thay đổi trong div
+        const observer = new MutationObserver(() => {
+            // Kiểm tra nếu div có nội dung hoặc thành phần con
+            if (viewSeat.children.length > 0) {
+                checkButton.disabled = false; // Kích hoạt nút
+            } else {
+                checkButton.disabled = true; // Vô hiệu hóa nút
+            }
+        });
+
+        // Thiết lập quan sát
+        observer.observe(viewSeat, { childList: true });
+
+
+    });
     function selectSeat(element) {
         element.classList.toggle('ticket_selected');
         const hiddenInput = element.nextElementSibling;//lay hidden input gan nhat
@@ -214,10 +234,10 @@
             if (seatType == "Standard") {
                 hiddenInput.value = price;
                 choiceseatHTML = `<div id="choiceSeat${element.innerText}" class="d-flex justify-content-between">
-                                                 <p>Số ghế:${element.innerText} (Loại ghế:${seatType})</p>
-                                                 <p class="ticket_price">${price} VNĐ</p>
-                                                </div>
-                                                `;
+                                                         <p>Số ghế:${element.innerText} (Loại ghế:${seatType})</p>
+                                                         <p class="ticket_price">${price} VNĐ</p>
+                                                        </div>
+                                                        `;
                 document.getElementById("viewSeat").insertAdjacentHTML("beforeend", choiceseatHTML);
                 document.getElementById("totalPrice").value = totalPrice + price;
 
@@ -225,10 +245,10 @@
                 const temp = price * 1.5;
                 hiddenInput.value = temp;
                 choiceseatHTML = `<div id="choiceSeat${element.innerText}" class="d-flex justify-content-between">
-                                           <p>Số ghế:${element.innerText} (Loại ghế:${seatType})</p>
-                                           <p class="ticket_price">${temp} VNĐ</p>
-                                           </div>
-                                           `;
+                                                   <p>Số ghế:${element.innerText} (Loại ghế:${seatType})</p>
+                                                   <p class="ticket_price">${temp} VNĐ</p>
+                                                   </div>
+                                                   `;
                 document.getElementById("viewSeat").insertAdjacentHTML("beforeend", choiceseatHTML);
                 document.getElementById("totalPrice").value = totalPrice + temp;
             }

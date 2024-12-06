@@ -8,6 +8,7 @@
     .ticket_section {
         display: none; /* Hide sections by default */
         padding: 20px;
+        padding-bottom: 200px !important;
     }
 
     /* Active section */
@@ -15,6 +16,7 @@
         display: flex;
         justify-content: center;
         width: 100%;
+        padding-bottom: 200px !important;
     }
 
         .ticket_active > .ticket_left {
@@ -32,6 +34,7 @@
         list-style: none;
         padding: 0;
         margin: 0;
+        font-size: 1.4rem;
     }
 
         .ticket_nav-tabs li {
@@ -40,9 +43,11 @@
         }
 
     .ticket_active-tab {
-        border-bottom: 2px solid blue;
+        border-bottom: 2px solid #0045a0;
         font-weight: bold;
-        color: blue;
+        color: #0045a0;
+        font-size: 1.4rem;
+        font-weight: bold;
     }
 
     .ticket_choice-movie {
@@ -126,7 +131,15 @@
     }
 </style>
 <body>
+    <div style="display:flex; justify-content:center;">
+        <ul class="ticket_nav-tabs" class="text-center ">
+            <li id="choose-movie">Chọn phim / Rạp / Suất</li>
+            <li id="choose-seat">Chọn ghế</li>
+            <li id="choose-combo">Chọn thức ăn</li>
+            <li class="ticket_active-tab" id="choose-pay">Thanh toán</li>
+        </ul>
 
+    </div>
     @if (Model != null)
     {
         <!--choice pay-->
@@ -140,7 +153,7 @@
                         <!-- Thông tin phim -->
 
                         <div class="d-flex">
-                            <img width="100px" height="150px" src="https://localhost:5001/img/@Model.movie.ImageUrl" alt="Movie Poster" class="me-3">
+                            <img width="100px" height="150px" src="https://localhost:5001/@Model.movie.ImageUrl" alt="Movie Poster" class="me-3">
                             <div>
                                 <p class="ticket_movie-title">@Model.movie.Title</p>
                                 <p>Thời lượng phim: @Model.movie.Duration - <span class="ticket_tag-rating">@Model.movie.Rating</span></p>
@@ -183,7 +196,7 @@
                                             var price = choiceCombo.Quantity * combo.Price;
                                             var formattedPrice = price.ToString("N0", System.Globalization.CultureInfo.GetCultureInfo("vi-VN"));
                                         }
-                                        <p class="ticket_price">@formattedPrice</p>
+                                        <p class="ticket_price">@formattedPrice VNĐ</p>
                                     </div>
                                     break;
                                 }

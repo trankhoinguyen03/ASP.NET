@@ -43,14 +43,15 @@
 <h2 class=" movie-title-dang-chieu text-2xl font-bold mb-4">Phim Đang Chiếu </h2>
 
 
+
 <section class="movies">
-    <div class="container">
+    <div class="mx-auto">
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 justify-center">
             @foreach (var movie in Model.Movies)
             {
                 <a href="@Url.Action("Detail", "MoviesDetail", new { Id = movie.MovieId })">
                     <div class="movie-item text-center p-4 border rounded shadow">
-                        <img src="~/img/@movie.ImageUrl" alt="@movie.Title" class="w-full h-auto mb-2">
+                        <img src="@movie.ImageUrl" alt="@movie.Title" class="w-full h-auto mb-2">
                         <h3 class="movie-item-title text-lg font-semibold">@movie.Title</h3>
                         <p>Thể loại: @movie.Genre</p>
                     </div>

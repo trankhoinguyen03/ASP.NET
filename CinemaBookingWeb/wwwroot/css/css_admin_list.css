@@ -75,6 +75,8 @@ table.table {
     border-radius: 8px;
     overflow: hidden;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    table-layout: fixed; /* Giới hạn kích thước các cột */
+    word-wrap: break-word; /* Ngắt từ nếu nội dung quá dài */
 }
 
     table.table thead tr {

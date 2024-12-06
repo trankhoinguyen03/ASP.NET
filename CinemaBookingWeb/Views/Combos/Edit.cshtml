@@ -1,0 +1,79 @@
+﻿@model CinemaBookingWeb.Models.Combos
+
+@{
+    ViewData["Title"] = "Sửa Combo";
+    Layout = "_LayoutAdmin";
+}
+<link rel="stylesheet" href="~/css/css_admin_edit.css" />
+
+<h1>Sửa Combo</h1>
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit" method="post" enctype="multipart/form-data">
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Description" class="control-label"></label>
+                <input asp-for="Description" class="form-control" />
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Price" class="control-label"></label>
+                <input asp-for="Price" class="form-control" type="number" step="1" value="@Model.Price.ToString("F0")" />
+                <span asp-validation-for="Price" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Size" class="control-label"></label>
+                <select asp-for="Size" class="form-control">
+                    <option>Lớn</option>
+                    <option>Vừa</option>
+                    <option>Nhỏ</option>
+                </select>
+                <span asp-validation-for="Size" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Type" class="control-label"></label>
+                <input asp-for="Type" class="form-control" />
+                <span asp-validation-for="Type" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label for="ImageFile">Chọn file:</label>
+                <input type="file" class="form-control" id="ImageFile" name="ImageFile" onchange="FilePath()">
+                <span asp-validation-for="ImageUrl" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ImageUrl">Đường dẫn file:</label>
+                <input asp-for="ImageUrl" class="form-control" id="ImageUrl">
+            </div>
+            <script>
+                function FilePath() {
+                    var ImageFile = document.getElementById('ImageFile');
+                    var filePath = document.getElementById('ImageUrl');
+                    filePath.value = ImageFile.value; 
+                }
+            </script>
+            <div class="form-group">
+                <label asp-for="Status" class="control-label"></label>
+                <select asp-for="Status" class="form-control">
+                    <option value="1">Đang bán</option>
+                    <option value="0">Ngừng bán</option>
+                </select>
+
+            </div>
+            <input type="hidden" asp-for="ComboId" />
+            <div class="form-group d-flex justify-content-between mt-2">
+                <button type="submit" class="btn btn-primary">Cập Nhật</button>
+                <a asp-action="Index" class="btn btn-secondary">Quay Lại</a>
+            </div>
+        </form>
+    </div>
+</div>
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

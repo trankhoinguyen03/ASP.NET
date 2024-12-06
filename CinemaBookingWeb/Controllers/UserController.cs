@@ -63,6 +63,7 @@ namespace CinemaBookingWeb.Controllers
 
                 // Thêm người dùng mới
                 newUser.SignupDate = DateTime.Now;
+                newUser.Status = 1;
                 _context.Users.Add(newUser);
                 _context.SaveChanges();
 

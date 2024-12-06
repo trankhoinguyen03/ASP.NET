@@ -30,7 +30,7 @@
                         @if (User.Identity.IsAuthenticated)
                         {
                             <li class="nav-item">
-                                <a class="nav-link" asp-action="Index" asp-controller="tickets">
+                                <a class="nav-link" asp-action="Index" asp-controller="tickets" asp-route-username="@User.Identity.Name">
                                     <img alt="Ticket" loading="lazy" width="112" height="40" src="~/img/ticket_mua.png">
                                 </a>
                             </li>
@@ -113,7 +113,8 @@
     @RenderSection("Scripts", required: false)
 
     <!-- Footer -->
-    <footer class=" text-center py-4">
+
+    <footer class=" footer text-center py-4" >
         <p>&copy; 2024 Shark Cinemas. All rights reserved.</p>
         <p>NHÓM 7 </p>
 

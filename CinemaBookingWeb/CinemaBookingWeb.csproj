@@ -7,6 +7,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="wwwroot\img\NewFolder1\**" />
+    <Content Remove="wwwroot\img\NewFolder1\**" />
+    <EmbeddedResource Remove="wwwroot\img\NewFolder1\**" />
+    <None Remove="wwwroot\img\NewFolder1\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="EPPlus" Version="7.5.0" />
     <PackageReference Include="Font.Awesome" Version="5.15.4" />
     <PackageReference Include="FontAwesome-ASP.NET" Version="1.0.5578.25903" />
@@ -21,7 +28,7 @@
 
   <ItemGroup>
     <Folder Include="wwwroot\img\banners\" />
-    <Folder Include="wwwroot\movies_img\" />
+    <Folder Include="wwwroot\img\combos\" />
   </ItemGroup>
 
 </Project>
