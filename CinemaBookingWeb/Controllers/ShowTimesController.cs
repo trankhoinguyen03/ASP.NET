@@ -155,6 +155,13 @@ namespace CinemaBookingWeb.Controllers
                 return NotFound();
             }
 
+            var movie = _context.Movies.FirstOrDefault(m => m.MovieId == showtime.MovieId);
+            if (movie != null)
+            {
+                // Tính toán EndTime bằng cách cộng Duration vào StartTime
+                showtime.EndTime = showtime.StartTime.AddMinutes(movie.Duration);
+            }
+
             // Kiểm tra thời gian bắt đầu và kết thúc
             if (showtime.EndTime <= showtime.StartTime)
             {
