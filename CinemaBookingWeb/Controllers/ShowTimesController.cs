@@ -136,7 +136,7 @@ namespace CinemaBookingWeb.Controllers
             {
                 return NotFound();
             }
-
+            showtime.Price = Math.Floor(showtime.Price);
             // Lọc phim và rạp đang hoạt động
             ViewBag.Movies = new SelectList(_context.Movies.Where(m => m.Status == 1), "MovieId", "Title", showtime.MovieId);
             ViewBag.Cinemas = new SelectList(_context.Cinemas.Where(c => c.Status == 1), "CinemaId", "Name", showtime.CinemaId);
