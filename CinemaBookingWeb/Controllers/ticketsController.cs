@@ -11,17 +11,21 @@ using NuGet.Protocol;
 using Newtonsoft.Json;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using CinemaBookingWeb.Services;
+using Microsoft.AspNetCore.Authorization;
 
 namespace CinemaBookingWeb.Controllers
 {
     public class TicketsController : Controller
     {
         private readonly ApplicationDbContext _context;
+        private readonly IVnPayService _vnPayservice;
         private const string TICKET_KEY = "MYTICKET";
 
-        public TicketsController(ApplicationDbContext context)
+        public TicketsController(ApplicationDbContext context, IVnPayService vnPayService)
         {
             _context = context;
+            _vnPayservice = vnPayService;
         }
 
         private tickets Ticket
@@ -30,11 +34,11 @@ namespace CinemaBookingWeb.Controllers
             set => HttpContext.Session.Set(TICKET_KEY, value);
         }
 
-        public IActionResult Index()
+        public IActionResult Index(string username)
         {
 
             Ticket = new tickets();
-
+            Ticket.user = username;
             //cần
             ViewBag.Cinemas = _context.Cinemas
                                        .GroupBy(c => c.City)
@@ -199,7 +203,7 @@ namespace CinemaBookingWeb.Controllers
         [HttpPost]
         public IActionResult ChoiceSeats(Dictionary<int, decimal> bookedSeats)
         {
-            
+
             decimal temptotalprice = 0;
             var updatedTicket = Ticket;
             updatedTicket.seats = new List<BookingDetails>();
@@ -295,59 +299,88 @@ namespace CinemaBookingWeb.Controllers
         public IActionResult Checkout()
         {
             tickets temp = Ticket;
+            var vnPayModel = new VnPaymentRequestModel
+            {
+                Amount = (double)temp.totalPrice,
+                CreatedDate = DateTime.Now,
+                Description = "Thanh toan don hang",
+                FullName = temp.user,
+                OrderId = new Random().Next(1000, 10000)
+            };
+
+            return Redirect(_vnPayservice.CreatePaymentUrl(HttpContext, vnPayModel));
+        }
+        [Authorize]
+        public IActionResult PaymentCallBack()
+        {
+            var response = _vnPayservice.PaymentExecute(Request.Query);
+            if (response == null || response.VnPayResponseCode != "00")
+            {
+                return View("payFailed");
+            }
+
+            tickets temp = Ticket;
 
             Bookings booking = new Bookings
             {
                 UserId = 1,
                 ShowtimeId = temp.showtime.ShowtimeId,
                 BookingDate = DateTime.Now,
-                TotalPrice = Ticket.totalPrice,
-                Status = 2
+                TotalPrice = temp.totalPrice,
+                Status = 1
             };
 
+            // Xử lý giao dịch và lưu dữ liệu
             _context.Database.BeginTransaction();
-
+            try
             {
-                _context.Database.CommitTransaction();
                 _context.Add(booking);
                 _context.SaveChanges();
 
-                var bookingdetails = new List<BookingDetails>();
-                foreach (var item in Ticket.seats)
+                var bookingdetails = temp.seats.Select(seat => new BookingDetails
                 {
-                    bookingdetails.Add(new BookingDetails
-                    {
-                        BookingId = booking.BookingId,
-                        SeatId = item.SeatId,
-                        Price = item.Price,
-                        Status = 1
-                    });
-                }
+                    BookingId = booking.BookingId,
+                    SeatId = seat.SeatId,
+                    Price = seat.Price,
+                    Status = 1
+                }).ToList();
+
                 _context.AddRange(bookingdetails);
 
-
-                var bookingcombos = new List<BookingCombos>();
-                foreach (var item in Ticket.BookingCombo)
+                var bookingcombos = temp.BookingCombo.Select(combo => new BookingCombos
                 {
-                    bookingcombos.Add(new BookingCombos
-                    {
-                        BookingId = booking.BookingId,
-                        ComboId = item.ComboId,
-                        Quantity = item.Quantity,
-                        Status = 1
-                    });
-                }
+                    BookingId = booking.BookingId,
+                    ComboId = combo.ComboId,
+                    Quantity = combo.Quantity,
+                    Status = 1
+                }).ToList();
+
                 _context.AddRange(bookingcombos);
                 _context.SaveChanges();
-
-
-
+                _context.Database.CommitTransaction();
+            }
+            catch
+            {
+                _context.Database.RollbackTransaction();
+                return View("payFailed");
             }
 
-            Ticket = new tickets();
-            return RedirectToAction("Index");
+            // Trả về trang thanh toán thành công với thông tin từ `Ticket`
+            return View("paySuccess", temp);
         }
 
+
+
+
+        //view thanh toan
+        public IActionResult paySuccess()
+        {
+            return View();
+        }
+        public IActionResult payFailed()
+        {
+            return View();
+        }
     }
 }
 

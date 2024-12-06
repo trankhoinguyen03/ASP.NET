@@ -486,8 +486,6 @@ D:\New folder\ASP.NET\CinemaBookingWeb\bin\Debug\net8.0\runtimes\win-arm\native\
 D:\New folder\ASP.NET\CinemaBookingWeb\bin\Debug\net8.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
 D:\New folder\ASP.NET\CinemaBookingWeb\bin\Debug\net8.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
 D:\New folder\ASP.NET\CinemaBookingWeb\bin\Debug\net8.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
-D:\New folder\ASP.NET\CinemaBookingWeb\bin\Debug\net8.0\runtimes\win\lib\net7.0\Microsoft.Win32.SystemEvents.dll
-D:\New folder\ASP.NET\CinemaBookingWeb\bin\Debug\net8.0\runtimes\win\lib\net7.0\System.Drawing.Common.dll
 D:\New folder\ASP.NET\CinemaBookingWeb\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Runtime.Caching.dll
 D:\New folder\ASP.NET\CinemaBookingWeb\bin\Debug\net8.0\runtimes\win\lib\net7.0\System.Security.Cryptography.ProtectedData.dll
 D:\New folder\ASP.NET\CinemaBookingWeb\bin\Debug\net8.0\runtimes\win\lib\net7.0\System.Windows.Extensions.dll
@@ -1723,3 +1721,38 @@ D:\STUDY\HK7\.NET\ASP.NET\CinemaBookingWeb\bin\Debug\net8.0\tr\Microsoft.CodeAna
 D:\STUDY\HK7\.NET\ASP.NET\CinemaBookingWeb\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
 D:\STUDY\HK7\.NET\ASP.NET\CinemaBookingWeb\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
 D:\STUDY\HK7\.NET\ASP.NET\CinemaBookingWeb\bin\Debug\net8.0\runtimes\browser\lib\net8.0\System.Text.Encodings.Web.dll
+D:\New folder\ASP.NET\CinemaBookingWeb\bin\Debug\net8.0\EPPlus.dll
+D:\New folder\ASP.NET\CinemaBookingWeb\bin\Debug\net8.0\EPPlus.Interfaces.dll
+D:\New folder\ASP.NET\CinemaBookingWeb\bin\Debug\net8.0\EPPlus.System.Drawing.dll
+D:\New folder\ASP.NET\CinemaBookingWeb\bin\Debug\net8.0\Microsoft.Build.Locator.dll
+D:\New folder\ASP.NET\CinemaBookingWeb\bin\Debug\net8.0\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.dll
+D:\New folder\ASP.NET\CinemaBookingWeb\bin\Debug\net8.0\Microsoft.CodeAnalysis.Workspaces.MSBuild.dll
+D:\New folder\ASP.NET\CinemaBookingWeb\bin\Debug\net8.0\Microsoft.Extensions.Caching.Abstractions.dll
+D:\New folder\ASP.NET\CinemaBookingWeb\bin\Debug\net8.0\Microsoft.Extensions.Configuration.Abstractions.dll
+D:\New folder\ASP.NET\CinemaBookingWeb\bin\Debug\net8.0\Microsoft.Extensions.Configuration.FileExtensions.dll
+D:\New folder\ASP.NET\CinemaBookingWeb\bin\Debug\net8.0\Microsoft.Extensions.Configuration.Json.dll
+D:\New folder\ASP.NET\CinemaBookingWeb\bin\Debug\net8.0\Microsoft.Extensions.Primitives.dll
+D:\New folder\ASP.NET\CinemaBookingWeb\bin\Debug\net8.0\Microsoft.IO.RecyclableMemoryStream.dll
+D:\New folder\ASP.NET\CinemaBookingWeb\bin\Debug\net8.0\System.ClientModel.dll
+D:\New folder\ASP.NET\CinemaBookingWeb\bin\Debug\net8.0\System.Diagnostics.DiagnosticSource.dll
+D:\New folder\ASP.NET\CinemaBookingWeb\bin\Debug\net8.0\System.Formats.Asn1.dll
+D:\New folder\ASP.NET\CinemaBookingWeb\bin\Debug\net8.0\System.IO.Pipelines.dll
+D:\New folder\ASP.NET\CinemaBookingWeb\bin\Debug\net8.0\System.Security.Cryptography.Pkcs.dll
+D:\New folder\ASP.NET\CinemaBookingWeb\bin\Debug\net8.0\System.Text.Encodings.Web.dll
+D:\New folder\ASP.NET\CinemaBookingWeb\bin\Debug\net8.0\System.Text.Json.dll
+D:\New folder\ASP.NET\CinemaBookingWeb\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+D:\New folder\ASP.NET\CinemaBookingWeb\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+D:\New folder\ASP.NET\CinemaBookingWeb\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+D:\New folder\ASP.NET\CinemaBookingWeb\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+D:\New folder\ASP.NET\CinemaBookingWeb\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+D:\New folder\ASP.NET\CinemaBookingWeb\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+D:\New folder\ASP.NET\CinemaBookingWeb\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+D:\New folder\ASP.NET\CinemaBookingWeb\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+D:\New folder\ASP.NET\CinemaBookingWeb\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+D:\New folder\ASP.NET\CinemaBookingWeb\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+D:\New folder\ASP.NET\CinemaBookingWeb\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+D:\New folder\ASP.NET\CinemaBookingWeb\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+D:\New folder\ASP.NET\CinemaBookingWeb\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+D:\New folder\ASP.NET\CinemaBookingWeb\bin\Debug\net8.0\runtimes\win\lib\net8.0\Microsoft.Win32.SystemEvents.dll
+D:\New folder\ASP.NET\CinemaBookingWeb\bin\Debug\net8.0\runtimes\win\lib\net8.0\System.Security.Cryptography.Pkcs.dll
+D:\New folder\ASP.NET\CinemaBookingWeb\bin\Debug\net8.0\runtimes\browser\lib\net8.0\System.Text.Encodings.Web.dll

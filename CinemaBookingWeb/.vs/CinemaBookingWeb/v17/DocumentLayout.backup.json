@@ -1,185 +1,22 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "F:\\.NET\\ASP.NET\\CinemaBookingWeb\\",
+  "WorkspaceRootPath": "D:\\STUDY\\HK7\\.NET\\ASP.NET\\CinemaBookingWeb\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{4E7E4A78-1983-4395-8A78-225B2E4CBE98}|CinemaBookingWeb.csproj|f:\\.net\\asp.net\\cinemabookingweb\\views\\shared\\_layoutadmin.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{4E7E4A78-1983-4395-8A78-225B2E4CBE98}|CinemaBookingWeb.csproj|solutionrelative:views\\shared\\_layoutadmin.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4E7E4A78-1983-4395-8A78-225B2E4CBE98}|CinemaBookingWeb.csproj|f:\\.net\\asp.net\\cinemabookingweb\\views\\showtimes\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{4E7E4A78-1983-4395-8A78-225B2E4CBE98}|CinemaBookingWeb.csproj|solutionrelative:views\\showtimes\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4E7E4A78-1983-4395-8A78-225B2E4CBE98}|CinemaBookingWeb.csproj|f:\\.net\\asp.net\\cinemabookingweb\\views\\combos\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{4E7E4A78-1983-4395-8A78-225B2E4CBE98}|CinemaBookingWeb.csproj|solutionrelative:views\\combos\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4E7E4A78-1983-4395-8A78-225B2E4CBE98}|CinemaBookingWeb.csproj|f:\\.net\\asp.net\\cinemabookingweb\\views\\showtimes\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{4E7E4A78-1983-4395-8A78-225B2E4CBE98}|CinemaBookingWeb.csproj|solutionrelative:views\\showtimes\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4E7E4A78-1983-4395-8A78-225B2E4CBE98}|CinemaBookingWeb.csproj|f:\\.net\\asp.net\\cinemabookingweb\\controllers\\showtimescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4E7E4A78-1983-4395-8A78-225B2E4CBE98}|CinemaBookingWeb.csproj|solutionrelative:controllers\\showtimescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4E7E4A78-1983-4395-8A78-225B2E4CBE98}|CinemaBookingWeb.csproj|f:\\.net\\asp.net\\cinemabookingweb\\wwwroot\\css\\css_admin_list.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
-      "RelativeMoniker": "D:0:0:{4E7E4A78-1983-4395-8A78-225B2E4CBE98}|CinemaBookingWeb.csproj|solutionrelative:wwwroot\\css\\css_admin_list.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4E7E4A78-1983-4395-8A78-225B2E4CBE98}|CinemaBookingWeb.csproj|f:\\.net\\asp.net\\cinemabookingweb\\views\\cinemas\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{4E7E4A78-1983-4395-8A78-225B2E4CBE98}|CinemaBookingWeb.csproj|solutionrelative:views\\cinemas\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4E7E4A78-1983-4395-8A78-225B2E4CBE98}|CinemaBookingWeb.csproj|f:\\.net\\asp.net\\cinemabookingweb\\wwwroot\\css\\css_bookingdetails.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
-      "RelativeMoniker": "D:0:0:{4E7E4A78-1983-4395-8A78-225B2E4CBE98}|CinemaBookingWeb.csproj|solutionrelative:wwwroot\\css\\css_bookingdetails.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4E7E4A78-1983-4395-8A78-225B2E4CBE98}|CinemaBookingWeb.csproj|f:\\.net\\asp.net\\cinemabookingweb\\wwwroot\\css\\css_overview.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
-      "RelativeMoniker": "D:0:0:{4E7E4A78-1983-4395-8A78-225B2E4CBE98}|CinemaBookingWeb.csproj|solutionrelative:wwwroot\\css\\css_overview.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4E7E4A78-1983-4395-8A78-225B2E4CBE98}|CinemaBookingWeb.csproj|f:\\.net\\asp.net\\cinemabookingweb\\wwwroot\\css\\css_admin_edit.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
-      "RelativeMoniker": "D:0:0:{4E7E4A78-1983-4395-8A78-225B2E4CBE98}|CinemaBookingWeb.csproj|solutionrelative:wwwroot\\css\\css_admin_edit.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4E7E4A78-1983-4395-8A78-225B2E4CBE98}|CinemaBookingWeb.csproj|f:\\.net\\asp.net\\cinemabookingweb\\views\\combos\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{4E7E4A78-1983-4395-8A78-225B2E4CBE98}|CinemaBookingWeb.csproj|solutionrelative:views\\combos\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4E7E4A78-1983-4395-8A78-225B2E4CBE98}|CinemaBookingWeb.csproj|f:\\.net\\asp.net\\cinemabookingweb\\views\\showtimes\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{4E7E4A78-1983-4395-8A78-225B2E4CBE98}|CinemaBookingWeb.csproj|solutionrelative:views\\showtimes\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4E7E4A78-1983-4395-8A78-225B2E4CBE98}|CinemaBookingWeb.csproj|f:\\.net\\asp.net\\cinemabookingweb\\views\\banner\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{4E7E4A78-1983-4395-8A78-225B2E4CBE98}|CinemaBookingWeb.csproj|solutionrelative:views\\banner\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4E7E4A78-1983-4395-8A78-225B2E4CBE98}|CinemaBookingWeb.csproj|f:\\.net\\asp.net\\cinemabookingweb\\views\\combos\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{4E7E4A78-1983-4395-8A78-225B2E4CBE98}|CinemaBookingWeb.csproj|solutionrelative:views\\combos\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4E7E4A78-1983-4395-8A78-225B2E4CBE98}|CinemaBookingWeb.csproj|f:\\.net\\asp.net\\cinemabookingweb\\views\\movies\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{4E7E4A78-1983-4395-8A78-225B2E4CBE98}|CinemaBookingWeb.csproj|solutionrelative:views\\movies\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4E7E4A78-1983-4395-8A78-225B2E4CBE98}|CinemaBookingWeb.csproj|f:\\.net\\asp.net\\cinemabookingweb\\views\\movies\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{4E7E4A78-1983-4395-8A78-225B2E4CBE98}|CinemaBookingWeb.csproj|solutionrelative:views\\movies\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4E7E4A78-1983-4395-8A78-225B2E4CBE98}|CinemaBookingWeb.csproj|f:\\.net\\asp.net\\cinemabookingweb\\views\\bookings\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{4E7E4A78-1983-4395-8A78-225B2E4CBE98}|CinemaBookingWeb.csproj|solutionrelative:views\\bookings\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4E7E4A78-1983-4395-8A78-225B2E4CBE98}|CinemaBookingWeb.csproj|f:\\.net\\asp.net\\cinemabookingweb\\controllers\\comboscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4E7E4A78-1983-4395-8A78-225B2E4CBE98}|CinemaBookingWeb.csproj|solutionrelative:controllers\\comboscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4E7E4A78-1983-4395-8A78-225B2E4CBE98}|CinemaBookingWeb.csproj|f:\\.net\\asp.net\\cinemabookingweb\\models\\combos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4E7E4A78-1983-4395-8A78-225B2E4CBE98}|CinemaBookingWeb.csproj|solutionrelative:models\\combos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4E7E4A78-1983-4395-8A78-225B2E4CBE98}|CinemaBookingWeb.csproj|f:\\.net\\asp.net\\cinemabookingweb\\views\\movies\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{4E7E4A78-1983-4395-8A78-225B2E4CBE98}|CinemaBookingWeb.csproj|solutionrelative:views\\movies\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4E7E4A78-1983-4395-8A78-225B2E4CBE98}|CinemaBookingWeb.csproj|f:\\.net\\asp.net\\cinemabookingweb\\controllers\\cinemascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4E7E4A78-1983-4395-8A78-225B2E4CBE98}|CinemaBookingWeb.csproj|solutionrelative:controllers\\cinemascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4E7E4A78-1983-4395-8A78-225B2E4CBE98}|CinemaBookingWeb.csproj|f:\\.net\\asp.net\\cinemabookingweb\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{4E7E4A78-1983-4395-8A78-225B2E4CBE98}|CinemaBookingWeb.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4E7E4A78-1983-4395-8A78-225B2E4CBE98}|CinemaBookingWeb.csproj|f:\\.net\\asp.net\\cinemabookingweb\\views\\rap\\rap_giave.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{4E7E4A78-1983-4395-8A78-225B2E4CBE98}|CinemaBookingWeb.csproj|solutionrelative:views\\rap\\rap_giave.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4E7E4A78-1983-4395-8A78-225B2E4CBE98}|CinemaBookingWeb.csproj|f:\\.net\\asp.net\\cinemabookingweb\\controllers\\moviescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4E7E4A78-1983-4395-8A78-225B2E4CBE98}|CinemaBookingWeb.csproj|solutionrelative:controllers\\moviescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4E7E4A78-1983-4395-8A78-225B2E4CBE98}|CinemaBookingWeb.csproj|f:\\.net\\asp.net\\cinemabookingweb\\views\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{4E7E4A78-1983-4395-8A78-225B2E4CBE98}|CinemaBookingWeb.csproj|solutionrelative:views\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4E7E4A78-1983-4395-8A78-225B2E4CBE98}|CinemaBookingWeb.csproj|f:\\.net\\asp.net\\cinemabookingweb\\views\\tickets\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{4E7E4A78-1983-4395-8A78-225B2E4CBE98}|CinemaBookingWeb.csproj|solutionrelative:views\\tickets\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4E7E4A78-1983-4395-8A78-225B2E4CBE98}|CinemaBookingWeb.csproj|f:\\.net\\asp.net\\cinemabookingweb\\views\\account\\forgotpassword.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{4E7E4A78-1983-4395-8A78-225B2E4CBE98}|CinemaBookingWeb.csproj|solutionrelative:views\\account\\forgotpassword.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4E7E4A78-1983-4395-8A78-225B2E4CBE98}|CinemaBookingWeb.csproj|f:\\.net\\asp.net\\cinemabookingweb\\controllers\\bannercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4E7E4A78-1983-4395-8A78-225B2E4CBE98}|CinemaBookingWeb.csproj|solutionrelative:controllers\\bannercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4E7E4A78-1983-4395-8A78-225B2E4CBE98}|CinemaBookingWeb.csproj|f:\\.net\\asp.net\\cinemabookingweb\\views\\moviesdetail\\detail.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{4E7E4A78-1983-4395-8A78-225B2E4CBE98}|CinemaBookingWeb.csproj|solutionrelative:views\\moviesdetail\\detail.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4E7E4A78-1983-4395-8A78-225B2E4CBE98}|CinemaBookingWeb.csproj|f:\\.net\\asp.net\\cinemabookingweb\\views\\account\\register.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{4E7E4A78-1983-4395-8A78-225B2E4CBE98}|CinemaBookingWeb.csproj|solutionrelative:views\\account\\register.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4E7E4A78-1983-4395-8A78-225B2E4CBE98}|CinemaBookingWeb.csproj|f:\\.net\\asp.net\\cinemabookingweb\\views\\account\\resetpassword.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{4E7E4A78-1983-4395-8A78-225B2E4CBE98}|CinemaBookingWeb.csproj|solutionrelative:views\\account\\resetpassword.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4E7E4A78-1983-4395-8A78-225B2E4CBE98}|CinemaBookingWeb.csproj|f:\\.net\\asp.net\\cinemabookingweb\\views\\shared\\_layouthome.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{4E7E4A78-1983-4395-8A78-225B2E4CBE98}|CinemaBookingWeb.csproj|solutionrelative:views\\shared\\_layouthome.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4E7E4A78-1983-4395-8A78-225B2E4CBE98}|CinemaBookingWeb.csproj|f:\\.net\\asp.net\\cinemabookingweb\\controllers\\rapcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4E7E4A78-1983-4395-8A78-225B2E4CBE98}|CinemaBookingWeb.csproj|solutionrelative:controllers\\rapcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4E7E4A78-1983-4395-8A78-225B2E4CBE98}|CinemaBookingWeb.csproj|f:\\.net\\asp.net\\cinemabookingweb\\views\\tickets\\viewchoiceseat.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{4E7E4A78-1983-4395-8A78-225B2E4CBE98}|CinemaBookingWeb.csproj|solutionrelative:views\\tickets\\viewchoiceseat.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4E7E4A78-1983-4395-8A78-225B2E4CBE98}|CinemaBookingWeb.csproj|f:\\.net\\asp.net\\cinemabookingweb\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{4E7E4A78-1983-4395-8A78-225B2E4CBE98}|CinemaBookingWeb.csproj|solutionrelative:views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4E7E4A78-1983-4395-8A78-225B2E4CBE98}|CinemaBookingWeb.csproj|f:\\.net\\asp.net\\cinemabookingweb\\views\\tickets\\choiceseats.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{4E7E4A78-1983-4395-8A78-225B2E4CBE98}|CinemaBookingWeb.csproj|solutionrelative:views\\tickets\\choiceseats.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4E7E4A78-1983-4395-8A78-225B2E4CBE98}|CinemaBookingWeb.csproj|f:\\.net\\asp.net\\cinemabookingweb\\views\\tickets\\choicecombos.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{4E7E4A78-1983-4395-8A78-225B2E4CBE98}|CinemaBookingWeb.csproj|solutionrelative:views\\tickets\\choicecombos.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4E7E4A78-1983-4395-8A78-225B2E4CBE98}|CinemaBookingWeb.csproj|f:\\.net\\asp.net\\cinemabookingweb\\views\\moviesdetail\\moviesdangchieu.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{4E7E4A78-1983-4395-8A78-225B2E4CBE98}|CinemaBookingWeb.csproj|solutionrelative:views\\moviesdetail\\moviesdangchieu.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4E7E4A78-1983-4395-8A78-225B2E4CBE98}|CinemaBookingWeb.csproj|f:\\.net\\asp.net\\cinemabookingweb\\controllers\\ticketscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{4E7E4A78-1983-4395-8A78-225B2E4CBE98}|CinemaBookingWeb.csproj|d:\\study\\hk7\\.net\\asp.net\\cinemabookingweb\\controllers\\ticketscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{4E7E4A78-1983-4395-8A78-225B2E4CBE98}|CinemaBookingWeb.csproj|solutionrelative:controllers\\ticketscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4E7E4A78-1983-4395-8A78-225B2E4CBE98}|CinemaBookingWeb.csproj|f:\\.net\\asp.net\\cinemabookingweb\\cinemabookingweb.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{4E7E4A78-1983-4395-8A78-225B2E4CBE98}|CinemaBookingWeb.csproj|solutionrelative:cinemabookingweb.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+      "AbsoluteMoniker": "D:0:0:{4E7E4A78-1983-4395-8A78-225B2E4CBE98}|CinemaBookingWeb.csproj|d:\\study\\hk7\\.net\\asp.net\\cinemabookingweb\\views\\tickets\\payfailed.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{4E7E4A78-1983-4395-8A78-225B2E4CBE98}|CinemaBookingWeb.csproj|solutionrelative:views\\tickets\\payfailed.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Program Files\\dotnet\\sdk\\8.0.403\\Sdks\\Microsoft.NET.Sdk\\targets\\Microsoft.PackageDependencyResolution.targets||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+      "AbsoluteMoniker": "D:0:0:{4E7E4A78-1983-4395-8A78-225B2E4CBE98}|CinemaBookingWeb.csproj|d:\\study\\hk7\\.net\\asp.net\\cinemabookingweb\\views\\tickets\\paysuccess.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{4E7E4A78-1983-4395-8A78-225B2E4CBE98}|CinemaBookingWeb.csproj|solutionrelative:views\\tickets\\paysuccess.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4E7E4A78-1983-4395-8A78-225B2E4CBE98}|CinemaBookingWeb.csproj|f:\\.net\\asp.net\\cinemabookingweb\\views\\cinemas\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{4E7E4A78-1983-4395-8A78-225B2E4CBE98}|CinemaBookingWeb.csproj|solutionrelative:views\\cinemas\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4E7E4A78-1983-4395-8A78-225B2E4CBE98}|CinemaBookingWeb.csproj|f:\\.net\\asp.net\\cinemabookingweb\\views\\cinemas\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{4E7E4A78-1983-4395-8A78-225B2E4CBE98}|CinemaBookingWeb.csproj|solutionrelative:views\\cinemas\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4E7E4A78-1983-4395-8A78-225B2E4CBE98}|CinemaBookingWeb.csproj|f:\\.net\\asp.net\\cinemabookingweb\\models\\movies.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4E7E4A78-1983-4395-8A78-225B2E4CBE98}|CinemaBookingWeb.csproj|solutionrelative:models\\movies.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4E7E4A78-1983-4395-8A78-225B2E4CBE98}|CinemaBookingWeb.csproj|f:\\.net\\asp.net\\cinemabookingweb\\models\\cinemas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4E7E4A78-1983-4395-8A78-225B2E4CBE98}|CinemaBookingWeb.csproj|solutionrelative:models\\cinemas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{4E7E4A78-1983-4395-8A78-225B2E4CBE98}|CinemaBookingWeb.csproj|d:\\study\\hk7\\.net\\asp.net\\cinemabookingweb\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{4E7E4A78-1983-4395-8A78-225B2E4CBE98}|CinemaBookingWeb.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     }
   ],
   "DocumentGroupContainers": [
@@ -189,7 +26,7 @@
       "DocumentGroups": [
         {
           "DockedHeight": 88,
-          "SelectedChildIndex": -1,
+          "SelectedChildIndex": 14,
           "Children": [
             {
               "$type": "Bookmark",
@@ -236,595 +73,54 @@
               "Name": "ST:130:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
             },
             {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{e506b91c-c606-466a-90a9-123d1d1e12b3}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{eefa5220-e298-11d0-8f78-00a0c9110057}"
-            }
-          ]
-        },
-        {
-          "DockedHeight": 312,
-          "SelectedChildIndex": 9,
-          "Children": [
-            {
-              "$type": "Bookmark",
-              "Name": "ST:3:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:2:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:1:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "ShowTimesController.cs",
-              "DocumentMoniker": "F:\\.NET\\ASP.NET\\CinemaBookingWeb\\Controllers\\ShowTimesController.cs",
-              "RelativeDocumentMoniker": "Controllers\\ShowTimesController.cs",
-              "ToolTip": "F:\\.NET\\ASP.NET\\CinemaBookingWeb\\Controllers\\ShowTimesController.cs",
-              "RelativeToolTip": "Controllers\\ShowTimesController.cs",
-              "ViewState": "AgIAADIAAAAAAAAAAAAgwFYAAAARAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-05T12:05:22.724Z",
-              "EditorCaption": ""
-            },
-            {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "Create.cshtml",
-              "DocumentMoniker": "F:\\.NET\\ASP.NET\\CinemaBookingWeb\\Views\\ShowTimes\\Create.cshtml",
-              "RelativeDocumentMoniker": "Views\\ShowTimes\\Create.cshtml",
-              "ToolTip": "F:\\.NET\\ASP.NET\\CinemaBookingWeb\\Views\\ShowTimes\\Create.cshtml",
-              "RelativeToolTip": "Views\\ShowTimes\\Create.cshtml",
-              "ViewState": "AgIAADYAAAAAAAAAAAAAAEMAAAAwAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-12-05T12:18:33.034Z",
-              "EditorCaption": ""
+              "Title": "appsettings.json",
+              "DocumentMoniker": "D:\\STUDY\\HK7\\.NET\\ASP.NET\\CinemaBookingWeb\\appsettings.json",
+              "RelativeDocumentMoniker": "appsettings.json",
+              "ToolTip": "D:\\STUDY\\HK7\\.NET\\ASP.NET\\CinemaBookingWeb\\appsettings.json",
+              "RelativeToolTip": "appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAwAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-12-06T04:15:21.351Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "Edit.cshtml",
-              "DocumentMoniker": "F:\\.NET\\ASP.NET\\CinemaBookingWeb\\Views\\ShowTimes\\Edit.cshtml",
-              "RelativeDocumentMoniker": "Views\\ShowTimes\\Edit.cshtml",
-              "ToolTip": "F:\\.NET\\ASP.NET\\CinemaBookingWeb\\Views\\ShowTimes\\Edit.cshtml",
-              "RelativeToolTip": "Views\\ShowTimes\\Edit.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAADgAAAASAAAAAAAAAA==",
+              "Title": "payFailed.cshtml",
+              "DocumentMoniker": "D:\\STUDY\\HK7\\.NET\\ASP.NET\\CinemaBookingWeb\\Views\\tickets\\payFailed.cshtml",
+              "RelativeDocumentMoniker": "Views\\tickets\\payFailed.cshtml",
+              "ToolTip": "D:\\STUDY\\HK7\\.NET\\ASP.NET\\CinemaBookingWeb\\Views\\tickets\\payFailed.cshtml",
+              "RelativeToolTip": "Views\\tickets\\payFailed.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAABOAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-12-05T12:18:48.09Z",
+              "WhenOpened": "2024-12-06T04:01:27.393Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "Edit.cshtml",
-              "DocumentMoniker": "F:\\.NET\\ASP.NET\\CinemaBookingWeb\\Views\\Combos\\Edit.cshtml",
-              "RelativeDocumentMoniker": "Views\\Combos\\Edit.cshtml",
-              "ToolTip": "F:\\.NET\\ASP.NET\\CinemaBookingWeb\\Views\\Combos\\Edit.cshtml",
-              "RelativeToolTip": "Views\\Combos\\Edit.cshtml",
-              "ViewState": "AgIAADAAAAAAAAAAAAAAAEMAAABIAAAAAAAAAA==",
+              "Title": "paySuccess.cshtml",
+              "DocumentMoniker": "D:\\STUDY\\HK7\\.NET\\ASP.NET\\CinemaBookingWeb\\Views\\tickets\\paySuccess.cshtml",
+              "RelativeDocumentMoniker": "Views\\tickets\\paySuccess.cshtml",
+              "ToolTip": "D:\\STUDY\\HK7\\.NET\\ASP.NET\\CinemaBookingWeb\\Views\\tickets\\paySuccess.cshtml",
+              "RelativeToolTip": "Views\\tickets\\paySuccess.cshtml",
+              "ViewState": "AgIAABMAAAAAAAAAAAAAAD8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-12-05T12:18:25.209Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "F:\\.NET\\ASP.NET\\CinemaBookingWeb\\Views\\Cinemas\\Index.cshtml",
-              "RelativeDocumentMoniker": "Views\\Cinemas\\Index.cshtml",
-              "ToolTip": "F:\\.NET\\ASP.NET\\CinemaBookingWeb\\Views\\Cinemas\\Index.cshtml",
-              "RelativeToolTip": "Views\\Cinemas\\Index.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEEAAAAZAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-12-05T12:58:03.328Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-06T04:00:51.284Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "_LayoutAdmin.cshtml",
-              "DocumentMoniker": "F:\\.NET\\ASP.NET\\CinemaBookingWeb\\Views\\Shared\\_LayoutAdmin.cshtml",
-              "RelativeDocumentMoniker": "Views\\Shared\\_LayoutAdmin.cshtml",
-              "ToolTip": "F:\\.NET\\ASP.NET\\CinemaBookingWeb\\Views\\Shared\\_LayoutAdmin.cshtml",
-              "RelativeToolTip": "Views\\Shared\\_LayoutAdmin.cshtml",
-              "ViewState": "AgIAAFEAAAAAAAAAAAAAAGEAAAAZAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-12-04T11:02:36.215Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "css_admin_list.css",
-              "DocumentMoniker": "F:\\.NET\\ASP.NET\\CinemaBookingWeb\\wwwroot\\css\\css_admin_list.css",
-              "RelativeDocumentMoniker": "wwwroot\\css\\css_admin_list.css",
-              "ToolTip": "F:\\.NET\\ASP.NET\\CinemaBookingWeb\\wwwroot\\css\\css_admin_list.css",
-              "RelativeToolTip": "wwwroot\\css\\css_admin_list.css",
-              "ViewState": "AgIAAEIAAAAAAAAAAAAAAE8AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2024-12-05T12:56:39.493Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "css_bookingdetails.css",
-              "DocumentMoniker": "F:\\.NET\\ASP.NET\\CinemaBookingWeb\\wwwroot\\css\\css_bookingdetails.css",
-              "RelativeDocumentMoniker": "wwwroot\\css\\css_bookingdetails.css",
-              "ToolTip": "F:\\.NET\\ASP.NET\\CinemaBookingWeb\\wwwroot\\css\\css_bookingdetails.css",
-              "RelativeToolTip": "wwwroot\\css\\css_bookingdetails.css",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2024-12-05T12:57:01.035Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "css_overview.css",
-              "DocumentMoniker": "F:\\.NET\\ASP.NET\\CinemaBookingWeb\\wwwroot\\css\\css_overview.css",
-              "RelativeDocumentMoniker": "wwwroot\\css\\css_overview.css",
-              "ToolTip": "F:\\.NET\\ASP.NET\\CinemaBookingWeb\\wwwroot\\css\\css_overview.css",
-              "RelativeToolTip": "wwwroot\\css\\css_overview.css",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2024-12-05T12:57:03.614Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "css_admin_edit.css",
-              "DocumentMoniker": "F:\\.NET\\ASP.NET\\CinemaBookingWeb\\wwwroot\\css\\css_admin_edit.css",
-              "RelativeDocumentMoniker": "wwwroot\\css\\css_admin_edit.css",
-              "ToolTip": "F:\\.NET\\ASP.NET\\CinemaBookingWeb\\wwwroot\\css\\css_admin_edit.css",
-              "RelativeToolTip": "wwwroot\\css\\css_admin_edit.css",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2024-12-05T12:56:55.924Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "F:\\.NET\\ASP.NET\\CinemaBookingWeb\\Views\\Banner\\Index.cshtml",
-              "RelativeDocumentMoniker": "Views\\Banner\\Index.cshtml",
-              "ToolTip": "F:\\.NET\\ASP.NET\\CinemaBookingWeb\\Views\\Banner\\Index.cshtml",
-              "RelativeToolTip": "Views\\Banner\\Index.cshtml",
-              "ViewState": "AgIAABIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-12-05T12:51:11.575Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "F:\\.NET\\ASP.NET\\CinemaBookingWeb\\Views\\Combos\\Index.cshtml",
-              "RelativeDocumentMoniker": "Views\\Combos\\Index.cshtml",
-              "ToolTip": "F:\\.NET\\ASP.NET\\CinemaBookingWeb\\Views\\Combos\\Index.cshtml",
-              "RelativeToolTip": "Views\\Combos\\Index.cshtml",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAACsAAAAVAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-12-05T12:12:39.278Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "Edit.cshtml",
-              "DocumentMoniker": "F:\\.NET\\ASP.NET\\CinemaBookingWeb\\Views\\Movies\\Edit.cshtml",
-              "RelativeDocumentMoniker": "Views\\Movies\\Edit.cshtml",
-              "ToolTip": "F:\\.NET\\ASP.NET\\CinemaBookingWeb\\Views\\Movies\\Edit.cshtml",
-              "RelativeToolTip": "Views\\Movies\\Edit.cshtml",
-              "ViewState": "AgIAAEIAAAAAAAAAAAAAAFkAAAARAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-11-25T19:23:47.038Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "Create.cshtml",
-              "DocumentMoniker": "F:\\.NET\\ASP.NET\\CinemaBookingWeb\\Views\\Combos\\Create.cshtml",
-              "RelativeDocumentMoniker": "Views\\Combos\\Create.cshtml",
-              "ToolTip": "F:\\.NET\\ASP.NET\\CinemaBookingWeb\\Views\\Combos\\Create.cshtml",
-              "RelativeToolTip": "Views\\Combos\\Create.cshtml",
-              "ViewState": "AgIAADAAAAAAAAAAAAAYwEkAAAASAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-12-05T12:18:00.461Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "F:\\.NET\\ASP.NET\\CinemaBookingWeb\\Views\\ShowTimes\\Index.cshtml",
-              "RelativeDocumentMoniker": "Views\\ShowTimes\\Index.cshtml",
-              "ToolTip": "F:\\.NET\\ASP.NET\\CinemaBookingWeb\\Views\\ShowTimes\\Index.cshtml",
-              "RelativeToolTip": "Views\\ShowTimes\\Index.cshtml",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAAABQAAAAVAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-12-05T12:06:34.122Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 15,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "F:\\.NET\\ASP.NET\\CinemaBookingWeb\\Views\\Movies\\Index.cshtml",
-              "RelativeDocumentMoniker": "Views\\Movies\\Index.cshtml",
-              "ToolTip": "F:\\.NET\\ASP.NET\\CinemaBookingWeb\\Views\\Movies\\Index.cshtml",
-              "RelativeToolTip": "Views\\Movies\\Index.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAABKAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-12-04T10:28:10.139Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 16,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "F:\\.NET\\ASP.NET\\CinemaBookingWeb\\Views\\Bookings\\Index.cshtml",
-              "RelativeDocumentMoniker": "Views\\Bookings\\Index.cshtml",
-              "ToolTip": "F:\\.NET\\ASP.NET\\CinemaBookingWeb\\Views\\Bookings\\Index.cshtml",
-              "RelativeToolTip": "Views\\Bookings\\Index.cshtml",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAABMAAAAWAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-12-05T12:44:18.831Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 17,
-              "Title": "CombosController.cs",
-              "DocumentMoniker": "F:\\.NET\\ASP.NET\\CinemaBookingWeb\\Controllers\\CombosController.cs",
-              "RelativeDocumentMoniker": "Controllers\\CombosController.cs",
-              "ToolTip": "F:\\.NET\\ASP.NET\\CinemaBookingWeb\\Controllers\\CombosController.cs",
-              "RelativeToolTip": "Controllers\\CombosController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-05T11:59:36.28Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 19,
-              "Title": "Create.cshtml",
-              "DocumentMoniker": "F:\\.NET\\ASP.NET\\CinemaBookingWeb\\Views\\Movies\\Create.cshtml",
-              "RelativeDocumentMoniker": "Views\\Movies\\Create.cshtml",
-              "ToolTip": "F:\\.NET\\ASP.NET\\CinemaBookingWeb\\Views\\Movies\\Create.cshtml",
-              "RelativeToolTip": "Views\\Movies\\Create.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAaAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-12-04T10:27:59.611Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 18,
-              "Title": "Combos.cs",
-              "DocumentMoniker": "F:\\.NET\\ASP.NET\\CinemaBookingWeb\\Models\\Combos.cs",
-              "RelativeDocumentMoniker": "Models\\Combos.cs",
-              "ToolTip": "F:\\.NET\\ASP.NET\\CinemaBookingWeb\\Models\\Combos.cs",
-              "RelativeToolTip": "Models\\Combos.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-05T12:35:54.017Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 27,
-              "Title": "BannerController.cs",
-              "DocumentMoniker": "F:\\.NET\\ASP.NET\\CinemaBookingWeb\\Controllers\\BannerController.cs",
-              "RelativeDocumentMoniker": "Controllers\\BannerController.cs",
-              "ToolTip": "F:\\.NET\\ASP.NET\\CinemaBookingWeb\\Controllers\\BannerController.cs",
-              "RelativeToolTip": "Controllers\\BannerController.cs",
-              "ViewState": "AgIAADQAAAAAAAAAAAAAADQAAAAkAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-04T10:57:49.189Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 23,
-              "Title": "MoviesController.cs",
-              "DocumentMoniker": "F:\\.NET\\ASP.NET\\CinemaBookingWeb\\Controllers\\MoviesController.cs",
-              "RelativeDocumentMoniker": "Controllers\\MoviesController.cs",
-              "ToolTip": "F:\\.NET\\ASP.NET\\CinemaBookingWeb\\Controllers\\MoviesController.cs",
-              "RelativeToolTip": "Controllers\\MoviesController.cs",
-              "ViewState": "AgIAAC4AAAAAAAAAAAAowEwAAABDAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-25T19:23:58.887Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 21,
-              "Title": "appsettings.json",
-              "DocumentMoniker": "F:\\.NET\\ASP.NET\\CinemaBookingWeb\\appsettings.json",
-              "RelativeDocumentMoniker": "appsettings.json",
-              "ToolTip": "F:\\.NET\\ASP.NET\\CinemaBookingWeb\\appsettings.json",
-              "RelativeToolTip": "appsettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAnAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2024-12-04T10:44:46.136Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 20,
-              "Title": "CinemasController.cs",
-              "DocumentMoniker": "F:\\.NET\\ASP.NET\\CinemaBookingWeb\\Controllers\\CinemasController.cs",
-              "RelativeDocumentMoniker": "Controllers\\CinemasController.cs",
-              "ToolTip": "F:\\.NET\\ASP.NET\\CinemaBookingWeb\\Controllers\\CinemasController.cs",
-              "RelativeToolTip": "Controllers\\CinemasController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAEAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-25T09:55:00.499Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 22,
-              "Title": "Rap_Giave.cshtml",
-              "DocumentMoniker": "F:\\.NET\\ASP.NET\\CinemaBookingWeb\\Views\\Rap\\Rap_Giave.cshtml",
-              "RelativeDocumentMoniker": "Views\\Rap\\Rap_Giave.cshtml",
-              "ToolTip": "F:\\.NET\\ASP.NET\\CinemaBookingWeb\\Views\\Rap\\Rap_Giave.cshtml",
-              "RelativeToolTip": "Views\\Rap\\Rap_Giave.cshtml",
-              "ViewState": "AgIAAHUAAAAAAAAAAAAswIIAAAAsAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-12-04T11:00:47.127Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 24,
-              "Title": "Login.cshtml",
-              "DocumentMoniker": "F:\\.NET\\ASP.NET\\CinemaBookingWeb\\Views\\Account\\Login.cshtml",
-              "RelativeDocumentMoniker": "Views\\Account\\Login.cshtml",
-              "ToolTip": "F:\\.NET\\ASP.NET\\CinemaBookingWeb\\Views\\Account\\Login.cshtml",
-              "RelativeToolTip": "Views\\Account\\Login.cshtml",
-              "ViewState": "AgIAAAUAAAAAAAAAAAAAABAAAAAbAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-12-04T11:00:37.67Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 25,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "F:\\.NET\\ASP.NET\\CinemaBookingWeb\\Views\\tickets\\Index.cshtml",
-              "RelativeDocumentMoniker": "Views\\tickets\\Index.cshtml",
-              "ToolTip": "F:\\.NET\\ASP.NET\\CinemaBookingWeb\\Views\\tickets\\Index.cshtml",
-              "RelativeToolTip": "Views\\tickets\\Index.cshtml",
-              "ViewState": "AgIAALIAAAAAAAAAAAAAAMIAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-12-04T10:59:10.698Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 26,
-              "Title": "ForgotPassword.cshtml",
-              "DocumentMoniker": "F:\\.NET\\ASP.NET\\CinemaBookingWeb\\Views\\Account\\ForgotPassword.cshtml",
-              "RelativeDocumentMoniker": "Views\\Account\\ForgotPassword.cshtml",
-              "ToolTip": "F:\\.NET\\ASP.NET\\CinemaBookingWeb\\Views\\Account\\ForgotPassword.cshtml",
-              "RelativeToolTip": "Views\\Account\\ForgotPassword.cshtml",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAAAA4AAAAbAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-12-04T10:58:31.733Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 28,
-              "Title": "Detail.cshtml",
-              "DocumentMoniker": "F:\\.NET\\ASP.NET\\CinemaBookingWeb\\Views\\MoviesDetail\\Detail.cshtml",
-              "RelativeDocumentMoniker": "Views\\MoviesDetail\\Detail.cshtml",
-              "ToolTip": "F:\\.NET\\ASP.NET\\CinemaBookingWeb\\Views\\MoviesDetail\\Detail.cshtml",
-              "RelativeToolTip": "Views\\MoviesDetail\\Detail.cshtml",
-              "ViewState": "AgIAADEAAAAAAAAAAAAAADEAAABbAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-12-04T10:44:18.15Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 29,
-              "Title": "Register.cshtml",
-              "DocumentMoniker": "F:\\.NET\\ASP.NET\\CinemaBookingWeb\\Views\\Account\\Register.cshtml",
-              "RelativeDocumentMoniker": "Views\\Account\\Register.cshtml",
-              "ToolTip": "F:\\.NET\\ASP.NET\\CinemaBookingWeb\\Views\\Account\\Register.cshtml",
-              "RelativeToolTip": "Views\\Account\\Register.cshtml",
-              "ViewState": "AgIAAA0AAAAAAAAAAAAAABEAAAAbAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-12-04T11:02:13.135Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 30,
-              "Title": "ResetPassword.cshtml",
-              "DocumentMoniker": "F:\\.NET\\ASP.NET\\CinemaBookingWeb\\Views\\Account\\ResetPassword.cshtml",
-              "RelativeDocumentMoniker": "Views\\Account\\ResetPassword.cshtml",
-              "ToolTip": "F:\\.NET\\ASP.NET\\CinemaBookingWeb\\Views\\Account\\ResetPassword.cshtml",
-              "RelativeToolTip": "Views\\Account\\ResetPassword.cshtml",
-              "ViewState": "AgIAAAsAAAAAAAAAAAAAABAAAAAbAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-12-04T11:02:17.725Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 31,
-              "Title": "_LayoutHome.cshtml",
-              "DocumentMoniker": "F:\\.NET\\ASP.NET\\CinemaBookingWeb\\Views\\Shared\\_LayoutHome.cshtml",
-              "RelativeDocumentMoniker": "Views\\Shared\\_LayoutHome.cshtml",
-              "ToolTip": "F:\\.NET\\ASP.NET\\CinemaBookingWeb\\Views\\Shared\\_LayoutHome.cshtml",
-              "RelativeToolTip": "Views\\Shared\\_LayoutHome.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAjAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-12-04T11:02:41.322Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 32,
-              "Title": "RapController.cs",
-              "DocumentMoniker": "F:\\.NET\\ASP.NET\\CinemaBookingWeb\\Controllers\\RapController.cs",
-              "RelativeDocumentMoniker": "Controllers\\RapController.cs",
-              "ToolTip": "F:\\.NET\\ASP.NET\\CinemaBookingWeb\\Controllers\\RapController.cs",
-              "RelativeToolTip": "Controllers\\RapController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-04T11:59:45.957Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 33,
-              "Title": "ViewChoiceSeat.cshtml",
-              "DocumentMoniker": "F:\\.NET\\ASP.NET\\CinemaBookingWeb\\Views\\tickets\\ViewChoiceSeat.cshtml",
-              "RelativeDocumentMoniker": "Views\\tickets\\ViewChoiceSeat.cshtml",
-              "ToolTip": "F:\\.NET\\ASP.NET\\CinemaBookingWeb\\Views\\tickets\\ViewChoiceSeat.cshtml",
-              "RelativeToolTip": "Views\\tickets\\ViewChoiceSeat.cshtml",
-              "ViewState": "AgIAAKIAAAAAAAAAAIBJwKkAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-12-04T11:02:22.252Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 34,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "F:\\.NET\\ASP.NET\\CinemaBookingWeb\\Views\\Home\\Index.cshtml",
-              "RelativeDocumentMoniker": "Views\\Home\\Index.cshtml",
-              "ToolTip": "F:\\.NET\\ASP.NET\\CinemaBookingWeb\\Views\\Home\\Index.cshtml",
-              "RelativeToolTip": "Views\\Home\\Index.cshtml",
-              "ViewState": "AgIAAB4AAAAAAAAAAIBJwDYAAAA1AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-12-04T10:58:38.712Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 35,
-              "Title": "ChoiceSeats.cshtml",
-              "DocumentMoniker": "F:\\.NET\\ASP.NET\\CinemaBookingWeb\\Views\\tickets\\ChoiceSeats.cshtml",
-              "RelativeDocumentMoniker": "Views\\tickets\\ChoiceSeats.cshtml",
-              "ToolTip": "F:\\.NET\\ASP.NET\\CinemaBookingWeb\\Views\\tickets\\ChoiceSeats.cshtml",
-              "RelativeToolTip": "Views\\tickets\\ChoiceSeats.cshtml",
-              "ViewState": "AgIAAI4AAAAAAAAAAIBJwJwAAABqAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-12-04T10:58:22.386Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 36,
-              "Title": "ChoiceCombos.cshtml",
-              "DocumentMoniker": "F:\\.NET\\ASP.NET\\CinemaBookingWeb\\Views\\tickets\\ChoiceCombos.cshtml",
-              "RelativeDocumentMoniker": "Views\\tickets\\ChoiceCombos.cshtml",
-              "ToolTip": "F:\\.NET\\ASP.NET\\CinemaBookingWeb\\Views\\tickets\\ChoiceCombos.cshtml",
-              "RelativeToolTip": "Views\\tickets\\ChoiceCombos.cshtml",
-              "ViewState": "AgIAAIIAAAAAAAAAAIBJwJAAAABUAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-12-04T10:57:56.763Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 38,
               "Title": "ticketsController.cs",
-              "DocumentMoniker": "F:\\.NET\\ASP.NET\\CinemaBookingWeb\\Controllers\\ticketsController.cs",
+              "DocumentMoniker": "D:\\STUDY\\HK7\\.NET\\ASP.NET\\CinemaBookingWeb\\Controllers\\ticketsController.cs",
               "RelativeDocumentMoniker": "Controllers\\ticketsController.cs",
-              "ToolTip": "F:\\.NET\\ASP.NET\\CinemaBookingWeb\\Controllers\\ticketsController.cs",
+              "ToolTip": "D:\\STUDY\\HK7\\.NET\\ASP.NET\\CinemaBookingWeb\\Controllers\\ticketsController.cs",
               "RelativeToolTip": "Controllers\\ticketsController.cs",
-              "ViewState": "AgIAAKYAAAAAAAAAAAAwwLMAAAA0AAAAAAAAAA==",
+              "ViewState": "AgIAADMBAAAAAAAAAAAgwEkBAAAaAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-04T10:55:52.608Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 37,
-              "Title": "MoviesDangChieu.cshtml",
-              "DocumentMoniker": "F:\\.NET\\ASP.NET\\CinemaBookingWeb\\Views\\MoviesDetail\\MoviesDangChieu.cshtml",
-              "RelativeDocumentMoniker": "Views\\MoviesDetail\\MoviesDangChieu.cshtml",
-              "ToolTip": "F:\\.NET\\ASP.NET\\CinemaBookingWeb\\Views\\MoviesDetail\\MoviesDangChieu.cshtml",
-              "RelativeToolTip": "Views\\MoviesDetail\\MoviesDangChieu.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAABbAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-12-04T10:43:12.947Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 39,
-              "Title": "CinemaBookingWeb.csproj",
-              "DocumentMoniker": "F:\\.NET\\ASP.NET\\CinemaBookingWeb\\CinemaBookingWeb.csproj",
-              "RelativeDocumentMoniker": "CinemaBookingWeb.csproj",
-              "ToolTip": "F:\\.NET\\ASP.NET\\CinemaBookingWeb\\CinemaBookingWeb.csproj",
-              "RelativeToolTip": "CinemaBookingWeb.csproj",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2024-12-04T10:41:43.23Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 40,
-              "Title": "Microsoft.PackageDependencyResolution.targets",
-              "DocumentMoniker": "C:\\Program Files\\dotnet\\sdk\\8.0.403\\Sdks\\Microsoft.NET.Sdk\\targets\\Microsoft.PackageDependencyResolution.targets",
-              "ToolTip": "C:\\Program Files\\dotnet\\sdk\\8.0.403\\Sdks\\Microsoft.NET.Sdk\\targets\\Microsoft.PackageDependencyResolution.targets",
-              "ViewState": "AgIAAMcAAAAAAAAAAAAuwNUAAAAoAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003801|",
-              "WhenOpened": "2024-12-04T10:39:56.393Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 41,
-              "Title": "Create.cshtml",
-              "DocumentMoniker": "F:\\.NET\\ASP.NET\\CinemaBookingWeb\\Views\\Cinemas\\Create.cshtml",
-              "RelativeDocumentMoniker": "Views\\Cinemas\\Create.cshtml",
-              "ToolTip": "F:\\.NET\\ASP.NET\\CinemaBookingWeb\\Views\\Cinemas\\Create.cshtml",
-              "RelativeToolTip": "Views\\Cinemas\\Create.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-12-04T10:27:57.087Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 42,
-              "Title": "Edit.cshtml",
-              "DocumentMoniker": "F:\\.NET\\ASP.NET\\CinemaBookingWeb\\Views\\Cinemas\\Edit.cshtml",
-              "RelativeDocumentMoniker": "Views\\Cinemas\\Edit.cshtml",
-              "ToolTip": "F:\\.NET\\ASP.NET\\CinemaBookingWeb\\Views\\Cinemas\\Edit.cshtml",
-              "RelativeToolTip": "Views\\Cinemas\\Edit.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-12-04T10:27:47.352Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 43,
-              "Title": "Movies.cs",
-              "DocumentMoniker": "F:\\.NET\\ASP.NET\\CinemaBookingWeb\\Models\\Movies.cs",
-              "RelativeDocumentMoniker": "Models\\Movies.cs",
-              "ToolTip": "F:\\.NET\\ASP.NET\\CinemaBookingWeb\\Models\\Movies.cs",
-              "RelativeToolTip": "Models\\Movies.cs",
-              "ViewState": "AgIAAAgAAAAAAAAAAAAAwBAAAABLAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-25T09:55:38.415Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 44,
-              "Title": "Cinemas.cs",
-              "DocumentMoniker": "F:\\.NET\\ASP.NET\\CinemaBookingWeb\\Models\\Cinemas.cs",
-              "RelativeDocumentMoniker": "Models\\Cinemas.cs",
-              "ToolTip": "F:\\.NET\\ASP.NET\\CinemaBookingWeb\\Models\\Cinemas.cs",
-              "RelativeToolTip": "Models\\Cinemas.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAoAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-25T09:55:04.344Z"
+              "WhenOpened": "2024-12-06T03:57:15.233Z",
+              "EditorCaption": ""
             }
           ]
         }

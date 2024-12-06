@@ -64,6 +64,8 @@
     }
 </style>
 <body>
+
+
     <div style="display:flex; justify-content:center;">
         <ul class="ticket_nav-tabs" class="text-center ">
             <li class="ticket_active-tab" id="choose-movie">Chọn phim / Rạp / Suất</li>
@@ -167,17 +169,17 @@
                             $('#movieDropdown').prop('disabled', false);
                             $.each(data, function (index, movie) {
                                 $('#movieDropdown').append(`
-                                                               <li class="col-4 p-6">
-                                                                                <a  href="#" class="movieLink" data-movie-id="${movie.movieId}">
-                                                                    <div class="movie-item text-center p-4 border rounded shadow" style="height: 390px;">
-                                                                                <img src='https://localhost:5001/${movie.imageUrl}' alt="${movie.title}" class="w-full h-auto mb-2">
-                                                                        <h3 class="movie-item-title text-lg font-semibold">${movie.title}</h3>
-                                                                        <p>Thể loại: ${movie.genre}</p>
-                                                                    </div>
-                                                                </a>
-                                                            </li>
+                                                                       <li class="col-4 p-6">
+                                                                                        <a  href="#" class="movieLink" data-movie-id="${movie.movieId}">
+                                                                            <div class="movie-item text-center p-4 border rounded shadow" style="height: 390px;">
+                                                                                        <img src='https://localhost:5001/${movie.imageUrl}' alt="${movie.title}" class="w-full h-auto mb-2">
+                                                                                <h3 class="movie-item-title text-lg font-semibold">${movie.title}</h3>
+                                                                                <p>Thể loại: ${movie.genre}</p>
+                                                                            </div>
+                                                                        </a>
+                                                                    </li>
 
-                                                        `);
+                                                                `);
                                 $('.movieLink').off('click').on('click', function (e) {
                                     $('#dateDropdown').show();
                                     e.preventDefault(); // Ngăn chặn hành vi mặc định của thẻ <a>
@@ -191,11 +193,11 @@
                                             document.getElementById("myImage1").src = "https://localhost:5001/img/" + cinema.imageUrl;
                                             let showtimeHTML = `
 
-                                                            <tr>
+                                                                    <tr>
 
-                                                                <th>${cinema.cinemaName} (${cinema.location})</th>
-                                                            </tr>
-                                                            <tr>`;
+                                                                        <th>${cinema.cinemaName} (${cinema.location})</th>
+                                                                    </tr>
+                                                                    <tr>`;
 
                                             $.each(cinema.showtimes, function (index, showtime) {
                                                 showtimeHTML += `<td><a id="choiceShowtime${showtime.showTimeId}" onclick="choiceShowtime(${showtime.showtimeId})" class="btn btn-outline-primary" >${showtime.startTime} - ${showtime.endTime}</a></td>`;
@@ -229,10 +231,10 @@
 
                                 let showtimeHTML = `
 
-                                                                    <tr>
-                                                                        <th>${cinema.cinemaName} (${cinema.location})</th>
-                                                                    </tr>
-                                                                    <tr>`;
+                                                                            <tr>
+                                                                                <th>${cinema.cinemaName} (${cinema.location})</th>
+                                                                            </tr>
+                                                                            <tr>`;
 
                                 $.each(cinema.showtimes, function (index, showtime) {
                                     showtimeHTML += `<td><a  id="choiceShowtime${showtime.showTimeId}" onclick="choiceShowtime(${showtime.showtimeId})" class="btn btn-outline-primary" >${showtime.startTime} - ${showtime.endTime}</a></td>`;
@@ -260,9 +262,9 @@
 
                 let myCinema1HTML;
                 myCinema1HTML = `
-                                                  <p>${cinema.name} (${cinema.location}) -${showtime.hall}</p>
-                                                          <p>Thời gian: ${formattedTime} - ${formattedDate}</p>
-                                                            `;
+                                                          <p>${cinema.name} (${cinema.location}) -${showtime.hall}</p>
+                                                                  <p>Thời gian: ${formattedTime} - ${formattedDate}</p>
+                                                                    `;
 
                 $('#myCinema1').append(myCinema1HTML);
             });

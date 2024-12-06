@@ -86,6 +86,15 @@
     }
 </style>
 <body>
+    <div style="display:flex; justify-content:center;">
+        <ul class="ticket_nav-tabs" class="text-center ">
+            <li id="choose-movie">Chọn phim / Rạp / Suất</li>
+            <li id="choose-seat">Chọn ghế</li>
+            <li class="ticket_active-tab" id="choose-combo">Chọn thức ăn</li>
+            <li id="choose-pay">Thanh toán</li>
+        </ul>
+
+    </div>
     @if (ViewBag.Nhan != null)
     {
         <h1>@ViewBag.Nhan;</h1>
@@ -273,12 +282,12 @@
         if (quantity > 0) {
             if (viewComboDiv) {
                 viewComboDiv.innerHTML = `<p>${quantity} x ${textnamecombo}</p>
-                                                  <p class="ticket_price">${totalcombo.value} VNĐ</p>`;
+                                                      <p class="ticket_price">${totalcombo.value} VNĐ</p>`;
             } else {
                 let viewComboHTML = `<div id="viewCombo${ComboId}" class="d-flex justify-content-between">
-                                                    <p>${quantity} x ${textnamecombo}</p>
-                                                    <p class="ticket_price">${totalcombo.value} VNĐ</p>
-                                             </div>`;
+                                                        <p>${quantity} x ${textnamecombo}</p>
+                                                        <p class="ticket_price">${totalcombo.value} VNĐ</p>
+                                                 </div>`;
                 document.getElementById("ViewCombo").insertAdjacentHTML("beforeend", viewComboHTML);
             }
         } else if (viewComboDiv) {

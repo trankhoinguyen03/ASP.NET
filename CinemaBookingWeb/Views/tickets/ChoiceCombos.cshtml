@@ -126,7 +126,15 @@
     }
 </style>
 <body>
+    <div style="display:flex; justify-content:center;">
+        <ul class="ticket_nav-tabs" class="text-center ">
+            <li id="choose-movie">Chọn phim / Rạp / Suất</li>
+            <li id="choose-seat">Chọn ghế</li>
+            <li id="choose-combo">Chọn thức ăn</li>
+            <li class="ticket_active-tab" id="choose-pay">Thanh toán</li>
+        </ul>
 
+    </div>
     @if (Model != null)
     {
         <!--choice pay-->
@@ -183,7 +191,7 @@
                                             var price = choiceCombo.Quantity * combo.Price;
                                             var formattedPrice = price.ToString("N0", System.Globalization.CultureInfo.GetCultureInfo("vi-VN"));
                                         }
-                                        <p class="ticket_price">@formattedPrice</p>
+                                        <p class="ticket_price">@formattedPrice VNĐ</p>
                                     </div>
                                     break;
                                 }
