@@ -103,6 +103,7 @@
     }
 </style>
 <body>
+
     <div style="display:flex; justify-content:center;">
         <ul class="ticket_nav-tabs" class="text-center ">
             <li id="choose-movie">Chọn phim / Rạp / Suất</li>
@@ -233,10 +234,10 @@
             if (seatType == "Standard") {
                 hiddenInput.value = price;
                 choiceseatHTML = `<div id="choiceSeat${element.innerText}" class="d-flex justify-content-between">
-                                                     <p>Số ghế:${element.innerText} (Loại ghế:${seatType})</p>
-                                                     <p class="ticket_price">${price} VNĐ</p>
-                                                    </div>
-                                                    `;
+                                                         <p>Số ghế:${element.innerText} (Loại ghế:${seatType})</p>
+                                                         <p class="ticket_price">${price} VNĐ</p>
+                                                        </div>
+                                                        `;
                 document.getElementById("viewSeat").insertAdjacentHTML("beforeend", choiceseatHTML);
                 document.getElementById("totalPrice").value = totalPrice + price;
 
@@ -244,10 +245,10 @@
                 const temp = price * 1.5;
                 hiddenInput.value = temp;
                 choiceseatHTML = `<div id="choiceSeat${element.innerText}" class="d-flex justify-content-between">
-                                               <p>Số ghế:${element.innerText} (Loại ghế:${seatType})</p>
-                                               <p class="ticket_price">${temp} VNĐ</p>
-                                               </div>
-                                               `;
+                                                   <p>Số ghế:${element.innerText} (Loại ghế:${seatType})</p>
+                                                   <p class="ticket_price">${temp} VNĐ</p>
+                                                   </div>
+                                                   `;
                 document.getElementById("viewSeat").insertAdjacentHTML("beforeend", choiceseatHTML);
                 document.getElementById("totalPrice").value = totalPrice + temp;
             }

@@ -37,8 +37,13 @@ namespace CinemaBookingWeb.Controllers
         public IActionResult Index(string username)
         {
 
+
             Ticket = new tickets();
-            Ticket.user = username;
+            tickets temp = new tickets();
+            temp.user = username;
+            Ticket = temp;
+
+
             //cần
             ViewBag.Cinemas = _context.Cinemas
                                        .GroupBy(c => c.City)
@@ -95,6 +100,7 @@ namespace CinemaBookingWeb.Controllers
             var updatedTicket = Ticket;
             updatedTicket.cinema = tempcinema;
             Ticket = updatedTicket;
+            Console.WriteLine(Ticket.user);
             return (Json(moviesInCity));
         }
 
@@ -145,6 +151,7 @@ namespace CinemaBookingWeb.Controllers
             Ticket.movie = null;
             updatedTicket.movie = movie;
             Ticket = updatedTicket;
+            Console.WriteLine(Ticket.user);
             return Json(showtimes);
         }
         [HttpGet]
@@ -162,8 +169,7 @@ namespace CinemaBookingWeb.Controllers
             updatedTicket.movie = tempmovie;
             updatedTicket.cinema = tempcinema;
             Ticket = updatedTicket;
-
-
+            Console.WriteLine(Ticket.user);
             return Json(updatedTicket);
         }
 
@@ -195,7 +201,8 @@ namespace CinemaBookingWeb.Controllers
                                                                                             {"price",Ticket.showtime.Price.ToString() },
                                                                                         };
 
-
+            Console.WriteLine(Ticket.user);
+            ViewBag.usernhan = Ticket.user;
             ViewBag.ViewTicket = viewTicket;
             return View();
         }
@@ -229,7 +236,7 @@ namespace CinemaBookingWeb.Controllers
             {
                 ViewBag.Combo = _context.Combos.ToList();
             }
-
+            Console.WriteLine(Ticket.user);
             return View(updatedTicket);
 
         }
@@ -268,7 +275,7 @@ namespace CinemaBookingWeb.Controllers
             {
                 ViewBag.Combo = _context.Combos.ToList();
             }
-
+            Console.WriteLine(Ticket.user);
             return View(updatedTicket1);
         }
 
@@ -318,12 +325,21 @@ namespace CinemaBookingWeb.Controllers
             {
                 return View("payFailed");
             }
+            if (ViewBag.Seats == null)
+            {
+                ViewBag.Seats = _context.Seats.ToList();
+            }
+            if (ViewBag.Combo == null)
+            {
+                ViewBag.Combo = _context.Combos.ToList();
+            }
 
             tickets temp = Ticket;
-
+            var useid = _context.Users.FirstOrDefault(u => u.UserName == temp.user);
+            temp.phone = useid.Phone;
             Bookings booking = new Bookings
             {
-                UserId = 1,
+                UserId = useid.UserId,
                 ShowtimeId = temp.showtime.ShowtimeId,
                 BookingDate = DateTime.Now,
                 TotalPrice = temp.totalPrice,
@@ -336,7 +352,7 @@ namespace CinemaBookingWeb.Controllers
             {
                 _context.Add(booking);
                 _context.SaveChanges();
-
+                temp.maHD = booking.BookingId;
                 var bookingdetails = temp.seats.Select(seat => new BookingDetails
                 {
                     BookingId = booking.BookingId,
