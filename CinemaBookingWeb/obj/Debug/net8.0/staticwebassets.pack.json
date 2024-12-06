@@ -97,6 +97,14 @@
       "PackagePath": "staticwebassets\\img\\logo.png"
     },
     {
+      "Id": "C:\\Users\\Admin\\OneDrive\\Documents\\GitHub\\ASP.NET\\CinemaBookingWeb\\wwwroot\\img\\movies_img\\123.jpg",
+      "PackagePath": "staticwebassets\\img\\movies_img\\123.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Admin\\OneDrive\\Documents\\GitHub\\ASP.NET\\CinemaBookingWeb\\wwwroot\\img\\movies_img\\350x495_6_.jpg",
+      "PackagePath": "staticwebassets\\img\\movies_img\\350x495_6_.jpg"
+    },
+    {
       "Id": "C:\\Users\\Admin\\OneDrive\\Documents\\GitHub\\ASP.NET\\CinemaBookingWeb\\wwwroot\\img\\movies_img\\venom_thumnail.jpg",
       "PackagePath": "staticwebassets\\img\\movies_img\\venom_thumnail.jpg"
     },
