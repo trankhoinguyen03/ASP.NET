@@ -313,12 +313,12 @@ namespace CinemaBookingWeb.Controllers
         [Authorize]
         public IActionResult PaymentCallBack()
         {
-
             var response = _vnPayservice.PaymentExecute(Request.Query);
             if (response == null || response.VnPayResponseCode != "00")
             {
                 return View("payFailed");
             }
+
             tickets temp = Ticket;
 
             Bookings booking = new Bookings
@@ -326,50 +326,52 @@ namespace CinemaBookingWeb.Controllers
                 UserId = 1,
                 ShowtimeId = temp.showtime.ShowtimeId,
                 BookingDate = DateTime.Now,
-                TotalPrice = Ticket.totalPrice,
+                TotalPrice = temp.totalPrice,
                 Status = 2
             };
 
+            // Xử lý giao dịch và lưu dữ liệu
             _context.Database.BeginTransaction();
-
+            try
             {
-                _context.Database.CommitTransaction();
                 _context.Add(booking);
                 _context.SaveChanges();
 
-                var bookingdetails = new List<BookingDetails>();
-                foreach (var item in Ticket.seats)
+                var bookingdetails = temp.seats.Select(seat => new BookingDetails
                 {
-                    bookingdetails.Add(new BookingDetails
-                    {
-                        BookingId = booking.BookingId,
-                        SeatId = item.SeatId,
-                        Price = item.Price,
-                        Status = 1
-                    });
-                }
+                    BookingId = booking.BookingId,
+                    SeatId = seat.SeatId,
+                    Price = seat.Price,
+                    Status = 1
+                }).ToList();
+
                 _context.AddRange(bookingdetails);
 
-
-                var bookingcombos = new List<BookingCombos>();
-                foreach (var item in Ticket.BookingCombo)
+                var bookingcombos = temp.BookingCombo.Select(combo => new BookingCombos
                 {
-                    bookingcombos.Add(new BookingCombos
-                    {
-                        BookingId = booking.BookingId,
-                        ComboId = item.ComboId,
-                        Quantity = item.Quantity,
-                        Status = 1
-                    });
-                }
+                    BookingId = booking.BookingId,
+                    ComboId = combo.ComboId,
+                    Quantity = combo.Quantity,
+                    Status = 1
+                }).ToList();
+
                 _context.AddRange(bookingcombos);
                 _context.SaveChanges();
-
-
-
+                _context.Database.CommitTransaction();
             }
-            return View("paySuccess");
+            catch
+            {
+                _context.Database.RollbackTransaction();
+                return View("payFailed");
+            }
+
+            // Trả về trang thanh toán thành công với thông tin từ `Ticket`
+            return View("paySuccess", temp);
         }
+
+
+
+
         //view thanh toan
         public IActionResult paySuccess()
         {
