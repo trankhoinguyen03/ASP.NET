@@ -89,20 +89,18 @@
                 if (startTime && movieId) {
                    
                     $.ajax({
-                        url: '@Url.Action("GetMovieDuration", "Movies")', // URL gọi API
+                        url: '@Url.Action("GetMovieDuration", "Movies")', 
                         type: 'GET',
                         data: { movieId: movieId },
                         success: function (data) {
                             if (data) {
-                                // Chuyển StartTime thành đối tượng Date
+
                                 var startDateTime = new Date(startTime);
                                 var durationMinutes = data.Duration;
 
-                                // Tính toán EndTime bằng cách cộng Duration vào StartTime
                                 startDateTime.setMinutes(startDateTime.getMinutes() + durationMinutes);
 
-                                // Chuyển EndTime thành định dạng datetime-local và hiển thị vào input
-                                var endTime = startDateTime.toISOString().slice(0, 16); // Định dạng ISO, cắt bỏ phần giây và múi giờ
+                                var endTime = startDateTime.toISOString().slice(0, 16); 
                                 $('#endTime').val(endTime);
                             }
                         }

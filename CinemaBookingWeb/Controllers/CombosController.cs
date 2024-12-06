@@ -144,6 +144,7 @@ namespace CinemaBookingWeb.Controllers
             {
                 return NotFound();
             }
+            combo.Price = Math.Floor(combo.Price);
             return View(combo);
         }
 
@@ -159,7 +160,7 @@ namespace CinemaBookingWeb.Controllers
 
             if (ModelState.IsValid)
             {
-                // Nếu có ảnh mới, xử lý ảnh mới, nếu không giữ lại tên ảnh cũ
+                
                 if (ImageFile != null && ImageFile.Length > 0)
                 {
                     var fileName = Path.GetFileName(ImageFile.FileName);
@@ -169,7 +170,7 @@ namespace CinemaBookingWeb.Controllers
                     {
                         ImageFile.CopyTo(stream);
                     }
-
+                    
                     combo.ImageUrl = "/img/combos/" + fileName;
                 }
 
