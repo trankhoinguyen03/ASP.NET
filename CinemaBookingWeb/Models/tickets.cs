@@ -14,7 +14,9 @@ namespace CinemaBookingWeb.Models
         public List<BookingCombos> BookingCombo { get; set; }
         public decimal totalPrice { get; set; }
         public decimal priceCombo { get; set; }
-        public string user {  get; set; }
+        public string user { get; set; }
+        public string phone { get; set; }
+        public int maHD { get; set; }
         public tickets() { }
 
 

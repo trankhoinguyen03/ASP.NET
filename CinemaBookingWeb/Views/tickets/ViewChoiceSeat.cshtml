@@ -13,7 +13,6 @@
         justify-content: center;
         padding: 20px;
         width: 100%;
-        padding-bottom: 200px !important;
     }
 
         .ticket_active > .ticket_left {
@@ -31,7 +30,6 @@
         list-style: none;
         padding: 0;
         margin: 0;
-        font-size: 1.4rem;
     }
 
         .ticket_nav-tabs li {
@@ -40,11 +38,9 @@
         }
 
     .ticket_active-tab {
-        border-bottom: 2px solid #0045a0;
+        border-bottom: 2px solid blue;
         font-weight: bold;
-        color: #0045a0;
-        font-size: 1.4rem;
-        font-weight: bold;
+        color: blue;
     }
 
 
@@ -107,6 +103,7 @@
     }
 </style>
 <body>
+
     <div style="display:flex; justify-content:center;">
         <ul class="ticket_nav-tabs" class="text-center ">
             <li id="choose-movie">Chọn phim / Rạp / Suất</li>
@@ -237,10 +234,10 @@
             if (seatType == "Standard") {
                 hiddenInput.value = price;
                 choiceseatHTML = `<div id="choiceSeat${element.innerText}" class="d-flex justify-content-between">
-                                                     <p>Số ghế:${element.innerText} (Loại ghế:${seatType})</p>
-                                                     <p class="ticket_price">${price} VNĐ</p>
-                                                    </div>
-                                                    `;
+                                                         <p>Số ghế:${element.innerText} (Loại ghế:${seatType})</p>
+                                                         <p class="ticket_price">${price} VNĐ</p>
+                                                        </div>
+                                                        `;
                 document.getElementById("viewSeat").insertAdjacentHTML("beforeend", choiceseatHTML);
                 document.getElementById("totalPrice").value = totalPrice + price;
 
@@ -248,10 +245,10 @@
                 const temp = price * 1.5;
                 hiddenInput.value = temp;
                 choiceseatHTML = `<div id="choiceSeat${element.innerText}" class="d-flex justify-content-between">
-                                               <p>Số ghế:${element.innerText} (Loại ghế:${seatType})</p>
-                                               <p class="ticket_price">${temp} VNĐ</p>
-                                               </div>
-                                               `;
+                                                   <p>Số ghế:${element.innerText} (Loại ghế:${seatType})</p>
+                                                   <p class="ticket_price">${temp} VNĐ</p>
+                                                   </div>
+                                                   `;
                 document.getElementById("viewSeat").insertAdjacentHTML("beforeend", choiceseatHTML);
                 document.getElementById("totalPrice").value = totalPrice + temp;
             }

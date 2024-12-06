@@ -25,7 +25,45 @@
                             <strong>Họ và tên:</strong> @Model.user
                         </li>
                         <li class="list-group-item">
+                            <strong>Số điện thoại:</strong> @Model.phone
+                        </li>
+                        <li class="list-group-item">
+                            <strong>Mã hóa đơn:</strong> @Model.maHD
+                        </li>
+                        <li class="list-group-item">
                             <strong>Ngày thanh toán:</strong> @DateTime.Now.ToString("dd/MM/yyyy HH:mm")
+                        </li>
+                        <li class="list-group-item">
+                            <strong>Số ghế:</strong>
+                            @foreach (var choiceseat in Model.seats)
+                            {
+                                @foreach (var seat in ViewBag.Seats)
+                                {
+                                    if (choiceseat.SeatId == seat.SeatId)
+                                    {
+
+                                        <span>@seat.SeatNumber (Loại ghế:@seat.SeatType) |</span>
+
+                                        break;
+                                    }
+                                }
+                            }
+                        </li>
+                        <li class="list-group-item">
+                            <strong>Combo:</strong><br />
+                            @foreach (var choiceCombo in Model.BookingCombo)
+                            {
+                                @foreach (var combo in ViewBag.Combo)
+                                {
+                                    if (choiceCombo.ComboId == combo.ComboId)
+                                    {
+
+                                        @choiceCombo.Quantity <span>x</span> @combo.Name <br />
+
+                                        break;
+                                    }
+                                }
+                            }
                         </li>
                     </ul>
                 </div>
