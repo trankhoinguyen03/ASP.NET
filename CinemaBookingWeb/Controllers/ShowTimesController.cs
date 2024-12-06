@@ -85,6 +85,7 @@ namespace CinemaBookingWeb.Controllers
 
                 if (ModelState.IsValid)
                 {
+                    showtime.Status = 1;
                     _context.Add(showtime);
                     _context.SaveChanges();
                     return RedirectToAction(nameof(Index));

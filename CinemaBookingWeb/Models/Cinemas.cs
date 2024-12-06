@@ -15,7 +15,7 @@ namespace CinemaBookingWeb.Models
         public string Location { get; set; }
 
         [Required(ErrorMessage = "Số điện thoại không được để trống.")]
-        [RegularExpression(@"^\d{10}$", ErrorMessage = "Số điện thoại phải chứa 10 chữ số.")]
+        [RegularExpression(@"^0\d{9}$", ErrorMessage = "Số điện thoại phải có 10 số và bắt đầu bằng số 0.")]
         public string Phone { get; set; }
 
         [Required(ErrorMessage = "Thành phố không được để trống.")]

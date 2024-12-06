@@ -82,6 +82,7 @@ namespace CinemaBookingWeb.Controllers
 
             if (ModelState.IsValid)
             {
+                combo.Status = 1;
                 _context.Combos.Add(combo);
                 _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));

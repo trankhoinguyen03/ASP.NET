@@ -8390,19 +8390,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\nhan1\\.nuget\\packages\\": {}
+    "C:\\Users\\Acer\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\New folder\\ASP.NET\\CinemaBookingWeb\\CinemaBookingWeb.csproj",
+      "projectUniqueName": "F:\\.NET\\ASP.NET\\CinemaBookingWeb\\CinemaBookingWeb.csproj",
       "projectName": "CinemaBookingWeb",
-      "projectPath": "D:\\New folder\\ASP.NET\\CinemaBookingWeb\\CinemaBookingWeb.csproj",
-      "packagesPath": "C:\\Users\\nhan1\\.nuget\\packages\\",
-      "outputPath": "D:\\New folder\\ASP.NET\\CinemaBookingWeb\\obj\\",
+      "projectPath": "F:\\.NET\\ASP.NET\\CinemaBookingWeb\\CinemaBookingWeb.csproj",
+      "packagesPath": "C:\\Users\\Acer\\.nuget\\packages\\",
+      "outputPath": "F:\\.NET\\ASP.NET\\CinemaBookingWeb\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\nhan1\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Acer\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
