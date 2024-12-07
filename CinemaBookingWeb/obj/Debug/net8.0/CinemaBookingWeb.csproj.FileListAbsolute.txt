@@ -1725,3 +1725,4 @@ D:\STUDY\HK7\.NET\ASP.NET\CinemaBookingWeb\bin\Debug\net8.0\zh-Hant\Microsoft.Co
 D:\STUDY\HK7\.NET\ASP.NET\CinemaBookingWeb\bin\Debug\net8.0\runtimes\browser\lib\net8.0\System.Text.Encodings.Web.dll
 C:\Users\Admin\OneDrive\Documents\GitHub\ASP.NET\CinemaBookingWeb\bin\Debug\net8.0\SixLabors.ImageSharp.dll
 F:\.NET\ASP.NET\CinemaBookingWeb\bin\Debug\net8.0\SixLabors.ImageSharp.dll
+D:\STUDY\HK7\.NET\ASP.NET\CinemaBookingWeb\bin\Debug\net8.0\SixLabors.ImageSharp.dll
