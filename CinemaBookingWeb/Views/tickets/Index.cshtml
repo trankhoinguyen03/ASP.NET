@@ -1,6 +1,4 @@
-﻿
-
-@{
+﻿@{
     ViewData["Title"] = "ticket";
     Layout = "_LayoutHome";
 }
@@ -8,10 +6,7 @@
 
 <style>
     /* General styles */
-    body {
-        font-family: Arial, sans-serif;
-        background-color: #f8f9fa;
-    }
+
 
     .ticket_nav-tabs {
         display: flex;
@@ -21,14 +16,14 @@
         padding: 0;
     }
 
-    .ticket_nav-tabs li {
-        margin: 0 15px;
-        padding: 10px 20px;
-        font-size: 1.2rem;
-        font-weight: bold;
-        color: #555;
-        cursor: pointer;
-    }
+        .ticket_nav-tabs li {
+            margin: 0 15px;
+            padding: 10px 20px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #555;
+            cursor: pointer;
+        }
 
     .ticket_active-tab {
         border-bottom: 3px solid #0045a0;
@@ -50,11 +45,11 @@
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     }
 
-    .ticket_left h3 {
-        font-weight: bold;
-        color: #333;
-        margin-bottom: 10px;
-    }
+        .ticket_left h3 {
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 10px;
+        }
 
     .ticket_sidebar {
         width: 30%;
@@ -64,19 +59,19 @@
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     }
 
-    .ticket_sidebar .ticket_card-header {
-        background-color: #ff7e00;
-        color: white;
-        font-size: 1.2rem;
-        font-weight: bold;
-        text-align: center;
-        padding: 10px 0;
-    }
+        .ticket_sidebar .ticket_card-header {
+            background-color: #0045a0;
+            color: white;
+            font-size: 1.2rem;
+            font-weight: bold;
+            text-align: center;
+            padding: 10px 0;
+        }
 
-    .ticket_sidebar img {
-        max-width: 100%;
-        border-radius: 8px;
-    }
+        .ticket_sidebar img {
+            max-width: 50%;
+            border-radius: 8px;
+        }
 
     .ticket_total {
         font-size: 1rem;
@@ -100,16 +95,16 @@
         transition: transform 0.3s;
     }
 
-    .movie-item:hover {
-        transform: scale(1.05);
-        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-    }
+        .movie-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
 
-    .movie-item img {
-        max-width: 100%;
-        border-radius: 8px;
-        margin-bottom: 10px;
-    }
+        .movie-item img {
+            max-width: 100%;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
 
     .movie-item-title {
         font-size: 1rem;
@@ -172,144 +167,135 @@
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script>
         $(document).ready(function () {
+            // Xử lý khi chọn thành phố
             $('#cityDropdown').change(function () {
                 var selectedCity = $(this).val();
-                // $('#movieDropdown').prop('disabled', true).empty().append('<option value="">-- Chọn Phim --</option>');
+
+                // Xóa nội dung cũ và ẩn các phần liên quan
                 $('#movieDropdown').empty();
                 $('#showtimeDropdown').empty();
-                document.getElementById("dateDropdown").style.display = "none";
-                document.getElementById("btnradio0").checked = "true";
+                $('#dateDropdown').hide();
+
                 if (selectedCity) {
+                    // Gọi API để lấy danh sách phim theo thành phố
                     $.getJSON('/tickets/GetCinemasByCity', { city: selectedCity }, function (data) {
+                        console.log(data); // Debug dữ liệu trả về
                         if (data && data.length > 0) {
-                            $('#movieDropdown').prop('disabled', false);
+                            // Thêm danh sách phim vào giao diện
                             $.each(data, function (index, movie) {
                                 $('#movieDropdown').append(`
-                                                                               <li class="col-4 p-6">
-                                                                                                <a  href="#" class="movieLink" data-movie-id="${movie.movieId}">
-                                                                                    <div class="movie-item text-center p-4 border rounded shadow" style="height: 390px;">
-                                                                                                <img src='https://localhost:5001/${movie.imageUrl}' alt="${movie.title}" class="w-full h-auto mb-2">
-                                                                                        <h3 class="movie-item-title text-lg font-semibold">${movie.title}</h3>
-                                                                                        <p>Thể loại: ${movie.genre}</p>
-                                                                                    </div>
-                                                                                </a>
-                                                                            </li>
-
-                                                                        `);
-                                $('.movieLink').off('click').on('click', function (e) {
-                                    $('#dateDropdown').show();
-                                    e.preventDefault(); // Ngăn chặn hành vi mặc định của thẻ <a>
-                                    const movieId = $(this).data('movie-id'); // Lấy giá trị movieId
-                                    document.getElementById("tempmovieId").value = movieId;
-                                    $.getJSON('/tickets/ChoiceMovie', { id: movieId }, function (data) {
-                                        $('#showtimeDropdown').prop('disabled', false);
-                                        $('#dateDropdown').prop('disabled', false);
-                                        $.each(data, function (index, cinema) {
-                                            document.getElementById('myTitle1').value = cinema.title;
-                                            document.getElementById("myImage1").src = "https://localhost:5001/img/" + cinema.imageUrl;
-                                            let showtimeHTML = `
-
-                                                                            <tr>
-
-                                                                                <th>${cinema.cinemaName} (${cinema.location})</th>
-                                                                            </tr>
-                                                                            <tr>`;
-
-                                            $.each(cinema.showtimes, function (index, showtime) {
-                                                showtimeHTML += `<td><a id="choiceShowtime${showtime.showTimeId}" onclick="choiceShowtime(${showtime.showtimeId})" class="btn btn-outline-primary" >${showtime.startTime} - ${showtime.endTime}</a></td>`;
-                                            });
-
-                                            showtimeHTML += '</tr>';
-                                            $('#showtimeDropdown').append(showtimeHTML);
-
-                                        });
-                                    });
-                                });
+                                            <li class="col-4 p-3">
+                                                <a href="#" class="movieLink" data-movie-id="${movie.movieId}">
+                                                    <div class="movie-item text-center">
+                                                        <img src="${movie.imageUrl}" alt="${movie.title}" class="w-100 mb-2">
+                                                        <h3 class="movie-item-title">${movie.title}</h3>
+                                                        <p>Thể loại: ${movie.genre}</p>
+                                                    </div>
+                                                </a>
+                                            </li>
+                                        `);
                             });
+
+                            // Gắn sự kiện click cho danh sách phim
+                            bindMovieClickEvent();
+                        } else {
+                            alert("Không có phim nào tại thành phố này.");
                         }
                     }).fail(function () {
-                        console.error("API không phản hồi hoặc lỗi xảy ra");
+                        alert("Lỗi khi tải danh sách phim. Vui lòng thử lại.");
                     });
                 }
             });
-        });
-        document.addEventListener("DOMContentLoaded", function () {
-            const radios = document.querySelectorAll('.btn-check');
 
-            radios.forEach(radio => {
-                radio.addEventListener('change', function () {
+            // Hàm gắn sự kiện click cho các phim
+            function bindMovieClickEvent() {
+                $('.movieLink').off('click').on('click', function (e) {
+                    e.preventDefault();
 
-                    if (this.checked) {
-                        const movieId = document.getElementById("tempmovieId");
-                        $('#showtimeDropdown').empty();
-                        $.getJSON('/tickets/ChoiceMovie', { id: movieId.value, date: $(this).val() }, function (data) {
+                    const movieId = $(this).data('movie-id');
+                    $('#showtimeDropdown').empty();
+                    $('#dateDropdown').show();
+
+                    // Gọi API để lấy thông tin suất chiếu của phim
+                    $.getJSON('/tickets/ChoiceMovie', { id: movieId }, function (data) {
+                        console.log(data); // Debug dữ liệu trả về
+                        if (data && data.length > 0) {
                             $.each(data, function (index, cinema) {
-
                                 let showtimeHTML = `
-
-                                                                                    <tr>
-                                                                                        <th>${cinema.cinemaName} (${cinema.location})</th>
-                                                                                    </tr>
-                                                                                    <tr>`;
-
+                                            <tr>
+                                                <th>${cinema.cinemaName} (${cinema.location})</th>
+                                            </tr>
+                                            <tr>`;
                                 $.each(cinema.showtimes, function (index, showtime) {
-                                    showtimeHTML += `<td><a  id="choiceShowtime${showtime.showTimeId}" onclick="choiceShowtime(${showtime.showtimeId})" class="btn btn-outline-primary" >${showtime.startTime} - ${showtime.endTime}</a></td>`;
+                                    showtimeHTML += `
+                                                <td>
+                                                    <a href="#" onclick="choiceShowtime(${showtime.showtimeId})" class="btn btn-outline-primary">
+                                                        ${showtime.startTime} - ${showtime.endTime}
+                                                    </a>
+                                                </td>`;
                                 });
-
                                 showtimeHTML += '</tr>';
                                 $('#showtimeDropdown').append(showtimeHTML);
                             });
-                        });
-                    }
+                        } else {
+                            alert("Không có suất chiếu nào cho phim này.");
+                        }
+                    }).fail(function () {
+                        alert("Lỗi khi tải suất chiếu. Vui lòng thử lại.");
+                    });
                 });
-            });
-        });
-
-        function choiceShowtime(showTimeId) {
-            $.getJSON('/tickets/ChoiceShowTime', { id: showTimeId }, function (data) {
-                const cinema = data.cinema;
-                const showtime = data.showtime;
-                // Chuyển `startTime` thành đối tượng Date
-                const date = new Date(showtime.startTime);
-
-                // Định dạng thời gian
-                const formattedTime = date.toLocaleTimeString('vi-VN', { hour: '2-digit', minute: '2-digit' });
-                const formattedDate = date.toLocaleDateString('vi-VN', { day: '2-digit', month: '2-digit', year: 'numeric' });
-
-                let myCinema1HTML;
-                myCinema1HTML = `
-                                                                  <p>${cinema.name} (${cinema.location}) -${showtime.hall}</p>
-                                                                          <p>Thời gian: ${formattedTime} - ${formattedDate}</p>
-                                                                            `;
-
-                $('#myCinema1').append(myCinema1HTML);
-            });
-        }
-        //kiem tra nut
-        document.addEventListener('DOMContentLoaded', function () {
-            const myDiv = document.getElementById('myCinema1');
-            const myButton = document.getElementById('button1');
-
-            // Hàm kiểm tra số lượng phần tử con
-            function toggleButtonState() {
-                if (myDiv.children.length > 0) {
-                    myButton.disabled = false; // Kích hoạt nút
-                } else {
-                    myButton.disabled = true; // Vô hiệu hóa nút
-                }
             }
-
-            // Quan sát sự thay đổi trong div
-            const observer = new MutationObserver(toggleButtonState);
-
-            observer.observe(myDiv, { childList: true });
-
-            // Gọi hàm ngay lần đầu
-            toggleButtonState();
         });
 
+        // Hàm chọn suất chiếu
+        // Hàm chọn suất chiếu
+        function choiceShowtime(showTimeId) {
+            console.log('Showtime ID:', showTimeId); // Debug ID được truyền vào
 
+            $.getJSON('/tickets/ChoiceShowTime', { id: showTimeId }, function (data) {
+                console.log('Response from ChoiceShowTime:', data); // Debug API response
+
+                if (data) {
+                    const cinema = data.cinema;
+                    const showtime = data.showtime;
+                    const movie = data.movie; // Giả sử API trả về thông tin về phim, bao gồm hình ảnh và tên phim
+
+                    // Format thời gian và ngày
+                    const date = new Date(showtime.startTime);
+                    const formattedTime = date.toLocaleTimeString('vi-VN', { hour: '2-digit', minute: '2-digit' });
+                    const formattedDate = date.toLocaleDateString('vi-VN', { day: '2-digit', month: '2-digit', year: 'numeric' });
+
+                    // Cập nhật thông tin bên phải
+                    const myCinema1HTML = `
+                        <p>${cinema.name} (${cinema.location}) - ${showtime.hall}</p>
+                        <p>Thời gian: ${formattedTime} - ${formattedDate}</p>
+                    `;
+                    $('#myCinema1').html(myCinema1HTML);
+
+                    // Cập nhật thông tin phim trong sidebar
+                    const movieImageUrl = movie.imageUrl || 'https://via.placeholder.com/100x150'; // Đảm bảo hình ảnh phim được hiển thị
+                    const movieTitle = movie.title || 'Tên Phim';
+                    const movieInfoHTML = `
+                        <img src="${movieImageUrl}" alt="${movieTitle}" class="mb-3">
+                        <h4>${movieTitle}</h4>
+                    `;
+                    $('#myImage1').attr('src', movieImageUrl).attr('alt', movieTitle); // Cập nhật hình ảnh và tiêu đề phim vào phần sidebar
+
+                    // Kích hoạt nút tiếp tục
+                    $('#button1').prop('disabled', false);
+                } else {
+                    alert('Không có thông tin suất chiếu.');
+                }
+            }).fail(function () {
+                alert("Lỗi khi lấy thông tin suất chiếu. Vui lòng thử lại.");
+            });
+
+            // Kích hoạt sự kiện click cho nút "Tiếp Tục"
+            $('#button1').click(function () {
+                // Chuyển trang đến ViewChoiceSeat
+                window.location.href = '/tickets/ViewChoiceSeat'; // Đảm bảo đường dẫn đúng
+            });
+
+        }
     </script>
-
-
 </body>

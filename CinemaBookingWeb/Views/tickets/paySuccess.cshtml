@@ -4,6 +4,44 @@
     ViewBag.Title = "Thanh toán thành công";
     Layout = "~/Views/Shared/_LayoutHome.cshtml";
 }
+<style>
+    .card-body {
+        background-image: url('@Url.Content("~/img/logo.png")'); /* Chuyển đổi đường dẫn */
+        background-size: inherit; /* Hình ảnh phủ toàn bộ */
+        background-repeat: no-repeat; /* Không lặp */
+        background-position: center ; /* Căn giữa */
+        position: relative;
+        border-radius: 8px; /* Góc bo */
+        overflow: hidden; /* Đảm bảo các phần tử con không bị tràn */
+    }
+
+        .card-body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.7); /* Lớp phủ trắng mờ */
+            z-index: 1;
+        }
+
+        .card-body > * {
+            position: relative;
+            z-index: 2; /* Nội dung nằm trên lớp phủ */
+        }
+
+    .list-group-item {
+        background-color: rgba(255, 255, 255, 0.8); /* Nền trắng mờ */
+        border: none; /* Loại bỏ đường viền nếu muốn */
+        backdrop-filter: blur(4px); /* Hiệu ứng làm mờ nền phía sau (tùy chọn) */
+    }
+
+    .info-section {
+        margin-left: 3rem; /* Tăng khoảng cách bên trái (48px) */
+    }
+
+</style>
 
 <div class="container py-5">
     <div class="card shadow-lg border-success">
@@ -14,11 +52,11 @@
             <div class="row mb-4">
                 <div class="col text-center">
                     <i class="bi bi-check-circle-fill text-success" style="font-size: 4rem;"></i>
-                    <h2 class="mt-3">Cảm ơn bạn, @Model.user, đã đặt vé tại Rạp Phim!</h2>
+                    <h2 class="mt-3">Cảm ơn bạn @Model.user, đã đặt vé tại Rạp Phim!</h2>
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-6">
+                <div class="col-md-5 info-section">
                     <h4 class="fw-bold">Thông tin khách hàng</h4>
                     <ul class="list-group">
                         <li class="list-group-item">
@@ -34,6 +72,24 @@
                             <strong>Ngày thanh toán:</strong> @DateTime.Now.ToString("dd/MM/yyyy HH:mm")
                         </li>
                         <li class="list-group-item">
+                            <strong>Rạp:</strong> @Model.cinema.Name
+                        </li>
+                        <li class="list-group-item">
+                            <strong>Địa chỉ:</strong> @Model.cinema.Location
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-md-5 info-section">
+                    <h4 class="fw-bold">Thông tin đơn hàng</h4>
+                    <ul class="list-group">
+
+                        <li class="list-group-item">
+                            <strong>Phim:</strong> @Model.movie.Title
+                        </li>
+                        <li class="list-group-item">
+                            <strong>Suất chiếu:</strong> @Model.showtime.Hall, @Model.showtime.StartTime.ToString("dd/MM/yyyy HH:mm")
+                        </li>
+                        <li class="list-group-item">
                             <strong>Số ghế:</strong>
                             @foreach (var choiceseat in Model.seats)
                             {
@@ -41,9 +97,7 @@
                                 {
                                     if (choiceseat.SeatId == seat.SeatId)
                                     {
-
                                         <span>@seat.SeatNumber (Loại ghế:@seat.SeatType) |</span>
-
                                         break;
                                     }
                                 }
@@ -57,45 +111,53 @@
                                 {
                                     if (choiceCombo.ComboId == combo.ComboId)
                                     {
-
                                         @choiceCombo.Quantity <span>x</span> @combo.Name <br />
-
                                         break;
                                     }
                                 }
                             }
                         </li>
-                    </ul>
-                </div>
-                <div class="col-md-6">
-                    <h4 class="fw-bold">Thông tin đơn hàng</h4>
-                    <ul class="list-group">
-                        <li class="list-group-item">
-                            <strong>Rạp:</strong> @Model.cinema.Name
-                        </li>
-                        <li class="list-group-item">
-                            <strong>Địa chỉ:</strong> @Model.cinema.Location
-                        </li>
-                        <li class="list-group-item">
-                            <strong>Phim:</strong> @Model.movie.Title
-                        </li>
-                        <li class="list-group-item">
-                            <strong>Suất chiếu:</strong> @Model.showtime.Hall, @Model.showtime.StartTime.ToString("dd/MM/yyyy HH:mm")
-                        </li>
                         <li class="list-group-item">
                             <strong>Tổng tiền:</strong> @String.Format("{0:N0} VNĐ", Model.totalPrice)
                         </li>
+
                     </ul>
                 </div>
             </div>
-        </div>
-        <div class="card-footer text-center">
-            <a href="/" class="btn btn-primary btn-lg">
-                <i class="bi bi-house-door-fill"></i> Về trang chủ
-            </a>
-            <a href="/Tickets/Index" class="btn btn-success btn-lg">
-                <i class="bi bi-ticket-fill"></i> Đặt vé mới
-            </a>
+
         </div>
     </div>
+    <div style="text-align:center;font-style:italic;">
+        <p>Vui lòng nhấn lưu vé và đến rạp đúng giờ để xác nhận với thu ngân, hoặc bạn chỉ cần đọc số điện thoại với thu ngân để xác nhận.</p>
+    </div>
+    <div class="card-footer text-center">
+        <a href="/" class="btn btn-primary btn-lg">
+            <i class="bi bi-house-door-fill"></i> Về trang chủ
+        </a>
+        <a href="/Tickets/Index" class="btn btn-success btn-lg">
+            <i class="bi bi-ticket-fill"></i> Đặt vé mới
+        </a>
+        <!-- Nút lưu vé -->
+        <button id="save-ticket-btn" class="btn btn-warning btn-lg">
+            <i class="bi bi-save-fill"></i> Lưu vé
+        </button>
+    </div>
 </div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script>
+    document.getElementById('save-ticket-btn').addEventListener('click', function () {
+        // Chọn phần tử cần lưu
+        const ticketCard = document.querySelector('.card.shadow-lg.border-success');
+
+        // Sử dụng html2canvas để chụp ảnh phần tử
+        html2canvas(ticketCard, { scale: 2 }).then(function (canvas) {
+            // Tạo link để tải ảnh
+            const link = document.createElement('a');
+            link.download = 'ticket.png'; // Tên tệp tải xuống
+            link.href = canvas.toDataURL('image/png'); // Chuyển canvas thành URL ảnh
+            link.click(); // Kích hoạt tải ảnh
+        }).catch(function (error) {
+            console.error('Đã xảy ra lỗi khi lưu vé:', error);
+        });
+    });
+</script>

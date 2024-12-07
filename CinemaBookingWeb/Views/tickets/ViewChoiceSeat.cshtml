@@ -3,84 +3,101 @@
     Layout = "_LayoutHome";
 }
 @model tickets;
+
 <style>
-
-
+    /* General Styles */
+    body {
+        font-family: 'Arial', sans-serif;
+        background-color: #f9f9f9;
+    }
 
     /* Active section */
     .ticket_active {
         display: flex;
         justify-content: center;
-        padding: 20px;
+        padding: 40px;
         width: 100%;
+        gap: 40px;
     }
 
-        .ticket_active > .ticket_left {
-            padding: 20px;
-            width: 60%;
-        }
+    .ticket_left {
+        padding: 20px;
+        width: 60%;
+        background-color: white;
+        border-radius: 8px;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    }
 
-        .ticket_active > .ticket_sidebar {
-            padding: 20px;
-            width: 30%;
-        }
+    .ticket_sidebar {
+        padding: 20px;
+        width: 30%;
+        background-color: white;
+        border-radius: 8px;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
     /* Navigation */
+
     .ticket_nav-tabs {
         display: flex;
+        justify-content: center;
+        margin: 20px 0;
         list-style: none;
         padding: 0;
-        margin: 0;
     }
 
         .ticket_nav-tabs li {
+            margin: 0 15px;
             padding: 10px 20px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #555;
             cursor: pointer;
         }
 
     .ticket_active-tab {
-        border-bottom: 2px solid blue;
-        font-weight: bold;
-        color: blue;
+        border-bottom: 3px solid #0045a0;
+        color: #0045a0;
     }
-
-
-    .ticket_seat {
-        width: 30px;
-        height: 30px;
+    /* Seats Styling */
+    .ticket_seat,
+    .ticket_reseveSeat {
+        width: 40px;
+        height: 40px;
         border: 1px solid #333;
         text-align: center;
-        line-height: 30px;
+        line-height: 40px;
         cursor: pointer;
-        border-radius: 10px 10px 10px 10px;
+        border-radius: 50%;
+        transition: background-color 0.3s ease, border-color 0.3s ease;
+        background-color: white;
     }
+
+        .ticket_seat:hover {
+            background-color: #f1f1f1;
+        }
 
     .ticket_reseveSeat {
-        width: 30px;
-        height: 30px;
-        border: 1px solid #333;
-        text-align: center;
-        line-height: 30px;
-        cursor: pointer;
-        background-color: red;
-        border-radius: 10px 10px 10px 10px;
+        background-color: #d3d3d3;
     }
 
     .ticket_selected {
-        background-color: orange;
+        background-color: #0045a0;
+        color: white;
     }
 
-
-
-    /*tab4*/
+    /* Card Styles */
     .ticket_card-header {
-        background-color: #ff7e00;
+        background-color: #0045a0;
         color: white;
         font-weight: bold;
+        padding: 15px;
+        border-radius: 8px 8px 0 0;
     }
 
     .ticket_price {
         font-weight: bold;
-        color: #ff7e00;
+        color: #0045a0;
     }
 
     .ticket_tag-rating {
@@ -93,114 +110,224 @@
 
     .ticket_movie-title {
         font-weight: bold;
-        border: 0;
+        border: none;
+        background-color: transparent;
+        margin-top: 10px;
     }
 
     .ticket_total {
         font-size: 1.2rem;
         font-weight: bold;
-        color: #000;
+        color: #333;
     }
+
+    /* Payment Section */
+    .ticket_action-buttons {
+        margin-top: 20px;
+    }
+
+        .ticket_action-buttons a,
+        .ticket_action-buttons button {
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .ticket_action-buttons a {
+            background-color: #ccc;
+            color: white;
+            text-decoration: none;
+        }
+
+            .ticket_action-buttons a:hover {
+                background-color: #888;
+            }
+
+        .ticket_action-buttons button {
+            background-color: #0045a0;
+            color: white;
+            border: none;
+        }
+
+            .ticket_action-buttons button:hover {
+                background-color: #0045a0;
+                opacity:0.9;
+            }
+
+    /* Ghế VIP */
+    .ticket_vip {
+        border: 2px solid red; /* Viền đỏ */
+        border-radius: 50%; /* Giữ hình dạng tròn giống các ghế khác */
+    }
+
+        .ticket_vip:hover {
+            background-color: #0045a0; /* Nền nhạt hơn khi hover */
+        }
+    /* Nút "Quay lại" */
+    .btn-custom-back {
+        background-color: white;
+        border: 2px solid #6c757d;
+        color: #6c757d;
+        font-size: 16px;
+        padding: 10px 20px;
+        text-align: center;
+        border-radius: 4px;
+        font-weight: bold;
+        width: 48%;
+        transition: all 0.3s ease;
+    }
+
+        .btn-custom-back:hover {
+            background-color: #6c757d;
+            color: white;
+        }
+
+    /* Nút "Tiếp tục" */
+    .btn-custom-next {
+        background-color: #0045a0;
+        border: 2px solid #0045a0;
+        color: white;
+        font-size: 16px;
+        padding: 10px 20px;
+        text-align: center;
+        border-radius: 4px;
+        font-weight: bold;
+        width: 48%;
+        transition: all 0.3s ease;
+    }
+
+        .btn-custom-next:hover {
+            background-color: #003480;
+        }
+
+        .btn-custom-next:disabled {
+        background-color: #0045a0 ;
+        }
 </style>
+
 <body>
 
     <div style="display:flex; justify-content:center;">
-        <ul class="ticket_nav-tabs" class="text-center ">
+        <ul class="ticket_nav-tabs">
             <li id="choose-movie">Chọn phim / Rạp / Suất</li>
             <li class="ticket_active-tab" id="choose-seat">Chọn ghế</li>
             <li id="choose-combo">Chọn thức ăn</li>
             <li id="choose-pay">Thanh toán</li>
         </ul>
-
     </div>
-    <div id="seat-selection" class=" ticket_active">
+
+    <div id="seat-selection" class="ticket_active">
         <div class="ticket_left">
             <h2>Chọn ghế</h2>
-            <form id="formSeats" method="post" asp-action="ChoiceSeats" asp-controller="tickets">
+            <form style="text-align:center" id="formSeats" method="post" asp-action="ChoiceSeats" asp-controller="tickets">
 
                 @if (ViewBag.seats != null)
                 {
                     var temp = 0;
-
-                    @foreach (var seat in ViewBag.seats)
+                    foreach (var seat in ViewBag.seats)
                     {
-                        var v = false;
+                        var isBooked = false;
+
+                        // Kiểm tra xem ghế đã được đặt chưa
                         if (ViewBag.BookedSeats != null)
                         {
-                            @foreach (var i in ViewBag.BookedSeats)
+                            foreach (var booked in ViewBag.BookedSeats)
                             {
-                                if (i.SeatId == seat.SeatId)
+                                if (booked.SeatId == seat.SeatId)
                                 {
-                                    v = true;
+                                    isBooked = true;
                                     break;
                                 }
-
                             }
                         }
-                        if (v)
+
+                        // Hiển thị ghế đã đặt
+                        if (isBooked)
                         {
                             <button class="ticket_reseveSeat" disabled>@seat.SeatNumber</button>
-
                         }
                         else
                         {
-                            <button type="button" class="ticket_seat" onclick="selectSeat(this)">@seat.SeatNumber</button>
+                            // Phân loại ghế (VIP hoặc Standard)
+                            var seatClass = seat.SeatType == "VIP" ? "ticket_seat ticket_vip" : "ticket_seat";
 
+                            <button type="button" class="@seatClass" onclick="selectSeat(this)" id="seat@seat.SeatId">@seat.SeatNumber</button>
                             <input type="hidden" name="bookedSeats[@seat.SeatId]" value="0" />
-                            <input type="hidden" id=@seat.SeatNumber value="@seat.SeatType" />
+                            <input type="hidden" id="@seat.SeatNumber" value="@seat.SeatType" />
                         }
+
                         temp++;
-                        @if (temp >= 8)
+                        if (temp >= 8)
                         {
                             <br />
                             temp = 0;
                         }
                     }
                 }
-            </form>
 
+            </form>
+            <div style="margin-top: 20px; text-align: center;">
+                <h4>Màn hình</h4>
+                <hr style="border: 1px solid black; width: 70%; margin: auto;">
+            </div>
+
+            <div style="margin: 20px 0; text-align: center;">
+                <span style="display: inline-block; width: 20px; height: 20px; background-color: #d3d3d3; margin-left: 20px; margin-right: 5px; border-radius: 50%;"></span>
+                Ghế đã bán
+
+                <span style="display: inline-block; width: 20px; height: 20px; background-color: #0045a0; margin-left: 20px; margin-right: 5px; border-radius: 50%;"></span>
+                Ghế đang chọn
+
+                <span style="display: inline-block; width: 20px; height: 20px; background-color: #f9f9f9; border: 2px solid red; margin-left: 20px; margin-right: 5px; border-radius: 50%;"></span>
+                Ghế VIP
+
+                <span style="display: inline-block; width: 20px; height: 20px; background-color: white; border: 1px solid #333; margin-left: 20px; margin-right: 5px; border-radius: 50%;"></span>
+                Ghế trống
+
+
+            </div>
 
         </div>
-        <div class="ticket_sidebar col-4">
+
+        <div class="ticket_sidebar">
             <div class="movie-info card">
                 <div class="ticket_card-header text-center">
                     Thanh Toán
                 </div>
                 @if (ViewBag.ViewTicket != null)
                 {
-
                     <div class="d-flex card-body">
                         <img width="100px" height="150px" id="myImage1" src="https://localhost:5001/@ViewBag.ViewTicket["MovieImageUrl"]" alt="Movie Poster" class="me-3">
-
                         <input class="ticket_movie-title" id="myTitle1" value="@ViewBag.ViewTicket["MovieTitle"]" readonly />
-
                     </div>
+
                     <div id="myCinema1" class="card-body">
                         <p>@ViewBag.ViewTicket["CinemaName"] (@ViewBag.ViewTicket["CinemaLocation"]) - @ViewBag.ViewTicket["ShowtimeHall"]</p>
                         <p>Thời gian: @ViewBag.ViewTicket["FormattedTime"] - @ViewBag.ViewTicket["FormattedDate"]</p>
                     </div>
+
                     <input type="hidden" id="priceseat" value="@ViewBag.ViewTicket["price"]" />
-                    <div id="viewSeat" class="card-body">
-                    </div>
+                    <div id="viewSeat" class="card-body"></div>
                     <hr>
                     <div class="d-flex justify-content-between card-body">
-
                         <p class="ticket_total">Tổng cộng</p>
                         <p class="ticket_total">
-                            <input style="text-align: right; border: none; background: none;" id="totalPrice" type="text" value="0" disabled /> VNĐ
+                            <input style="color:red; text-align: right; border: none; background: none;" id="totalPrice" type="text" value="0" disabled /> VNĐ
                         </p>
                     </div>
                 }
+            </div>
 
-            </div>
             <div class="ticket_action-buttons d-flex justify-content-between">
-                <a type="button" class="btn btn-secondary" asp-action="choiceView" asp-controller="tickets" asp-route-id="1">Quay lại</a>
-                <button id="checkButton" type="submit" class="btn btn-primary float-end" form="formSeats" disabled>Tiếp tục</button>
+                <a type="button" class="btn btn-outline-secondary btn-custom-back btn-secondary" asp-action="choiceView" asp-controller="tickets" asp-route-id="1">Quay lại</a>
+                <button id="checkButton" type="submit" class="btn btn-custom-next" form="formSeats" disabled>Tiếp tục</button>
             </div>
+
         </div>
     </div>
-</body>
 
+</body>
 
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script>
@@ -210,7 +337,6 @@
 
         // Quan sát sự thay đổi trong div
         const observer = new MutationObserver(() => {
-            // Kiểm tra nếu div có nội dung hoặc thành phần con
             if (viewSeat.children.length > 0) {
                 checkButton.disabled = false; // Kích hoạt nút
             } else {
@@ -218,37 +344,37 @@
             }
         });
 
-        // Thiết lập quan sát
         observer.observe(viewSeat, { childList: true });
-
-
     });
+
     function selectSeat(element) {
         element.classList.toggle('ticket_selected');
-        const hiddenInput = element.nextElementSibling;//lay hidden input gan nhat
+        const hiddenInput = element.nextElementSibling; // Lấy hidden input gần nhất
         const seatType = document.getElementById(element.innerText).value;
         const price = parseFloat(document.getElementById("priceseat").value);
         const totalPrice = parseFloat(document.getElementById("totalPrice").value);
+
         if (hiddenInput.value == 0) {
-            let choiceseatHTML
+            let choiceseatHTML;
             if (seatType == "Standard") {
                 hiddenInput.value = price;
-                choiceseatHTML = `<div id="choiceSeat${element.innerText}" class="d-flex justify-content-between">
-                                                         <p>Số ghế:${element.innerText} (Loại ghế:${seatType})</p>
-                                                         <p class="ticket_price">${price} VNĐ</p>
-                                                        </div>
-                                                        `;
+                choiceseatHTML = `
+                        <div id="choiceSeat${element.innerText}" class="d-flex justify-content-between">
+                            <p>Số ghế:${element.innerText} (Loại ghế:${seatType})</p>
+                            <p class="ticket_price">${price} VNĐ</p>
+                        </div>
+                    `;
                 document.getElementById("viewSeat").insertAdjacentHTML("beforeend", choiceseatHTML);
                 document.getElementById("totalPrice").value = totalPrice + price;
-
             } else {
                 const temp = price * 1.5;
                 hiddenInput.value = temp;
-                choiceseatHTML = `<div id="choiceSeat${element.innerText}" class="d-flex justify-content-between">
-                                                   <p>Số ghế:${element.innerText} (Loại ghế:${seatType})</p>
-                                                   <p class="ticket_price">${temp} VNĐ</p>
-                                                   </div>
-                                                   `;
+                choiceseatHTML = `
+                        <div id="choiceSeat${element.innerText}" class="d-flex justify-content-between">
+                            <p>Số ghế:${element.innerText} (Loại ghế:${seatType})</p>
+                            <p class="ticket_price">${temp} VNĐ</p>
+                        </div>
+                    `;
                 document.getElementById("viewSeat").insertAdjacentHTML("beforeend", choiceseatHTML);
                 document.getElementById("totalPrice").value = totalPrice + temp;
             }
@@ -261,6 +387,5 @@
             }
             document.getElementById(`choiceSeat${element.innerText}`).remove();
         }
-        // Add more logic to update total price or selection display
     }
 </script>
