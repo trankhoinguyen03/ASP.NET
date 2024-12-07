@@ -29,9 +29,9 @@
             <div class="form-group">
                 <label asp-for="Size" class="control-label"></label>
                 <select asp-for="Size" class="form-control">
-                    <option>Lớn</option>
-                    <option>Vừa</option>
-                    <option>Nhỏ</option>
+                    <option value="Nhỏ">Nhỏ</option>
+                    <option value="Vừa">Vừa</option>
+                    <option value="Lớn">Lớn</option>
                 </select>
                 <span asp-validation-for="Size" class="text-danger"></span>
             </div>
@@ -64,6 +64,7 @@
                 </select>
 
             </div>
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="ComboId" />
             <div class="form-group d-flex justify-content-between mt-2">
                 <button type="submit" class="btn btn-primary">Cập Nhật</button>

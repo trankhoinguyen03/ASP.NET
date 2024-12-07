@@ -116,13 +116,13 @@ namespace CinemaBookingWeb.Controllers
                         var extension = Path.GetExtension(fileInput.FileName).ToLower();
                         var filePath = Path.Combine("wwwroot/img/movies", fileName + extension);
 
-                        // Resize ảnh về kích thước chuẩn (VD: 300x450)
+                        // Resize ảnh về kích thước chuẩn
                         using (var image = Image.Load(fileInput.OpenReadStream()))
                         {
                             image.Mutate(x => x.Resize(new ResizeOptions
                             {
                                 Mode = ResizeMode.Crop,
-                                Size = new Size(500, 750) // Kích thước ảnh chuẩn
+                                Size = new Size(600, 900) // Kích thước ảnh chuẩn
                             }));
 
                             // Lưu ảnh vào hệ thống
@@ -236,16 +236,15 @@ namespace CinemaBookingWeb.Controllers
                 var extension = Path.GetExtension(fileInput.FileName).ToLower();
                 var filePath = Path.Combine("wwwroot/img/movies", fileName + extension);
 
-                // Resize ảnh về kích thước chuẩn (VD: 300x450)
                 try
                 {
-                    // Resize ảnh về kích thước chuẩn (300x450)
+                    // Resize ảnh về kích thước chuẩn
                     using (var image = SixLabors.ImageSharp.Image.Load(fileInput.OpenReadStream()))
                     {
                         image.Mutate(x => x.Resize(new ResizeOptions
                         {
                             Mode = ResizeMode.Crop,
-                            Size = new Size(500, 750) // Kích thước chuẩn
+                            Size = new Size(600, 900) // Kích thước chuẩn
                         }));
 
                         // Lưu ảnh vào thư mục

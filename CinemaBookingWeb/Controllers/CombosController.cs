@@ -51,8 +51,8 @@ namespace CinemaBookingWeb.Controllers
                 {
                     using (var image = Image.FromStream(streamSave))
                     {
-                        // Resize ảnh về kích thước 500x500 pixel
-                        var resizedImage = new Bitmap(image, new Size(500, 500));
+                        // Resize ảnh về kích thước chuẩn
+                        var resizedImage = new Bitmap(image, new Size(4000, 2250));
                         var fileName = Path.GetFileName(ImageFile.FileName);
                         var filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "img", "combos", fileName);
 
@@ -127,8 +127,8 @@ namespace CinemaBookingWeb.Controllers
                     {
                         using (var image = Image.FromStream(streamSave))
                         {
-                            // Resize ảnh về kích thước 500x500 pixel
-                            var resizedImage = new Bitmap(image, new Size(500, 500));
+                            // Resize ảnh về kích thước chuẩn
+                            var resizedImage = new Bitmap(image, new Size(4000, 2250));
                             var fileName = Path.GetFileName(ImageFile.FileName);
                             var filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "img", "combos", fileName);
 

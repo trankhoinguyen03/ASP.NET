@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\STUDY\\HK7\\.NET\\ASP.NET\\CinemaBookingWeb\\CinemaBookingWeb.csproj": {}
+    "F:\\.NET\\ASP.NET\\CinemaBookingWeb\\CinemaBookingWeb.csproj": {}
   },
   "projects": {
-    "D:\\STUDY\\HK7\\.NET\\ASP.NET\\CinemaBookingWeb\\CinemaBookingWeb.csproj": {
+    "F:\\.NET\\ASP.NET\\CinemaBookingWeb\\CinemaBookingWeb.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\STUDY\\HK7\\.NET\\ASP.NET\\CinemaBookingWeb\\CinemaBookingWeb.csproj",
+        "projectUniqueName": "F:\\.NET\\ASP.NET\\CinemaBookingWeb\\CinemaBookingWeb.csproj",
         "projectName": "CinemaBookingWeb",
-        "projectPath": "D:\\STUDY\\HK7\\.NET\\ASP.NET\\CinemaBookingWeb\\CinemaBookingWeb.csproj",
-        "packagesPath": "C:\\Users\\777th\\.nuget\\packages\\",
-        "outputPath": "D:\\STUDY\\HK7\\.NET\\ASP.NET\\CinemaBookingWeb\\obj\\",
+        "projectPath": "F:\\.NET\\ASP.NET\\CinemaBookingWeb\\CinemaBookingWeb.csproj",
+        "packagesPath": "C:\\Users\\Acer\\.nuget\\packages\\",
+        "outputPath": "F:\\.NET\\ASP.NET\\CinemaBookingWeb\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\777th\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\Acer\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [

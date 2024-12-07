@@ -29,9 +29,9 @@
             <div class="form-group">
                 <label asp-for="Size" class="control-label">Size</label>
                 <select asp-for="Size" class="form-control">
-                    <option value="Small">Nhỏ</option>
-                    <option value="Medium">Vừa</option>
-                    <option value="Large">Lớn</option>
+                    <option value="Nhỏ">Nhỏ</option>
+                    <option value="Vừa">Vừa</option>
+                    <option value="Lớn">Lớn</option>
                 </select>
                 <span asp-validation-for="Size" class="text-danger"></span>
             </div>
@@ -72,6 +72,7 @@
                 </select>
                 <span asp-validation-for="Status" class="text-danger"></span>
             </div> *@
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group d-flex justify-content-between mt-2">
                 <button type="submit" class="btn btn-primary">Thêm Mới</button>
                 <a asp-action="Index" class="btn btn-secondary">Quay Lại</a>

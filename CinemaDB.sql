@@ -118,16 +118,16 @@ CREATE TABLE BookingCombos (
 -- Thêm dữ liệu vào bảng Movies
 INSERT INTO Movies (Title, [Description], Duration, Rating, ReleaseDate, Genre, [Language], TrailerUrl, ImageUrl)
 VALUES 
-('Avengers: Endgame', N'Siêu anh hùng chiến đấu chống lại Thanos.', 180, 'PG-13', '2019-04-26', 'Action', 'English', 'url', '/img/movies/venom_thumnail.jpg'),
-('Spider-Man: No Way Home', N'Spider-Man đối mặt với những thử thách mới.', 148, 'PG-13', '2021-12-17', 'Action', 'English', 'url', '/img/movies/venom_thumnail.jpg'),
-('The Lion King', N'Hành trình của Simba để trở thành vua sư tử.', 118, 'G', '2019-07-19', 'Animation', 'English', 'url', '/img/movies/venom_thumnail.jpg'),
-('Frozen II', N'Anna và Elsa khám phá những bí ẩn về quá khứ của họ.', 103, 'PG', '2019-11-22', 'Animation', 'English', 'url', '/img/movies/venom_thumnail.jpg'),
-('Joker', N'Câu chuyện về kẻ thù đáng sợ của Batman.', 122, 'R', '2019-10-04', 'Drama', 'English', 'url', '/img/movies/venom_thumnail.jpg'),
-('Tenet', N'Một đặc vụ đi ngược thời gian để ngăn chặn Thế chiến III.', 150, 'PG-13', '2020-09-03', 'Sci-Fi', 'English', 'url', '/img/movies/venom_thumnail.jpg'),
-('Parasite', N'Hai gia đình với cuộc sống trái ngược nhau.', 132, 'R', '2019-05-30', 'Thriller', 'Korean', 'url', '/img/movies/venom_thumnail.jpg'),
-('The Matrix Resurrections', N'Trở lại với thế giới ảo Matrix.', 148, 'R', '2021-12-22', 'Sci-Fi', 'English', 'url', '/img/movies/venom_thumnail.jpg'),
-('Dune', N'Câu chuyện sử thi về hành tinh sa mạc.', 155, 'PG-13', '2021-10-22', 'Adventure', 'English', 'url', '/img/movies/venom_thumnail.jpg'),
-('Black Widow', N'Câu chuyện về Natasha Romanoff.', 134, 'PG-13', '2021-07-09', 'Action', 'English', 'url', '/img/movies/venom_thumnail.jpg');
+('Avengers: Endgame', N'Siêu anh hùng chiến đấu chống lại Thanos.', 180, 'PG-13', '2019-04-26', 'Action', 'English', 'https://youtu.be/TcMBFSGVi1c?si=aJI5rSf5Cs7fQCTt', '/img/movies/avengers_endgame.jpg'),
+('Spider-Man: No Way Home', N'Spider-Man đối mặt với những thử thách mới.', 148, 'PG-13', '2021-12-17', 'Action', 'English', 'https://youtu.be/rt-2cxAiPJk?si=0e8U9SRPjInJX2RN', '/img/movies/spiderman_nowayhome.jpg'),
+('The Lion King', N'Hành trình của Simba để trở thành vua sư tử.', 118, 'G', '2019-07-19', 'Animation', 'English', 'https://youtu.be/vXvtBVidecc?si=wOxoEFgXtmZKtmbK', '/img/movies/thelionking.jpg'),
+('Frozen II', N'Anna và Elsa khám phá những bí ẩn về quá khứ của họ.', 103, 'PG', '2019-11-22', 'Animation', 'English', 'https://youtu.be/Zi4LMpSDccc?si=4lPZSOTloo61Z9tG', '/img/movies/frozen2.jpg'),
+('Joker', N'Câu chuyện về kẻ thù đáng sợ của Batman.', 122, 'R', '2019-10-04', 'Drama', 'English', 'https://youtu.be/t433PEQGErc?si=yoonP-juvLjuWnfZ', '/img/movies/joker.jpg'),
+('Tenet', N'Một đặc vụ đi ngược thời gian để ngăn chặn Thế chiến III.', 150, 'PG-13', '2020-09-03', 'Sci-Fi', 'English', 'https://youtu.be/L3pk_TBkihU?si=g97E5K7OPaP_QSqV', '/img/movies/tenet.jpg'),
+('Parasite', N'Hai gia đình với cuộc sống trái ngược nhau.', 132, 'R', '2019-05-30', 'Thriller', 'Korean', 'https://youtu.be/SEUXfv87Wpk?si=LmcnD-SJezpX0uoL', '/img/movies/parasite.jpg'),
+('The Matrix Resurrections', N'Trở lại với thế giới ảo Matrix.', 148, 'R', '2021-12-22', 'Sci-Fi', 'English', 'https://youtu.be/9ix7TUGVYIo?si=q4MU-1BBfCKuBpXY', '/img/movies/thematrix.jpg'),
+('Dune', N'Câu chuyện sử thi về hành tinh sa mạc.', 155, 'PG-13', '2021-10-22', 'Adventure', 'English', 'https://youtu.be/n9xhJrPXop4?si=WVR_DXpce3eNUKDi', '/img/movies/dune.jpg'),
+('Black Widow', N'Câu chuyện về Natasha Romanoff.', 134, 'PG-13', '2021-07-09', 'Action', 'English', 'https://youtu.be/ybji16u608U?si=NK4IrLm_4XlhJZ-f', '/img/movies/blackwidow.jpg');
 
 -- Thêm dữ liệu vào bảng Cinemas
 INSERT INTO Cinemas ([Name], [Location], Phone, City)
@@ -146,16 +146,16 @@ VALUES
 -- Thêm dữ liệu vào bảng Showtimes
 INSERT INTO Showtimes (MovieId, CinemaId, Price, StartTime, EndTime, Hall)
 VALUES 
-(1, 1, 90000, '2024-10-01 18:00', '2024-10-01 21:00', 'Hall 1'),
-(2, 2, 90000, '2024-10-02 20:00', '2024-10-02 22:30', 'Hall 2'),
-(3, 3, 90000, '2024-10-03 15:00', '2024-10-03 17:00', 'Hall 3'),
-(4, 4, 90000, '2024-10-04 17:00', '2024-10-04 19:00', 'Hall 4'),
-(5, 5, 90000, '2024-10-05 19:00', '2024-10-05 21:00', 'Hall 5'),
-(6, 6, 90000, '2024-10-06 20:00', '2024-10-06 23:00', 'Hall 6'),
-(7, 7, 90000, '2024-10-07 14:00', '2024-10-07 16:30', 'Hall 1'),
-(8, 8, 90000, '2024-10-08 16:00', '2024-10-08 18:30', 'Hall 2'),
-(9, 9, 90000, '2024-10-09 18:00', '2024-10-09 21:00', 'Hall 3'),
-(10, 10, 90000, '2024-10-10 21:00', '2024-10-10 23:30', 'Hall 4');
+(1, 1, 90000, '2024-12-09 18:00', '2024-12-09 21:00', 'Phòng 1.A'),
+(2, 2, 90000, '2024-12-09 18:00', '2024-12-09 21:00', 'Phòng 1.B'),
+(3, 3, 90000, '2024-12-09 18:00', '2024-12-09 21:00', 'Phòng 1.C'),
+(4, 4, 90000, '2024-12-09 18:00', '2024-12-09 21:00', 'Phòng 2.A'),
+(5, 5, 90000, '2024-12-09 18:00', '2024-12-09 21:00', 'Phòng 2.B'),
+(6, 6, 90000, '2024-12-09 18:00', '2024-12-09 21:00', 'Phòng 2.C'),
+(7, 7, 90000, '2024-12-09 18:00', '2024-12-09 21:00', 'Phòng 3.A'),
+(8, 8, 90000, '2024-12-09 18:00', '2024-12-09 21:00', 'Phòng 3.B'),
+(9, 9, 90000, '2024-12-09 18:00', '2024-12-09 21:00', 'Phòng 3.C'),
+(10, 10, 90000, '2024-12-09 18:00', '2024-12-09 21:00', 'Phòng 3.D');
 
 
 -- Thêm dữ liệu vào bảng Seats
@@ -206,16 +206,16 @@ VALUES
 -- Thêm dữ liệu vào bảng Bookings
 INSERT INTO Bookings (UserId, ShowtimeId, BookingDate, TotalPrice)
 VALUES 
-(1, 1, GETDATE(), 150000),
-(2, 2, GETDATE(), 200000),
-(3, 3, GETDATE(), 100000),
-(4, 4, GETDATE(), 120000),
-(5, 5, GETDATE(), 180000),
-(6, 6, GETDATE(), 160000),
-(7, 7, GETDATE(), 130000),
-(8, 8, GETDATE(), 170000),
-(9, 9, GETDATE(), 140000),
-(10, 10, GETDATE(), 190000);
+(1, 1, '2024-12-8 18:00', 150000),
+(2, 2, '2024-12-8 18:00', 200000),
+(3, 3, '2024-12-8 18:00', 100000),
+(4, 4, '2024-12-8 18:00', 120000),
+(5, 5, '2024-12-8 18:00', 180000),
+(6, 6, '2024-12-8 18:00', 160000),
+(7, 7, '2024-12-8 18:00', 130000),
+(8, 8, '2024-12-8 18:00', 170000),
+(9, 9, '2024-12-8 18:00', 140000),
+(10, 10, '2024-12-8 18:00', 190000);
 
 
 -- Thêm dữ liệu vào bảng BookingDetails
@@ -237,16 +237,10 @@ VALUES
 -- Thêm dữ liệu vào bảng Combos
 INSERT INTO Combos ([Name], [Description], Price, Size, [Type], ImageUrl)
 VALUES 
-(N'Combo Lớn', N'1 bắp lớn, 2 nước ngọt lớn.', 120000, N'Lớn', 'Popcorn & Drink', 'combo.jpg'),
-(N'Combo Vừa', N'1 bắp vừa, 1 nước ngọt vừa.', 90000, N'Vừa', 'Popcorn & Drink', 'combo.jpg'),
-(N'Combo Nhỏ', N'1 bắp nhỏ, 1 nước ngọt nhỏ.', 60000, N'Nhỏ', 'Popcorn & Drink', 'combo.jpg'),
-(N'Combo Gia đình', N'2 bắp lớn, 4 nước ngọt lớn.', 200000, N'Lớn', 'Popcorn & Drink', 'combo.jpg'),
-(N'Combo Snack', N'1 snack lớn, 1 nước ngọt lớn.', 80000, N'Lớn', 'Snack & Drink', 'combo.jpg'),
-(N'Combo Đặc biệt', N'1 bắp lớn, 2 snack lớn, 2 nước ngọt.', 150000, N'Lớn', 'Popcorn & Snack', 'combo.jpg'),
-(N'Combo Trẻ em', N'1 bắp nhỏ, 1 nước trái cây.', 50000, N'Nhỏ', 'Popcorn & Juice', 'combo.jpg'),
-(N'Combo Cặp đôi', N'1 bắp lớn, 2 nước ngọt.', 110000, N'Lớn', 'Popcorn & Drink', 'combo.jpg'),
-(N'Combo Người lớn', N'1 bắp lớn, 1 nước ngọt, 1 bia.', 130000, N'Lớn', 'Popcorn & Beer', 'combo.jpg'),
-(N'Combo Snack Mix', N'1 bắp, 1 snack, 1 nước ngọt.', 90000, N'Vừa', 'Popcorn & Snack', 'combo.jpg');
+(N'Combo Lớn', N'1 bắp lớn, 2 nước ngọt lớn, 1 snack lớn.', 200000, N'Lớn', 'Popcorn & Drink & Snack', '\img\combos\1bap_2nuoc_1snack.jpg'),
+(N'Combo Vừa', N'1 bắp vừa, 1 nước ngọt vừa, 1 snack vừa.', 13000, N'Vừa', 'Popcorn & Drink & Snack', '\img\combos\1bap_1nuoc_1snack.jpg'),
+(N'Combo Nhỏ', N'1 bắp nhỏ, 1 nước ngọt nhỏ.', 50000, N'Nhỏ', 'Popcorn & Drink', '\img\combos\1bap_1nuoc.jpg'),
+(N'Combo Vừa', N'1 bắp vừa, 2 nước ngọt vừa.', 90000, N'Vừa', 'Popcorn & Drink', '\img\combos\1bap_2nuoc.jpg');
 
 
 -- Thêm dữ liệu vào bảng BookingCombos
@@ -256,12 +250,12 @@ VALUES
 (2, 2, 1),
 (3, 3, 3),
 (4, 4, 2),
-(5, 5, 1),
-(6, 6, 2),
-(7, 7, 1),
-(8, 8, 1),
-(9, 9, 2),
-(10, 10, 1);
+(5, 1, 1),
+(6, 2, 2),
+(7, 3, 1),
+(8, 4, 1),
+(9, 1, 2),
+(10, 2, 1);
 
 -- Tạo bảng Banner (Thông tin Banners)
 CREATE TABLE Banner (

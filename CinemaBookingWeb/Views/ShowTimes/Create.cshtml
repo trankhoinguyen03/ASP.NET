@@ -43,8 +43,24 @@
             *@
     
             <div class="form-group">
-                <label asp-for="Hall">Phòng chiếu</label>
-                <input asp-for="Hall" class="form-control" placeholder="Tên phòng chiếu" />
+                <label asp-for="Hall" class="control-label">Phòng chiếu</label>
+                <select asp-for="Hall" class="form-control">
+                    <option value="Phòng 1.A">Phòng 1.A</option>
+                    <option value="Phòng 1.B">Phòng 1.B </option>
+                    <option value="Phòng 1.C">Phòng 1.C</option>
+                    <option value="Phòng 1.D">Phòng 1.D </option>
+                    <option value="Phòng 1.E">Phòng 1.E</option>
+                    <option value="Phòng 2.A">Phòng 2.A</option>
+                    <option value="Phòng 2.B">Phòng 2.B </option>
+                    <option value="Phòng 2.C">Phòng 2.C</option>
+                    <option value="Phòng 2.D">Phòng 2.D </option>
+                    <option value="Phòng 2.E">Phòng 2.E</option>
+                    <option value="Phòng 3.A">Phòng 3.A</option>
+                    <option value="Phòng 3.B">Phòng 3.B </option>
+                    <option value="Phòng 3.C">Phòng 3.C</option>
+                    <option value="Phòng 3.D">Phòng 3.D </option>
+                    <option value="Phòng 3.E">Phòng 3.E</option>
+                </select>
                 <span asp-validation-for="Hall" class="text-danger"></span>
             </div>
 @*             <div class="form-group">
@@ -55,6 +71,7 @@
                 </select>
                 <span asp-validation-for="Status" class="text-danger"></span>
             </div> *@
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group d-flex justify-content-between mt-2">
                 <button type="submit" class="btn btn-primary">Lưu</button>
                 <a asp-action="Index" class="btn btn-secondary">Quay Lại</a>
