@@ -42,7 +42,7 @@ namespace CinemaBookingWeb.Controllers
         // POST: Combos/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Create(Combos combo, IFormFile? ImageFile)
+        public async Task<IActionResult> Create(Combos combo, IFormFile? ImageFile)
         {
 
             if (ImageFile != null && ImageFile.Length > 0)
@@ -84,7 +84,7 @@ namespace CinemaBookingWeb.Controllers
             {
                 combo.Status = 1;
                 _context.Combos.Add(combo);
-                _context.SaveChangesAsync();
+                await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
 

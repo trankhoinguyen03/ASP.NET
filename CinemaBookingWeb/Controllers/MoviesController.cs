@@ -114,7 +114,7 @@ namespace CinemaBookingWeb.Controllers
                         // Đường dẫn lưu file
                         var fileName = Path.GetFileNameWithoutExtension(fileInput.FileName);
                         var extension = Path.GetExtension(fileInput.FileName).ToLower();
-                        var filePath = Path.Combine("wwwroot/img/movies_img", fileName + extension);
+                        var filePath = Path.Combine("wwwroot/img/movies", fileName + extension);
 
                         // Resize ảnh về kích thước chuẩn (VD: 300x450)
                         using (var image = Image.Load(fileInput.OpenReadStream()))
@@ -122,7 +122,7 @@ namespace CinemaBookingWeb.Controllers
                             image.Mutate(x => x.Resize(new ResizeOptions
                             {
                                 Mode = ResizeMode.Crop,
-                                Size = new Size(300, 450) // Kích thước ảnh chuẩn
+                                Size = new Size(500, 750) // Kích thước ảnh chuẩn
                             }));
 
                             // Lưu ảnh vào hệ thống
@@ -130,7 +130,7 @@ namespace CinemaBookingWeb.Controllers
                         }
 
                         // Cập nhật đường dẫn ảnh
-                        movie.ImageUrl = "/img/movies_img/" + fileName + extension;
+                        movie.ImageUrl = "/img/movies/" + fileName + extension;
                     }
 
                     movie.Status = 1; // Mặc định trạng thái
@@ -234,7 +234,7 @@ namespace CinemaBookingWeb.Controllers
                 // Đường dẫn lưu file
                 var fileName = Path.GetFileNameWithoutExtension(fileInput.FileName);
                 var extension = Path.GetExtension(fileInput.FileName).ToLower();
-                var filePath = Path.Combine("wwwroot/img/movies_img", fileName + extension);
+                var filePath = Path.Combine("wwwroot/img/movies", fileName + extension);
 
                 // Resize ảnh về kích thước chuẩn (VD: 300x450)
                 try
@@ -245,7 +245,7 @@ namespace CinemaBookingWeb.Controllers
                         image.Mutate(x => x.Resize(new ResizeOptions
                         {
                             Mode = ResizeMode.Crop,
-                            Size = new Size(300, 450) // Kích thước chuẩn
+                            Size = new Size(500, 750) // Kích thước chuẩn
                         }));
 
                         // Lưu ảnh vào thư mục
@@ -253,7 +253,7 @@ namespace CinemaBookingWeb.Controllers
                     }
 
                     // Cập nhật đường dẫn ảnh
-                    movie.ImageUrl = "/img/movies_img/" + fileName + extension;
+                    movie.ImageUrl = "/img/movies/" + fileName + extension;
                 }
                 catch (Exception ex)
                 {
