@@ -120,7 +120,7 @@ namespace CinemaBookingWeb.Controllers
             var showtimes = _context.Showtimes
                             .Include(s => s.Movie)
                             .Include(s => s.Cinema)
-                               .Where(s => s.Cinema.City == cinema.City && s.Movie.Title == movie.Title && DateOnly.FromDateTime(s.StartTime.Date) == updatedTicket.date)
+                               .Where(s => s.Cinema.City == cinema.City && s.Movie.Title == movie.Title && DateOnly.FromDateTime(s.StartTime.Date) == updatedTicket.date && s.Status == 1)
                                .GroupBy(s => new
                                {
                                    s.Cinema.CinemaId,

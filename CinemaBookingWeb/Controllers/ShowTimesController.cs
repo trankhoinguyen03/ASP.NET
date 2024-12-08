@@ -18,10 +18,28 @@ namespace CinemaBookingWeb.Controllers
         {
             _context = context;
         }
+        public void UpdateExpiredShowtimes()
+        {
+            var now = DateTime.Now;
+
+            // Lấy danh sách các showtimes đã qua và trạng thái là "đang chiếu"
+            var expiredShowtimes = _context.Showtimes
+                .Where(b => b.StartTime < now && b.Status == 1) // Chỉ áp dụng cho trạng thái "Đang chiếu"
+                .ToList();
+
+            foreach (var showtime in expiredShowtimes)
+            {
+                showtime.Status = 0; // Chuyển trạng thái thành "Hủy"
+            }
+
+            _context.SaveChanges();
+        }
 
         // GET: Showtimes
         public IActionResult Index(string searchString)
         {
+            UpdateExpiredShowtimes(); // Cập nhật trạng thái các showtime hết hạn
+
             // Lấy danh sách tất cả suất chiếu
             var showtimes = _context.Showtimes
                 .Include(s => s.Movie)
