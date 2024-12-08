@@ -124,6 +124,7 @@
     </div>
 
     <div class="ticket_active container">
+        <input type="hidden" id='tempmovieId' value="">
         <!-- Left Section -->
         <div class="ticket_left">
             <h3>Chọn Vị Trí</h3>
@@ -142,7 +143,15 @@
             <ul id="movieDropdown" class="row justify-content-start list-unstyled"></ul>
 
             <h3>Chọn Suất Chiếu</h3>
-            <div id="dateDropdown" class="btn-group mb-3" style="display: none;"></div>
+            <div id="dateDropdown" class="btn-group mb-3" style="display: none;">
+                <input type="radio" class="btn-check" name="btnradio" id="btnradio0" autocomplete="off" checked="" value="0">
+                <label class="btn btn-outline-primary" for="btnradio0">@DateTime.Today.AddDays(0).ToString("dd/MM")</label>
+                @foreach (var i in Enumerable.Range(1, 7))
+                {
+                    <input type="radio" class="btn-check" name="btnradio" id="btnradio@(i)" autocomplete="off" value="@(i)">
+                    <label class="btn btn-outline-primary" for="btnradio@(i)">@DateTime.Today.AddDays(i).ToString("dd/MM")</label>
+                }
+            </div>
             <table id="showtimeDropdown" class="table"></table>
         </div>
 
@@ -179,7 +188,6 @@
                 if (selectedCity) {
                     // Gọi API để lấy danh sách phim theo thành phố
                     $.getJSON('/tickets/GetCinemasByCity', { city: selectedCity }, function (data) {
-                        console.log(data); // Debug dữ liệu trả về
                         if (data && data.length > 0) {
                             // Thêm danh sách phim vào giao diện
                             $.each(data, function (index, movie) {
@@ -215,10 +223,10 @@
                     const movieId = $(this).data('movie-id');
                     $('#showtimeDropdown').empty();
                     $('#dateDropdown').show();
-
+                    document.getElementById("btnradio0").checked = true;
+                    document.getElementById("tempmovieId").value = movieId;
                     // Gọi API để lấy thông tin suất chiếu của phim
                     $.getJSON('/tickets/ChoiceMovie', { id: movieId }, function (data) {
-                        console.log(data); // Debug dữ liệu trả về
                         if (data && data.length > 0) {
                             $.each(data, function (index, cinema) {
                                 let showtimeHTML = `
@@ -246,14 +254,45 @@
                 });
             }
         });
+        document.addEventListener("DOMContentLoaded", function () {
+            const radios = document.querySelectorAll('.btn-check');
 
-        // Hàm chọn suất chiếu
+            radios.forEach(radio => {
+                radio.addEventListener('change', function () {
+
+                    if (this.checked) {
+                        const movieId = document.getElementById("tempmovieId");
+                        $('#showtimeDropdown').empty();
+                        $.getJSON('/tickets/ChoiceMovie', { id: movieId.value, date: $(this).val() }, function (data) {
+                            $.each(data, function (index, cinema) {
+
+                                let showtimeHTML = `
+
+                                                                                    <tr>
+                                                                                        <th>${cinema.cinemaName} (${cinema.location})</th>
+                                                                                    </tr>
+                                                                                    <tr>`;
+
+                                $.each(cinema.showtimes, function (index, showtime) {
+                                    showtimeHTML += `<td><a  id="choiceShowtime${showtime.showTimeId}" onclick="choiceShowtime(${showtime.showtimeId})" class="btn btn-outline-primary" >${showtime.startTime} - ${showtime.endTime}</a></td>`;
+                                });
+
+                                showtimeHTML += '</tr>';
+                                $('#showtimeDropdown').append(showtimeHTML);
+                            });
+                        });
+                    }
+                });
+            });
+        });
+
+
+    
         // Hàm chọn suất chiếu
         function choiceShowtime(showTimeId) {
             console.log('Showtime ID:', showTimeId); // Debug ID được truyền vào
 
             $.getJSON('/tickets/ChoiceShowTime', { id: showTimeId }, function (data) {
-                console.log('Response from ChoiceShowTime:', data); // Debug API response
 
                 if (data) {
                     const cinema = data.cinema;
