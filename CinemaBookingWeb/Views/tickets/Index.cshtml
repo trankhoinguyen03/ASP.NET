@@ -222,27 +222,37 @@
 
                     const movieId = $(this).data('movie-id');
                     $('#showtimeDropdown').empty();
+                    $('#myCinema1').empty();
                     $('#dateDropdown').show();
+                    $('#button1').prop('disabled', true);
                     document.getElementById("btnradio0").checked = true;
                     document.getElementById("tempmovieId").value = movieId;
+
                     // Gọi API để lấy thông tin suất chiếu của phim
                     $.getJSON('/tickets/ChoiceMovie', { id: movieId }, function (data) {
                         if (data && data.length > 0) {
                             $.each(data, function (index, cinema) {
+                                const movieImageUrl = cinema.imageUrl || 'https://via.placeholder.com/100x150'; // Đảm bảo hình ảnh phim được hiển thị
+                                const movieTitle = cinema.title || 'Tên Phim';
+                                const movieInfoHTML = `
+                                        <img src="${movieImageUrl}" alt="${movieTitle}" class="mb-3">
+                                        <h4>${movieTitle}</h4>
+                                    `;
+                                $('#myImage1').attr('src', movieImageUrl).attr('alt', movieTitle);
                                 let showtimeHTML = `
                                             <tr>
                                                 <th>${cinema.cinemaName} (${cinema.location})</th>
                                             </tr>
-                                            <tr>`;
+                                                    <tr><td>`;
                                 $.each(cinema.showtimes, function (index, showtime) {
                                     showtimeHTML += `
-                                                <td>
-                                                    <a href="#" onclick="choiceShowtime(${showtime.showtimeId})" class="btn btn-outline-primary">
+                                                
+                                                    <a style="margin:5px" href="#" onclick="choiceShowtime(${showtime.showtimeId})" class="btn btn-outline-primary">
                                                         ${showtime.startTime} - ${showtime.endTime}
                                                     </a>
-                                                </td>`;
+                                                `;
                                 });
-                                showtimeHTML += '</tr>';
+                                showtimeHTML += '</td></tr>';
                                 $('#showtimeDropdown').append(showtimeHTML);
                             });
                         } else {
@@ -264,22 +274,27 @@
                         const movieId = document.getElementById("tempmovieId");
                         $('#showtimeDropdown').empty();
                         $.getJSON('/tickets/ChoiceMovie', { id: movieId.value, date: $(this).val() }, function (data) {
-                            $.each(data, function (index, cinema) {
+                            if (data.length > 0) {
+                                $.each(data, function (index, cinema) {
 
-                                let showtimeHTML = `
+                                    let showtimeHTML = `
 
-                                                                                    <tr>
-                                                                                        <th>${cinema.cinemaName} (${cinema.location})</th>
-                                                                                    </tr>
-                                                                                    <tr>`;
+                                                                                            <tr>
+                                                                                                <th>${cinema.cinemaName} (${cinema.location})</th>
+                                                                                            </tr>
+                                                                                                    <tr> 
+                                                                                                    <td>`;
 
-                                $.each(cinema.showtimes, function (index, showtime) {
-                                    showtimeHTML += `<td><a  id="choiceShowtime${showtime.showTimeId}" onclick="choiceShowtime(${showtime.showtimeId})" class="btn btn-outline-primary" >${showtime.startTime} - ${showtime.endTime}</a></td>`;
+                                    $.each(cinema.showtimes, function (index, showtime) {
+                                        showtimeHTML += `<a style="margin:5px"  id="choiceShowtime${showtime.showTimeId}" onclick="choiceShowtime(${showtime.showtimeId})" class="btn btn-outline-primary" >${showtime.startTime} - ${showtime.endTime}</a>`;
+                                    });
+
+                                    showtimeHTML += '</td>  </tr>';
+                                    $('#showtimeDropdown').append(showtimeHTML);
                                 });
-
-                                showtimeHTML += '</tr>';
-                                $('#showtimeDropdown').append(showtimeHTML);
-                            });
+                            } else {
+                                alert("Phim này chưa có xuất chiếu vào ngày bạn chọn.");
+                            }
                         });
                     }
                 });
@@ -290,8 +305,7 @@
     
         // Hàm chọn suất chiếu
         function choiceShowtime(showTimeId) {
-            console.log('Showtime ID:', showTimeId); // Debug ID được truyền vào
-
+           
             $.getJSON('/tickets/ChoiceShowTime', { id: showTimeId }, function (data) {
 
                 if (data) {
